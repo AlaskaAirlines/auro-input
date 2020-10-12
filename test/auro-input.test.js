@@ -148,7 +148,7 @@ describe('auro-input', () => {
   it('updates validity when error message set after creation', async () => {
     const el = await fixture(html`
       <auro-input></auro-input>
-    `);
+    `)
 
     el.error = 'New error message';
     await elementUpdated(el);
