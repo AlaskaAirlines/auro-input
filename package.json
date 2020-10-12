@@ -1,0 +1,181 @@
+{
+  "//": [
+    "================================================================================",
+    "# To work within the development environment, run the following tasks",
+    "  1. $ npm run dev",
+    "  2. $ npm run serve",
+    "  3. Go to http://localhost:3001",
+    "================================================================================"
+  ],
+  "name": "@alaskaairux/auro-input",
+  "version": "0.0.0",
+  "description": "Auro custom auro-input element",
+  "author": "Product design and research",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlaskaAirlines/auro-input"
+  },
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "lit-element": "^2.4.0",
+    "chalk": "^4.1.0"
+  },
+  "peerDependencies": {
+    "@alaskaairux/orion-design-tokens": "^2.12.1",
+    "@alaskaairux/orion-web-core-style-sheets": "^2.12.1",
+    "@alaskaairux/icons": "^4.0.1",
+    "@webcomponents/webcomponentsjs": "^2.4.4",
+    "focus-visible": "^5.2.0"
+  },
+  "devDependencies": {
+    "@alaskaairux/orion-design-tokens": "^2.12.1",
+    "@alaskaairux/icons": "^4.0.1",
+    "@alaskaairux/orion-web-core-style-sheets": "^2.12.1",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/runtime": "^7.11.2",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@open-wc/testing": "^2.5.29",
+    "@open-wc/testing-karma": "^4.0.9",
+    "@polymer/iron-demo-helpers": "^3.1.0",
+    "@polymer/polymer": "^3.3.1",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/npm": "^7.0.6",
+    "@webcomponents/webcomponentsjs": "^2.4.4",
+    "autoprefixer": "^10.0.1",
+    "babel-loader": "^8.1.0",
+    "compression": "^1.7.4",
+    "concat": "^1.0.3",
+    "copy-webpack-plugin": "^6.2.1",
+    "copyfiles": "^2.4.0",
+    "core-js": "^3.6.5",
+    "eslint": "^7.11.0",
+    "eslint-plugin-lit": "^1.2.2",
+    "focus-visible": "^5.2.0",
+    "husky": "^4.3.0",
+    "lodash": "^4.17.20",
+    "marked": "^1.2.0",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.1.1",
+    "postcss-custom-properties": "^10.0.0",
+    "postcss-discard-comments": "^4.0.2",
+    "postcss-remove-rules": "^1.0.0",
+    "postcss-selector-replace": "^1.0.2",
+    "semantic-release": "^17.2.1",
+    "sinon": "^9.2.0",
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0",
+    "wc-sass-render": "^1.2.3",
+    "web-component-analyzer": "^1.1.6",
+    "webpack": "^5.0.0",
+    "webpack-bundle-analyzer": "^3.9.0",
+    "webpack-cli": "^4.0.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.2.0",
+    "yaml-lint": "^1.2.4"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 15% in US",
+    "not IE 10",
+    "not IE_Mob 10",
+    "not IE_Mob 11"
+  ],
+  "scripts": {
+    "build": "npm run ciBuild",
+    "apiBuild": "wca analyze 'src/auro-input.js' --outFiles docs/api.md",
+    "bundler": "webpack --mode=production",
+    "bundle:test": "webpack-dev-server --host 0.0.0.0",
+    "postinstall": "node packageScripts/postinstall.js",
+    "cssLint": "stylelint './src/*.css'",
+    "dev": "npm run sassBuild:watch",
+    "distJS": "copyfiles -u 1 -V './src/**/*.js' ./dist",
+    "sassRender": "sass-render src/*.css -t ./scripts/staticStyles-template.js",
+    "sweep": "rm -rf ./temp ./demo/css ./demo/fonts ./dist ./src/tokens | rm ./src/*.css ./src/*-css.js",
+    "esLint": "./node_modules/.bin/eslint src/auro-*.js",
+    "lint": "npm-run-all cssLint test:yaml esLint",
+    "test": "karma start --coverage",
+    "test:watch": "karma start --auto-watch=true --single-run=false",
+    "test:ci": "npm-run-all test lint",
+    "test:yaml": "yamllint .travis.yml",
+    "ciBuild": "npm-run-all sassBuild sassRender cssLint distJS bundler postinstall apiBuild",
+    "sassBuild": "npm-run-all sassBuild:demo sassBuild:component postCss:component sassRender",
+    "sassBuild:dev": "npm-run-all sassBuild:demo sassBuild:component postCss:component sassRender",
+    "sassBuild:demo": "node-sass ./demo/sass/ --output ./demo/css/",
+    "sassBuild:component": "node-sass ./src/ --output ./src/",
+    "sassBuild:watch": "nodemon -e scss --watch src --exec npm run sassBuild:dev",
+    "postCss:component": "node ./scripts/postCss.js",
+    "serve": "polymer serve --port 3001 --hostname 0.0.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm-run-all test lint bundler postinstall",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "corejs": "3.0.0"
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-dynamic-import",
+      [
+        "@babel/plugin-transform-runtime",
+        {
+          "regenerator": true
+        }
+      ]
+    ]
+  },
+  "release": {
+    "branch": "master",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "./CHANGELOG.md",
+          "changelogTitle": "# Semantic Release Automated Changelog"
+        }
+      ],
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "./CHANGELOG.md",
+            "package.json"
+          ]
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "alaska airlines",
+    "auro",
+    "design system",
+    "web components"
+  ]
+}
