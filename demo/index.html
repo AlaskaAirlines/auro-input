@@ -21,11 +21,47 @@
   </head>
   <body>
     <div class="vertical-section-container">
-      <h1>auro-input</h1>
+      <h1>Shadow DOM examples</h1>
 
       <demo-snippet>
         <template>
-          <auro-input cssClass="testClass">Hello World!</auro-input>
+          <auro-input type="password" label="Password" helptext="Please enter your password" required id="passwordTest01"></auro-input>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <auro-input type="password" label="Password" helptext="Please enter your password" required id="passwordTest02" error="what are you thinking?"></auro-input>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <auro-input label="First name" helptext="Enter your first name" required id="firstNameTest01"></auro-input>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <auro-input value="Test" label="First name" helptext="Enter your first name" required id="firstNameTest02"></auro-input>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <auro-input type="email" value="dale@alaskaair.com" label="Email" helptext="Enter your email" id="emailTest02"></auro-input>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <auro-input value="Invalid input" helptext="Enter your first name" error="Not a real name" required id="invalidInputTest01"></auro-input>
+        </template>
+      </demo-snippet>
+
+      <demo-snippet>
+        <template>
+          <auro-input disabled value="disabled" type="email" label="First name" helptext="Enter your first name" required id="disabledEmailTest01"></auro-input>
         </template>
       </demo-snippet>
     </div>

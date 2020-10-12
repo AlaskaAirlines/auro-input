@@ -1,6 +1,6 @@
-# auro-input
+## auro-input
 
-`<auro-input>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) for the purpose of ...
+`<auro-input>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) containing styling and behavior for a HTML `<input>` element and associated `<label>`. You can pass helper text to be displayed with the input. It will also perform client-side validation of the input and display any resulting errors.
 
 ## UI development browser support
 
@@ -33,27 +33,19 @@ Any update to the Auro Design Tokens will be immediately reflected with browsers
 Defining the component dependency within each component that is using the `<auro-input>` component.
 
 ```javascript
-import "@alaskaairux/auro-input";
-```
-
-**Reference component in HTML**
-
-```html
-<auro-input>Hello World</auro-input>
+import "@alaskaairuxauro-input";
 ```
 
 ## Install bundled assets from CDN
 
 In cases where the project is not able to process JS assets, there are pre-processed assets available for use.
 
-**NOTE:** Be sure to replace `:version` in the URL with the version of the asset you want.
-
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/orion-design-tokens@:version/dist/tokens/CSSTokenProperties.css" />
-<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/orion-web-core-style-sheets@:version/dist/bundled/baseline.css" />
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/orion-design-tokens@latest/dist/tokens/CSSTokenProperties.css" />
+<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/orion-web-core-style-sheets@latest/dist/bundled/baseline.css" />
 
-<script src="https://unpkg.com/@alaskaairux/auro-input@:version/dist/polyfills.js"></script>
-<script src="https://unpkg.com/@alaskaairux/auro-input@:version/dist/auro-input__bundled.js"></script>
+<script src="https://unpkg.com/@alaskaairuxauro-input@latest/dist/polyfills.js"></script>
+<script src="https://unpkg.com/@alaskaairuxauro-input@latest/dist/auro-input__bundled.js"></script>
 ```
 
 ### polyfills.js
@@ -69,16 +61,43 @@ The `polyfills.js` is packaged with this component, but **IT IS NOT NEEDED** to 
 
 The `<auro-input>` element should be used in situations where users may:
 
-* ...
-* ...
-* ...
+* enter a single line of text into a form
+* enter their email into a form
 
 ## API Code Examples
 
-Default auro-input
-
 ```html
-<auro-input>Hello World</auro-input>
+<auro-input label="First name" required></auro-input>
+```
+
+### Required input with label and help text
+```html
+<auro-input label="First name" helptext="Enter your first name" required></auro-input>
+```
+
+### Required input with label and value
+```html
+<auro-input label="First name" value="Alaska" required></auro-input>
+```
+
+### Optional input with label
+```html
+<auro-input label="First name"></auro-input>
+```
+
+### Required email input
+```html
+<auro-input type="email" label="Email" required></auro-input>
+```
+
+### Disabled input
+```html
+<auro-input label="First name" disabled required></auro-input>
+```
+
+### Input with persistent error
+```html
+<auro-input label="First name" value="Alaska" error="This name already exists" required></auro-input>
 ```
 
 ## Development

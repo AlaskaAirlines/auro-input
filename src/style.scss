@@ -11,25 +11,133 @@
 @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/core";
 
 // Support for auroElement styles
-// @import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/auroElement/auroElement";
+@import "./node_modules/@alaskaairux/orion-web-core-style-sheets/dist/auroElement/auroElement";
 
 // container styles - defines the look of the outer custom component
-// :host {
-//   ...
-// }
+:host,
+auro-input-light {
+  position: relative;
+  display: block;
+}
 
-// layout styles - define any layout specifications for UI that is contained WITHIN the component
-// never define layout that would cause effect on element outside the scope of this component
+// this is to disable the toggle-password feature in MS Edge only
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
 
+.inputElement {
+  border: 0 solid;
+  border-color: var(--auro-color-border-primary-on-light);
+  border-radius: 0;
+  border-bottom-width: 2px;
+  padding: 2rem 2rem var(--auro-size-xs);
+  padding-left: 0;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 100%;
+  font-size: 1rem;
+  caret-color: var(--auro-color-ui-default-on-light);
+  background-color: transparent;
 
-// component shape styles
-// .auro-input {
-//   ...
-// }
+  &:focus {
+    outline: none;
+    border-color: var(--auro-color-ui-default-on-light);
+    & ~ .iconContainer {
+      background: none;
 
-.testClass {
-  color:  var(--auro-color-border-error-on-light);
-  border: 1px solid var(--auro-color-border-error-on-light);
-  display: inline-block;
-  padding: var(--auro-text-body-size-default);
+      .iconButton {
+        opacity: 1;
+        z-index: auto;
+      }
+    }
+  }
+
+  &:focus,
+  &--filled {
+    & + .inputElement-label {
+      font-size: 0.875rem;
+      padding: 0;
+      padding-top: var(--auro-size-xs);
+    }
+  }
+
+  &.error {
+    border-color: var(--auro-color-alert-error-on-light);
+    caret-color: var(--auro-color-alert-error-on-light);
+  }
+
+  &:disabled {
+    background: none;
+    border-color: var(--auro-color-border-disabled-on-light);
+    color: var(--auro-color-text-disabled-on-light);
+  }
+
+  &:invalid {
+    box-shadow: none;
+  }
+}
+
+.inputElement-label {
+  color: var(auro-color-text-primary-on-light);
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  padding: 0;
+  padding-top: 2rem;
+}
+
+.inputElement-helpText {
+  font-size: 0.875rem;
+  color: var(--auro-color-text-secondary-on-light);
+  margin-top: var(--auro-size-xxs);
+  margin-bottom: var(--auro-size-xxs);
+  margin-left: 0;
+  margin-right: 0;
+
+  &.error {
+    color: var(--auro-color-alert-error-on-light);
+  }
+}
+
+.inputElement-icon {
+  // position: absolute;
+  display: flex;
+  right: 0;
+  padding: 0;
+  pointer-events: auto;
+}
+
+.alertIcon {
+  color: var(--auro-color-alert-error-on-light);
+}
+
+.iconButton {
+  background: none;
+  border: none;
+
+  opacity: 0;
+  z-index: -1;
+
+  &:active {
+    opacity: 1;
+    z-index: auto;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.iconContainer {
+  position: absolute;
+  right: 0;
+  top: calc(2rem - .1rem);
+  pointer-events: none;
+}
+
+.is-disabled {
+  color: var(--auro-color-text-disabled-on-light);
 }
