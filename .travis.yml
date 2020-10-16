@@ -7,7 +7,7 @@ addons:
 
 branches:
   only:
-    - master
+    - main
 
 notifactions:
   email: false
