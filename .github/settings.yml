@@ -105,8 +105,8 @@ labels:
     color: c0e585
   - name: 'Status: Review Needed'
     color: 91be62
-    description: Work is completed, user is requesting feeback
-  - name: 'Status: Complete / Ready to Merge'
+    description: Work is completed, user is requesting feedback
+  - name: 'Status: Complete and Ready to Merge'
     color: 5e8741
     description: Owner has completed work and considers it ready to be merged
   - name: 'Status: Blocked'
