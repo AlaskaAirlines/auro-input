@@ -12,6 +12,15 @@ import BaseInput from './base-input';
 // build the component class
 export default class AuroInput extends BaseInput {
 
+  constructor() {
+    super();
+
+    /**
+     * @private Boolean value to determine which password icon to show
+     */
+    this.showPassword = false;
+  }
+
   // function to define props used within the scope of this component
   static get properties() {
     return {
@@ -36,22 +45,65 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
+   * @private function to toggle between text or password view of input
+   * @returns {string} returns string based on type
+   */
+  handleClickShowPassword() {
+    const el = this.shadowRoot.getElementById(`${this.id}`);
+
+    if (this.type === "password") {
+      this.type = "text";
+      this.showPassword = true;
+      el.focus();
+    } else {
+      this.type = "password";
+      this.showPassword = false;
+      el.focus();
+    }
+  }
+
+  /**
+   * @private function to toggle between password icons
+   * @returns {string} returns HTML for SVG
+   */
+  togglePasswordIcon() {
+    if (this.showPassword) {
+      return this.hidePassword
+    }
+
+    return this.viewPassword
+  }
+
+  /**
+   * @private function manage visibility of show-password icon
+   * @returns {boolean} returns CSS selector
+   */
+  handleKeyUp() {
+    const inputValue = this.shadowRoot.getElementById(this.id).value
+
+    if (inputValue) {
+      this.classList.add("passwordIcon--show");
+    } else {
+      this.classList.remove("passwordIcon--show");
+    }
+  }
+
+  /**
    * @private function for managing when to display the show-password icon
    * @returns {string} html string
    */
   showPasswordIcon() {
-    if (this.type === 'password') {
+    if (this.type === 'password' || this.type === 'text') {
       return html`
       <button
-        @click="${this.handleClickClear}"
-        aria-hidden="true"
-        class="inputElement-icon iconButton"
-        tabindex="-1">
-        ${this.viewPassword}
-      </button>`
+        id="passwordToggle"
+        class="iconButton passwordToggle"
+        @click="${this.handleClickShowPassword}"
+        tabindex="-1"
+      >${this.togglePasswordIcon()}</button>`
     }
 
-    return null;
+    return null
   }
 
   // function that renders the HTML and CSS into  the scope of the component
@@ -66,6 +118,7 @@ export default class AuroInput extends BaseInput {
       <input
         @input="${this.handleInput}"
         @blur="${this.handleBlur}"
+        @keyup="${this.handleKeyUp}"
         class="${classMap(this.inputClasses)}"
         id="${this.id}"
         name="${ifDefined(this.name)}"
