@@ -1,0 +1,56 @@
+repository:
+  # See https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#edit for all available settings.
+
+  # A short description of the repository that will show up on GitHub
+  description: Custom HTML element for inputting string data in forms
+
+  # A URL with more information about the repository
+  homepage: https://auro.alaskaair.com/components/auro/input
+
+  # Either `true` to enable issues for this repository, `false` to disable them.
+  has_issues: true
+
+  # Either `true` to enable the wiki for this repository, `false` to disable it.
+  has_wiki: false
+
+  # Either `true` to enable downloads for this repository, `false` to disable them.
+  has_downloads: true
+
+  # Updates the default branch for this repository.
+  default_branch: main
+
+  # Either `true` to allow squash-merging pull requests, or `false` to prevent
+  # squash-merging.
+  allow_squash_merge: false
+
+  # Either `true` to allow merging pull requests with a merge commit, or `false`
+  # to prevent merging pull requests with merge commits.
+  allow_merge_commit: false
+
+  # Either `true` to allow rebase-merging pull requests, or `false` to prevent
+  # rebase-merging.
+  allow_rebase_merge: true
+
+# Labels: define labels for Issues and Pull Requests
+labels:
+  - name: duplicate
+    color: cde6ff
+    description: This Issue or Pull Request already exists
+  - name: good first issue
+    color: 6bb7fb
+    description: Good for newcomers
+    aliases:
+    - beginner-friendly
+    - beginner
+    - good-starter-issue
+    - good for beginner
+    - Good for beginners
+    - starter-issue
+    - starter
+  - name: help wanted
+    color: 2492eb
+    description: Extra attention is needed, this user requires assistance to complete
+      the work
+  - name: 'Epic: Project Version Zero'
+    color: '222222'
+    description: Identifier of project epic issue.
