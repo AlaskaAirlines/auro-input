@@ -33,6 +33,22 @@ describe('auro-input', () => {
     expect(el.value).to.equal('');
   });
 
+  it('flips hide-password bit', async () => {
+    const el = await fixture(html`
+      <auro-input type="password" value="password" label="password"></auro-input>
+    `);
+
+    const toggle = el.shadowRoot.querySelector('#passwordToggle');
+    const input = el.shadowRoot.querySelector('.inputElement');
+    toggle.click();
+    await elementUpdated(input);
+    expect(input.type).to.equal('text');
+
+    toggle.click();
+    await elementUpdated(input);
+    expect(input.type).to.equal('password');
+  });
+
   it('sets error when input not valid', async () => {
     const el = await fixture(html`
       <auro-input label="First name" required helptext="Help text" customvalidationmessage="Expected error"></auro-input>

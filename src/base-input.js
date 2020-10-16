@@ -114,7 +114,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * @private Parse imported CVG object data to string for HTML use
+   * @private Parse imported SVG object data to string for HTML use
    * @param {string} icon HTML string for requested icon.
    * @returns {object} Appended HTML for SVG.
    */
@@ -131,10 +131,12 @@ export default class BaseInput extends LitElement {
   handleClickClear() {
     this.inputElement.value = "";
     this.value = "";
+    this.classList.remove("passwordIcon--show");
     this.validate();
+    this.focus();
   }
 
-    /**
+  /**
    * @private Validates value of the input in blur
    * @param {string} el String entered into input.
    * @returns {string} Validates string entered into the input field.
@@ -157,7 +159,7 @@ export default class BaseInput extends LitElement {
     this.validate();
   }
 
-  /**
+   /**
     * @private If the error property is set, then the error message should persist
     * and take precedence over client side validation
     * @returns {string} Validates string.
@@ -174,7 +176,7 @@ export default class BaseInput extends LitElement {
     this.internalError = this.isValid ? null : this.inputElement.validationMessage;
   }
 
-    /**
+   /**
     * @private Iterates over allowed input types
     * @param {string} type Value entered into component prop.
     * @returns {string} Iterates over allowed types array.
@@ -187,7 +189,7 @@ export default class BaseInput extends LitElement {
     return "text";
   }
 
-    /**
+   /**
     * @private Evaluates different error type messages
     * @returns {string} Error string.
     */
@@ -202,7 +204,7 @@ export default class BaseInput extends LitElement {
     return this.internalError;
   }
 
-    /**
+   /**
     * @private Custom function to apply disabled CSS class
     * @returns {string} Disabled CSS class.
     */

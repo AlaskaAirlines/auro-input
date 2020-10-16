@@ -20,6 +20,17 @@ auro-input-light {
   display: block;
 }
 
+.passwordToggle {
+  visibility: hidden
+}
+
+:host([type=password].passwordIcon--show) {
+  .passwordToggle {
+    visibility: visible;
+    cursor: pointer;
+  }
+}
+
 // this is to disable the toggle-password feature in MS Edge only
 input::-ms-reveal,
 input::-ms-clear {
@@ -31,7 +42,8 @@ input::-ms-clear {
   border-color: var(--auro-color-border-primary-on-light);
   border-radius: 0;
   border-bottom-width: 2px;
-  padding: 2rem 2rem var(--auro-size-xs);
+  padding: var(--auro-size-xl) calc((var(--auro-size-xxl)) + .5rem);
+  padding-bottom: var(--auro-size-xs);
   padding-left: 0;
   position: relative;
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -103,7 +115,6 @@ input::-ms-clear {
 }
 
 .inputElement-icon {
-  // position: absolute;
   display: flex;
   right: 0;
   padding: 0;
@@ -117,6 +128,8 @@ input::-ms-clear {
 .iconButton {
   background: none;
   border: none;
+  padding: 0;
+  margin: 0;
 
   opacity: 0;
   z-index: -1;
