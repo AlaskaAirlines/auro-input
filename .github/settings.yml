@@ -198,17 +198,3 @@ labels:
   - name: 'Type: High Risk'
     color: b83302
     description: Work is high risk, pay close attention to updates and tests
-  - name: 'Size: X-Large'
-    color: 631db8
-    description: Woah! Really? This is too large to deliver in a single PR and is super
-      risky!
-  - name: 'Size: Large'
-    color: 8439ef
-    description: This is a sizable load of work to deliver and tough to break up. Risk
-      is not equated to volume.
-  - name: 'Size: Medium'
-    color: 9e73ea
-    description: Delivery requires attention, medium risk on delivery
-  - name: 'Size: Small'
-    color: bcaae6
-    description: Easily delivered work, low risk, low effort
