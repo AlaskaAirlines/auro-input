@@ -181,14 +181,6 @@ describe('auro-input', () => {
     expect(el.isValid).to.be.true;
   });
 
-
-
-
-
-
-
-
-
   it('auro-input is accessible', async () => {
     const el = await fixture(html`
       <auro-input cssclass="testClass"></auro-input>
