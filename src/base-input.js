@@ -24,6 +24,7 @@ import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
  * @attr {String} type - Populates the `type` attribute on the input. Allowed values are `password`, `email` or `text`. If given value is not allowed or set, defaults to `text`.
  * @attr {String} value - Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input.
  * @attr {Boolean} disabled - If set, disables the input.
+ * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} isValid - Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
  */
@@ -86,7 +87,8 @@ export default class BaseInput extends LitElement {
       value:                   { type: String },
       disabled:                { type: Boolean },
       isValid:                 { type: Boolean },
-      required:                { type: Boolean }
+      required:                { type: Boolean },
+      noValidate:              { type: Boolean }
     };
   }
 
@@ -132,8 +134,11 @@ export default class BaseInput extends LitElement {
     this.inputElement.value = "";
     this.value = "";
     this.classList.remove("passwordIcon--show");
-    this.validate();
     this.focus();
+
+    if (!this.noValidate) {
+      this.validate();
+    }
   }
 
   /**
@@ -156,7 +161,10 @@ export default class BaseInput extends LitElement {
   handleBlur() {
     this.hasBlurred = true;
     this.inputElement.scrollLeft = 100;
-    this.validate();
+
+    if (!this.noValidate) {
+      this.validate();
+    }
   }
 
    /**

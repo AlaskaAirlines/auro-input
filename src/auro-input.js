@@ -139,8 +139,8 @@ export default class AuroInput extends BaseInput {
           <p class="inputElement-helpText error" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
           <div class="iconContainer">
             <div class="inputElement-icon alertIcon">
-            ${this.showPasswordIcon()}
-            ${this.alertSvg}
+              ${this.showPasswordIcon()}
+              ${this.alertSvg}
             </div>
           </div>`
         : html`
