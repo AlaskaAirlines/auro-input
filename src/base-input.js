@@ -131,14 +131,23 @@ export default class BaseInput extends LitElement {
    * @returns {string} Replaces innerHTML with empty string.
    */
   handleClickClear() {
+    let click = null;
+
     this.inputElement.value = "";
     this.value = "";
     this.classList.remove("passwordIcon--show");
     this.focus();
 
+    click = new Event('input', {
+      bubbles: true,
+      composed: true,
+    });
+
     if (!this.noValidate) {
       this.validate();
     }
+
+    this.dispatchEvent(click);
   }
 
   /**
