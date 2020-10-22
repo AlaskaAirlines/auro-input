@@ -52,12 +52,11 @@ branches:
         # Required. Require branches to be up to date before merging.
         strict: true
         # Required. The list of status checks to require in order to merge into this branch
-        contexts: ["build", "license/cla"]
+        contexts: ["test", "license/cla"]
       # Required. Enforce all configured restrictions for administrators. Set to true to enforce required status checks for repository administrators. Set to null to disable.
       enforce_admins: false
       # Required. Restrict who can push to this branch. Team and user restrictions are only available for organization-owned repositories. Set to null to disable.
-      restrictions:
-        users: ["blackfalcon"]
+      restrictions: null
 
 # Labels: define labels for Issues and Pull Requests
 labels:
@@ -79,39 +78,15 @@ labels:
     color: 2492eb
     description: Extra attention is needed, this user requires assistance to complete
       the work
-  - name: 'Epic: Project Version Zero'
-    color: '222222'
-    description: Identifier of project epic issue.
   - name: 'Project: Version Zero'
     color: '222222'
     description: Issues related to the epic Project Zero
-  - name: 'Epic: Auro User Definition'
-    color: '222222'
-    description: Identifier of project epic issue.
   - name: 'Project: Auro User Definition'
     color: '222222'
     description: Issues related to the epic User Research
-  - name: 'Epic: Doc Site Strategy'
-    color: '222222'
-    description: Identifier of project epic issue.
   - name: 'Project: Doc Site Strategy'
     color: '222222'
     description: Issues related to the epic Doc Site Strategy
-  - name: 'Status: Epic in progress'
-    color: '222222'
-    description: Epic has issue(s) in progress
-  - name: 'Priority: Critical'
-    color: b82b47
-    description: Issues that need immediate attention
-  - name: 'Priority: High'
-    color: f65b7b
-    description: Issues that need attention soon
-  - name: 'Priority: Low'
-    color: ff94a7
-    description: Issues that need not be forgotten
-  - name: 'Priority: Audit'
-    color: ff94a7
-    description: Priority status specifically for DS Audit use
   - name: released
     color: A9A9A9
     description: Completed work has been released
@@ -210,9 +185,7 @@ labels:
     color: b83302
     description: Changes to CI configuration files and scripts
     aliases:
-    - travis
     - ci
-    - circleci
   - name: 'Type: Question'
     color: b83302
     description: Further information is requested

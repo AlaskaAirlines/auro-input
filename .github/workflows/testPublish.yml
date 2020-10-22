@@ -1,4 +1,4 @@
-name: test and publish
+name: Test and publish
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
@@ -10,13 +10,19 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [11.x, 12.x, 14.x]
+
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run sassBuild:component
       - run: npm run postCss:component
@@ -29,14 +35,14 @@ jobs:
     # Only release on push to main
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    needs: build
+    needs: test
     steps:
       - uses: actions/checkout@v2
         with:
           persist-credentials: false
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
       - run: npm ci
       - run: npm run sassBuild:component
       - run: npm run postCss:component
