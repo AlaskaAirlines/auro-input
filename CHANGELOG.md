@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.0.1](https://github.com/AlaskaAirlines/auro-input/compare/v1.0.0...v1.0.1) (2020-10-22)
+
+
+### Bug Fixes
+
+* add build process in release pipeline ([7ce06c0](https://github.com/AlaskaAirlines/auro-input/commit/7ce06c0c9864b0407f370474601fb1d1e7680cf4))
+
 # 1.0.0 (2020-10-22)
 
 
