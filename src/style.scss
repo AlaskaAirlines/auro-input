@@ -70,9 +70,7 @@ input::-ms-clear {
   &:focus,
   &--filled {
     & + .inputElement-label {
-      font-size: 0.875rem;
-      padding: 0;
-      padding-top: var(--auro-size-xs);
+      @extend %activeLabel;
     }
   }
 
@@ -103,8 +101,12 @@ input::-ms-clear {
   padding-top: 2rem;
 }
 
+.inputElement-label--sticky {
+  @extend %activeLabel;
+}
+
 .inputElement-helpText {
-  font-size: 0.875rem;
+  font-size: var(--auro-text-body-size-sm);
   color: var(--auro-color-text-secondary-on-light);
   margin-top: var(--auro-size-xxs);
   margin-bottom: var(--auro-size-xxs);
@@ -155,4 +157,11 @@ input::-ms-clear {
 
 .is-disabled {
   color: var(--auro-color-text-disabled-on-light);
+}
+
+
+%activeLabel {
+  font-size: var(--auro-text-body-size-sm);
+  padding: 0;
+  padding-top: var(--auro-size-xs);
 }

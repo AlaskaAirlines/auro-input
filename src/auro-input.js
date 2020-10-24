@@ -49,16 +49,14 @@ export default class AuroInput extends BaseInput {
    * @returns {string} returns string based on type
    */
   handleClickShowPassword() {
-    const el = this.shadowRoot.getElementById(`${this.id}`);
-
     if (this.type === "password") {
       this.type = "text";
       this.showPassword = true;
-      el.focus();
-    } else {
+      this.focus();
+    } else if (this.type === "text") {
       this.type = "password";
       this.showPassword = false;
-      el.focus();
+      this.focus();
     }
   }
 
@@ -80,7 +78,10 @@ export default class AuroInput extends BaseInput {
    */
   handleKeyUp() {
     const iconContainer = this.shadowRoot.querySelector('.iconContainer'),
-      inputValue = this.shadowRoot.getElementById(this.id).value;
+      inputValue = this.shadowRoot.getElementById(this.id).value,
+      labelElement = this.shadowRoot.querySelector('label');
+
+    labelElement.classList.add('inputElement-label--sticky')
 
     if (inputValue) {
       iconContainer.classList.add("passwordIcon--show");
