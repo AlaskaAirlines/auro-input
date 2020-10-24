@@ -135,7 +135,7 @@ export default class BaseInput extends LitElement {
 
     this.inputElement.value = "";
     this.value = "";
-    this.classList.remove("passwordIcon--show");
+    this.shadowRoot.querySelector('label').classList.remove('inputElement-label--sticky');
     this.focus();
 
     click = new Event('input', {
@@ -155,9 +155,7 @@ export default class BaseInput extends LitElement {
    * @param {string} el String entered into input.
    * @returns {string} Validates string entered into the input field.
    */
-  handleInput(el) {
-    this.value = el.target.value;
-
+  handleInput() {
     if (this.hasBlurred) {
       this.validate();
     }
@@ -182,7 +180,6 @@ export default class BaseInput extends LitElement {
     * @returns {string} Validates string.
     */
    validate() {
-
     if (this.error && this.error.length > 0) {
       this.isValid = false;
 
