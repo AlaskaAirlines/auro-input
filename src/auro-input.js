@@ -77,13 +77,11 @@ export default class AuroInput extends BaseInput {
    * @returns {boolean} returns CSS selector
    */
   handleKeyUp() {
-    const iconContainer = this.shadowRoot.querySelector('.iconContainer'),
-      inputValue = this.shadowRoot.getElementById(this.id).value,
-      labelElement = this.shadowRoot.querySelector('label');
+    const iconContainer = this.shadowRoot.querySelector('.iconContainer');
 
-    labelElement.classList.add('inputElement-label--sticky')
+    this.labelElement.classList.add('inputElement-label--sticky')
 
-    if (inputValue) {
+    if (this.inputElement.value) {
       iconContainer.classList.add("passwordIcon--show");
     } else {
       iconContainer.classList.remove("passwordIcon--show");
