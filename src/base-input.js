@@ -105,6 +105,7 @@ export default class BaseInput extends LitElement {
 
   firstUpdated() {
     this.inputElement = this.renderRoot.querySelector('input');
+    this.labelElement = this.shadowRoot.querySelector('label');
   }
 
   /**
@@ -135,7 +136,7 @@ export default class BaseInput extends LitElement {
 
     this.inputElement.value = "";
     this.value = "";
-    this.shadowRoot.querySelector('label').classList.remove('inputElement-label--sticky');
+    this.labelElement.classList.remove('inputElement-label--sticky');
     this.focus();
 
     click = new Event('input', {
@@ -152,7 +153,6 @@ export default class BaseInput extends LitElement {
 
   /**
    * @private Validates value of the input in blur
-   * @param {string} el String entered into input.
    * @returns {string} Validates string entered into the input field.
    */
   handleInput() {
