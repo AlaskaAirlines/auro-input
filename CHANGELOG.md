@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.1.0](https://github.com/AlaskaAirlines/auro-input/compare/v1.0.1...v1.1.0) (2020-10-27)
+
+
+### Features
+
+* add custom event for clearing input value ([f6f6ce8](https://github.com/AlaskaAirlines/auro-input/commit/f6f6ce804f8c666f7876affccdac627f25afe29e))
+
 ## [1.0.1](https://github.com/AlaskaAirlines/auro-input/compare/v1.0.0...v1.0.1) (2020-10-22)
 
 
