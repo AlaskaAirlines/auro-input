@@ -113,6 +113,17 @@ describe('auro-input', () => {
     expect(input.name).to.equal('test');
   });
 
+  it('sets value when input event triggered', async () => {
+    const el = await fixture(html`
+      <auro-input></auro-input>
+    `);
+
+    const input = el.shadowRoot.querySelector('input');
+    input.value = 'triggered';
+    input.dispatchEvent(new InputEvent('input'));
+    expect(el.value).to.equal('triggered');
+  });
+
   it('sets disabled class on label when component disabled', async () => {
     const el = await fixture(html`
       <auro-input disabled label="Disabled input"></auro-input>
