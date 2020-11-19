@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.1](https://github.com/AlaskaAirlines/auro-input/compare/v1.1.0...v1.1.1) (2020-11-19)
+
+
+### Bug Fixes
+
+* [#6](https://github.com/AlaskaAirlines/auro-input/issues/6) cursor placement ([2d4206e](https://github.com/AlaskaAirlines/auro-input/commit/2d4206e49689712c9ca372eb51f3dfc64c503ff9))
+
 # [1.1.0](https://github.com/AlaskaAirlines/auro-input/compare/v1.0.1...v1.1.0) (2020-10-27)
 
 
