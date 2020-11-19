@@ -155,7 +155,7 @@ export default class BaseInput extends LitElement {
    * @private Validates value of the input in blur
    * @returns {string} Validates string entered into the input field.
    */
-  handleInput(e) {
+  handleInput() {
     this.value = this.inputElement.value;
     const selectionStart = this.inputElement.selectionStart;
     if (this.hasBlurred) {
