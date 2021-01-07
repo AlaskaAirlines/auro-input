@@ -126,7 +126,7 @@ export default class AuroInput extends BaseInput {
         ?required="${this.required}"
         ?disabled="${this.disabled}"
         .value="${ifDefined(this.value)}"
-        aria-describedby="${this.uniqueID}"
+        aria-describedby="${this.uniqueId}"
       />
 
       ${this.required
@@ -143,7 +143,7 @@ export default class AuroInput extends BaseInput {
             </div>
           </div>`
         : html`
-          <p id="${this.uniqueID}" class="inputElement-helpText ${this.getDisabledClass()}">${this.helpText}</p>
+          <p id="${this.uniqueId}" class="inputElement-helpText ${this.getDisabledClass()}">${this.helpText}</p>
           <div class="iconContainer">
             <div class="inputElement-icon">
               ${this.showPasswordIcon()}
