@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.1.2](https://github.com/AlaskaAirlines/auro-input/compare/v1.1.1...v1.1.2) (2021-01-07)
+
+
+### Bug Fixes
+
+* rename field to prevent IE runtime error ([24929b4](https://github.com/AlaskaAirlines/auro-input/commit/24929b455f5e63c84dd2fa300939bc83b598a103))
+
 ## [1.1.1](https://github.com/AlaskaAirlines/auro-input/compare/v1.1.0...v1.1.1) (2020-11-19)
 
 
