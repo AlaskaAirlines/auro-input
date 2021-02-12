@@ -108,7 +108,11 @@ export default class AuroInput extends BaseInput {
 
   // function that renders the HTML and CSS into  the scope of the component
   render() {
-    this.inputClasses = {
+    const iconClasses = {
+      'inputElement-icon': true,
+      'alertIcon': !this.isValid
+    },
+    inputClasses = {
       "inputElement": true,
       "inputElement--filled": this.value,
       "error": !this.isValid
@@ -119,7 +123,7 @@ export default class AuroInput extends BaseInput {
         @input="${this.handleInput}"
         @blur="${this.handleBlur}"
         @keyup="${this.handleKeyUp}"
-        class="${classMap(this.inputClasses)}"
+        class="${classMap(inputClasses)}"
         id="${this.id}"
         name="${ifDefined(this.name)}"
         type="${this.getInputType(this.type)}"
@@ -130,24 +134,18 @@ export default class AuroInput extends BaseInput {
         aria-invalid="${!this.isValid}"
       />
 
-      ${this.required
-        ? html`<label for=${this.id} class="inputElement-label ${this.getDisabledClass()}">${this.label}</label>`
-        : html`<label for=${this.id} class="inputElement-label ${this.getDisabledClass()}">${this.label} (optional)</label>`
-      }
-      ${!this.isValid
+      <label for=${this.id} class="inputElement-label ${this.getDisabledClass()}">${this.required ? this.label : `${this.label} (optional)`}</label>
+      ${this.isValid
         ? html`
-          <p class="inputElement-helpText error" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
-          <div class="iconContainer">
-            <div class="inputElement-icon alertIcon">
-              ${this.showPasswordIcon()}
-              ${this.alertSvg}
-            </div>
-          </div>`
-        : html`
-          <p id="${this.uniqueId}" class="inputElement-helpText ${this.getDisabledClass()}">${this.helpText}</p>
-          <div class="iconContainer">
-            <div class="inputElement-icon">
-              ${this.showPasswordIcon()}
+          <p class="inputElement-helpText" id="${this.uniqueId}">${this.helpText}</p>
+        ` : html`
+          <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
+        `}
+      <div class="iconContainer">
+        <div class="${classMap(iconClasses)}">
+          ${this.showPasswordIcon()}
+          ${this.isValid
+            ? html`
               <button
                 @click="${this.handleClickClear}"
                 aria-hidden="true"
@@ -155,10 +153,12 @@ export default class AuroInput extends BaseInput {
                 tabindex="-1">
                 ${this.closeSvg}
               </button>
-            </div>
-          </div>`
-        }
-      `;
+            ` : html`
+              ${this.alertSvg}
+            `}
+        </div>
+      </div>
+    `;
   }
 }
 
