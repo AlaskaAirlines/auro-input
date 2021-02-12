@@ -182,10 +182,10 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-  * @private If the error property is set, then the error message should persist
-  * and take precedence over client side validation
-  * @returns {string} Validates string.
-  */
+   * @private If the error property is set, then the error message should persist
+   * and take precedence over client side validation
+   * @returns {string} Validates string.
+   */
   validate() {
     if (this.error && this.error.length > 0) {
       this.isValid = false;
@@ -198,10 +198,10 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-  * @private Iterates over allowed input types
-  * @param {string} type Value entered into component prop.
-  * @returns {string} Iterates over allowed types array.
-  */
+   * @private Iterates over allowed input types
+   * @param {string} type Value entered into component prop.
+   * @returns {string} Iterates over allowed types array.
+   */
   getInputType(type) {
     if (this.allowedInputTypes.includes(type)) {
       return type;
@@ -211,9 +211,9 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-  * @private Evaluates different error type messages
-  * @returns {string} Error string.
-  */
+   * @private Evaluates different error type messages
+   * @returns {string} Error string.
+   */
   getErrorMessage() {
     if (this.error) {
       return this.error;
