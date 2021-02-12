@@ -55,14 +55,15 @@ describe('auro-input', () => {
     `);
 
     const input = el.shadowRoot.querySelector('input');
-    const helpText = el.shadowRoot.querySelector('p');
+    const ariaDescribedBy = input.getAttribute('aria-describedby');
+    const helpText = el.shadowRoot.querySelector(`[id="${ariaDescribedBy}"]`);
     expect(helpText.textContent).to.equal('Help text');
 
     input.focus();
     input.blur();
     await elementUpdated(el);
 
-    const error = el.shadowRoot.querySelector('p');
+    const error = el.shadowRoot.querySelector(`[id="${ariaDescribedBy}"]`);
     expect(error.textContent).to.equal('Expected error');
   });
 
@@ -164,7 +165,7 @@ describe('auro-input', () => {
     el.inputElement.focus();
     el.inputElement.blur();
     await elementUpdated(el);
-    
+
     expect(el.isValid).to.be.false;
     expect(el.inputElement.getAttribute('aria-invalid')).to.equal('true');
   });
