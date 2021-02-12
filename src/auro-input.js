@@ -127,6 +127,7 @@ export default class AuroInput extends BaseInput {
         ?disabled="${this.disabled}"
         .value="${ifDefined(this.value)}"
         aria-describedby="${this.uniqueId}"
+        aria-invalid="${!this.isValid}"
       />
 
       ${this.required

@@ -119,8 +119,7 @@ describe('auro-input', () => {
     `);
 
     const input = el.shadowRoot.querySelector('input');
-    input.value = 'triggered';
-    input.dispatchEvent(new InputEvent('input'));
+    setInputValue(input, 'triggered');
     expect(el.value).to.equal('triggered');
   });
 
@@ -137,19 +136,37 @@ describe('auro-input', () => {
     const el = await fixture(html`
       <auro-input required type="email" label="Label"></auro-input>
     `);
-
-    const spy = sinon.spy(el, 'validate');
+    const validateSpy = sinon.spy(el, 'validate');
     const input = el.shadowRoot.querySelector('input');
+    
+    expect(el.isValid).to.be.true;
     input.focus();
-    input.value = 'whatever@alaskaair.com';
-    input.dispatchEvent(new InputEvent('input'));
+    setInputValue(input, 'whatever@alaskaair.com');
+    expect(validateSpy.callCount).to.equal(0);
 
-    expect(spy.callCount).to.equal(0);
     input.blur();
+    expect(validateSpy.callCount).to.equal(1);
+    expect(el.isValid).to.be.true;
 
-    input.value = 'whatever';
-    input.dispatchEvent(new InputEvent('input'));
-    expect(spy.callCount).to.be.greaterThan(0);
+    setInputValue(input, 'whatever');
+    expect(validateSpy.callCount).to.equal(2);
+    expect(el.isValid).to.be.false;
+  });
+
+  it('sets aria-invalid', async () => {
+    const el = await fixture(html`
+      <auro-input required></auro-input>
+    `);
+
+    expect(el.isValid).to.be.true;
+    expect(el.inputElement.getAttribute('aria-invalid')).to.equal('false');
+
+    el.inputElement.focus();
+    el.inputElement.blur();
+    await elementUpdated(el);
+    
+    expect(el.isValid).to.be.false;
+    expect(el.inputElement.getAttribute('aria-invalid')).to.equal('true');
   });
 
   it('is programmatically focusable', async () => {
@@ -195,3 +212,8 @@ describe('auro-input', () => {
     await expect(el).to.be.true;
   });
 });
+
+function setInputValue(input, value) {
+  input.value = value;
+  input.dispatchEvent(new InputEvent('input'));
+}
