@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+# [1.2.0](https://github.com/AlaskaAirlines/auro-input/compare/v1.1.2...v1.2.0) (2021-02-13)
+
+
+### Features
+
+* set aria-describedby to error message ([da5ae0d](https://github.com/AlaskaAirlines/auro-input/commit/da5ae0d16fa3a617ff4a49d4693ee7e7ff4df1e5))
+* set aria-invalid attribute ([24354c6](https://github.com/AlaskaAirlines/auro-input/commit/24354c6f072fb4b6e97f782da752699b2ee22ab0))
+
 ## [1.1.2](https://github.com/AlaskaAirlines/auro-input/compare/v1.1.1...v1.1.2) (2021-01-07)
 
 
