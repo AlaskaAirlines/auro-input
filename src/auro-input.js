@@ -3,10 +3,20 @@
 
 // ---------------------------------------------------------------------
 
+/* eslint-disable max-lines */
+
 import { html } from "lit-element";
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import BaseInput from './base-input';
+import Cleave from 'cleave.js';
+
+import creditCard from '@alaskaairux/icons/dist/icons/payment/credit-card_es6';
+import creditCardAmex from '@alaskaairux/icons/dist/icons/payment/cc-amex_es6';
+import creditCardDiscover from '@alaskaairux/icons/dist/icons/payment/cc-discover_es6';
+import creditCardMastercard from '@alaskaairux/icons/dist/icons/payment/cc-mastercard_es6';
+import creditCardVisa from '@alaskaairux/icons/dist/icons/payment/cc-visa_es6';
+import creditCardAlaskaAirVisa from '@alaskaairux/icons/dist/icons/payment/cc-alaska_es6';
 
 
 // build the component class
@@ -19,12 +29,22 @@ export default class AuroInput extends BaseInput {
      * @private Boolean value to determine which password icon to show
      */
     this.showPassword = false;
+
+    /**
+     * @private Boolean value to determine if numeric keyboard should be show on mobile devices
+     */
+    this.numericKeyboard = false;
+
+    /**
+     * @private Integer used to set a maximum length on the input field
+     */
+    this.maxLength = undefined;
   }
 
   // function to define props used within the scope of this component
   static get properties() {
     return {
-      ...super.properties,
+      ...super.properties
     };
   }
 
@@ -79,7 +99,7 @@ export default class AuroInput extends BaseInput {
   handleKeyUp() {
     const iconContainer = this.shadowRoot.querySelector('.iconContainer');
 
-    this.labelElement.classList.add('inputElement-label--sticky')
+    this.labelElement.classList.add('inputElement-label--sticky');
 
     if (this.inputElement.value) {
       iconContainer.classList.add("passwordIcon--show");
@@ -106,6 +126,125 @@ export default class AuroInput extends BaseInput {
     return null
   }
 
+  connectedCallback() {
+    super.connectedCallback();
+
+    // Process auto-formating if defined
+    if (this.type) {
+      let config = null;
+
+      // Process only valid format strings
+      switch (this.type) {
+        case 'credit-card':
+          config = {
+            creditCard: true
+          }
+
+          this.numericKeyboard = true;
+
+          break;
+        // add additional supported formats and their config JSON here
+        default:
+          // Do nothing
+      }
+
+      // initialize CleaveJS if we have a defined config for the requested format
+      if (config) {
+        // eslint-disable-next-line no-unused-vars
+        const cleave = new Cleave(this, config);
+      }
+    }
+  }
+
+  /**
+   * @private function to return html for credit card icon
+   * @returns {string} html string
+   */
+  processCreditCard() {
+    const card = this.matchInputValueToCreditCard();
+
+    this.maxLength = card.formatLength;
+
+    if (this.icon) {
+      const svg = new DOMParser().parseFromString(card.cardIcon.svg, 'text/html').body.firstChild;
+
+      return html`
+      <div class="creditCard-icon">
+        ${svg}
+      </div>
+      `
+    }
+
+    return html``;
+  }
+
+  /**
+   * @private function returns data object for credit card matching value comparison
+   * @returns {object} JSON with data for credit card formatting
+   */
+  matchInputValueToCreditCard() {
+    let type = {
+      name: 'Default Card',
+      formatLength: 19,
+      cardIcon: creditCard
+    };
+
+    const creditCardTypes = [
+      {
+        name: 'American Express',
+        regex: /^(?<num>34|37)\d{0,9}/u,
+        formatLength: 17,
+        cardIcon: creditCardAmex
+      },
+      {
+        name: 'Visa',
+        regex: /^(?<num>4)\d{0,9}/u,
+        formatLength: 19,
+        cardIcon: creditCardVisa
+      },
+      {
+        name: 'Master Card',
+        regex: /^(?<num>5)\d{0,9}/u,
+        formatLength: 19,
+        cardIcon: creditCardMastercard
+      },
+      {
+        name: 'Discover Card',
+        regex: /^(?<num>6)\d{0,9}/u,
+        formatLength: 19,
+        cardIcon: creditCardDiscover
+      },
+      {
+        name: 'Alaska Airlines Visa',
+        regex: /^(?<num>4147\s34|4888\s93|4800\s11|4313\s51|4313\s07)\d{0,9}/u,
+        formatLength: 19,
+        cardIcon: creditCardAlaskaAirVisa
+      }
+    ]
+
+    creditCardTypes.forEach((cardType) => {
+      if (cardType.regex.exec(this.value)) {
+        type = cardType;
+      }
+    })
+
+    return type;
+  }
+
+  /**
+   * @private function to return html for credit card icon
+   * @returns {string} value for the input field after changing undefined to an empty string
+   */
+  initializeValue() {
+    if (this.value === undefined) {
+      this.value = '';
+
+      return '';
+    }
+
+    return this.value;
+  }
+
   // function that renders the HTML and CSS into  the scope of the component
   render() {
     const iconClasses = {
@@ -113,9 +252,15 @@ export default class AuroInput extends BaseInput {
       'alertIcon': !this.isValid
     },
     inputClasses = {
+      "creditCard": this.icon && this.type === 'credit-card',
+      "error": !this.isValid,
       "inputElement": true,
       "inputElement--filled": this.value,
-      "error": !this.isValid
+    },
+    labelClasses = {
+      "inputElement-label": true,
+      "is-disabled": this.disabled,
+      "inputElement-labelIcon--no-value": this.icon && this.type === 'credit-card' && (this.value === "" || this.value === undefined)
     };
 
     return html`
@@ -127,20 +272,23 @@ export default class AuroInput extends BaseInput {
         id="${this.id}"
         name="${ifDefined(this.name)}"
         type="${this.getInputType(this.type)}"
+        maxlength="${ifDefined(this.maxLength ? this.maxLength : undefined)}"
+        inputmode="${ifDefined(this.numericKeyboard ? `numeric` : undefined)}"
         ?required="${this.required}"
         ?disabled="${this.disabled}"
-        .value="${ifDefined(this.value)}"
+        .value="${this.initializeValue()}"
         aria-describedby="${this.uniqueId}"
         aria-invalid="${!this.isValid}"
       />
 
-      <label for=${this.id} class="inputElement-label ${this.getDisabledClass()}">${this.required ? this.label : `${this.label} (optional)`}</label>
+      <label for=${this.id} class="${classMap(labelClasses)}">${this.required ? this.label : `${this.label} (optional)`}</label>
       ${this.isValid
         ? html`
           <p class="inputElement-helpText" id="${this.uniqueId}">${this.helpText}</p>
         ` : html`
           <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
         `}
+      ${this.type === 'credit-card' ? this.processCreditCard() : undefined}
       <div class="iconContainer">
         <div class="${classMap(iconClasses)}">
           ${this.showPasswordIcon()}
@@ -153,9 +301,7 @@ export default class AuroInput extends BaseInput {
                 tabindex="-1">
                 ${this.closeSvg}
               </button>
-            ` : html`
-              ${this.alertSvg}
-            `}
+            ` : html`${this.alertSvg}`}
         </div>
       </div>
     `;

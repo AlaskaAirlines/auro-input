@@ -23,6 +23,7 @@ import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
  * @attr {String} name - Populates the `name` attribute on the input.
  * @attr {String} type - Populates the `type` attribute on the input. Allowed values are `password`, `email` or `text`. If given value is not allowed or set, defaults to `text`.
  * @attr {String} value - Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input.
+ * @attr {Boolean} icon - If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format.
  * @attr {Boolean} disabled - If set, disables the input.
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} isValid - Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer.
@@ -60,7 +61,8 @@ export default class BaseInput extends LitElement {
     this.allowedInputTypes = [
       "text",
       "email",
-      "password"
+      "password",
+      "credit-card"
     ];
 
     /**
@@ -84,6 +86,7 @@ export default class BaseInput extends LitElement {
       label:                   { type: String },
       name:                    { type: String },
       type:                    { type: String },
+      icon:                    { type: Boolean },
       value:                   { type: String },
       disabled:                { type: Boolean },
       isValid:                 { type: Boolean },
@@ -223,13 +226,5 @@ export default class BaseInput extends LitElement {
     }
 
     return this.internalError;
-  }
-
-   /**
-    * @private Custom function to apply disabled CSS class
-    * @returns {string} Disabled CSS class.
-    */
-   getDisabledClass() {
-    return this.disabled ? "is-disabled" : "";
   }
 }

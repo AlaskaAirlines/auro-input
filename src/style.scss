@@ -17,6 +17,7 @@
 :host,
 auro-input-light {
   position: relative;
+
   display: block;
 }
 
@@ -28,6 +29,7 @@ auro-input-light {
   .passwordIcon--show {
     .passwordToggle {
       visibility: visible;
+
       cursor: pointer;
     }
   }
@@ -40,29 +42,36 @@ input::-ms-clear {
 }
 
 .inputElement {
-  border: 0 solid;
-  border-color: var(--auro-color-border-primary-on-light);
-  border-radius: 0;
-  border-bottom-width: 2px;
+  position: relative;
+
+  width: 100%;
   padding: var(--auro-size-xl) calc((var(--auro-size-xxl)) + .5rem);
   padding-bottom: var(--auro-size-xs);
   padding-left: 0;
-  position: relative;
+  margin: 0;
+
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  width: 100%;
-  font-size: 1rem;
-  caret-color: var(--auro-color-ui-default-on-light);
+
+  border: 0 solid;
+  border-color: var(--auro-color-border-primary-on-light);
+  border-bottom-width: 2px;
+  border-radius: 0;
   background-color: transparent;
 
+  font-size: 1rem;
+
+  caret-color: var(--auro-color-ui-default-on-light);
+
   &:focus {
-    outline: none;
     border-color: var(--auro-color-ui-default-on-light);
+    outline: none;
     & ~ .iconContainer {
       background: none;
 
       .iconButton {
-        opacity: 1;
         z-index: auto;
+
+        opacity: 1;
       }
     }
   }
@@ -76,13 +85,14 @@ input::-ms-clear {
 
   &.error {
     border-color: var(--auro-color-alert-error-on-light);
+
     caret-color: var(--auro-color-alert-error-on-light);
   }
 
   &:disabled {
-    background: none;
-    border-color: var(--auro-color-border-disabled-on-light);
     color: var(--auro-color-text-disabled-on-light);
+    border-color: var(--auro-color-border-disabled-on-light);
+    background: none;
   }
 
   &:invalid {
@@ -91,14 +101,21 @@ input::-ms-clear {
 }
 
 .inputElement-label {
-  color: var(auro-color-text-primary-on-light);
-  left: 0;
-  top: 0;
-  pointer-events: none;
   position: absolute;
-  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  top: 0;
+  left: 0;
+
   padding: 0;
   padding-top: 2rem;
+
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  pointer-events: none;
+
+  color: var(auro-color-text-primary-on-light);
+}
+
+.inputElement-labelIcon--no-value {
+  left: 30px;
 }
 
 .inputElement-label--sticky {
@@ -106,12 +123,14 @@ input::-ms-clear {
 }
 
 .inputElement-helpText {
-  font-size: var(--auro-text-body-size-sm);
-  color: var(--auro-color-text-secondary-on-light);
   margin-top: var(--auro-size-xxs);
+  margin-right: 0;
   margin-bottom: var(--auro-size-xxs);
   margin-left: 0;
-  margin-right: 0;
+
+  color: var(--auro-color-text-secondary-on-light);
+
+  font-size: var(--auro-text-body-size-sm);
 
   &.error {
     color: var(--auro-color-alert-error-on-light);
@@ -119,9 +138,12 @@ input::-ms-clear {
 }
 
 .inputElement-icon {
-  display: flex;
   right: 0;
+
+  display: flex;
+
   padding: 0;
+
   pointer-events: auto;
 }
 
@@ -130,17 +152,19 @@ input::-ms-clear {
 }
 
 .iconButton {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-
-  opacity: 0;
   z-index: -1;
 
+  margin: 0;
+  padding: 0;
+
+  opacity: 0;
+  border: none;
+  background: none;
+
   &:active {
-    opacity: 1;
     z-index: auto;
+
+    opacity: 1;
   }
 
   &:hover {
@@ -150,8 +174,9 @@ input::-ms-clear {
 
 .iconContainer {
   position: absolute;
-  right: 0;
   top: calc(2rem - .1rem);
+  right: 0;
+
   pointer-events: none;
 }
 
@@ -161,7 +186,23 @@ input::-ms-clear {
 
 
 %activeLabel {
-  font-size: var(--auro-text-body-size-sm);
+  left: 0;
+
   padding: 0;
   padding-top: var(--auro-size-xs);
+
+  font-size: var(--auro-text-body-size-sm);
+}
+
+.creditCard {
+  padding-left: 30px;
+}
+
+.creditCard-icon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  height: 2.3rem;
+  align-items: center;
 }
