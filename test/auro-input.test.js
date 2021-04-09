@@ -20,6 +20,7 @@ describe('auro-input', () => {
     `);
 
     const input = el.shadowRoot.querySelector('input');
+
     expect(input.value).to.equal('other value');
   });
 
@@ -119,8 +120,7 @@ describe('auro-input', () => {
       <auro-input></auro-input>
     `);
 
-    const input = el.shadowRoot.querySelector('input');
-    setInputValue(input, 'triggered');
+    setInputValue(el, 'triggered');
     expect(el.value).to.equal('triggered');
   });
 
@@ -139,17 +139,17 @@ describe('auro-input', () => {
     `);
     const validateSpy = sinon.spy(el, 'validate');
     const input = el.shadowRoot.querySelector('input');
-    
+
     expect(el.isValid).to.be.true;
     input.focus();
-    setInputValue(input, 'whatever@alaskaair.com');
+    setInputValue(el, 'whatever@alaskaair.com');
     expect(validateSpy.callCount).to.equal(0);
 
     input.blur();
     expect(validateSpy.callCount).to.equal(1);
     expect(el.isValid).to.be.true;
 
-    setInputValue(input, 'whatever');
+    setInputValue(el, 'whatever');
     expect(validateSpy.callCount).to.equal(2);
     expect(el.isValid).to.be.false;
   });
@@ -212,9 +212,87 @@ describe('auro-input', () => {
 
     await expect(el).to.be.true;
   });
+
+  it('handles credit card formatting - starts with "34" is American Express', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
+    `);
+
+    setInputValue(el, '34');
+    validateCardIcon(el, 'Cc Amex');
+  });
+
+  it('handles credit card formatting - starts with "37" is American Express', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
+    `);
+
+    setInputValue(el, '37');
+    validateCardIcon(el, 'Cc Amex');
+  });
+
+  it('handles credit card formatting - starts with "4" is Visa', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
+    `);
+
+    setInputValue(el, '4');
+    validateCardIcon(el, 'Cc Visa');
+  });
+
+  it('handles credit card formatting - starts with "22" is MasterCard', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
+    `);
+
+    setInputValue(el, '5');
+    validateCardIcon(el, 'Cc Mastercard');
+  });
+
+  it('handles credit card formatting - starts with "644" is Discover Card', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
+    `);
+
+    setInputValue(el, '6');
+    validateCardIcon(el, 'Cc Discover');
+  });
+
+  it('handles credit card formatting - Undefined Value', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
+    `);
+
+    setInputValue(el, undefined);
+    validateCardIcon(el, 'Credit Card');
+  });
+
+  it('handles credit card formatting - Empty Value', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
+    `);
+
+    setInputValue(el, '');
+    validateCardIcon(el, 'Credit Card');
+  });
+
+  it('handles credit card formatting - Alaska Air Visa Cards', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
+    `);
+
+    setInputValue(el, '4147 34');
+    validateCardIcon(el, 'Cc Alaska');
+  });
 });
 
-function setInputValue(input, value) {
+async function validateCardIcon(el, value) {
+  const cardIcon = el.shadowRoot.querySelector('.creditCard-icon');
+  await expect(cardIcon).to.include.html(`<title>${value}</title>`)
+}
+
+function setInputValue(el, value) {
+  const input = el.shadowRoot.querySelector('input');
   input.value = value;
   input.dispatchEvent(new InputEvent('input'));
 }
