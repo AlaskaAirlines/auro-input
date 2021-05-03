@@ -21,7 +21,7 @@ import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
  * @attr {String} id - Sets the unique ID of the element.
  * @attr {String} label - Sets the label text for the input.
  * @attr {String} name - Populates the `name` attribute on the input.
- * @attr {String} type - Populates the `type` attribute on the input. Allowed values are `password`, `email` or `text`. If given value is not allowed or set, defaults to `text`.
+ * @attr {String} type - Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`  or `text`. If given value is not allowed or set, defaults to `text`.
  * @attr {String} value - Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input.
  * @attr {Boolean} icon - If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format.
  * @attr {Boolean} disabled - If set, disables the input.
@@ -86,8 +86,8 @@ export default class BaseInput extends LitElement {
       label:                   { type: String },
       name:                    { type: String },
       type:                    { type: String },
-      icon:                    { type: Boolean },
       value:                   { type: String },
+      icon:                    { type: Boolean },
       disabled:                { type: Boolean },
       isValid:                 { type: Boolean },
       required:                { type: Boolean },

@@ -165,6 +165,10 @@ export default class AuroInput extends BaseInput {
 
     this.maxLength = card.formatLength;
 
+    if (!this.noValidate) {
+      this.customValidationMessage = card.customValidationMessage;
+    }
+
     if (this.icon) {
       const svg = new DOMParser().parseFromString(card.cardIcon.svg, 'text/html').body.firstChild;
 
@@ -183,44 +187,52 @@ export default class AuroInput extends BaseInput {
    * @returns {object} JSON with data for credit card formatting
    */
   matchInputValueToCreditCard() {
-    let type = {
-      name: 'Default Card',
-      formatLength: 19,
-      cardIcon: creditCard
-    };
-
-    const creditCardTypes = [
+    const defaultCustomValidationMessage = 'Card number is not valid.',
+    // eslint-disable-next-line sort-vars
+    creditCardTypes = [
       {
         name: 'American Express',
         regex: /^(?<num>34|37)\d{0,9}/u,
         formatLength: 17,
+        customValidationMessage: defaultCustomValidationMessage,
         cardIcon: creditCardAmex
       },
       {
         name: 'Visa',
         regex: /^(?<num>4)\d{0,9}/u,
         formatLength: 19,
+        customValidationMessage: defaultCustomValidationMessage,
         cardIcon: creditCardVisa
       },
       {
         name: 'Master Card',
         regex: /^(?<num>5)\d{0,9}/u,
         formatLength: 19,
+        customValidationMessage: defaultCustomValidationMessage,
         cardIcon: creditCardMastercard
       },
       {
         name: 'Discover Card',
         regex: /^(?<num>6)\d{0,9}/u,
         formatLength: 19,
+        customValidationMessage: defaultCustomValidationMessage,
         cardIcon: creditCardDiscover
       },
       {
         name: 'Alaska Airlines Visa',
         regex: /^(?<num>4147\s34|4888\s93|4800\s11|4313\s51|4313\s07)\d{0,9}/u,
         formatLength: 19,
+        customValidationMessage: defaultCustomValidationMessage,
         cardIcon: creditCardAlaskaAirVisa
       }
     ]
+
+    let type = {
+      name: 'Default Card',
+      formatLength: 19,
+      customValidationMessage: defaultCustomValidationMessage,
+      cardIcon: creditCard
+    };
 
     creditCardTypes.forEach((cardType) => {
       if (cardType.regex.exec(this.value)) {
@@ -272,6 +284,7 @@ export default class AuroInput extends BaseInput {
         id="${this.id}"
         name="${ifDefined(this.name)}"
         type="${this.getInputType(this.type)}"
+        pattern="${ifDefined(this.type === 'credit-card' && !this.noValidate && this.maxLength ? `.{${this.maxLength},${this.maxLength}}` : undefined)}"
         maxlength="${ifDefined(this.maxLength ? this.maxLength : undefined)}"
         inputmode="${ifDefined(this.numericKeyboard ? `numeric` : undefined)}"
         ?required="${this.required}"

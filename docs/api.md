@@ -14,7 +14,7 @@
 | `name`                    | `name`                    | `String`  | Populates the `name` attribute on the input.     |
 | `noValidate`              | `noValidate`              | `Boolean` | If set, disables auto-validation on blur.        |
 | `required`                | `required`                | `Boolean` | Populates the `required` attribute on the input. Used for client-side validation. |
-| `type`                    | `type`                    | `String`  | Populates the `type` attribute on the input. Allowed values are `password`, `email` or `text`. If given value is not allowed or set, defaults to `text`. |
+| `type`                    | `type`                    | `String`  | Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`  or `text`. If given value is not allowed or set, defaults to `text`. |
 | `value`                   | `value`                   | `String`  | Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input. |
 
 ## Events
