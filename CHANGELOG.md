@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [1.3.0](https://github.com/AlaskaAirlines/auro-input/compare/v1.2.0...v1.3.0) (2021-05-05)
+
+
+### Features
+
+* add cleavejs formatting ([fcbc044](https://github.com/AlaskaAirlines/auro-input/commit/fcbc04476faaf979a7ca9763dfb195298723b807))
+
 # [1.2.0](https://github.com/AlaskaAirlines/auro-input/compare/v1.1.2...v1.2.0) (2021-02-13)
 
 
