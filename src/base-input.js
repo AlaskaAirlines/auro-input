@@ -166,9 +166,11 @@ export default class BaseInput extends LitElement {
     }
 
     // prevents cursor jumping in Safari
-    this.updateComplete.then(() => {
-      this.inputElement.setSelectionRange(selectionStart, selectionStart)
-    });
+    if (this.type !== "credit-card") {
+      this.updateComplete.then(() => {
+        this.inputElement.setSelectionRange(selectionStart, selectionStart)
+      });
+    }
   }
 
   /**
