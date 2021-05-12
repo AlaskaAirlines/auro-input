@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.3.2](https://github.com/AlaskaAirlines/auro-input/compare/v1.3.1...v1.3.2) (2021-05-12)
+
+
+### Bug Fixes
+
+* restrict use of cursor jump function ([bf42812](https://github.com/AlaskaAirlines/auro-input/commit/bf42812b5964e5f0aff0ec95e83e2b936511801e))
+
 ## [1.3.1](https://github.com/AlaskaAirlines/auro-input/compare/v1.3.0...v1.3.1) (2021-05-10)
 
 
