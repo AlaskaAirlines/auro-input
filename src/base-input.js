@@ -85,7 +85,7 @@ export default class BaseInput extends LitElement {
       id:                      { type: String },
       label:                   { type: String },
       name:                    { type: String },
-      type:                    { type: String },
+      type:                    { type: String, reflect: true },
       value:                   { type: String },
       icon:                    { type: Boolean },
       disabled:                { type: Boolean },
