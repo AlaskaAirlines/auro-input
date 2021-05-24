@@ -44,7 +44,8 @@ export default class AuroInput extends BaseInput {
   // function to define props used within the scope of this component
   static get properties() {
     return {
-      ...super.properties
+      ...super.properties,
+      showPassword: {state: true}
     };
   }
 
@@ -69,15 +70,8 @@ export default class AuroInput extends BaseInput {
    * @returns {string} returns string based on type
    */
   handleClickShowPassword() {
-    if (this.type === "password") {
-      this.type = "text";
-      this.showPassword = true;
-      this.focus();
-    } else if (this.type === "text") {
-      this.type = "password";
-      this.showPassword = false;
-      this.focus();
-    }
+    this.showPassword = !this.showPassword;
+    this.focus();
   }
 
   /**
@@ -113,10 +107,9 @@ export default class AuroInput extends BaseInput {
    * @returns {string} html string
    */
   showPasswordIcon() {
-    if (this.type === 'password' || this.type === 'text') {
+    if (this.type === 'password') {
       return html`
       <button
-        id="passwordToggle"
         class="iconButton passwordToggle"
         @click="${this.handleClickShowPassword}"
         tabindex="-1"
@@ -283,7 +276,7 @@ export default class AuroInput extends BaseInput {
         class="${classMap(inputClasses)}"
         id="${this.id}"
         name="${ifDefined(this.name)}"
-        type="${this.getInputType(this.type)}"
+        type="${this.type === 'password' && this.showPassword ? 'text' : this.getInputType(this.type)}"
         pattern="${ifDefined(this.type === 'credit-card' && !this.noValidate && this.maxLength ? `.{${this.maxLength},${this.maxLength}}` : undefined)}"
         maxlength="${ifDefined(this.maxLength ? this.maxLength : undefined)}"
         inputmode="${ifDefined(this.numericKeyboard ? `numeric` : undefined)}"
