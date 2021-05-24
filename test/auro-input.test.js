@@ -39,7 +39,7 @@ describe('auro-input', () => {
       <auro-input type="password" value="password" label="password"></auro-input>
     `);
 
-    const toggle = el.shadowRoot.querySelector('#passwordToggle');
+    const toggle = el.shadowRoot.querySelector('.passwordToggle');
     const input = el.shadowRoot.querySelector('.inputElement');
     toggle.click();
     await elementUpdated(input);

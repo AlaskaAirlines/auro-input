@@ -25,13 +25,11 @@ auro-input-light {
   visibility: hidden;
 }
 
-:host([type=password]) {
-  .passwordIcon--show {
-    .passwordToggle {
-      visibility: visible;
+.passwordIcon--show {
+  .passwordToggle {
+    visibility: visible;
 
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 }
 
