@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.3.5](https://github.com/AlaskaAirlines/auro-input/compare/v1.3.4...v1.3.5) (2021-06-25)
+
+
+### Bug Fixes
+
+* catch exception [#41](https://github.com/AlaskaAirlines/auro-input/issues/41) ([347069f](https://github.com/AlaskaAirlines/auro-input/commit/347069f06741bbf8800820a8b718eacf885c5cbd))
+
 ## [1.3.4](https://github.com/AlaskaAirlines/auro-input/compare/v1.3.3...v1.3.4) (2021-06-10)
 
 
