@@ -28,6 +28,7 @@ import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} isValid - Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
+ * @event input - Event fires when the value of an `auro-input` has been changed.
  */
 
 export default class BaseInput extends LitElement {
@@ -55,14 +56,25 @@ export default class BaseInput extends LitElement {
      */
     this.viewPassword = this.getIconAsHtml(viewPassword);
 
+    this.type = 'text';
+
     /**
-     * @private Set input type for element
+     * @private Restrict to specific list of allowed types
      */
     this.allowedInputTypes = [
       "text",
       "email",
       "password",
       "credit-card"
+    ];
+
+    /**
+     * @private Restricts application of cursor adjustment to specific input types
+     */
+     this.setSelectionInputTypes = [
+      "text",
+      "password",
+      "email",
     ];
 
     /**
@@ -166,9 +178,13 @@ export default class BaseInput extends LitElement {
     }
 
     // prevents cursor jumping in Safari
-    if (this.type !== "credit-card") {
+    if (this.setSelectionInputTypes.includes(this.type)) {
       this.updateComplete.then(() => {
-        this.inputElement.setSelectionRange(selectionStart, selectionStart)
+        try {
+          this.inputElement.setSelectionRange(selectionStart, selectionStart)
+        } catch (error) {
+          // do nothing
+        }
       });
     }
   }
