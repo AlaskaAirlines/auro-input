@@ -7,10 +7,9 @@
     "  3. Go to http://localhost:8000",
     "================================================================================"
   ],
-  "name": "@alaskaairux/auro-input",
-  "version": "1.3.6",
-  "description": "Auro custom auro-input element",
-  "author": "Product design and research",
+  "name": "@aurodesignsystem/auro-input",
+  "version": "0.0.0",
+  "description": "auro-input HTML custom element",
   "repository": {
     "type": "git",
     "url": "https://github.com/AlaskaAirlines/auro-input"
@@ -26,116 +25,81 @@
   "peerDependencies": {
     "@alaskaairux/design-tokens": "^3.3.0",
     "@alaskaairux/webcorestylesheets": "^3.4.0",
-    "@webcomponents/webcomponentsjs": "^2.4.4",
-    "focus-visible": "^5.1.0"
+    "@webcomponents/webcomponentsjs": "^2.5.0",
+    "focus-visible": "^5.2.0"
   },
   "devDependencies": {
     "@alaskaairux/design-tokens": "^3.3.0",
     "@alaskaairux/webcorestylesheets": "^3.4.0",
-    "@babel/core": "^7.14.5",
+    "@aurodesignsystem/eslint-config": "^1.1.0",
+    "@babel/core": "^7.14.6",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.5",
-    "@babel/runtime": "^7.14.5",
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/runtime": "^7.14.6",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "@open-wc/testing": "^2.5.33",
-    "@open-wc/testing-karma": "^4.0.9",
     "@polymer/iron-demo-helpers": "^3.1.0",
+    "@rollup/plugin-alias": "^3.1.2",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/npm": "^7.1.3",
     "@web/dev-server": "^0.1.17",
+    "@web/test-runner": "^0.13.13",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "autoprefixer": "^10.2.6",
     "babel-loader": "^8.2.2",
     "compression": "^1.7.4",
     "concat": "^1.0.3",
-    "copy-webpack-plugin": "^6.4.1",
     "copyfiles": "^2.4.1",
-    "core-js": "^3.14.0",
-    "eslint": "^7.28.0",
-    "eslint-plugin-lit": "^1.5.1",
+    "core-js": "^3.15.2",
+    "eslint": "^7.29.0",
     "focus-visible": "^5.2.0",
-    "husky": "^4.3.8",
+    "husky": "^6.0.0",
     "lodash": "^4.17.21",
-    "marked": "^2.0.7",
-    "nodemon": "^2.0.7",
+    "marked": "^2.1.3",
+    "nodemon": "^2.0.8",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.3.1",
+    "postcss": "^8.3.5",
     "postcss-custom-properties": "^11.0.0",
     "postcss-discard-comments": "^5.0.1",
+    "postcss-rem-to-pixel": "^4.1.2",
     "postcss-remove-rules": "^1.0.0",
     "postcss-selector-replace": "^1.0.2",
-    "semantic-release": "^17.4.3",
+    "prismjs": "^1.24.0",
+    "rollup": "^2.52.3",
+    "rollup-plugin-minify-html-literals": "^1.2.6",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "semantic-release": "^17.4.4",
+    "sass": "^1.35.1",
     "sinon": "^9.2.4",
     "stylelint": "^13.13.1",
-    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.19.0",
     "wc-sass-render": "^1.2.3",
     "web-component-analyzer": "^1.1.6",
-    "webpack": "^5.38.1",
-    "webpack-bundle-analyzer": "^3.9.0",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.8.0",
+    "whatwg-fetch": "^3.6.2",
     "yaml-lint": "^1.2.4"
   },
   "browserslist": [
-    "last 2 version",
-    "> 15% in US",
-    "not IE 10",
-    "not IE_Mob 10",
-    "not IE_Mob 11"
+    "last 2 Chrome versions",
+    "last 2 iOS major versions",
+    "ie 11",
+    "last 2 Firefox versions",
+    "last 2 Edge versions",
+    "last 2 Safari major versions"
   ],
-  "scripts": {
-    "build": "npm run ciBuild",
-    "apiBuild": "wca analyze 'src/auro-input.js' --outFiles docs/api.md",
-    "bundler": "webpack --mode=production",
-    "bundle:test": "webpack-dev-server --host 0.0.0.0",
-    "postinstall": "node packageScripts/postinstall.js",
-    "cssLint": "stylelint './src/*.css'",
-    "dev": "npm run sassBuild:watch",
-    "distJS": "copyfiles -u 1 -V './src/**/*.js' ./dist",
-    "sassRender": "sass-render src/*.css -t ./scripts/staticStyles-template.js",
-    "sweep": "rm -rf ./temp ./demo/css ./demo/fonts ./dist ./src/tokens | rm ./src/*.css ./src/*-css.js",
-    "esLint": "./node_modules/.bin/eslint src/auro-*.js",
-    "lint": "npm-run-all cssLint esLint",
-    "test": "karma start --coverage",
-    "test:watch": "karma start --auto-watch=true --single-run=false",
-    "test:ci": "npm-run-all test lint",
-    "ciBuild": "npm-run-all sassBuild sassRender cssLint distJS bundler postinstall apiBuild",
-    "sassBuild": "npm-run-all sassBuild:demo sassBuild:component postCss:component sassRender",
-    "sassBuild:dev": "npm-run-all sassBuild:demo sassBuild:component postCss:component sassRender",
-    "sassBuild:demo": "node-sass ./demo/sass/ --output ./demo/css/",
-    "sassBuild:component": "node-sass ./src/ --output ./src/",
-    "sassBuild:watch": "nodemon -e scss --watch src --exec npm run sassBuild:dev",
-    "postCss:component": "node ./scripts/postCss.js",
-    "serve": "web-dev-server -open demo/ --node-resolve --watch"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm-run-all test lint bundler postinstall",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "useBuiltIns": "entry",
-          "corejs": "3.0.0"
-        }
-      ]
-    ],
-    "plugins": [
-      "@babel/plugin-syntax-dynamic-import",
-      [
-        "@babel/plugin-transform-runtime",
-        {
-          "regenerator": true
-        }
-      ]
+  "nodemonConfig": {
+    "ignore": [
+      "*-css.js",
+      "*.css"
     ]
   },
   "release": {
@@ -158,31 +122,52 @@
         {
           "assets": [
             "./CHANGELOG.md",
-            "package.json"
+            "package.json",
+            "./docs/api.md"
           ]
         }
       ],
       "@semantic-release/github"
     ]
   },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
   "publishConfig": {
     "access": "public"
   },
-  "contributors": [
-    {
-      "name": "Dale Sande",
-      "email": "dale.sande@gmail.com"
-    }
-  ],
   "keywords": [
     "alaska airlines",
     "auro",
     "design system",
     "web components"
-  ]
+  ],
+  "scripts": {
+    "build": "npm-run-all build:sass sass:render dist:js build:api bundler postinstall test",
+    "build:ci": "npm-run-all sweep build",
+    "build:api": "wca analyze 'src/auro-input.js' --outFiles docs/api.md",
+    "build:demo": "npm-run-all build demo:rm:build demo:new:build demo:copy:index demo:copy:demo demo:update:index",
+    "build:dev:assets": "npm-run-all build:sass:demo build:sass:component postCss:component sass:render",
+    "build:sass": "npm-run-all build:sass:demo build:sass:component postCss:component sass:render",
+    "build:sass:demo": "sass demo:demo",
+    "build:sass:component": "sass src:src",
+    "build:watch": "nodemon -e scss,js --watch src --exec npm run build:dev:assets",
+    "bundler": "rollup -c",
+    "bundler:test": "rollup -c -w",
+    "scssLint": "stylelint \"./src/**/*.scss\"",
+    "demo:copy:demo": "copyfiles -u 1 -V './demo/demo.md' ./build/demo",
+    "demo:copy:index": "copyfiles -u 1 -V './demo/index.html' ./build",
+    "demo:new:build": "mkdir ./build && mkdir ./build/css && mkdir ./build/demo",
+    "demo:rm:build": "rm -rf ./build",
+    "demo:update:index": "node ./scripts/prepForBuild",
+    "dev": "npm run build:watch",
+    "dist:js": "copyfiles -u 1 -V './src/**/*.js' ./dist",
+    "esLint": "./node_modules/.bin/eslint src/**/*.js",
+    "linters": "npm-run-all scssLint esLint",
+    "preCommit": "node scripts/pre-commit.js",
+    "postCss:component": "node ./scripts/postCss.js",
+    "postinstall": "node packageScripts/postinstall.js",
+    "sass:render": "sass-render src/*.css -t ./scripts/staticStyles-template.js",
+    "serve": "web-dev-server --open demo/ --node-resolve --watch",
+    "sweep": "rm -rf ./demo/css ./dist | rm ./src/*.css ./src/*-css.js",
+    "test": "wtr --coverage",
+    "test:watch": "wtr --watch"
+  }
 }
