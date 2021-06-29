@@ -19,13 +19,7 @@ console.log(chalk.hex('#f26135')(`
 ╭ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ──────────────────────────────╮
 
         Thanks for installing the latest version
-                of `) + chalk.hex('#ffd200').bold(`auro-input v${pjson.version}.`) + chalk.hex('#ffd200').bold(`
-
-      =>  DEPRECATION ALERT! DEPRECATION ALERT! <=`) + chalk.hex('#f26135')(`
-
-      With this release, the `) + chalk.hex('#ffd200').bold(`light DOM version`) + chalk.hex('#f26135')(` of
-      auro-input is `) + chalk.hex('#ffd200').bold(`deprecated`) + chalk.hex('#f26135')(`. This feature will be
-      removed with the release of `) + chalk.hex('#ffd200').bold(`auro-input v2.0`) + chalk.hex('#f26135')(`.
+                of `) + chalk.hex('#ffd200').bold(`auro-input v${pjson.version}.`) + chalk.hex('#f26135')(`
 
 ╰─────────────────────────────── ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─╯
 `)

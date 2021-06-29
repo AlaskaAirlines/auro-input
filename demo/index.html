@@ -1,154 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auro Web Component Generator | auro-lockup custom element</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/prismjs@latest/themes/prism.css"
     />
-    <title>Auro Web Component Generator | auro-input custom element</title>
-    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-    <script type="module">
-      import '@polymer/iron-demo-helpers/demo-pages-shared-styles';
-      import '@polymer/iron-demo-helpers/demo-snippet';
-    </script>
-    <script type="module" src="../src/auro-input.js"></script>
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles"></style>
-    </custom-style>
-
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <div class="vertical-section-container">
-      <h1>Shadow DOM examples</h1>
-      <h2>Undefined element</h2>
-      <demo-snippet>
-        <template>
-          <auro-input></auro-input>
-        </template>
-      </demo-snippet>
+    <main></main>
 
-      <h2>type="credit-card"</h2>
-      <h3>Default type w/o credit card icons</h3>
-      <demo-snippet>
-        <template>
-          <auro-input id="format-cc" type="credit-card" label="Credit Card Number without Icon"></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h3>Default type w/o credit card icons; required with validation on tab-out</h3>
-      <demo-snippet>
-        <template>
-          <auro-input id="format-cc" type="credit-card" label="Credit Card Number without Icon" required></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h3>Default type w/o credit card icons; required with no validation on tab-out</h3>
-      <demo-snippet>
-        <template>
-          <auro-input id="format-cc" type="credit-card" label="Credit Card Number without Icon" required noValidate></auro-input>
-        </template>
-      </demo-snippet>
-
-      <demo-snippet>
-        <template>
-          <auro-input id="format-cc" type="credit-card" label="Credit Card Number Icon" icon></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h3>Default type w/credit card icons; required with validation on tab-out</h3>
-      <demo-snippet>
-        <template>
-          <auro-input id="format-cc" type="credit-card" label="Credit Card Number Icon" icon required></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h3>Default type w/credit card icons; required with no validation on tab-out</h3>
-      <demo-snippet>
-        <template>
-          <auro-input id="format-cc" type="credit-card" label="Credit Card Number Icon" helptext="You good, you need help with that?" icon required noValidate></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h3>Default type w/credit card icons; set error</h3>
-      <demo-snippet>
-        <template>
-          <auro-input id="format-cc" type="credit-card" label="Credit Card Number Icon" error="Wow, you really messed that up!" icon></auro-input>
-        </template>
-      </demo-snippet>
-
-
-      <h2>type="email"</h2>
-      <h3>Required and validated on tab-out</h3>
-      <p>Required validation of the email itself will happen on tab-out. Once the user tabs back in, then live validation will kick in.</p>
-      <demo-snippet>
-        <template>
-          <auro-input type="email" label="Email Address" helptext="Please enter name@domain.com" id="emailTest01" required></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h3>Required, but not validated on tab-out</h3>
-      <p>No validation of the email itself will happen on tab-out. Once the user tabs back in, then live validation will kick in.</p>
-      <demo-snippet>
-        <template>
-          <auro-input type="email" label="Email Address" helptext="Please enter name@domain.com" id="emailTest01" required noValidate></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h3>Optional w/pre-defined value</h3>
-      <demo-snippet>
-        <template>
-          <auro-input type="email" value="dale@alaskaair.com" label="Email Address" helptext="Enter your email" id="emailTest02"></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h2>type="password"</h2>
-      <h3>Required with validation on tab-out</h3>
-      <demo-snippet>
-        <template>
-          <auro-input type="password" label="Password" helptext="Please enter your password" required id="passwordTest01"></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h3>Required, no-validate</h3>
-      <demo-snippet>
-        <template>
-          <auro-input type="password" label="Password" helptext="Please enter your password" id="passwordTest01" required noValidate></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h2>type="text"</h2>
-      <h3>Required with validation on tab-out</h3>
-      <p>Note: default text inputs will capitalize the first letter on iOS, spellcheck is optional based on user preferences.</p>
-      <demo-snippet>
-        <template>
-          <auro-input type="text" label="Default text input" helptext="Enter some words, it will be awesome!" id="itisaTest01" required></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h3>Required with no validation on tab-out</h3>
-      <p>Note: default text inputs will capitalize the first letter on iOS, spellcheck is optional based on user preferences.</p>
-      <demo-snippet>
-        <template>
-          <auro-input type="text" label="Default text input" helptext="Enter some words, it will be awesome!" id="itisaTest01" required noValidate></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h2>Optional attributes</h2>
-      <h3>Error string attribute</h3>
-      <demo-snippet>
-        <template>
-          <auro-input label="First name" helptext="Enter your first name" id="invalidInputTest01" error="Not a real name" ></auro-input>
-        </template>
-      </demo-snippet>
-
-      <h3>Disabled boolean attribute</h3>
-      <demo-snippet>
-        <template>
-          <auro-input type="email" label="First name" helptext="Enter your first name" id="disabledEmailTest01" disabled></auro-input>
-        </template>
-      </demo-snippet>
-    </div>
+    <script type="module">
+      import 'https://unpkg.com/marked@latest/marked.min.js';
+      import 'https://unpkg.com/prismjs@latest/prism.js';
+      fetch('/demo/demo.md')
+        .then((response) => response.text())
+        .then((text) => {
+          const rawHtml = marked(text);
+          document.querySelector('main').innerHTML = rawHtml;
+          Prism.highlightAll();
+        });
+    </script>
+    <script type="module" src="../src/auro-input.js"></script>
+    <script src="https://unpkg.com/@alaskaairux/auro-accordion@latest/dist/auro-accordion__bundled.js" type="module"></script>
   </body>
 </html>
