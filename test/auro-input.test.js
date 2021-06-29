@@ -218,7 +218,7 @@ describe('auro-input', () => {
       <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
     `);
 
-    setInputValue(el, '34');
+    await setInputValue(el, '34');
     validateCardIcon(el, 'Cc Amex');
   });
 
@@ -227,7 +227,7 @@ describe('auro-input', () => {
       <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
     `);
 
-    setInputValue(el, '37');
+    await setInputValue(el, '37');
     validateCardIcon(el, 'Cc Amex');
   });
 
@@ -236,7 +236,7 @@ describe('auro-input', () => {
       <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
     `);
 
-    setInputValue(el, '4');
+    await setInputValue(el, '4');
     validateCardIcon(el, 'Cc Visa');
   });
 
@@ -245,7 +245,7 @@ describe('auro-input', () => {
       <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
     `);
 
-    setInputValue(el, '5');
+    await setInputValue(el, '5');
     validateCardIcon(el, 'Cc Mastercard');
   });
 
@@ -254,7 +254,7 @@ describe('auro-input', () => {
       <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
     `);
 
-    setInputValue(el, '6');
+    await setInputValue(el, '6');
     validateCardIcon(el, 'Cc Discover');
   });
 
@@ -263,7 +263,7 @@ describe('auro-input', () => {
       <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
     `);
 
-    setInputValue(el, undefined);
+    await setInputValue(el, undefined);
     validateCardIcon(el, 'Credit Card');
   });
 
@@ -272,7 +272,7 @@ describe('auro-input', () => {
       <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
     `);
 
-    setInputValue(el, '');
+    await setInputValue(el, '');
     validateCardIcon(el, 'Credit Card');
   });
 
@@ -281,7 +281,7 @@ describe('auro-input', () => {
       <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
     `);
 
-    setInputValue(el, '4147 34');
+    await setInputValue(el, '4147 34');
     validateCardIcon(el, 'Cc Alaska');
   });
 });
