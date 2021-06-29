@@ -2,24 +2,20 @@
 node_modules/
 .cache/
 
-## Sass files built on demand from Token files
-demo/sass/_*.scss
-tokens/
-altImports/
+## Demo support files
+demo/*.css
+demo/*.css.map
 
 ## CSS built from Sass process
-demo/css
-demo/sass/tokenProperties.scss
 src/*.css
+src/*.css.map
 
 ## *-css built from sass-render process
 *-css.js
 
-## Build on demand from npm
-demo/fonts
-
 ## dist files
 dist/
+build/
 
 ## Karma code coverage reports
 coverage/
