@@ -109,7 +109,7 @@ input::-ms-clear {
   transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   pointer-events: none;
 
-  color: var(auro-color-text-primary-on-light);
+  color: var(--auro-color-text-secondary-on-light);
 }
 
 .inputElement-labelIcon--no-value {
@@ -189,7 +189,7 @@ input::-ms-clear {
   padding: 0;
   padding-top: var(--auro-size-xs);
 
-  font-size: var(--auro-text-body-size-sm);
+  font-size: var(--auro-text-body-size-xs);
 }
 
 .creditCard {
