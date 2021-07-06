@@ -86,6 +86,12 @@ export default class BaseInput extends LitElement {
      * @private Value is unique ID set at runtime
      */
     this.uniqueId = Math.random().toString(36).substring(2, 8);
+
+    this.icon = false;
+    this.disabled = false;
+    this.isValid = true;
+    this.required = false;
+    this.noValidate = false;
   }
 
   // function to define props used within the scope of this component
