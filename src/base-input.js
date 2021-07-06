@@ -171,7 +171,13 @@ export default class BaseInput extends LitElement {
    * @returns {string} Validates string entered into the input field.
    */
   handleInput() {
+    // Prevent non-numeric characters from being entered on credit card fields
+    if (this.type === 'credit-card') {
+      this.inputElement.value = this.inputElement.value.replace(/[\D]/g,'');
+    }
+
     this.value = this.inputElement.value;
+
     const selectionStart = this.inputElement.selectionStart;
     if (this.hasBlurred) {
       this.validate();
