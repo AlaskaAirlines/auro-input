@@ -103,6 +103,18 @@ The `<auro-input>` element should be used in situations where users may:
 <auro-input label="First name" value="Alaska" error="This name already exists" required></auro-input>
 ```
 
+### Input with credit card formatting
+```html
+<auro-input type="credit-card" label="Card number" id="credit-card" helptext="Please enter your credit card number" required></auro-input>
+```
+
+### Input with credit card formatting and credit card icons
+This will require the install of [auro-icon](https://auro.alaskaair.com/components/auro/icon) as a peer dependency.
+
+```html
+<auro-input type="credit-card" label="Card number" id="credit-card" helptext="Please enter your credit card number" required  icon></auro-input>
+```
+
 ## Development
 
 In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
