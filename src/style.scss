@@ -198,11 +198,11 @@ input::-ms-clear {
 
 .creditCard-icon {
   position: absolute;
-  top: 0;
+  top: 2px;
   left: 0;
 
   display: flex;
   height: var(--auro-size-xl);
-  margin-top: var(--auro-size-lg); // 1.6rem;
+  margin-top: var(--auro-size-lg);
   align-items: center;
 }
