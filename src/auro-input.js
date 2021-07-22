@@ -11,14 +11,6 @@ import { ifDefined } from 'lit-html/directives/if-defined.js';
 import BaseInput from './base-input';
 import Cleave from 'cleave.js';
 
-import creditCard from '@alaskaairux/icons/dist/icons/payment/credit-card_es6';
-import creditCardAmex from '@alaskaairux/icons/dist/icons/payment/cc-amex_es6';
-import creditCardDiscover from '@alaskaairux/icons/dist/icons/payment/cc-discover_es6';
-import creditCardMastercard from '@alaskaairux/icons/dist/icons/payment/cc-mastercard_es6';
-import creditCardVisa from '@alaskaairux/icons/dist/icons/payment/cc-visa_es6';
-import creditCardAlaskaAirVisa from '@alaskaairux/icons/dist/icons/payment/cc-alaska_es6';
-
-
 // build the component class
 export default class AuroInput extends BaseInput {
 
@@ -26,19 +18,24 @@ export default class AuroInput extends BaseInput {
     super();
 
     /**
-     * @private Boolean value to determine which password icon to show
+     * @private
      */
     this.showPassword = false;
 
     /**
-     * @private Boolean value to determine if numeric keyboard should be show on mobile devices
+     * @private
      */
     this.numericKeyboard = false;
 
     /**
-     * @private Integer used to set a maximum length on the input field
+     * @private
      */
     this.maxLength = undefined;
+
+    /**
+     * @private
+     */
+     this.inputIconName = undefined;
   }
 
   // function to define props used within the scope of this component
@@ -163,16 +160,8 @@ export default class AuroInput extends BaseInput {
     }
 
     if (this.icon) {
-      const svg = new DOMParser().parseFromString(card.cardIcon.svg, 'text/html').body.firstChild;
-
-      return html`
-      <div class="creditCard-icon">
-        ${svg}
-      </div>
-      `
+      this.inputIconName = card.cardIcon;
     }
-
-    return html``;
   }
 
   /**
@@ -188,35 +177,35 @@ export default class AuroInput extends BaseInput {
         regex: /^(?<num>34|37)\d{0,9}/u,
         formatLength: 17,
         customValidationMessage: defaultCustomValidationMessage,
-        cardIcon: creditCardAmex
+        cardIcon: 'cc-amex'
       },
       {
         name: 'Visa',
         regex: /^(?<num>4)\d{0,9}/u,
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
-        cardIcon: creditCardVisa
+        cardIcon: 'cc-visa'
       },
       {
         name: 'Master Card',
         regex: /^(?<num>5)\d{0,9}/u,
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
-        cardIcon: creditCardMastercard
+        cardIcon: 'cc-mastercard'
       },
       {
         name: 'Discover Card',
         regex: /^(?<num>6)\d{0,9}/u,
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
-        cardIcon: creditCardDiscover
+        cardIcon: 'cc-discover'
       },
       {
         name: 'Alaska Airlines Visa',
         regex: /^(?<num>4147\s34|4888\s93|4800\s11|4313\s51|4313\s07)\d{0,9}/u,
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
-        cardIcon: creditCardAlaskaAirVisa
+        cardIcon: 'cc-alaska'
       }
     ]
 
@@ -224,7 +213,7 @@ export default class AuroInput extends BaseInput {
       name: 'Default Card',
       formatLength: 19,
       customValidationMessage: defaultCustomValidationMessage,
-      cardIcon: creditCard
+      cardIcon: 'credit-card'
     };
 
     creditCardTypes.forEach((cardType) => {
@@ -286,7 +275,6 @@ export default class AuroInput extends BaseInput {
         aria-describedby="${this.uniqueId}"
         aria-invalid="${!this.isValid}"
       />
-
       <label for=${this.id} class="${classMap(labelClasses)}">${this.required ? this.label : `${this.label} (optional)`}</label>
       ${this.isValid
         ? html`
@@ -294,7 +282,13 @@ export default class AuroInput extends BaseInput {
         ` : html`
           <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
         `}
-      ${this.type === 'credit-card' ? this.processCreditCard() : undefined}
+        ${this.type === 'credit-card' ? this.processCreditCard() : undefined}
+        ${this.type === 'credit-card' && this.icon ? html`<auro-icon class="creditCard-icon" category="payment" name="credit-card"></auro-icon>` : undefined}
+        ${this.inputIconName === 'cc-amex' ? html`<auro-icon class="creditCard-icon" category="payment" name="cc-amex"></auro-icon>` : undefined}
+        ${this.inputIconName === 'cc-visa' ? html`<auro-icon class="creditCard-icon" category="payment" name="cc-visa"></auro-icon>` : undefined}
+        ${this.inputIconName === 'cc-mastercard' ? html`<auro-icon class="creditCard-icon" category="payment" name="cc-mastercard"></auro-icon>` : undefined}
+        ${this.inputIconName === 'cc-discover' ? html`<auro-icon class="creditCard-icon" category="payment" name="cc-discover"></auro-icon>` : undefined}
+        ${this.inputIconName === 'cc-alaska' ? html`<auro-icon class="creditCard-icon" category="payment" name="cc-alaska"></auro-icon>` : undefined}
       <div class="iconContainer">
         <div class="${classMap(iconClasses)}">
           ${this.showPasswordIcon()}
