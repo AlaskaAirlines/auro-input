@@ -169,6 +169,8 @@ Use the `type="credit-card"` attribute for a credit card formatted input.
 
 Use the `type="credit-card"` and `icon` attributes for a credit card formatted input with credit card icon support.
 
+This will require the install of [auro-icon](https://auro.alaskaair.com/components/auro/icon) as a peer dependency.
+
 <div class="exampleWrapper">
   <auro-input
     type="credit-card"
