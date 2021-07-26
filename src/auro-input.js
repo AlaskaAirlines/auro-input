@@ -4,6 +4,8 @@
 // ---------------------------------------------------------------------
 
 /* eslint-disable max-lines */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable complexity */
 
 import { html } from "lit-element";
 import { repeat } from 'lit-html/directives/repeat.js';
@@ -36,7 +38,7 @@ export default class AuroInput extends BaseInput {
     /**
      * @private
      */
-     this.inputIconName = undefined;
+    this.inputIconName = undefined;
   }
 
   // function to define props used within the scope of this component
@@ -48,24 +50,23 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
-   * @private custom setter so we can re-validate on update
-   * @param {string} value Error string
+   * @private
+   * @param {string} value Error string, custom setter so we can re-validate on update.
    */
   set error(value) {
 
-    const oldVal = this._error;
+    const oldVal = this.auroError;
 
-    this._error = value;
+    this.auroError = value;
     this.requestUpdate('error', oldVal).then(this.validate.bind(this));
   }
 
   get error() {
-    return this._error;
+    return this.auroError;
   }
 
   /**
-   * @private function to toggle between text or password view of input
-   * @returns {string} returns string based on type
+   * @private
    */
   handleClickShowPassword() {
     this.showPassword = !this.showPassword;
@@ -73,20 +74,19 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
-   * @private function to toggle between password icons
-   * @returns {string} returns HTML for SVG
+   * @private
+   * @returns {string} Returns HTML for SVG, function to toggle between password icons.
    */
   togglePasswordIcon() {
     if (this.showPassword) {
-      return this.hidePassword
+      return this.hidePassword;
     }
 
-    return this.viewPassword
+    return this.viewPassword;
   }
 
   /**
-   * @private function manage visibility of show-password icon
-   * @returns {boolean} returns CSS selector
+   * @private
    */
   handleKeyUp() {
     const iconContainer = this.shadowRoot.querySelector('.iconContainer');
@@ -101,20 +101,21 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
-   * @private function for managing when to display the show-password icon
-   * @returns {string} html string
+   * @private
+   * @returns {string} HTML string, function for managing when to display the show-password icon.
    */
   showPasswordIcon() {
     if (this.type === 'password') {
       return html`
-      <button
-        class="iconButton passwordToggle"
-        @click="${this.handleClickShowPassword}"
-        tabindex="-1"
-      >${this.togglePasswordIcon()}</button>`
+        <button
+          class="iconButton passwordToggle"
+          @click="${this.handleClickShowPassword}"
+          tabindex="-1"
+        >${this.togglePasswordIcon()}</button>
+      `;
     }
 
-    return null
+    return null;
   }
 
   connectedCallback() {
@@ -129,7 +130,7 @@ export default class AuroInput extends BaseInput {
         case 'credit-card':
           config = {
             creditCard: true
-          }
+          };
 
           this.numericKeyboard = true;
 
@@ -148,8 +149,7 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
-   * @private function to return html for credit card icon
-   * @returns {string} html string
+   * @private
    */
   processCreditCard() {
     const card = this.matchInputValueToCreditCard();
@@ -166,13 +166,14 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
-   * @private function returns data object for credit card matching value comparison
-   * @returns {object} JSON with data for credit card formatting
+   * @private
+   * @returns {object} JSON with data for credit card formatting.
    */
   matchInputValueToCreditCard() {
-    const defaultCustomValidationMessage = 'Card number is not valid.',
+    const defaultCustomValidationMessage = 'Card number is not valid.';
+
     // eslint-disable-next-line sort-vars
-    creditCardTypes = [
+    const creditCardTypes = [
       {
         name: 'American Express',
         regex: /^(?<num>34|37)\d{0,9}/u,
@@ -208,7 +209,7 @@ export default class AuroInput extends BaseInput {
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'cc-alaska'
       }
-    ]
+    ];
 
     let type = {
       name: 'Default Card',
@@ -221,14 +222,14 @@ export default class AuroInput extends BaseInput {
       if (cardType.regex.exec(this.value)) {
         type = cardType;
       }
-    })
+    });
 
     return type;
   }
 
   /**
-   * @private function to return html for credit card icon
-   * @returns {string} value for the input field after changing undefined to an empty string
+   * @private
+   * @returns {string} Value for the input field after changing undefined to an empty string.
    */
   initializeValue() {
     if (this.value === undefined) {
@@ -245,14 +246,16 @@ export default class AuroInput extends BaseInput {
     const iconClasses = {
       'inputElement-icon': true,
       'alertIcon': !this.isValid
-    },
-    inputClasses = {
+    };
+
+    const inputClasses = {
       "creditCard": this.icon && this.type === 'credit-card',
       "error": !this.isValid,
       "inputElement": true,
       "inputElement--filled": this.value,
-    },
-    labelClasses = {
+    };
+
+    const labelClasses = {
       "inputElement-label": true,
       "is-disabled": this.disabled,
       "inputElement-labelIcon--no-value": this.icon && this.type === 'credit-card' && (this.value === "" || this.value === undefined)
