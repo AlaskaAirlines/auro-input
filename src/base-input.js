@@ -3,7 +3,7 @@
 
 // ---------------------------------------------------------------------
 
-import { LitElement, html, css } from "lit-element";
+import { LitElement, css } from "lit-element";
 
 import styleCss from "./style-css.js";
 import "focus-visible/dist/focus-visible.min.js";
@@ -13,7 +13,7 @@ import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password_
 import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
 
 /**
- * auro-input provides users a way to enter data into a text field.
+ * Auro-input provides users a way to enter data into a text field.
  *
  * @attr {String} customValidationMessage - Overrides the browser validation message when the input is invalid.
  * @attr {String} error - Sets a persistent error message (e.g. an error message returned from the server).
@@ -37,29 +37,29 @@ export default class BaseInput extends LitElement {
     super();
 
     /**
-     * @private Value is SVG for use
+     * @private
      */
     this.closeSvg = this.getIconAsHtml(closelg);
 
     /**
-     * @private Value is SVG for use
+     * @private
      */
     this.alertSvg = this.getIconAsHtml(alert);
 
     /**
-     * @private Value is SVG for use
+     * @private
      */
     this.hidePassword = this.getIconAsHtml(hidePassword);
 
     /**
-     * @private Value is SVG for use
+     * @private
      */
     this.viewPassword = this.getIconAsHtml(viewPassword);
 
     this.type = 'text';
 
     /**
-     * @private Restrict to specific list of allowed types
+     * @private
      */
     this.allowedInputTypes = [
       "text",
@@ -69,23 +69,30 @@ export default class BaseInput extends LitElement {
     ];
 
     /**
-     * @private Restricts application of cursor adjustment to specific input types
+     * @private
      */
-     this.setSelectionInputTypes = [
+    this.setSelectionInputTypes = [
       "text",
       "password",
       "email",
     ];
 
     /**
-     * @private Internal error state used in custom getter/setter
+     * @private
      */
-    this._error = null;
+    this.auroError = null;
+
+
+    const idLength = 36,
+      idSubstrEnd = 8,
+      idSubstrStart = 2;
 
     /**
-     * @private Value is unique ID set at runtime
+     * @private
      */
-    this.uniqueId = Math.random().toString(36).substring(2, 8);
+    this.uniqueId = Math.random().
+      toString(idLength).
+      substring(idSubstrStart, idSubstrEnd);
 
     this.icon = false;
     this.disabled = false;
@@ -130,15 +137,14 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * @private Custom function to ensure that element is programmatically focusable
-   * @returns {object} Value of this.
+   * @private
    */
   focus() {
     this.inputElement.focus();
   }
 
   /**
-   * @private Parse imported SVG object data to string for HTML use
+   * @private
    * @param {string} icon HTML string for requested icon.
    * @returns {object} Appended HTML for SVG.
    */
@@ -149,8 +155,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * @private Clears data entered into the input element
-   * @returns {string} Replaces innerHTML with empty string.
+   * @private
    */
   handleClickClear() {
     let click = null;
@@ -173,18 +178,18 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * @private Validates value of the input in blur
-   * @returns {string} Validates string entered into the input field.
+   * @private
    */
   handleInput() {
     // Prevent non-numeric characters from being entered on credit card fields
     if (this.type === 'credit-card') {
-      this.inputElement.value = this.inputElement.value.replace(/[\D]/g,'');
+      this.inputElement.value = this.inputElement.value.replace(/[\D]/gu, '');
     }
 
     this.value = this.inputElement.value;
 
-    const selectionStart = this.inputElement.selectionStart;
+    const { selectionStart } = this.inputElement;
+
     if (this.hasBlurred) {
       this.validate();
     }
@@ -193,7 +198,7 @@ export default class BaseInput extends LitElement {
     if (this.setSelectionInputTypes.includes(this.type)) {
       this.updateComplete.then(() => {
         try {
-          this.inputElement.setSelectionRange(selectionStart, selectionStart)
+          this.inputElement.setSelectionRange(selectionStart, selectionStart);
         } catch (error) {
           // do nothing
         }
@@ -202,8 +207,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * @private Ensures that the element is always to the left on blur
-   * @returns {state} Determines that user has left input.
+   * @private
    */
   handleBlur() {
     this.hasBlurred = true;
@@ -215,9 +219,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * @private If the error property is set, then the error message should persist
-   * and take precedence over client side validation
-   * @returns {string} Validates string.
+   * @private
    */
   validate() {
     if (this.error && this.error.length > 0) {
@@ -231,7 +233,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * @private Iterates over allowed input types
+   * @private
    * @param {string} type Value entered into component prop.
    * @returns {string} Iterates over allowed types array.
    */
@@ -244,7 +246,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * @private Evaluates different error type messages
+   * @private
    * @returns {string} Error string.
    */
   getErrorMessage() {
