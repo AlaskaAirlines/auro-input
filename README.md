@@ -56,8 +56,8 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
 
-<script src="https://unpkg.com/@alaskaairux/auro-input@latest/dist/auro-input__bundled.js" type="module"></script>
-<script src="https://unpkg.com/@alaskaairux/auro-input@latest/dist/auro-input__bundled.es5.js" nomodule></script>
+<script src="https://unpkg.com/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.es5.js" nomodule></script>
 ```
 
 ## auro-input use cases
@@ -114,7 +114,6 @@ This will require the install of [auro-icon](https://auro.alaskaair.com/componen
 ```html
 <auro-input type="credit-card" label="Card number" id="credit-card" helptext="Please enter your credit card number" required  icon></auro-input>
 ```
-
 ## Development
 
 In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
@@ -151,4 +150,4 @@ Bundled assets are only generated in the remote and not merged back to this repo
 
 To deploy a demo version of the component for review, run `npm run demo:build` to create a `./build` directory that can be pushed to any static server.
 
-<small>Built from WC-Generator v3.6.2</small>
+<small>Built from WC-Generator v3-7-1</small>

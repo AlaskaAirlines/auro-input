@@ -3,15 +3,17 @@
 
 // ---------------------------------------------------------------------
 
-// Import Auro tokens
-@import "./../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables";
-@import "./../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties";
+/* stylelint-disable selector-max-class, scss/selector-no-redundant-nesting-selector, max-nesting-depth, selector-max-combinators, selector-max-compound-selectors, no-descending-specificity, at-rule-no-unknown */
 
-@import "./../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints";
-@import "./../node_modules/@alaskaairux/webcorestylesheets/dist/core";
+// Import Auro tokens
+@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
+@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
+
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/breakpoints';
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/core';
 
 // Support for auroElement styles
-@import "./../node_modules/@alaskaairux/webcorestylesheets/dist/auroElement/auroElement";
+@import './../node_modules/@alaskaairux/webcorestylesheets/dist/auroElement/auroElement';
 
 // container styles - defines the look of the outer custom component
 :host,
@@ -27,16 +29,17 @@ auro-input-light {
 
 .passwordIcon--show {
   .passwordToggle {
-    visibility: visible;
-
     cursor: pointer;
+    visibility: visible;
   }
 }
 
 // this is to disable the toggle-password feature in MS Edge only
-input::-ms-reveal,
-input::-ms-clear {
-  display: none;
+input {
+  &::-ms-reveal,
+  &::-ms-clear {
+    display: none;
+  }
 }
 
 .inputElement {
@@ -46,19 +49,17 @@ input::-ms-clear {
   padding: var(--auro-size-xl) calc((var(--auro-size-xxl)) + .5rem);
   padding-bottom: var(--auro-size-xs);
   padding-left: 0;
-  margin: 0;
 
-  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 
   border: 0 solid;
   border-color: var(--auro-color-border-primary-on-light);
   border-bottom-width: 2px;
-  border-radius: 0;
+  margin: 0;
   background-color: transparent;
-
-  font-size: 1rem;
-
+  border-radius: 0;
   caret-color: var(--auro-color-ui-default-on-light);
+  font-size: 1rem;
+  transition: all .3s cubic-bezier(.215, .61, .355, 1);
 
   &:focus {
     border-color: var(--auro-color-ui-default-on-light);
@@ -88,9 +89,9 @@ input::-ms-clear {
   }
 
   &:disabled {
-    color: var(--auro-color-text-disabled-on-light);
     border-color: var(--auro-color-border-disabled-on-light);
     background: none;
+    color: var(--auro-color-text-disabled-on-light);
   }
 
   &:invalid {
@@ -106,10 +107,10 @@ input::-ms-clear {
   padding: 0;
   padding-top: 2rem;
 
-  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
-  pointer-events: none;
-
   color: var(--auro-color-text-secondary-on-light);
+  pointer-events: none;
+  transition: all .3s cubic-bezier(.215, .61, .355, 1);
+
 }
 
 .inputElement-labelIcon--no-value {
@@ -121,10 +122,7 @@ input::-ms-clear {
 }
 
 .inputElement-helpText {
-  margin-top: var(--auro-size-xxs);
-  margin-right: 0;
-  margin-bottom: var(--auro-size-xxs);
-  margin-left: 0;
+  margin: var(--auro-size-xxs) 0;
 
   color: var(--auro-color-text-secondary-on-light);
 
@@ -152,12 +150,13 @@ input::-ms-clear {
 .iconButton {
   z-index: -1;
 
-  margin: 0;
   padding: 0;
 
-  opacity: 0;
   border: none;
+
+  margin: 0;
   background: none;
+  opacity: 0;
 
   &:active {
     z-index: auto;
@@ -203,6 +202,6 @@ input::-ms-clear {
 
   display: flex;
   height: var(--auro-size-xl);
-  margin-top: var(--auro-size-lg);
   align-items: center;
+  margin-top: var(--auro-size-lg);
 }
