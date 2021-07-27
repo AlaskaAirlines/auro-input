@@ -6,6 +6,7 @@
 /* eslint-disable max-lines */
 
 import { html } from "lit-element";
+import { repeat } from 'lit-html/directives/repeat.js';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 import BaseInput from './base-input';
@@ -281,14 +282,17 @@ export default class AuroInput extends BaseInput {
           <p class="inputElement-helpText" id="${this.uniqueId}">${this.helpText}</p>
         ` : html`
           <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
-        `}
-        ${this.type === 'credit-card' ? this.processCreditCard() : undefined}
-        ${this.type === 'credit-card' && this.icon ? html`<auro-icon class="creditCard-icon" category="payment" name="credit-card"></auro-icon>` : undefined}
-        ${this.inputIconName === 'cc-amex' ? html`<auro-icon class="creditCard-icon" category="payment" name="cc-amex"></auro-icon>` : undefined}
-        ${this.inputIconName === 'cc-visa' ? html`<auro-icon class="creditCard-icon" category="payment" name="cc-visa"></auro-icon>` : undefined}
-        ${this.inputIconName === 'cc-mastercard' ? html`<auro-icon class="creditCard-icon" category="payment" name="cc-mastercard"></auro-icon>` : undefined}
-        ${this.inputIconName === 'cc-discover' ? html`<auro-icon class="creditCard-icon" category="payment" name="cc-discover"></auro-icon>` : undefined}
-        ${this.inputIconName === 'cc-alaska' ? html`<auro-icon class="creditCard-icon" category="payment" name="cc-alaska"></auro-icon>` : undefined}
+        `
+      }
+      ${this.type === 'credit-card' ? this.processCreditCard() : undefined}
+      <!-- repeat is used below in order to force auro-icon to rerender when name is updated.
+           This should be cleaned up when auro-icon#31 is resolved. -->
+      ${this.inputIconName ?
+        repeat([this.inputIconName], x => x, (name) =>
+          html`<auro-icon class="creditCard-icon" category="payment" name="${name}"></auro-icon>`
+        ) :
+        undefined
+      }
       <div class="iconContainer">
         <div class="${classMap(iconClasses)}">
           ${this.showPasswordIcon()}
