@@ -218,8 +218,9 @@ describe('auro-input', () => {
       <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
     `);
 
+
     await setInputValue(el, '34');
-    validateCardIcon(el, 'Cc Amex');
+    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-amex');
   });
 
   it('handles credit card formatting - starts with "37" is American Express', async () => {
@@ -228,7 +229,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '37');
-    validateCardIcon(el, 'Cc Amex');
+    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-amex');
   });
 
   it('handles credit card formatting - starts with "4" is Visa', async () => {
@@ -237,7 +238,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '4');
-    validateCardIcon(el, 'Cc Visa');
+    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-visa');
   });
 
   it('handles credit card formatting - starts with "22" is MasterCard', async () => {
@@ -246,7 +247,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '5');
-    validateCardIcon(el, 'Cc Mastercard');
+    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-mastercard');
   });
 
   it('handles credit card formatting - starts with "644" is Discover Card', async () => {
@@ -255,7 +256,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '6');
-    validateCardIcon(el, 'Cc Discover');
+    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-discover');
   });
 
   it('handles credit card formatting - Undefined Value', async () => {
@@ -264,7 +265,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, undefined);
-    validateCardIcon(el, 'Credit Card');
+    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'credit-card');
   });
 
   it('handles credit card formatting - Empty Value', async () => {
@@ -273,7 +274,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '');
-    validateCardIcon(el, 'Credit Card');
+    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'credit-card');
   });
 
   it('handles credit card formatting - Alaska Air Visa Cards', async () => {
@@ -282,14 +283,9 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '4147 34');
-    validateCardIcon(el, 'Cc Alaska');
+    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-visa');
   });
 });
-
-async function validateCardIcon(el, value) {
-  const cardIcon = el.shadowRoot.querySelector('.creditCard-icon');
-  await expect(cardIcon).to.include.html(`<title>${value}</title>`)
-}
 
 function setInputValue(el, value) {
   const input = el.shadowRoot.querySelector('input');
