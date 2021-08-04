@@ -150,4 +150,4 @@ Bundled assets are only generated in the remote and not merged back to this repo
 
 To deploy a demo version of the component for review, run `npm run demo:build` to create a `./build` directory that can be pushed to any static server.
 
-<small>Built from WC-Generator v3-7-1</small>
+<small>Built from WC-Generator v3.7.1</small>
