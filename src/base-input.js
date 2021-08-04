@@ -3,6 +3,9 @@
 
 // ---------------------------------------------------------------------
 
+/* eslint no-magic-numbers: ["error", { "ignore": [0] }] */
+/* eslint-disable max-statements */
+
 import { LitElement, css } from "lit-element";
 
 import styleCss from "./style-css.js";
@@ -138,6 +141,7 @@ export default class BaseInput extends LitElement {
 
   /**
    * @private
+   * @return {void}
    */
   focus() {
     this.inputElement.focus();
@@ -156,6 +160,7 @@ export default class BaseInput extends LitElement {
 
   /**
    * @private
+   * @return {void}
    */
   handleClickClear() {
     let click = null;
@@ -179,6 +184,7 @@ export default class BaseInput extends LitElement {
 
   /**
    * @private
+   * @return {void}
    */
   handleInput() {
     // Prevent non-numeric characters from being entered on credit card fields
@@ -208,6 +214,7 @@ export default class BaseInput extends LitElement {
 
   /**
    * @private
+   * @return {void}
    */
   handleBlur() {
     this.hasBlurred = true;
@@ -220,8 +227,10 @@ export default class BaseInput extends LitElement {
 
   /**
    * @private
+   * @return {void}
    */
   validate() {
+
     if (this.error && this.error.length > 0) {
       this.isValid = false;
 

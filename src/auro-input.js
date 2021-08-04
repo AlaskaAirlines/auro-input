@@ -6,6 +6,7 @@
 /* eslint-disable max-lines */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable complexity */
+/* eslint-disable indent */
 
 import { html } from "lit-element";
 import { repeat } from 'lit-html/directives/repeat.js';
@@ -61,12 +62,16 @@ export default class AuroInput extends BaseInput {
     this.requestUpdate('error', oldVal).then(this.validate.bind(this));
   }
 
+  /**
+   * @returns {string} Custom error string.
+   */
   get error() {
     return this.auroError;
   }
 
   /**
    * @private
+   * @returns {void}
    */
   handleClickShowPassword() {
     this.showPassword = !this.showPassword;
@@ -87,6 +92,7 @@ export default class AuroInput extends BaseInput {
 
   /**
    * @private
+   * @returns {void}
    */
   handleKeyUp() {
     const iconContainer = this.shadowRoot.querySelector('.iconContainer');
@@ -150,6 +156,7 @@ export default class AuroInput extends BaseInput {
 
   /**
    * @private
+   * @returns {void}
    */
   processCreditCard() {
     const card = this.matchInputValueToCreditCard();
@@ -172,7 +179,7 @@ export default class AuroInput extends BaseInput {
   matchInputValueToCreditCard() {
     const defaultCustomValidationMessage = 'Card number is not valid.';
 
-    // eslint-disable-next-line sort-vars
+    // eslint-disable-next-line sort-vars, one-var
     const creditCardTypes = [
       {
         name: 'American Express',
@@ -248,6 +255,7 @@ export default class AuroInput extends BaseInput {
       'alertIcon': !this.isValid
     };
 
+    // eslint-disable-next-line one-var
     const inputClasses = {
       "creditCard": this.icon && this.type === 'credit-card',
       "error": !this.isValid,
@@ -255,6 +263,7 @@ export default class AuroInput extends BaseInput {
       "inputElement--filled": this.value,
     };
 
+    // eslint-disable-next-line one-var
     const labelClasses = {
       "inputElement-label": true,
       "is-disabled": this.disabled,
@@ -290,11 +299,10 @@ export default class AuroInput extends BaseInput {
       ${this.type === 'credit-card' ? this.processCreditCard() : undefined}
       <!-- repeat is used below in order to force auro-icon to rerender when name is updated.
            This should be cleaned up when auro-icon#31 is resolved. -->
-      ${this.inputIconName ?
-        repeat([this.inputIconName], x => x, (name) =>
-          html`<auro-icon class="creditCard-icon" category="payment" name="${name}"></auro-icon>`
-        ) :
-        undefined
+      ${this.inputIconName
+        ? repeat([this.inputIconName], (val) => val, (name) => html`
+          <auro-icon class="creditCard-icon" category="payment" name="${name}"></auro-icon>
+        `) : undefined
       }
       <div class="iconContainer">
         <div class="${classMap(iconClasses)}">
