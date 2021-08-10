@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [1.3.6](https://github.com/AlaskaAirlines/auro-input/compare/v1.3.5...v1.3.6) (2021-08-10)
+
+
+### Bug Fixes
+
+* **deprecation:** update install to alert users of deprecated namespace ([832196e](https://github.com/AlaskaAirlines/auro-input/commit/832196e82880e55989861bdd9126770acac7d71d))
+
 ## [1.3.5](https://github.com/AlaskaAirlines/auro-input/compare/v1.3.4...v1.3.5) (2021-06-25)
 
 
