@@ -6,6 +6,7 @@
 |---------------------------|---------------------------|-----------|---------|--------------------------------------------------|
 | `customValidationMessage` | `customValidationMessage` | `String`  |         | Overrides the browser validation message when the input is invalid. |
 | `disabled`                | `disabled`                | `Boolean` | false   | If set, disables the input.                      |
+| `error`                   | `error`                   | `String`  |         | Sets a persistent error message (e.g. an error message returned from the server). |
 | `helpText`                | `helpText`                | `String`  |         | Sets the help text displayed below the input.    |
 | `icon`                    | `icon`                    | `Boolean` | false   | If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format. |
 | `id`                      | `id`                      | `String`  |         | Sets the unique ID of the element.               |
