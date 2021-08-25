@@ -51,22 +51,14 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
-   * @private
-   * @param {string} value Error string, custom setter so we can re-validate on update.
+   * LitElement lifecycle method. Called after the DOM has been updated.
+   * @param {Map<string, any>} changedProperties - Keys are the names of changed properties, values are the corresponding previous values.
+   * @returns {void}
    */
-  set error(value) {
-
-    const oldVal = this.auroError;
-
-    this.auroError = value;
-    this.requestUpdate('error', oldVal).then(this.validate.bind(this));
-  }
-
-  /**
-   * @returns {string} Custom error string.
-   */
-  get error() {
-    return this.auroError;
+  updated(changedProperties) {
+    if (changedProperties.has('error')) {
+      this.validate();
+    }
   }
 
   /**

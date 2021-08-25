@@ -80,12 +80,6 @@ export default class BaseInput extends LitElement {
       "email",
     ];
 
-    /**
-     * @private
-     */
-    this.auroError = null;
-
-
     const idLength = 36,
       idSubstrEnd = 8,
       idSubstrStart = 2;
