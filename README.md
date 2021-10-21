@@ -44,11 +44,7 @@ import "@aurodesignsystem/auro-input";
 
 ## Install bundled assets from CDN
 
-In cases where the project is not able to process JS assets, there are pre-processed assets available for use. Two bundles are available -- `auro-input__bundled.js` for modern browsers and `auro-input__bundled.es5.js` for legacy browsers (including IE11).
-
-Since the legacy bundle includes many polyfills that are not needed by modern browsers, we recommend you load these bundles using [differential serving](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) so that the browser only loads the bundle it needs. To accomplish this, the script tag for the modern bundle should have `type="module"` and the script tag for the legacy bundle should have the `nomodule` attribute. See the example below.
-
-### Bundle example code
+In cases where the project is not able to process JS assets, there are pre-processed assets available for use.
 
 **NOTE:** Be sure to replace `@latest` in the URL with the version of the asset you want. @latest is NOT aware of any MAJOR releases, use at your own risk.
 
@@ -57,7 +53,6 @@ Since the legacy bundle includes many polyfills that are not needed by modern br
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
 
 <script src="https://unpkg.com/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.js" type="module"></script>
-<script src="https://unpkg.com/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.es5.js" nomodule></script>
 ```
 
 ## auro-input use cases
@@ -118,7 +113,7 @@ This will require the install of [auro-icon](https://auro.alaskaair.com/componen
 
 In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
 
-Please be sure to review the [contribution guidelines](https://auro.alaskaair.com/getting-started/developers/contributing) for this project. Please make sure to **pay special attention** to the **conventional commits** section of the document.
+Please be sure to review the [contribution guidelines](https://auro.alaskaair.com/contributing) for this project. Please make sure to **pay special attention** to the **conventional commits** section of the document.
 
 ### Start development environment
 
@@ -148,6 +143,6 @@ Bundled assets are only generated in the remote and not merged back to this repo
 
 ### Demo deployment
 
-To deploy a demo version of the component for review, run `npm run demo:build` to create a `./build` directory that can be pushed to any static server.
+To deploy a demo version of the component for review, run `npm run build:demo` to create a `./build` directory that can be pushed to any static server.
 
-<small>Built from WC-Generator v3.7.1</small>
+<small>Built from WC-Generator v3.9.3</small>
