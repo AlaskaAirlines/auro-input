@@ -1,13 +1,32 @@
-# auro-input
+# Input
 
-Use the `auro-input` custom element to create basic single-line text fields. Supports type `text`, `password`, and `email` with validation, required input and error states.
+Use the `auro-input` custom element to create basic single-line text fields. Supports type `text`, `password`, and `email` with validation, required input, error states and a secondary `bordered` theme.
 
 ## Default component
 
 The default component supports the basic input `type="text"` structure. The `(optional)` label is provided to instruct the user that their input is not required.
 
-<div class="exampleWrapper">
+<style>
+  .exampleWrapper--flex * {
+    margin-bottom: 1rem;
+  }
+
+  @media screen and (min-width: 660px) {
+    .exampleWrapper--flex {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .exampleWrapper--flex * {
+      width: 45%;
+      margin-bottom: unset;
+    }
+  }
+</style>
+
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input id="demo"></auro-input>
+  <auro-input id="demo" bordered></auro-input>
 </div>
 
 <auro-accordion lowProfile justifyRight>
@@ -16,27 +35,47 @@ The default component supports the basic input `type="text"` structure. The `(op
   ```html
   /* For accessibility, always be sure to address the ID attribute  */
   <auro-input id="demo"></auro-input>
+  <auro-input id="demo" bordered></auro-input>
   ```
 </auro-accordion>
 
 Use the `label` attribute to add content to the input label. Use the `helptext` attribute to add content under the input to assist the user with the type of input required.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input label="Name" id="full-name" helptext="Please enter your full name"></auro-input>
+  <auro-input label="Name" id="full-name" helptext="Please enter your full name" bordered></auro-input>
 </div>
 
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input label="Name" id="full-name" helptext="Please enter your full name"></auro-input>
+  <auro-input
+    label="Name"
+    id="full-name"
+    helptext="Please enter your full name">
+  </auro-input>
+
+  <auro-input
+    label="Name"
+    id="full-name"
+    helptext="Please enter your full name"
+    bordered>
+  </auro-input>
   ```
 </auro-accordion>
 
 Use the `required` attribute to enable input validation.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input
+    required
+    label="Name"
+    id="full-name"
+    helptext="Please enter your full name">
+  </auro-input>
+  <auro-input
+    bordered
     required
     label="Name"
     id="full-name"
@@ -49,6 +88,15 @@ Use the `required` attribute to enable input validation.
 
   ```html
   <auro-input
+    bordered
+    required
+    label="Name"
+    id="full-name"
+    helptext="Please enter your full name">
+  </auro-input>
+
+  <auro-input
+    bordered
     required
     label="Name"
     id="full-name"
@@ -59,8 +107,16 @@ Use the `required` attribute to enable input validation.
 
 The default error return of `Please fill out this field` will be used if a custom error message is not added to the element on blur.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input
+    required
+    label="Name"
+    id="full-name"
+    helptext="Please enter your full name"
+    error="Please enter your full name">
+  </auro-input>
+  <auro-input
+    bordered
     required
     label="Name"
     id="full-name"
@@ -74,6 +130,15 @@ The default error return of `Please fill out this field` will be used if a custo
 
   ```html
   <auro-input
+    required
+    label="Name"
+    id="full-name"
+    helptext="Please enter your full name"
+    error="Please enter your full name">
+  </auro-input>
+
+  <auro-input
+    bordered
     required
     label="Name"
     id="full-name"
@@ -87,8 +152,16 @@ The default error return of `Please fill out this field` will be used if a custo
 
 Use the `type="password"` attribute for a password style input.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input
+    required
+    type="password"
+    id="password"
+    label="Password"
+    helptext="Please enter a secure password.">
+  </auro-input>
+  <auro-input
+    bordered
     required
     type="password"
     id="password"
@@ -102,6 +175,15 @@ Use the `type="password"` attribute for a password style input.
 
   ```html
   <auro-input
+    required
+    type="password"
+    id="password"
+    label="Password"
+    helptext="Please enter a secure password.">
+  </auro-input>
+
+  <auro-input
+    bordered
     required
     type="password"
     id="password"
@@ -115,8 +197,16 @@ Use the `type="password"` attribute for a password style input.
 
 Use the `type="email"` attribute for a email style input.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input
+    required
+    type="email"
+    label="Email address"
+    id="email-address"
+    helptext="Please enter your email address">
+  </auro-input>
+  <auro-input
+    bordered
     required
     type="email"
     label="Email address"
@@ -130,6 +220,14 @@ Use the `type="email"` attribute for a email style input.
 
   ```html
   <auro-input
+    required
+    type="email"
+    label="Email address"
+    id="email-address"
+    helptext="Please enter your email address">
+  </auro-input>
+  <auro-input
+    bordered
     required
     type="email"
     label="Email address"
@@ -143,13 +241,21 @@ Use the `type="email"` attribute for a email style input.
 
 Use the `type="credit-card"` attribute for a credit card formatted input.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input
     type="credit-card"
     label="Card number"
     id="credit-card"
     helptext="Please enter your credit card number"
     required>
+  </auro-input>
+  <auro-input
+    type="credit-card"
+    label="Card number"
+    id="credit-card"
+    helptext="Please enter your credit card number"
+    required
+    bordered>
   </auro-input>
 </div>
 
@@ -164,6 +270,14 @@ Use the `type="credit-card"` attribute for a credit card formatted input.
     helptext="Please enter your credit card number"
     required>
   </auro-input>
+  <auro-input
+    type="credit-card"
+    label="Card number"
+    id="credit-card"
+    helptext="Please enter your credit card number"
+    required
+    bordered>
+  </auro-input>
   ```
 </auro-accordion>
 
@@ -171,7 +285,7 @@ Use the `type="credit-card"` and `icon` attributes for a credit card formatted i
 
 This will require the install of [auro-icon](https://auro.alaskaair.com/components/auro/icon) as a peer dependency.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input
     type="credit-card"
     label="Card number"
@@ -179,6 +293,15 @@ This will require the install of [auro-icon](https://auro.alaskaair.com/componen
     helptext="Please enter your credit card number"
     required
     icon>
+  </auro-input>
+  <auro-input
+    type="credit-card"
+    label="Card number"
+    id="credit-card"
+    helptext="Please enter your credit card number"
+    required
+    icon
+    bordered>
   </auro-input>
 </div>
 
@@ -195,14 +318,23 @@ This will require the install of [auro-icon](https://auro.alaskaair.com/componen
     required
     icon>
   </auro-input>
+  <auro-input
+    type="credit-card"
+    label="Card number"
+    id="credit-card"
+    helptext="Please enter your credit card number"
+    required
+    icon
+    bordered>
+  </auro-input>
   ```
 </auro-accordion>
 
 ## Disabled
 
-All use cases for auro-input support the `disabled` attribute.
+Example use cases for auro-input support the `disabled` attribute.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input
     disabled
     required
@@ -210,32 +342,13 @@ All use cases for auro-input support the `disabled` attribute.
     id="address"
     helptext="Please enter your home address">
   </auro-input>
-
   <auro-input
     disabled
     required
-    type="email"
-    id="email-address"
-    label="Email address"
-    helptext="Please enter your email address">
-  </auro-input>
-
-  <auro-input
-    disabled
-    required
-    type="password"
-    id="password"
-    label="Password"
-    helptext="Please enter a secure password">
-  </auro-input>
-
-  <auro-input
-    disabled
-    required
-    type="credit-card"
-    id="credit-card"
-    label="Card number"
-    helptext="Please enter your credit card number">
+    bordered
+    label="Address"
+    id="address"
+    helptext="Please enter your home address">
   </auro-input>
 </div>
 
@@ -254,28 +367,10 @@ All use cases for auro-input support the `disabled` attribute.
   <auro-input
     disabled
     required
-    type="email"
-    id="email-address"
-    label="Email address"
-    helptext="Please enter your email address">
-  </auro-input>
-
-  <auro-input
-    disabled
-    required
-    type="password"
-    id="password"
-    label="Password"
-    helptext="Please enter a secure password">
-  </auro-input>
-
-  <auro-input
-    disabled
-    required
-    type="credit-card"
-    id="credit-card"
-    label="Card number"
-    helptext="Please enter your credit card number">
+    bordered
+    label="Address"
+    id="address"
+    helptext="Please enter your home address">
   </auro-input>
   ```
 </auro-accordion>
@@ -284,7 +379,7 @@ All use cases for auro-input support the `disabled` attribute.
 
 For use cases where the field is `required`, but live validation is not wanted, use the `noValidate` attribute.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input
     noValidate
     required
@@ -292,23 +387,13 @@ For use cases where the field is `required`, but live validation is not wanted, 
     id="address"
     helptext="Please enter your home address">
   </auro-input>
-
   <auro-input
     noValidate
     required
-    type="email"
-    id="email-address"
-    label="Email address"
-    helptext="Please enter your email address">
-  </auro-input>
-
-  <auro-input
-    noValidate
-    required
-    type="credit-card"
-    id="credit-card"
-    label="Card number"
-    helptext="Please enter your credit card number">
+    bordered
+    label="Address"
+    id="address"
+    helptext="Please enter your home address">
   </auro-input>
 </div>
 
@@ -327,19 +412,10 @@ For use cases where the field is `required`, but live validation is not wanted, 
   <auro-input
     noValidate
     required
-    type="email"
-    id="email-address"
-    label="Email address"
-    helptext="Please enter your email address">
-  </auro-input>
-
-  <auro-input
-    noValidate
-    required
-    type="credit-card"
-    id="credit-card"
-    label="Card number"
-    helptext="Please enter your credit card number">
+    bordered
+    label="Address"
+    id="address"
+    helptext="Please enter your home address">
   </auro-input>
   ```
 </auro-accordion>

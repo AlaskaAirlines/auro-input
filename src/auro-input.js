@@ -40,6 +40,8 @@ export default class AuroInput extends BaseInput {
      * @private
      */
     this.inputIconName = undefined;
+
+    this.label = 'Input label is undefined';
   }
 
   // function to define props used within the scope of this component
@@ -283,10 +285,9 @@ export default class AuroInput extends BaseInput {
       <label for=${this.id} class="${classMap(labelClasses)}">${this.required ? this.label : `${this.label} (optional)`}</label>
       ${this.isValid
         ? html`
-          <p class="inputElement-helpText" id="${this.uniqueId}">${this.helpText}</p>
-        ` : html`
-          <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>
-        `
+          <p class="inputElement-helpText" id="${this.uniqueId}">${this.helpText}</p>`
+        : html`
+          <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>`
       }
       ${this.type === 'credit-card' ? this.processCreditCard() : undefined}
       <!-- repeat is used below in order to force auro-icon to rerender when name is updated.
