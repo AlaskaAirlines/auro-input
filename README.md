@@ -1,6 +1,6 @@
 # Input
 
-`<auro-input>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) containing styling and behavior for a HTML `<input>` element and associated `<label>`. You can pass helper text to be displayed with the input. It will also perform client-side validation of the input and display any resulting errors.
+`<auro-input>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) containing styling and behavior for a HTML `<input>` element and associated `<label>`. Additional support for helper text to be displayed with the input and client-side validation of the input and display any resulting errors.
 
 ## UI development browser support
 
@@ -62,53 +62,6 @@ The `<auro-input>` element should be used in situations where users may:
 * enter a single line of text into a form
 * enter their email into a form
 
-## API Code Examples
-
-```html
-<auro-input label="First name" required></auro-input>
-```
-
-### Required input with label and help text
-```html
-<auro-input label="First name" helptext="Enter your first name" required></auro-input>
-```
-
-### Required input with label and value
-```html
-<auro-input label="First name" value="Alaska" required></auro-input>
-```
-
-### Optional input with label
-```html
-<auro-input label="First name"></auro-input>
-```
-
-### Required email input
-```html
-<auro-input type="email" label="Email" required></auro-input>
-```
-
-### Disabled input
-```html
-<auro-input label="First name" disabled required></auro-input>
-```
-
-### Input with persistent error
-```html
-<auro-input label="First name" value="Alaska" error="This name already exists" required></auro-input>
-```
-
-### Input with credit card formatting
-```html
-<auro-input type="credit-card" label="Card number" id="credit-card" helptext="Please enter your credit card number" required></auro-input>
-```
-
-### Input with credit card formatting and credit card icons
-This will require the install of [auro-icon](https://auro.alaskaair.com/components/auro/icon) as a peer dependency.
-
-```html
-<auro-input type="credit-card" label="Card number" id="credit-card" helptext="Please enter your credit card number" required  icon></auro-input>
-```
 ## Development
 
 In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
@@ -129,17 +82,9 @@ $ npm run serve
 
 Open [localhost:8000](http://localhost:8000/)
 
-### API generation
-
-The custom element API file is generated in the build and committed back to the repo with a version change. If the API doc has changed without a version change, author's are to run `npm run build:api` to generate the doc and commit to version control.
-
 ### Testing
 
 Automated tests are required for every Auro component. See `.\test\auro-input.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.
-
-### Bundled assets
-
-Bundled assets are only generated in the remote and not merged back to this repo. To review and/or test a bundled asset locally, run `$ npm run bundler` to generate assets.
 
 ### Demo deployment
 

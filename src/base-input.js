@@ -27,6 +27,7 @@ import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
  * @attr {String} type - Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`  or `text`. If given value is not allowed or set, defaults to `text`.
  * @attr {String} value - Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input.
  * @attr {Boolean} icon - If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format.
+ * @attr {Boolean} bordered - Applies bordered UI variant.
  * @attr {Boolean} disabled - If set, disables the input.
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} isValid - Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer.
