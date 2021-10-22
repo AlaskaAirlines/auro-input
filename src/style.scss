@@ -16,10 +16,12 @@
 @import './../node_modules/@alaskaairux/webcorestylesheets/dist/auroElement/auroElement';
 
 // container styles - defines the look of the outer custom component
-:host,
-auro-input-light {
-  position: relative;
+:host {
+  --size-lgsm: 1.875rem;
+  --size-xlsm: 2.75rem;
+  --size-mdxxs: 1.2rem;
 
+  position: relative;
   display: block;
 }
 
@@ -44,20 +46,20 @@ input {
 
 .inputElement {
   position: relative;
-
   width: 100%;
+
   padding: var(--auro-size-xl) calc((var(--auro-size-xxl)) + .5rem);
   padding-bottom: var(--auro-size-xs);
   padding-left: 0;
 
-
   border: 0 solid;
   border-color: var(--auro-color-border-primary-on-light);
   border-bottom-width: 2px;
+
   margin: 0;
   background-color: transparent;
   border-radius: 0;
-  caret-color: var(--auro-color-ui-default-on-light);
+  caret-color: var(--auro-color-text-secondary-on-light);
   font-size: 1rem;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
 
@@ -69,6 +71,10 @@ input {
 
       .iconButton {
         z-index: auto;
+
+        // This is needed because iOS chooses to
+        // turn the icons blue
+        color: var(--auro-color-text-primary-on-light);
 
         opacity: 1;
       }
@@ -84,8 +90,6 @@ input {
 
   &.error {
     border-color: var(--auro-color-alert-error-on-light);
-
-    caret-color: var(--auro-color-alert-error-on-light);
   }
 
   &:disabled {
@@ -114,7 +118,7 @@ input {
 }
 
 .inputElement-labelIcon--no-value {
-  left: 30px;
+  left: var(--size-lgsm);
 }
 
 .inputElement-label--sticky {
@@ -123,10 +127,8 @@ input {
 
 .inputElement-helpText {
   margin: var(--auro-size-xxs) 0;
-
   color: var(--auro-color-text-secondary-on-light);
-
-  font-size: var(--auro-text-body-size-sm);
+  font-size: var(--auro-text-body-size-xs);
 
   &.error {
     color: var(--auro-color-alert-error-on-light);
@@ -134,13 +136,13 @@ input {
 }
 
 .inputElement-icon {
-  right: 0;
-
   display: flex;
-
-  padding: 0;
-
+  justify-content: flex-end;
   pointer-events: auto;
+
+  * {
+    margin-left: var(--auro-size-xs);
+  }
 }
 
 .alertIcon {
@@ -149,11 +151,8 @@ input {
 
 .iconButton {
   z-index: -1;
-
   padding: 0;
-
   border: none;
-
   margin: 0;
   background: none;
   opacity: 0;
@@ -181,6 +180,24 @@ input {
   color: var(--auro-color-text-disabled-on-light);
 }
 
+// =-=-=-=-=-=-=-=-= creditCard -=-=-=-=-=-=-=-=-=-=-=-=-
+
+.creditCard {
+  padding-left: var(--size-lgsm);
+}
+
+.creditCard-icon {
+  position: absolute;
+  top: 6px;
+  left: 0;
+
+  display: flex;
+  height: var(--auro-size-xl);
+  align-items: center;
+  margin-top: var(--auro-size-lg);
+}
+
+// =-=-=-=-=-=-=-=-= Extends -=-=-=-=-=-=-=-=-=-=-=-=-
 
 %activeLabel {
   left: 0;
@@ -191,17 +208,73 @@ input {
   font-size: var(--auro-text-body-size-xs);
 }
 
-.creditCard {
-  padding-left: 30px;
+// =-=-=-=-=-=-=-=-= bordered -=-=-=-=-=-=-=-=-=-=-=-=-
+:host([bordered][icon][type='credit-card']) {
+  .inputElement {
+    padding-left: var(--size-xlsm);
+  }
+
+  .inputElement-label {
+    left: var(--size-xlsm);
+  }
+
+  .creditCard-icon {
+    top: -6px;
+    left: var(--auro-size-sm);
+  }
 }
 
-.creditCard-icon {
-  position: absolute;
-  top: 2px;
-  left: 0;
 
-  display: flex;
-  height: var(--auro-size-xl);
-  align-items: center;
-  margin-top: var(--auro-size-lg);
+:host([bordered]) {
+
+  .inputElement {
+    padding-left: var(--auro-size-sm);
+    border: 1px solid var(--auro-color-border-primary-on-light);
+    border-radius: var(--auro-border-radius);
+
+    &:focus {
+      border-color: var(--auro-color-ui-default-on-light);
+
+      @include auro_breakpoint--sm {
+        outline: 1px solid var(--auro-color-ui-default-on-light);
+      }
+    }
+
+    &.error {
+      border-color: var(--auro-color-alert-error-on-light);
+
+      @include auro_breakpoint--sm {
+        outline: 1px solid var(--auro-color-alert-error-on-light);
+      }
+    }
+
+    &:disabled{
+      border-color: var(--auro-color-alert-disabled-on-light);
+
+      @include auro_breakpoint--sm {
+        outline: 1px solid var(--auro-color-alert-disabled-on-light);
+      }
+    }
+
+    &:focus,
+    &--filled {
+      & + .inputElement-label {
+        padding-top: var(--auro-size-xs);
+      }
+    }
+  }
+
+  .inputElement-label {
+    left: var(--auro-size-sm);
+    padding-top: var(--size-mdxxs);
+
+    &--sticky {
+      padding-top: var(--auro-size-xs);
+    }
+  }
+
+  .iconContainer {
+    top: var(--size-mdxxs);
+    right: var(--auro-size-sm);
+  }
 }
