@@ -17,12 +17,12 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "dependencies": {
-    "@alaskaairux/icons": "^4.6.0",
     "chalk": "^4.1.1",
     "cleave.js": "^1.6.0",
     "lit-element": "^2.5.1"
   },
   "peerDependencies": {
+    "@alaskaairux/icons": "^4.6.0",
     "@alaskaairux/auro-icon": "^3.1.0",
     "@alaskaairux/design-tokens": "^3.3.0",
     "@alaskaairux/webcorestylesheets": "^3.4.0",
@@ -30,6 +30,7 @@
     "focus-visible": "^5.2.0"
   },
   "devDependencies": {
+    "@alaskaairux/icons": "^4.6.0",
     "@alaskaairux/design-tokens": "^3.3.0",
     "@alaskaairux/webcorestylesheets": "^3.4.0",
     "@aurodesignsystem/eslint-config": "^1.2.0",
