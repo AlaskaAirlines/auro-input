@@ -3,6 +3,8 @@
 
 // ---------------------------------------------------------------------
 
+/* eslint-disable max-lines */
+
 /* eslint no-magic-numbers: ["error", { "ignore": [0] }] */
 /* eslint-disable max-statements */
 
@@ -10,7 +12,7 @@ import { LitElement, css } from "lit-element";
 
 import styleCss from "./style-css.js";
 import "focus-visible/dist/focus-visible.min.js";
-import closelg from '@alaskaairux/icons/dist/icons/interface/x-lg_es6.js';
+import closelg from '@alaskaairux/icons/dist/icons/interface/x-sm_es6.js';
 import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password_es6.js';
 import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password_es6.js';
 import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
@@ -20,9 +22,9 @@ import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
  *
  * @attr {String} customValidationMessage - Overrides the browser validation message when the input is invalid.
  * @attr {String} error - Sets a persistent error message (e.g. an error message returned from the server).
- * @attr {String} helpText - Sets the help text displayed below the input.
+ * @attr {String} helpText - Deprecated, see `slot`.
  * @attr {String} id - Sets the unique ID of the element.
- * @attr {String} label - Sets the label text for the input.
+ * @attr {String} label - Deprecated, see `slot`.
  * @attr {String} name - Populates the `name` attribute on the input.
  * @attr {String} type - Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`  or `text`. If given value is not allowed or set, defaults to `text`.
  * @attr {String} value - Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input.
@@ -32,6 +34,8 @@ import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} isValid - Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
+ * @slot helptext - Sets the help text displayed below the input.
+ * @slot label - Sets the label text for the input.
  * @event input - Event fires when the value of an `auro-input` has been changed.
  */
 
@@ -60,7 +64,14 @@ export default class BaseInput extends LitElement {
      */
     this.viewPassword = this.getIconAsHtml(viewPassword);
 
-    this.type = 'text';
+    /**
+     * @private
+     */
+    this.localContent = {
+      'email': 'Please enter a valid email address (name@domain.com).',
+      'password': 'Valid passwords must consist of at least 8 characters, including at least one uppercase letter, one lowercase letter, and one number.',
+      'creditcard': 'Please enter a valid credit card number.',
+    };
 
     /**
      * @private
@@ -102,9 +113,7 @@ export default class BaseInput extends LitElement {
   // function to define props used within the scope of this component
   static get properties() {
     return {
-      customValidationMessage: { type: String },
       error:                   { type: String },
-      helpText:                { type: String },
       id:                      { type: String },
       label:                   { type: String },
       name:                    { type: String },
@@ -114,7 +123,13 @@ export default class BaseInput extends LitElement {
       disabled:                { type: Boolean },
       isValid:                 { type: Boolean },
       required:                { type: Boolean },
-      noValidate:              { type: Boolean }
+      noValidate:              { type: Boolean },
+      helpText:                { type: String },
+
+      /**
+       * @private
+       */
+      customValidationMessage: { type: String }
     };
   }
 
@@ -143,6 +158,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * Function necessary to convert SVG data to HTML text string.
    * @private
    * @param {string} icon HTML string for requested icon.
    * @returns {object} Appended HTML for SVG.
@@ -154,6 +170,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * This function handles the clearing of the input element based on eval of content.
    * @private
    * @return {void}
    */
@@ -178,6 +195,8 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * The scope of this function is to address the needs of the
+   * input element based on type of input needed.
    * @private
    * @return {void}
    */
@@ -208,6 +227,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * This function applies the validation method on the input element based on blur event.
    * @private
    * @return {void}
    */
@@ -221,6 +241,8 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * This function validates content of the input element based on
+   * HTML spec of internal validation.
    * @private
    * @return {void}
    */
@@ -237,6 +259,8 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * There is a short list of input types that this element supports.
+   * If the request is out of scope, only a text type is returned.
    * @private
    * @param {string} type Value entered into component prop.
    * @returns {string} Iterates over allowed types array.
@@ -250,6 +274,27 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * Helper function to determine default help text string.
+   * @private
+   * @param {string} type Value entered into component prop.
+   * @returns {string} Evaluates pre-determined help text.
+   */
+  getHelpText(type) {
+    if (type === 'password') {
+      this.helpText = this.localContent.password;
+    } else if (type === 'email') {
+      this.helpText = this.localContent.email;
+    } else if (type === 'credit-card') {
+      this.helpText = this.localContent.creditcard;
+    } else {
+      this.helpText = '';
+    }
+
+    return this.helpText;
+  }
+
+  /**
+   * This function uses the supplied error string when needed.
    * @private
    * @returns {string} Error string.
    */
