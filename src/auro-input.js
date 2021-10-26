@@ -64,6 +64,7 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
+   * Function to support show-password feature.
    * @private
    * @returns {void}
    */
@@ -73,6 +74,7 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
+   * Supports show-password feature.
    * @private
    * @returns {string} Returns HTML for SVG, function to toggle between password icons.
    */
@@ -85,22 +87,7 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
-   * @private
-   * @returns {void}
-   */
-  handleKeyUp() {
-    const iconContainer = this.shadowRoot.querySelector('.iconContainer');
-
-    this.labelElement.classList.add('inputElement-label--sticky');
-
-    if (this.inputElement.value) {
-      iconContainer.classList.add("passwordIcon--show");
-    } else {
-      iconContainer.classList.remove("passwordIcon--show");
-    }
-  }
-
-  /**
+   * Supports show-password feature.
    * @private
    * @returns {string} HTML string, function for managing when to display the show-password icon.
    */
@@ -118,10 +105,26 @@ export default class AuroInput extends BaseInput {
     return null;
   }
 
+  /**
+   * @private
+   * @returns {void}
+   */
+     handleKeyUp() {
+      const iconContainer = this.shadowRoot.querySelector('.iconContainer');
+
+      this.labelElement.classList.add('inputElement-label--sticky');
+
+      if (this.inputElement.value) {
+        iconContainer.classList.add("passwordIcon--show");
+      } else {
+        iconContainer.classList.remove("passwordIcon--show");
+      }
+    }
+
   connectedCallback() {
     super.connectedCallback();
 
-    // Process auto-formating if defined
+    // Process auto-formatting if defined
     if (this.type) {
       let config = null;
 
@@ -135,7 +138,8 @@ export default class AuroInput extends BaseInput {
           this.numericKeyboard = true;
 
           break;
-        // add additional supported formats and their config JSON here
+          // add additional supported formats and their config JSON here
+
         default:
           // Do nothing
       }
@@ -149,6 +153,7 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
+   * Function to support credit-card feature type.
    * @private
    * @returns {void}
    */
@@ -167,11 +172,12 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
+   * Function to support credit-card feature type.
    * @private
    * @returns {object} JSON with data for credit card formatting.
    */
   matchInputValueToCreditCard() {
-    const defaultCustomValidationMessage = 'Card number is not valid.';
+    const defaultCustomValidationMessage = 'Please enter a valid credit card number.';
 
     // eslint-disable-next-line sort-vars, one-var
     const creditCardTypes = [
@@ -229,6 +235,7 @@ export default class AuroInput extends BaseInput {
   }
 
   /**
+   * Function to support credit-card feature type.
    * @private
    * @returns {string} Value for the input field after changing undefined to an empty string.
    */
@@ -282,21 +289,37 @@ export default class AuroInput extends BaseInput {
         aria-describedby="${this.uniqueId}"
         aria-invalid="${!this.isValid}"
       />
-      <label for=${this.id} class="${classMap(labelClasses)}">${this.required ? this.label : `${this.label} (optional)`}</label>
+
+      <!-- Input label template -->
+      <label for=${this.id} class="${classMap(labelClasses)}">
+        <slot name="label">
+          ${this.label}
+        </slot>
+        ${this.required ? '' : ` (optional)`}
+      </label>
+
+      <!-- Help text and error message template -->
       ${this.isValid
         ? html`
-          <p class="inputElement-helpText" id="${this.uniqueId}">${this.helpText}</p>`
+          <p class="inputElement-helpText" id="${this.uniqueId}">
+            <slot name="helptext">${this.getHelpText(this.type)}</slot>
+          </p>`
         : html`
-          <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive">${this.getErrorMessage()}</p>`
+          <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive">
+            ${this.getErrorMessage()}
+          </p>`
       }
+
       ${this.type === 'credit-card' ? this.processCreditCard() : undefined}
-      <!-- repeat is used below in order to force auro-icon to rerender when name is updated.
-           This should be cleaned up when auro-icon#31 is resolved. -->
+
+      <!-- The repeat() method is used below in order to force auro-icon to re-render when the name value is updated.
+           This should be cleaned up when auro-icon issue #31 is resolved. -->
       ${this.inputIconName
         ? repeat([this.inputIconName], (val) => val, (name) => html`
           <auro-icon class="creditCard-icon" category="payment" name="${name}"></auro-icon>
         `) : undefined
       }
+
       <div class="iconContainer">
         <div class="${classMap(iconClasses)}">
           ${this.showPasswordIcon()}

@@ -4,16 +4,6 @@ import '../src/auro-input.js';
 
 describe('auro-input', () => {
 
-  it('renders the label', async () => {
-    const el = await fixture(html`
-      <auro-input label="First name"></auro-input>
-    `);
-
-    const root = el.shadowRoot;
-    const label = root.querySelector('label');
-    expect(label.textContent).to.equal('First name (optional)');
-  });
-
   it('sets value on the input', async () => {
     const el = await fixture(html`
       <auro-input value="other value" label="First name"></auro-input>
@@ -48,44 +38,6 @@ describe('auro-input', () => {
     toggle.click();
     await elementUpdated(input);
     expect(input.type).to.equal('password');
-  });
-
-  it('sets error when input not valid', async () => {
-    const el = await fixture(html`
-      <auro-input label="First name" required helptext="Help text" customvalidationmessage="Expected error"></auro-input>
-    `);
-
-    const input = el.shadowRoot.querySelector('input');
-    const ariaDescribedBy = input.getAttribute('aria-describedby');
-    const helpText = el.shadowRoot.querySelector(`[id="${ariaDescribedBy}"]`);
-    expect(helpText.textContent).to.equal('Help text');
-
-    input.focus();
-    input.blur();
-    await elementUpdated(el);
-
-    const error = el.shadowRoot.querySelector(`[id="${ariaDescribedBy}"]`);
-    expect(error.textContent).to.equal('Expected error');
-  });
-
-  it('always has error if error set', async () => {
-    const el = await fixture(html`
-      <auro-input label="First name" required helptext="Help text" error="Expected error"></auro-input>
-    `);
-
-    let error = el.shadowRoot.querySelector('p');
-    expect(error.textContent).to.equal('Expected error');
-
-    const input = el.shadowRoot.querySelector('input');
-
-    input.value = 'whatever';
-    input.focus();
-    input.blur();
-    await elementUpdated(el);
-
-    // re-query to make sure it hasn't been replaced with help text
-    error = el.shadowRoot.querySelector('p');
-    expect(error.textContent).to.equal('Expected error');
   });
 
   it('allows email type', async () => {
