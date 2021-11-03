@@ -1,5 +1,33 @@
 # Semantic Release Automated Changelog
 
+# [2.0.0](https://github.com/AlaskaAirlines/auro-input/compare/v1.3.6...v2.0.0) (2021-11-03)
+
+
+### Bug Fixes
+
+* **label:** correct color and size ([9d6afe2](https://github.com/AlaskaAirlines/auro-input/commit/9d6afe23e64e003f6b9548fadebf60ec11534ff8))
+* **pattern:** improve non-numeric restriction for CC numbers ([e1ea476](https://github.com/AlaskaAirlines/auro-input/commit/e1ea476761d4a72e29fde5dfbd308fc767b58126))
+* **props:** add property defaults ([ce672b4](https://github.com/AlaskaAirlines/auro-input/commit/ce672b4e951d5f1fbd212265e590098c0b831828))
+* **template:** refactor icon to simple template ([468cc99](https://github.com/AlaskaAirlines/auro-input/commit/468cc991afeda3933ad71fb10e41d29fca23b325))
+* update demo index per marked new API ([bb8c3c9](https://github.com/AlaskaAirlines/auro-input/commit/bb8c3c955c921b418ba1cc59d33b900c33d6530b))
+
+
+### Code Refactoring
+
+* **generator migration:** migrate to latest gen build [#65](https://github.com/AlaskaAirlines/auro-input/issues/65) ([76f9dc6](https://github.com/AlaskaAirlines/auro-input/commit/76f9dc6e0ab0e56b0c03eca72d5d84e16ada57f3))
+
+
+### Features
+
+* **bordered:** add new bordered UI feature [#53](https://github.com/AlaskaAirlines/auro-input/issues/53) ([d2088a8](https://github.com/AlaskaAirlines/auro-input/commit/d2088a87cad96cb82f08e0c85d597f6de23ad845))
+* **text:** add support for slots and pre-defined copy [#59](https://github.com/AlaskaAirlines/auro-input/issues/59)/[#69](https://github.com/AlaskaAirlines/auro-input/issues/69) ([637aad4](https://github.com/AlaskaAirlines/auro-input/commit/637aad44b190a8bde6617afb802be1dc3994395c))
+
+
+### BREAKING CHANGES
+
+* **generator migration:** This commit updates to the latest WC-Generator build,
+this also includes API and npm namespace changes.
+
 ## [1.3.6](https://github.com/AlaskaAirlines/auro-input/compare/v1.3.5...v1.3.6) (2021-08-10)
 
 
