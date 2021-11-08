@@ -170,6 +170,9 @@ labels:
     description: Issue or Pull Request work is in Progress
     color: c0e585
     process: Applied by author to alert managers and developers that work is in progress
+  - name: 'Type: Spike'
+    color: 'ab33d6'
+    description: Team requires further research or investigation
   - name: 'Type: Bug'
     cat: type
     color: df0b37
