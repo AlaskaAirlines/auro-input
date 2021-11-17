@@ -117,6 +117,7 @@ export default class BaseInput extends LitElement {
       id:                      { type: String },
       label:                   { type: String },
       name:                    { type: String },
+      autocomplete:            { type: String },
       type:                    { type: String },
       value:                   { type: String },
       icon:                    { type: Boolean },

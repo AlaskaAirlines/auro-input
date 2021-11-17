@@ -1,11 +1,3 @@
-# Input
-
-Use the `auro-input` custom element to create basic single-line text fields. Supports type `text`, `password`, and `email` with validation, required input, error states and a secondary `bordered` theme. Use the slots `label` and `helptext` for additional content support.
-
-## Default component
-
-The default component supports the basic input `type="text"` structure. The `(optional)` label is provided to instruct the user that their input is not required.
-
 <style>
   .exampleWrapper--flex * {
     margin-bottom: 1rem;
@@ -23,6 +15,73 @@ The default component supports the basic input `type="text"` structure. The `(op
     }
   }
 </style>
+
+# Input
+
+Use the `auro-input` custom element to create basic single-line text fields. Supports type `text`, `password`, and `email` with validation, required input, error states and a secondary `bordered` theme. Use the slots `label` and `helptext` for additional content support.
+
+## Hacking on name autocomplete
+
+This example shows that you can define the `autocomplete` scenario with `name="name"`. The second example uses `name="name" autocomplete="off"`.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="name" bordered name="name">
+    <span slot="label">First Name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+  <auro-input id="name" bordered name="name" autocomplete="off" required>
+    <span slot="label">Last Name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+</div>
+
+## Hacking on email autocomplete
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="email-address" bordered name="email">
+    <span slot="label">Email address</span>
+    <span slot="helptext">Please enter your email address.</span>
+  </auro-input>
+  <auro-input id="email-address" bordered name="email" autocomplete="off" required>
+    <span slot="label">Email address</span>
+    <span slot="helptext">Please enter your email address.</span>
+  </auro-input>
+</div>
+
+## Hacking on street address autocomplete
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="street-address" bordered name="address">
+    <span slot="label">Street address</span>
+    <span slot="helptext">Please enter your street address.</span>
+  </auro-input>
+  <auro-input id="street-address" bordered name="address" autocomplete="off" required>
+    <span slot="label">Street address</span>
+    <span slot="helptext">Please enter your street address.</span>
+  </auro-input>
+</div>
+
+## Hacking on phone autocomplete
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="phone" bordered name="phone">
+    <span slot="label">Street address</span>
+    <span slot="helptext">Please enter your phone number.</span>
+  </auro-input>
+  <auro-input id="phone" bordered name="phone" autocomplete="off" required>
+    <span slot="label">Street address</span>
+    <span slot="helptext">Please enter your phone number.</span>
+  </auro-input>
+</div>
+
+
+<br><br><br>
+<hr>
+<br>
+
+## Default component
+
+The default component supports the basic input `type="text"` structure. The `(optional)` label is provided to instruct the user that their input is not required.
 
 <div class="exampleWrapper exampleWrapper--flex">
   <auro-input id="demo"></auro-input>

@@ -279,6 +279,7 @@ export default class AuroInput extends BaseInput {
         class="${classMap(inputClasses)}"
         id="${this.id}"
         name="${ifDefined(this.name)}"
+        autocomplete="${ifDefined(this.autocomplete)}"
         type="${this.type === 'password' && this.showPassword ? 'text' : this.getInputType(this.type)}"
         pattern="${ifDefined(this.type === 'credit-card' && !this.noValidate && this.maxLength ? `.{${this.maxLength},${this.maxLength}}` : undefined)}"
         maxlength="${ifDefined(this.maxLength ? this.maxLength : undefined)}"
