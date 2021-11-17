@@ -23,7 +23,7 @@ console.log(chalk.hex('#f26135')(`
 
       =>  DEPRECATION ALERT! DEPRECATION ALERT! <=`) + chalk.hex('#f26135')(`
 
-      With this release, the `) + chalk.hex('#ffd200').bold(`@alaskaairui`) + chalk.hex('#f26135')(` namespace
+      With this release, the `) + chalk.hex('#ffd200').bold(`@alaskaairux`) + chalk.hex('#f26135')(` namespace
       of auro-input is `) + chalk.hex('#ffd200').bold(`deprecated`) + chalk.hex('#f26135')(`. Be sure to
       update to `) + chalk.hex('#ffd200').bold(`@aurodesignsystem/auro-input`) + chalk.hex('#f26135')(`
       for the next major release.`) + chalk.hex('#ffd200').bold(`
