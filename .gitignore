@@ -4,11 +4,9 @@ node_modules/
 
 ## Demo support files
 demo/*.css
-demo/*.map
 
 ## CSS built from Sass process
 src/*.css
-src/*.map
 
 ## *-css built from sass-render process
 *-css.js
