@@ -1,0 +1,23 @@
+<auro-input id="full-name" required>
+  <span slot="label">Name</span>
+</auro-input>
+
+<auro-input id="full-name" required bordered>
+  <span slot="label">Name</span>
+  <span slot="helptext">Please enter your full name.</span>
+</auro-input>
+
+<auro-input id="full-name" type="password" required bordered>
+  <span slot="label">Password</span>
+  <span slot="helptext">Please enter a secure password.</span>
+</auro-input>
+
+<auro-input bordered required disabled type="email" id="email-address">
+  <slot slot="label">Email address</slot>
+  <slot slot="helptext">Please enter your email address.</slot>
+</auro-input>
+
+<auro-input bordered required icon type="credit-card" id="credit-card">
+  <slot slot="label">Card number</slot>
+  <slot slot="helptext">Valid credit card numbers must include 16 digits (15 for Amex).</slot>
+</auro-input>

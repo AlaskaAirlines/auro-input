@@ -45,10 +45,13 @@ import "@aurodesignsystem/auro-input";
 ```
 
 **Reference component in HTML**
-
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
 ```html
-<auro-input label="First name"></auro-input>
+<auro-input id="demo"></auro-input>
+<auro-input id="demo" bordered></auro-input>
 ```
+<!-- AURO-GENERATED-CONTENT:END -->
 
 ## Install bundled assets from CDN
 
@@ -70,6 +73,39 @@ The `<auro-input>` element should be used in situations where users may:
 * enter a single line of text into a form
 * enter their email into a form
 
+## API Code Examples
+
+Default auro-input
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/advanced.html) -->
+<!-- The below code snippet is automatically added from ./apiExamples/advanced.html -->
+```html
+<auro-input id="full-name" required>
+  <span slot="label">Name</span>
+</auro-input>
+
+<auro-input id="full-name" required bordered>
+  <span slot="label">Name</span>
+  <span slot="helptext">Please enter your full name.</span>
+</auro-input>
+
+<auro-input id="full-name" type="password" required bordered>
+  <span slot="label">Password</span>
+  <span slot="helptext">Please enter a secure password.</span>
+</auro-input>
+
+<auro-input bordered required disabled type="email" id="email-address">
+  <slot slot="label">Email address</slot>
+  <slot slot="helptext">Please enter your email address.</slot>
+</auro-input>
+
+<auro-input bordered required icon type="credit-card" id="credit-card">
+  <slot slot="label">Card number</slot>
+  <slot slot="helptext">Valid credit card numbers must include 16 digits (15 for Amex).</slot>
+</auro-input>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
+
 ## Development
 
 In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
@@ -78,24 +114,36 @@ Please be sure to review the [contribution guidelines](https://auro.alaskaair.co
 
 ### Start development environment
 
-Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open two different shell sessions. One is for the **npm tasks**, the second is to run the **server**.
+Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open a shell session to run the **dev server**.
 
 ```shell
-// shell terminal one
 $ npm run dev
-
-// shell terminal two
-$ npm run serve
 ```
 
 Open [localhost:8000](http://localhost:8000/)
+
+If running separate sessions is preferred, please run the following commands in individual terminal shells.
+
+```shell
+$ npm run build:watch
+
+$ npm run serve
+```
+
+### API generation
+
+The custom element API file is generated in the build and committed back to the repo with a version change. If the API doc has changed without a version change, author's are to run `npm run build:api` to generate the doc and commit to version control.
 
 ### Testing
 
 Automated tests are required for every Auro component. See `.\test\auro-input.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.
 
+### Bundled assets
+
+Bundled assets are only generated in the remote and not merged back to this repo. To review and/or test a bundled asset locally, run `$ npm run bundler` to generate assets.
+
 ### Demo deployment
 
 To deploy a demo version of the component for review, run `npm run build:demo` to create a `./build` directory that can be pushed to any static server.
 
-<small>Built from WC-Generator v3.9.3</small>
+<small>Built from WC-Generator v3.11.0</small>
