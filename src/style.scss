@@ -68,6 +68,7 @@ input {
   &:focus {
     border-color: var(--auro-color-ui-default-on-light);
     outline: none;
+
     & ~ .iconContainer {
       background: none;
 
@@ -116,7 +117,6 @@ input {
   color: var(--auro-color-text-secondary-on-light);
   pointer-events: none;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
-
 }
 
 .inputElement-labelIcon--no-value {
@@ -229,7 +229,6 @@ input {
 
 
 :host([bordered]) {
-
   .inputElement {
     padding-right: 2.375rem;
     padding-left: var(--auro-size-sm);
@@ -252,7 +251,7 @@ input {
       }
     }
 
-    &:disabled{
+    &:disabled {
       border-color: var(--auro-color-alert-disabled-on-light);
 
       @include auro_breakpoint--sm {
@@ -284,14 +283,12 @@ input {
 }
 
 :host([type='password']) {
-
   .inputElement {
     padding-right: 68px;
   }
 }
 
 :host([bordered][type='password']) {
-
   .inputElement {
     padding-right: 72px;
   }
