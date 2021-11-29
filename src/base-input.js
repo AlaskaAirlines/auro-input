@@ -4,11 +4,10 @@
 // ---------------------------------------------------------------------
 
 /* eslint-disable max-lines */
-
 /* eslint no-magic-numbers: ["error", { "ignore": [0] }] */
 /* eslint-disable max-statements */
 
-import { LitElement, css } from "lit-element";
+import { LitElement, css, html } from "lit-element";
 
 import styleCss from "./style-css.js";
 import "focus-visible/dist/focus-visible.min.js";
@@ -16,6 +15,7 @@ import closelg from '@alaskaairux/icons/dist/icons/interface/x-sm_es6.js';
 import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password_es6.js';
 import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password_es6.js';
 import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
+import Cleave from 'cleave.js';
 
 /**
  * Auro-input provides users a way to enter data into a text field.
@@ -44,6 +44,10 @@ export default class BaseInput extends LitElement {
   constructor() {
     super();
 
+    const idLength = 36;
+    const idSubstrEnd = 8;
+    const idSubstrStart = 2;
+
     /**
      * @private
      */
@@ -67,6 +71,26 @@ export default class BaseInput extends LitElement {
     /**
      * @private
      */
+    this.inputIconName = undefined;
+
+    /**
+     * @private
+     */
+    this.maxLength = undefined;
+
+    /**
+     * @private
+     */
+    this.numericKeyboard = false;
+
+    /**
+     * @private
+     */
+    this.showPassword = false;
+
+    /**
+     * @private
+     */
     this.localContent = {
       'email': 'Please enter a valid email address (name@domain.com).',
       'password': 'Valid passwords must consist of at least 8 characters, including at least one uppercase letter, one lowercase letter, and one number.',
@@ -84,6 +108,8 @@ export default class BaseInput extends LitElement {
     ];
 
     /**
+     * Credit Card is not included as this caused cursor placement issues.
+     * The Safari issue.
      * @private
      */
     this.setSelectionInputTypes = [
@@ -91,10 +117,6 @@ export default class BaseInput extends LitElement {
       "password",
       "email",
     ];
-
-    const idLength = 36,
-      idSubstrEnd = 8,
-      idSubstrStart = 2;
 
     /**
      * @private
@@ -108,6 +130,7 @@ export default class BaseInput extends LitElement {
     this.isValid = true;
     this.required = false;
     this.noValidate = false;
+    this.label = 'Input label is undefined';
   }
 
   // function to define props used within the scope of this component
@@ -125,6 +148,7 @@ export default class BaseInput extends LitElement {
       required:                { type: Boolean },
       noValidate:              { type: Boolean },
       helpText:                { type: String },
+      showPassword:            { state: true },
 
       /**
        * @private
@@ -142,6 +166,33 @@ export default class BaseInput extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.isValid = !this.error;
+
+    // Process auto-formatting if defined for CleaveJS
+    if (this.type) {
+      let config = null;
+
+      // Set config for credit card
+      switch (this.type) {
+        case 'credit-card':
+          config = {
+            creditCard: true
+          };
+
+          this.numericKeyboard = true;
+
+          break;
+          // add additional supported formats and their config JSON here
+
+        default:
+          // Do nothing
+      }
+
+      // initialize CleaveJS if we have a defined config for the requested format
+      if (config) {
+        // eslint-disable-next-line no-unused-vars
+        const cleave = new Cleave(this, config);
+      }
+    }
   }
 
   firstUpdated() {
@@ -150,6 +201,18 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * LitElement lifecycle method. Called after the DOM has been updated.
+   * @param {Map<string, any>} changedProperties - Keys are the names of changed properties, values are the corresponding previous values.
+   * @returns {void}
+   */
+  updated(changedProperties) {
+    if (changedProperties.has('error')) {
+      this.validate();
+    }
+  }
+
+  /**
+   * Function to set element focus.
    * @private
    * @return {void}
    */
@@ -158,7 +221,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * Function necessary to convert SVG data to HTML text string.
+   * Required to convert SVG icons from data to HTML string.
    * @private
    * @param {string} icon HTML string for requested icon.
    * @returns {object} Appended HTML for SVG.
@@ -170,7 +233,22 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * This function handles the clearing of the input element based on eval of content.
+   * Sets undefined value to empty string.
+   * @private
+   * @returns {string} Value or empty string.
+   */
+  initializeValue() {
+    if (this.value === undefined) {
+      this.value = '';
+
+      return '';
+    }
+
+    return this.value;
+  }
+
+  /**
+   * Handles event of clearing input content by clicking the X icon.
    * @private
    * @return {void}
    */
@@ -191,30 +269,31 @@ export default class BaseInput extends LitElement {
       this.validate();
     }
 
+    // Dispatched event to alert outside shadow DOM context of event firing.
     this.dispatchEvent(click);
   }
 
   /**
-   * The scope of this function is to address the needs of the
-   * input element based on type of input needed.
    * @private
    * @return {void}
    */
   handleInput() {
-    // Prevent non-numeric characters from being entered on credit card fields
+    // Prevent non-numeric characters from being entered on credit card fields.
     if (this.type === 'credit-card') {
       this.inputElement.value = this.inputElement.value.replace(/[\D]/gu, '');
     }
 
+    // Sets value property to value of element value (el.value).
     this.value = this.inputElement.value;
 
-    const { selectionStart } = this.inputElement;
-
+    // Validation on blur.
     if (this.hasBlurred) {
       this.validate();
     }
 
-    // prevents cursor jumping in Safari
+    // Prevents cursor jumping in Safari.
+    const { selectionStart } = this.inputElement;
+
     if (this.setSelectionInputTypes.includes(this.type)) {
       this.updateComplete.then(() => {
         try {
@@ -227,7 +306,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * This function applies the validation method on the input element based on blur event.
+   * Function to support @blur event.
    * @private
    * @return {void}
    */
@@ -241,8 +320,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * This function validates content of the input element based on
-   * HTML spec of internal validation.
+   * Validates content of the input element based on HTML spec.
    * @private
    * @return {void}
    */
@@ -259,8 +337,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * There is a short list of input types that this element supports.
-   * If the request is out of scope, only a text type is returned.
+   * Validates against list of supported this.allowedInputTypes; return type=text if invalid request.
    * @private
    * @param {string} type Value entered into component prop.
    * @returns {string} Iterates over allowed types array.
@@ -274,7 +351,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * Helper function to determine default help text string.
+   * Determines default help text string from this.localContent.
    * @private
    * @param {string} type Value entered into component prop.
    * @returns {string} Evaluates pre-determined help text.
@@ -294,7 +371,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * This function uses the supplied error string when needed.
+   * Return appropriate error message.
    * @private
    * @returns {string} Error string.
    */
@@ -307,5 +384,149 @@ export default class BaseInput extends LitElement {
     }
 
     return this.internalError;
+  }
+
+  /**
+   * Function to support show-password feature.
+   * @private
+   * @returns {void}
+   */
+  handleClickShowPassword() {
+    this.showPassword = !this.showPassword;
+    this.focus();
+  }
+
+  /**
+   * Supports show-password feature.
+   * @private
+   * @returns {string} Returns HTML for SVG, function to toggle between password icons.
+   */
+  togglePasswordIcon() {
+    if (this.showPassword) {
+      return this.hidePassword;
+    }
+
+    return this.viewPassword;
+  }
+
+  /**
+   * Supports show-password feature.
+   * @private
+   * @returns {string} Function for managing the display of the show-password icon.
+   */
+  showPasswordIcon() {
+    if (this.type === 'password') {
+      return html`
+        <button
+          class="iconButton passwordToggle"
+          @click="${this.handleClickShowPassword}"
+          tabindex="-1"
+        >${this.togglePasswordIcon()}</button>
+      `;
+    }
+
+    return null;
+  }
+
+  /**
+   * Support @keyup event.
+   * @private
+   * @returns {void}
+   */
+  handleKeyUp() {
+    const iconContainer = this.shadowRoot.querySelector('.iconContainer');
+
+    this.labelElement.classList.add('inputElement-label--sticky');
+
+    if (this.inputElement.value) {
+      iconContainer.classList.add("passwordIcon--show");
+    } else {
+      iconContainer.classList.remove("passwordIcon--show");
+    }
+  }
+
+  // Functions specific to Credit Card component support
+  // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+  /**
+   * Function to support credit-card feature type.
+   * @private
+   * @returns {void}
+   */
+  processCreditCard() {
+    const card = this.matchInputValueToCreditCard();
+
+    this.maxLength = card.formatLength;
+
+    if (!this.noValidate) {
+      this.customValidationMessage = card.customValidationMessage;
+    }
+
+    if (this.icon) {
+      this.inputIconName = card.cardIcon;
+    }
+  }
+
+  /**
+   * Function to support credit-card feature type.
+   * @private
+   * @returns {object} JSON with data for credit card formatting.
+   */
+  matchInputValueToCreditCard() {
+    const defaultCustomValidationMessage = 'Please enter a valid credit card number.';
+
+    // eslint-disable-next-line sort-vars, one-var
+    const creditCardTypes = [
+      {
+        name: 'American Express',
+        regex: /^(?<num>34|37)\d{0,9}/u,
+        formatLength: 17,
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'cc-amex'
+      },
+      {
+        name: 'Visa',
+        regex: /^(?<num>4)\d{0,9}/u,
+        formatLength: 19,
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'cc-visa'
+      },
+      {
+        name: 'Master Card',
+        regex: /^(?<num>5)\d{0,9}/u,
+        formatLength: 19,
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'cc-mastercard'
+      },
+      {
+        name: 'Discover Card',
+        regex: /^(?<num>6)\d{0,9}/u,
+        formatLength: 19,
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'cc-discover'
+      },
+      {
+        name: 'Alaska Airlines Visa',
+        regex: /^(?<num>4147\s34|4888\s93|4800\s11|4313\s51|4313\s07)\d{0,9}/u,
+        formatLength: 19,
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'cc-alaska'
+      }
+    ];
+
+    let type = {
+      name: 'Default Card',
+      formatLength: 19,
+      customValidationMessage: defaultCustomValidationMessage,
+      cardIcon: 'credit-card'
+    };
+
+    creditCardTypes.forEach((cardType) => {
+      if (cardType.regex.exec(this.value)) {
+        type = cardType;
+      }
+    });
+
+    return type;
   }
 }
