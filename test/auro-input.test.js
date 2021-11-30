@@ -165,6 +165,30 @@ describe('auro-input', () => {
     await expect(el).to.be.true;
   });
 
+  it('handles date formatting - MM/DD/YYYY', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-date" type="month-day-year" required></auro-input>
+    `);
+
+    expect(el.shadowRoot.querySelector('#format-date')).to.have.attribute('placeholder', 'MM/DD/YYYY');
+  });
+
+  it('handles date formatting - YYYY/MM/DD', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-date" type="year-month-day" required></auro-input>
+    `);
+
+    expect(el.shadowRoot.querySelector('#format-date')).to.have.attribute('placeholder', 'YYYY/MM/DD');
+  });
+
+  it('handles date formatting - MM/YY', async () => {
+    const el = await fixture(html`
+      <auro-input id="format-date" type="month-year" required></auro-input>
+    `);
+
+    expect(el.shadowRoot.querySelector('#format-date')).to.have.attribute('placeholder', 'MM/YY');
+  });
+
   it('handles credit card formatting - starts with "34" is American Express', async () => {
     const el = await fixture(html`
       <auro-input id="format-ccWithIcon" type="credit-card" icon="true" label="Credit Card Number with Icon" required></auro-input>
@@ -172,7 +196,7 @@ describe('auro-input', () => {
 
 
     await setInputValue(el, '34');
-    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-amex');
+    expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-amex');
   });
 
   it('handles credit card formatting - starts with "37" is American Express', async () => {
@@ -181,7 +205,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '37');
-    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-amex');
+    expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-amex');
   });
 
   it('handles credit card formatting - starts with "4" is Visa', async () => {
@@ -190,7 +214,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '4');
-    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-visa');
+    expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-visa');
   });
 
   it('handles credit card formatting - starts with "22" is MasterCard', async () => {
@@ -199,7 +223,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '5');
-    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-mastercard');
+    expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-mastercard');
   });
 
   it('handles credit card formatting - starts with "644" is Discover Card', async () => {
@@ -208,7 +232,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '6');
-    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-discover');
+    expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-discover');
   });
 
   it('handles credit card formatting - Undefined Value', async () => {
@@ -217,7 +241,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, undefined);
-    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'credit-card');
+    expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'credit-card');
   });
 
   it('handles credit card formatting - Empty Value', async () => {
@@ -226,7 +250,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '');
-    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'credit-card');
+    expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'credit-card');
   });
 
   it('handles credit card formatting - Alaska Air Visa Cards', async () => {
@@ -235,7 +259,7 @@ describe('auro-input', () => {
     `);
 
     await setInputValue(el, '4147 34');
-    expect(el.shadowRoot.querySelector('.creditCard-icon')).to.have.attribute('name', 'cc-visa');
+    expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-visa');
   });
 });
 
