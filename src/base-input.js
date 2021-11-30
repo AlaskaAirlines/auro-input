@@ -26,8 +26,9 @@ import Cleave from 'cleave.js';
  * @attr {String} id - Sets the unique ID of the element.
  * @attr {String} label - Deprecated, see `slot`.
  * @attr {String} name - Populates the `name` attribute on the input.
- * @attr {String} type - Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`  or `text`. If given value is not allowed or set, defaults to `text`.
+ * @attr {String} type - Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`, `month-day-year`, `month-year`, `year-month-day`  or `text`. If given value is not allowed or set, defaults to `text`.
  * @attr {String} value - Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input.
+ * @attr {String} placeholder - Define custom placeholder text, only supported by date input formats.
  * @attr {Boolean} icon - If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format.
  * @attr {Boolean} bordered - Applies bordered UI variant.
  * @attr {Boolean} disabled - If set, disables the input.
@@ -104,7 +105,10 @@ export default class BaseInput extends LitElement {
       "text",
       "email",
       "password",
-      "credit-card"
+      "credit-card",
+      "month-day-year",
+      "year-month-day",
+      "month-year"
     ];
 
     /**
@@ -130,6 +134,7 @@ export default class BaseInput extends LitElement {
     this.isValid = true;
     this.required = false;
     this.noValidate = false;
+    this.placeholder = '';
     this.label = 'Input label is undefined';
   }
 
@@ -148,6 +153,7 @@ export default class BaseInput extends LitElement {
       required:                { type: Boolean },
       noValidate:              { type: Boolean },
       helpText:                { type: String },
+      placeholder:             { type: String },
       showPassword:            { state: true },
 
       /**
@@ -182,6 +188,49 @@ export default class BaseInput extends LitElement {
 
           break;
           // add additional supported formats and their config JSON here
+
+        case 'month-day-year':
+          config = {
+            date: true,
+            delimiter: '/',
+            datePattern: [
+              'm',
+              'd',
+              'Y'
+            ]
+          };
+
+          this.numericKeyboard = true;
+
+          break;
+
+        case 'year-month-day':
+          config = {
+            date: true,
+            delimiter: '/',
+            datePattern: [
+              'Y',
+              'm',
+              'd'
+            ]
+          };
+
+          this.numericKeyboard = true;
+
+          break;
+
+        case 'month-year':
+          config = {
+            date: true,
+            datePattern: [
+              'm',
+              'y'
+            ]
+          };
+
+          this.numericKeyboard = true;
+
+          break;
 
         default:
           // Do nothing
@@ -443,6 +492,61 @@ export default class BaseInput extends LitElement {
     } else {
       iconContainer.classList.remove("passwordIcon--show");
     }
+  }
+
+  /**
+   * Support placeholder text.
+   * @private
+   * @returns {string}
+   */
+  getPlaceholder() {
+    if (this.type === 'month-day-year') {
+      return !this.placeholder ? 'MM/DD/YYYY' : this.placeholder;
+    } else if (this.type === 'month-year') {
+      return !this.placeholder ? 'MM/YY' : this.placeholder;
+    } else if (this.type === 'year-month-day') {
+      return !this.placeholder ? 'YYYY/MM/DD' : this.placeholder;
+    }
+
+    return '';
+  }
+
+  /**
+   * Defines placement of input icon based on type, used with classMap.
+   * @private
+   * @returns {boolean}
+   */
+  defineInputIcon() {
+    if (this.icon && this.type === 'credit-card') {
+      return true;
+    } else if (this.type === 'month-day-year') {
+      return true;
+    } else if (this.type === 'month-year') {
+      return true;
+    } else if (this.type === 'year-month-day') {
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * Defines padding of input label based on type, used with classMap.
+   * @private
+   * @returns {boolean}
+   */
+  defineLabelPadding() {
+    if (this.icon && this.type === 'credit-card' && (this.value === "" || this.value === undefined)) {
+      return true;
+    } else if (this.type === 'month-day-year') {
+      return true;
+    } else if (this.type === 'month-year') {
+      return true;
+    } else if (this.type === 'year-month-day') {
+      return true;
+    }
+
+    return false;
   }
 
   // Functions specific to Credit Card component support

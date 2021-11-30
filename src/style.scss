@@ -42,6 +42,16 @@ input {
   &::-ms-clear {
     display: none;
   }
+
+  &::placeholder {
+    color: var(--auro-color-base-white);
+  }
+
+  &:focus {
+    &::placeholder {
+      color: var(--auro-color-text-secondary-on-light);
+    }
+  }
 }
 
 .inputElement {
@@ -183,13 +193,18 @@ input {
   color: var(--auro-color-text-disabled-on-light);
 }
 
+:host([disabled]) {
+  color: var(--auro-color-text-disabled-on-light);
+}
+
 // =-=-=-=-=-=-=-=-= creditCard -=-=-=-=-=-=-=-=-=-=-=-=-
 
+.inputIcon,
 .creditCard {
   padding-left: var(--size-lgsm);
 }
 
-.creditCard-icon {
+.accentIcon {
   position: absolute;
   top: 4px;
   left: 0;
@@ -212,7 +227,10 @@ input {
 }
 
 // =-=-=-=-=-=-=-=-= bordered -=-=-=-=-=-=-=-=-=-=-=-=-
-:host([bordered][icon][type='credit-card']) {
+:host([bordered][icon][type='credit-card']),
+:host([bordered][type='month-day-year']),
+:host([bordered][type='year-month-day']),
+:host([bordered][type='month-year']) {
   .inputElement {
     padding-left: var(--size-xlsm);
   }
@@ -221,7 +239,7 @@ input {
     left: var(--size-xlsm);
   }
 
-  .creditCard-icon {
+  .accentIcon {
     top: -6px;
     left: var(--auro-size-sm);
   }

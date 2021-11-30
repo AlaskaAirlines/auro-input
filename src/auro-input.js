@@ -33,7 +33,7 @@ export default class AuroInput extends BaseInput {
 
     // eslint-disable-next-line one-var
     const inputClasses = {
-      "creditCard": this.icon && this.type === 'credit-card',
+      "inputIcon": this.defineInputIcon(),
       "error": !this.isValid,
       "inputElement": true,
       "inputElement--filled": this.value,
@@ -43,7 +43,7 @@ export default class AuroInput extends BaseInput {
     const labelClasses = {
       "inputElement-label": true,
       "is-disabled": this.disabled,
-      "inputElement-labelIcon--no-value": this.icon && this.type === 'credit-card' && (this.value === "" || this.value === undefined)
+      "inputElement-labelIcon--no-value": this.defineLabelPadding()
     };
 
     return html`
@@ -63,6 +63,7 @@ export default class AuroInput extends BaseInput {
         .value="${this.initializeValue()}"
         aria-describedby="${this.uniqueId}"
         aria-invalid="${!this.isValid}"
+        placeholder=${this.getPlaceholder()}
       />
 
       <!-- Input label template -->
@@ -91,8 +92,13 @@ export default class AuroInput extends BaseInput {
            This should be cleaned up when auro-icon issue #31 is resolved. -->
       ${this.inputIconName
         ? repeat([this.inputIconName], (val) => val, (name) => html`
-          <auro-icon class="creditCard-icon" category="payment" name="${name}"></auro-icon>
+          <auro-icon class="accentIcon" category="payment" name="${name}" customColor></auro-icon>
         `) : undefined
+      }
+
+      ${this.type === 'month-day-year' || this.type === 'month-year' || this.type === 'year-month-day'
+        ? html`<auro-icon class="accentIcon" category="interface" name="calendar" customColor></auro-icon>`
+        : undefined
       }
 
       <div class="iconContainer">
