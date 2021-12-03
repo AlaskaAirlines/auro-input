@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [2.1.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.0.0...v2.1.0) (2021-12-03)
+
+
+### Features
+
+* **date format:** add auto date formatting feature [#72](https://github.com/AlaskaAirlines/auro-input/issues/72) ([f191c47](https://github.com/AlaskaAirlines/auro-input/commit/f191c47e554515bba0ec7bf2580d9fee2802eab4))
+
 # [2.0.0](https://github.com/AlaskaAirlines/auro-input/compare/v1.3.6...v2.0.0) (2021-11-03)
 
 
