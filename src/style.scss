@@ -252,6 +252,7 @@ input {
     padding-left: var(--auro-size-sm);
     border: 1px solid var(--auro-color-border-primary-on-light);
     border-radius: var(--auro-border-radius);
+    background-color: var(--auro-color-base-white);
 
     &:focus {
       border-color: var(--auro-color-ui-default-on-light);
