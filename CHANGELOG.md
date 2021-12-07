@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.1.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.1.0...v2.1.1) (2021-12-07)
+
+
+### Bug Fixes
+
+* **css:** add white background to bordered type [#99](https://github.com/AlaskaAirlines/auro-input/issues/99) ([b75b428](https://github.com/AlaskaAirlines/auro-input/commit/b75b4283042e03136da6bcef0cc783752cc8aa58))
+
 # [2.1.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.0.0...v2.1.0) (2021-12-03)
 
 
