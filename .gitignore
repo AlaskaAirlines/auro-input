@@ -2,6 +2,10 @@
 node_modules/
 .cache/
 
+## Backstop resources
+backstop_data/html_report/
+backstop_data/bitmaps_test/
+
 ## Demo support files
 demo/*.css
 

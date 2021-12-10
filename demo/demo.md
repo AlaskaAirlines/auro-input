@@ -25,8 +25,8 @@ Use the `auro-input` custom element to create basic single-line text fields. Sup
 The default component supports the basic input `type="text"` structure. The `(optional)` label is provided to instruct the user that their input is not required.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="demo"></auro-input>
-  <auro-input id="demo" bordered></auro-input>
+  <auro-input id="demo1"></auro-input>
+  <auro-input id="demo2" bordered></auro-input>
 </div>
 
 <auro-accordion lowProfile justifyRight>
@@ -34,18 +34,18 @@ The default component supports the basic input `type="text"` structure. The `(op
 
   ```html
   /* For accessibility, always be sure to address the ID attribute  */
-  <auro-input id="demo"></auro-input>
-  <auro-input id="demo" bordered></auro-input>
+  <auro-input id="demo1"></auro-input>
+  <auro-input id="demo2" bordered></auro-input>
   ```
 </auro-accordion>
 
 Use the `label` slot to add content to the input label. Use the `helptext` slot to add content under the input to assist the user with the type of input required. There is no default help text for the default `type="text"`.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="full-name">
+  <auro-input id="demo3">
     <span slot="label">Name</span>
   </auro-input>
-  <auro-input id="full-name" bordered>
+  <auro-input id="demo4" bordered>
     <span slot="label">Name</span>
     <span slot="helptext">Please enter your full name.</span>
   </auro-input>
@@ -55,11 +55,11 @@ Use the `label` slot to add content to the input label. Use the `helptext` slot 
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="full-name">
+  <auro-input id="demo3">
     <span slot="label">Name</span>
   </auro-input>
 
-  <auro-input id="full-name" bordered>
+  <auro-input id="demo4" bordered>
     <span slot="label">Name</span>
     <span slot="helptext">Please enter your full name.</span>
   </auro-input>
@@ -69,10 +69,10 @@ Use the `label` slot to add content to the input label. Use the `helptext` slot 
 Use the `required` attribute to enable automatic input validation.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="full-name" required>
+  <auro-input id="demo5" required>
     <span slot="label">Name</span>
   </auro-input>
-  <auro-input id="full-name" required bordered>
+  <auro-input id="demo6" required bordered>
     <span slot="label">Name</span>
     <span slot="helptext">Please enter your full name.</span>
   </auro-input>
@@ -82,11 +82,11 @@ Use the `required` attribute to enable automatic input validation.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="full-name" required>
+  <auro-input id="demo5" required>
     <span slot="label">Name</span>
   </auro-input>
 
-  <auro-input id="full-name" required bordered>
+  <auro-input id="demo6" required bordered>
     <span slot="label">Name</span>
     <span slot="helptext">Please enter your full name.</span>
   </auro-input>
@@ -96,10 +96,10 @@ Use the `required` attribute to enable automatic input validation.
 Use the `error` attribute to communicate an issue with the input to the user. A default message of "_Please fill out this field._" will be used if a custom message is not passed into the attribute.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="full-name" required error>
+  <auro-input id="error1" required error>
     <span slot="label">Name</span>
   </auro-input>
-  <auro-input id="full-name" required bordered error="Please enter your full name.">
+  <auro-input id="error2" required bordered error="Please enter your full name.">
     <span slot="label">Name</span>
     <span slot="helptext">Please enter your full name.</span>
   </auro-input>
@@ -109,11 +109,11 @@ Use the `error` attribute to communicate an issue with the input to the user. A 
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="full-name" required error>
+  <auro-input id="error1" required error>
     <span slot="label">Name</span>
   </auro-input>
 
-  <auro-input id="full-name" required bordered error="Please enter your full name.">
+  <auro-input id="error2" required bordered error="Please enter your full name.">
     <span slot="label">Name</span>
     <span slot="helptext">Please enter your full name.</span>
   </auro-input>
@@ -127,10 +127,10 @@ Use the `type="password"` attribute for a password style input. The hide/show pa
 Default help text will be added to the input `type="password"` if custom help text is not provided. See the example below.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="full-name" type="password" required>
+  <auro-input id="demo7" type="password" required>
     <span slot="label">Password</span>
   </auro-input>
-  <auro-input id="full-name" type="password" required bordered>
+  <auro-input id="demo8" type="password" required bordered>
     <span slot="label">Password</span>
     <span slot="helptext">Please enter a secure password.</span>
   </auro-input>
@@ -140,11 +140,11 @@ Default help text will be added to the input `type="password"` if custom help te
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="full-name" type="password" required>
+  <auro-input id="demo7" type="password" required>
     <span slot="label">Password</span>
   </auro-input>
 
-  <auro-input id="full-name" type="password" required bordered>
+  <auro-input id="demo8" type="password" required bordered>
     <span slot="label">Password</span>
     <span slot="helptext">Please enter a secure password.</span>
   </auro-input>
@@ -158,10 +158,10 @@ Use the `type="email"` attribute for a email style input. These examples illustr
 Default help text will be added to the input `type="email"` if custom help text is not provided. See the example below.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input required type="email" id="email-address">
+  <auro-input required type="email" id="demo9">
     <slot slot="label">Email address</slot>
   </auro-input>
-  <auro-input bordered required type="email" id="email-address">
+  <auro-input bordered required type="email" id="demo10">
     <slot slot="label">Email address</slot>
     <slot slot="helptext">Please enter your email address.</slot>
   </auro-input>
@@ -171,11 +171,11 @@ Default help text will be added to the input `type="email"` if custom help text 
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input required type="email" id="email-address">
+  <auro-input required type="email" id="demo9">
     <slot slot="label">Email address</slot>
   </auro-input>
 
-  <auro-input bordered required type="email" id="email-address">
+  <auro-input bordered required type="email" id="demo10">
     <slot slot="label">Email address</slot>
     <slot slot="helptext">Please enter your email address.</slot>
   </auro-input>
@@ -189,10 +189,10 @@ Use the `type="credit-card"` attribute for a credit card formatted input.
 Default help text will be added to the input `type="credit-card"` if custom help text is not provided. See the example below.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input required type="credit-card" id="credit-card">
+  <auro-input required type="credit-card" id="demo11">
     <slot slot="label">Card number</slot>
   </auro-input>
-  <auro-input bordered required type="credit-card" id="credit-card">
+  <auro-input bordered required type="credit-card" id="demo12">
     <slot slot="label">Card number</slot>
     <slot slot="helptext">Valid credit card numbers must include 16 digits (15 for Amex).</slot>
   </auro-input>
@@ -202,11 +202,11 @@ Default help text will be added to the input `type="credit-card"` if custom help
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input required type="credit-card" id="credit-card">
+  <auro-input required type="credit-card" id="demo11">
     <slot slot="label">Card number</slot>
   </auro-input>
 
-  <auro-input bordered required type="credit-card" id="credit-card">
+  <auro-input bordered required type="credit-card" id="demo12">
     <slot slot="label">Card number</slot>
     <slot slot="helptext">Valid credit card numbers must include 16 digits (15 for Amex).</slot>
   </auro-input>
@@ -218,10 +218,10 @@ Use the `type="credit-card"` and `icon` attributes for a credit card formatted i
 **Dependency**: Please be sure to also install [auro-icon](https://auro.alaskaair.com/components/auro/icon/install) as a peer dependency.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input required icon type="credit-card" id="credit-card">
+  <auro-input required icon type="credit-card" id="demo13">
     <slot slot="label">Card number</slot>
   </auro-input>
-  <auro-input bordered required icon type="credit-card" id="credit-card">
+  <auro-input bordered required icon type="credit-card" id="demo14">
     <slot slot="label">Card number</slot>
     <slot slot="helptext">Valid credit card numbers must include 16 digits (15 for Amex).</slot>
   </auro-input>
@@ -232,11 +232,11 @@ Use the `type="credit-card"` and `icon` attributes for a credit card formatted i
 
   ```html
   // Use 4147 3411 1111 1111 to see the Alaska Airline's credit card!
-  <auro-input required icon type="credit-card" id="credit-card">
+  <auro-input required icon type="credit-card" id="demo13">
     <slot slot="label">Card number</slot>
   </auro-input>
 
-  <auro-input bordered required icon type="credit-card" id="credit-card">
+  <auro-input bordered required icon type="credit-card" id="demo14">
     <slot slot="label">Card number</slot>
     <slot slot="helptext">Valid credit card numbers must include 16 digits (15 for Amex).</slot>
   </auro-input>
@@ -248,10 +248,10 @@ Use the `type="credit-card"` and `icon` attributes for a credit card formatted i
 Use the `type="month-day-year"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="dateDemo" type="month-day-year" required>
+  <auro-input id="demo15" type="month-day-year" required>
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="dateDemo" bordered type="month-day-year">
+  <auro-input id="demo16" bordered type="month-day-year">
     <slot slot="label">Arrival date</slot>
   </auro-input>
 </div>
@@ -260,10 +260,10 @@ Use the `type="month-day-year"` attribute for a date formatted input.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="dateDemo" type="month-day-year" required>
+  <auro-input id="demo15" type="month-day-year" required>
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="dateDemo" bordered type="month-day-year">
+  <auro-input id="demo16" bordered type="month-day-year">
     <slot slot="label">Arrival date</slot>
   </auro-input>
   ```
@@ -272,10 +272,10 @@ Use the `type="month-day-year"` attribute for a date formatted input.
 Use the `type="month-year"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="dateDemo" type="month-year">
+  <auro-input id="demo17" type="month-year">
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="dateDemo" bordered type="month-year" required>
+  <auro-input id="demo18" bordered type="month-year" required>
     <slot slot="label">Arrival date</slot>
   </auro-input>
 </div>
@@ -284,10 +284,10 @@ Use the `type="month-year"` attribute for a date formatted input.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="dateDemo" type="month-year">
+  <auro-input id="demo17" type="month-year">
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="dateDemo" bordered type="month-year" required>
+  <auro-input id="demo18" bordered type="month-year" required>
     <slot slot="label">Arrival date</slot>
   </auro-input>
   ```
@@ -296,10 +296,10 @@ Use the `type="month-year"` attribute for a date formatted input.
 Use the `type="year-month-day"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="dateDemo" type="year-month-day" required>
+  <auro-input id="demo19" type="year-month-day" required>
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="dateDemo" bordered type="year-month-day">
+  <auro-input id="demo20" bordered type="year-month-day">
     <slot slot="label">Arrival date</slot>
   </auro-input>
 </div>
@@ -308,10 +308,10 @@ Use the `type="year-month-day"` attribute for a date formatted input.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="dateDemo" type="year-month-day" required>
+  <auro-input id="demo19" type="year-month-day" required>
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="dateDemo" bordered type="year-month-day">
+  <auro-input id="demo20" bordered type="year-month-day">
     <slot slot="label">Arrival date</slot>
   </auro-input>
   ```
@@ -320,10 +320,10 @@ Use the `type="year-month-day"` attribute for a date formatted input.
 Use the `placeholder` attribute for a custom placeholder message.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="dateDemo" type="month-day-year" placeholder="Day / Month / Year">
+  <auro-input id="demo21" type="month-day-year" placeholder="Day / Month / Year">
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="dateDemo" bordered type="month-day-year" placeholder="Numbers only" required>
+  <auro-input id="demo22" bordered type="month-day-year" placeholder="Numbers only" required>
     <slot slot="label">Arrival date</slot>
   </auro-input>
 </div>
@@ -332,10 +332,10 @@ Use the `placeholder` attribute for a custom placeholder message.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="dateDemo" type="month-day-year" placeholder="Day / Month / Year">
+  <auro-input id="demo21" type="month-day-year" placeholder="Day / Month / Year">
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="dateDemo" bordered type="month-day-year" placeholder="Numbers only" required>
+  <auro-input id="demo22" bordered type="month-day-year" placeholder="Numbers only" required>
     <slot slot="label">Arrival date</slot>
   </auro-input>
   ```
@@ -346,32 +346,32 @@ Use the `placeholder` attribute for a custom placeholder message.
 Example use cases for auro-input support the `disabled` attribute.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input disabled required id="address">
+  <auro-input disabled required id="demo23">
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
   </auro-input>
-  <auro-input disabled bordered required id="address">
+  <auro-input disabled bordered required id="demo24">
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
   </auro-input>
 </div>
 <br>
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input disabled required id="arrivalDate" type="month-day-year">
+  <auro-input disabled required id="demo25" type="month-day-year">
     <slot slot="label">Arrival Date</slot>
     <slot slot="helptext">Please enter your arrival date.</slot>
   </auro-input>
-  <auro-input disabled bordered required id="arrivalDate" type="month-day-year">
+  <auro-input disabled bordered required id="demo26" type="month-day-year">
     <slot slot="label">Arrival Date</slot>
     <slot slot="helptext">Please enter your arrival date.</slot>
   </auro-input>
 </div>
 <br>
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input disabled required id="arrivalDate" type="credit-card" icon>
+  <auro-input disabled required id="demo27" type="credit-card" icon>
     <slot slot="label">Credit Card number</slot>
   </auro-input>
-  <auro-input disabled bordered required id="arrivalDate" type="credit-card" icon>
+  <auro-input disabled bordered required id="demo28" type="credit-card" icon>
     <slot slot="label">Credit Card number</slot>
   </auro-input>
 </div>
@@ -380,28 +380,28 @@ Example use cases for auro-input support the `disabled` attribute.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input disabled required id="address">
+  <auro-input disabled required id="demo23">
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
   </auro-input>
-  <auro-input disabled bordered required id="address">
+  <auro-input disabled bordered required id="demo24">
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
   </auro-input>
 
-  <auro-input disabled required id="arrivalDate" type="month-day-year">
+  <auro-input disabled required id="demo25" type="month-day-year">
     <slot slot="label">Arrival Date</slot>
     <slot slot="helptext">Please enter your arrival date.</slot>
   </auro-input>
-  <auro-input disabled bordered required id="arrivalDate" type="month-day-year">
+  <auro-input disabled bordered required id="demo26" type="month-day-year">
     <slot slot="label">Arrival Date</slot>
     <slot slot="helptext">Please enter your arrival date.</slot>
   </auro-input>
 
-  <auro-input disabled required id="arrivalDate" type="credit-card" icon>
+  <auro-input disabled required id="demo27" type="credit-card" icon>
     <slot slot="label">Credit Card number</slot>
   </auro-input>
-  <auro-input disabled bordered required id="arrivalDate" type="credit-card" icon>
+  <auro-input disabled bordered required id="demo28" type="credit-card" icon>
     <slot slot="label">Credit Card number</slot>
   </auro-input>
   ```
@@ -412,11 +412,11 @@ Example use cases for auro-input support the `disabled` attribute.
 For use cases where the field is `required`, but live validation is not wanted, use the `noValidate` attribute.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input noValidate required id="address">
+  <auro-input noValidate required id="demo29">
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
   </auro-input>
-  <auro-input noValidate required bordered id="address">
+  <auro-input noValidate required bordered id="demo30">
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
   </auro-input>
@@ -426,12 +426,12 @@ For use cases where the field is `required`, but live validation is not wanted, 
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input noValidate required id="address">
+  <auro-input noValidate required id="demo29">
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
   </auro-input>
 
-  <auro-input noValidate required bordered id="address">
+  <auro-input noValidate required bordered id="demo30">
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
   </auro-input>
