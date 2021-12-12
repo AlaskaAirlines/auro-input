@@ -171,6 +171,10 @@
     "sweep": "rm -rf ./demo/css ./dist | rm ./src/*.css ./src/*-css.js",
     "test": "wtr --coverage",
     "test:watch": "wtr --watch",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "vrt:approve": "backstop approve",
+    "vrt:ref": "backstop reference",
+    "vrt:report": "backstop openReport",
+    "vrt:test": "backstop test"
   }
 }
