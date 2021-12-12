@@ -138,6 +138,26 @@ The custom element API file is generated in the build and committed back to the 
 
 Automated tests are required for every Auro component. See `.\test\auro-input.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.
 
+### Visual regression testing
+
+[BackstopJS](https://github.com/garris/BackstopJS#using-backstopjs) is used to support our visual regression testing scenarios. Testing is based off of a series of reference images that are committed to this repository. As new work is done, testing will be required in order to ensure visual stability of this element.
+
+Visual regression tests require running a local server. Tests will reference `http://localhost:8000`. If a server is not running, please run `$ npm run dev` to start a local server.
+
+The command `$ npm run vrt:test` is part of this element's pre-commit feature. If an issue is discovered it will fall into one of two categories, **resolve** or **approve**.
+
+#### Resolve
+
+If there is a change that is unintended, please address the issue and re-run `$ vrt:test`. Please DO NOT APPROVE an error to the tests.
+
+#### Approve
+
+If the change is expected, run `$ vrt:approve` and the new diff will be added to the test reference files. This step should be committed to the repo's history.
+
+```shell
+test(vrt): update test baseline reference
+```
+
 ### Bundled assets
 
 Bundled assets are only generated in the remote and not merged back to this repo. To review and/or test a bundled asset locally, run `$ npm run bundler` to generate assets.
