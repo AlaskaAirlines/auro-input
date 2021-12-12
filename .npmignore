@@ -2,11 +2,13 @@
 *config*
 *conf*
 
+.husky/
 .github/
 .gitignore
 .eslintrc
 .stylelintrc
 
+apiExamples/
 coverage/
 docs/
 scripts/
