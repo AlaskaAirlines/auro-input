@@ -25,7 +25,7 @@
       "selectors": ["#demo1", "#demo2"],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 0.001,
+      "misMatchThreshold" : 10,
       "requireSameDimensions": true
     },
     {
@@ -34,7 +34,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 100,
+      "delay": 0,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -52,7 +52,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 100,
+      "delay": 0,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
@@ -79,7 +79,7 @@
       "selectors": ["#error1", "#error2"],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 0.001,
+      "misMatchThreshold" : 10,
       "requireSameDimensions": true
     },
     {
@@ -97,7 +97,7 @@
       "selectors": ["#demo13", "#demo14"],
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold" : 0.001,
+      "misMatchThreshold" : 10,
       "requireSameDimensions": true
     },
     {
@@ -106,7 +106,7 @@
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
-      "delay": 100,
+      "delay": 0,
       "hideSelectors": [],
       "removeSelectors": [],
       "hoverSelector": "",
