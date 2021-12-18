@@ -12,7 +12,7 @@
     {
       "label": "default",
       "url": "http://localhost:8000/demo/",
-      "delay": 0,
+      "delay": 500,
       "postInteractionWait": 0,
       "selectors": ["#demo1", "#demo2"],
       "selectorExpansion": true,
@@ -23,7 +23,7 @@
     {
       "label": "click",
       "url": "http://localhost:8000/demo/",
-      "delay": 0,
+      "delay": 500,
       "clickSelector": ["#demo1"],
       "postInteractionWait": 100,
       "selectors": ["#demo1"],
@@ -35,7 +35,7 @@
     {
       "label": "click2",
       "url": "http://localhost:8000/demo/",
-      "delay": 0,
+      "delay": 500,
       "clickSelector": ["#demo2"],
       "postInteractionWait": 100,
       "selectors": ["#demo2"],
@@ -47,7 +47,7 @@
     {
       "label": "error",
       "url": "http://localhost:8000/demo/",
-      "delay": 0,
+      "delay": 500,
       "postInteractionWait": 0,
       "selectors": ["#error1", "#error2"],
       "selectorExpansion": true,
@@ -58,7 +58,7 @@
     {
       "label": "creditcard",
       "url": "http://localhost:8000/demo/",
-      "delay": 0,
+      "delay": 500,
       "postInteractionWait": 0,
       "selectors": ["#demo13", "#demo14"],
       "selectorExpansion": true,
@@ -69,7 +69,7 @@
     {
       "label": "date",
       "url": "http://localhost:8000/demo/",
-      "delay": 0,
+      "delay": 500,
       "clickSelector": ["#demo15"],
       "postInteractionWait": 100,
       "selectors": ["#demo15"],
@@ -92,8 +92,8 @@
     "args": ["--no-sandbox"],
     "browser": "chromium"
   },
-  "asyncCaptureLimit": 5,
-  "asyncCompareLimit": 50,
+  "asyncCaptureLimit": 10,
+  "asyncCompareLimit": 100,
   "debug": false,
   "debugWindow": false
 }
