@@ -140,7 +140,9 @@ Automated tests are required for every Auro component. See `.\test\auro-input.te
 
 ### Visual regression testing
 
-[BackstopJS](https://github.com/garris/BackstopJS#using-backstopjs) is used to support our visual regression testing scenarios. Testing is based off of a series of reference images that are committed to this repository. As new work is done, testing will be required in order to ensure visual stability of this element.
+[BackstopJS](https://github.com/garris/BackstopJS#backstop-features) is used to support our visual regression testing scenarios. Testing is based off of a series of reference images that are committed to this repository. As new work is done, testing will be required in order to ensure visual stability of this element.
+
+For a full description of the [test API](https://github.com/garris/BackstopJS#using-backstopjs).
 
 Visual regression tests require running a local server. Tests will reference `http://localhost:8000`. If a server is not running, please run `$ npm run dev` to start a local server.
 
