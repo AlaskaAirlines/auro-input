@@ -106,6 +106,20 @@ describe('auro-input', () => {
     expect(el.isValid).to.be.false;
   });
 
+  it('does not validate when novalidate is true', async () => {
+    const el = await fixture(html`
+      <auro-input required type="email" label="Label" novalidate></auro-input>
+    `);
+    const input = el.shadowRoot.querySelector('input');
+
+    input.focus();
+    setInputValue(el, '');
+    input.blur();
+    await elementUpdated(el);
+
+    expect(el.isValid).to.be.true;
+  });
+
   it('sets aria-invalid', async () => {
     const el = await fixture(html`
       <auro-input required></auro-input>
@@ -147,6 +161,18 @@ describe('auro-input', () => {
     `);
 
     el.error = '';
+    await elementUpdated(el);
+    expect(el.isValid).to.be.true;
+  });
+
+  it('updates validity when error message removed after creation and novalidate is true', async () => {
+    const el = await fixture(html`
+      <auro-input error="Test error" novalidate required></auro-input>
+    `);
+
+    expect(el.isValid).to.be.false;
+    el.error = '';
+
     await elementUpdated(el);
     expect(el.isValid).to.be.true;
   });
