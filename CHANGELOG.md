@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.1.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.1.1...v2.1.2) (2021-12-23)
+
+
+### Bug Fixes
+
+* respect novalidate after error set [#107](https://github.com/AlaskaAirlines/auro-input/issues/107) ([141825a](https://github.com/AlaskaAirlines/auro-input/commit/141825a377cca9382398681002dfa80a96724c1a))
+
 ## [2.1.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.1.0...v2.1.1) (2021-12-07)
 
 
