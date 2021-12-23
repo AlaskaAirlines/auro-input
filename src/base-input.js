@@ -363,9 +363,7 @@ export default class BaseInput extends LitElement {
     this.hasBlurred = true;
     this.inputElement.scrollLeft = 100;
 
-    if (!this.noValidate) {
-      this.validate();
-    }
+    this.validate();
   }
 
   /**
@@ -374,14 +372,13 @@ export default class BaseInput extends LitElement {
    * @return {void}
    */
   validate() {
-
     if (this.error && this.error.length > 0) {
       this.isValid = false;
 
       return;
     }
 
-    this.isValid = this.inputElement.checkValidity();
+    this.isValid = this.noValidate ? true : this.inputElement.checkValidity();
     this.internalError = this.isValid ? null : this.inputElement.validationMessage;
   }
 
@@ -562,9 +559,7 @@ export default class BaseInput extends LitElement {
 
     this.maxLength = card.formatLength;
 
-    if (!this.noValidate) {
-      this.customValidationMessage = card.customValidationMessage;
-    }
+    this.customValidationMessage = card.customValidationMessage;
 
     if (this.icon) {
       this.inputIconName = card.cardIcon;
