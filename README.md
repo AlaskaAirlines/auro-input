@@ -144,7 +144,7 @@ Automated tests are required for every Auro component. See `.\test\auro-input.te
 
 For a full description of the [test API](https://github.com/garris/BackstopJS#using-backstopjs).
 
-Visual regression tests require running a local server. Tests will reference `http://localhost:8000`. If a server is not running, please run `$ npm run dev` to start a local server.
+Visual regression tests require running a local server. Tests will expect `http://localhost:8000`. If a server is not running, please run `$ npm run dev` to start a local server.
 
 The command `$ npm run vrt:test` is part of this element's pre-commit feature. If an issue is discovered it will fall into one of two categories, **resolve** or **approve**.
 
@@ -159,6 +159,10 @@ If the change is expected, run `$ vrt:approve` and the new diff will be added to
 ```shell
 test(vrt): update test baseline reference
 ```
+
+#### Adding a new scenario
+
+If a new scenario is added to the visual regression suite, you will need to run `$ vrt:ref` to generate new references.
 
 ### Bundled assets
 
