@@ -56,11 +56,47 @@
       "requireSameDimensions": true
     },
     {
+      "label": "emailRequiredError",
+      "url": "http://localhost:8000/demo/",
+      "delay": 500,
+      "clickSelectors": ["#demo9","#demo10"],
+      "postInteractionWait": 100,
+      "selectors": ["#demo9"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 10,
+      "requireSameDimensions": true
+    },
+    {
       "label": "creditcard",
       "url": "http://localhost:8000/demo/",
       "delay": 500,
       "postInteractionWait": 0,
       "selectors": ["#demo13", "#demo14"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 10,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "creditcardClick",
+      "url": "http://localhost:8000/demo/",
+      "delay": 500,
+      "postInteractionWait": 100,
+      "clickSelector": ["#demo13"],
+      "selectors": ["#demo13"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 10,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "creditcardClick2",
+      "url": "http://localhost:8000/demo/",
+      "delay": 500,
+      "postInteractionWait": 100,
+      "clickSelector": ["#demo14"],
+      "selectors": ["#demo14"],
       "selectorExpansion": true,
       "expect": 0,
       "misMatchThreshold" : 10,
