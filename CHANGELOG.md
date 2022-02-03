@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [2.1.3](https://github.com/AlaskaAirlines/auro-input/compare/v2.1.2...v2.1.3) (2022-02-03)
+
+
+### Performance Improvements
+
+* **vrt:** increase delay, capture and compare values ([6bed3e8](https://github.com/AlaskaAirlines/auro-input/commit/6bed3e84ab1688b0480ecfccb0accbdcfb51728b))
+* **vrt:** remove unused engine scripts ([8f5c08a](https://github.com/AlaskaAirlines/auro-input/commit/8f5c08a466eea44b3c4968c14c7f182319afe72e))
+
 ## [2.1.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.1.1...v2.1.2) (2021-12-23)
 
 
