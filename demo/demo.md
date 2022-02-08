@@ -120,6 +120,26 @@ Use the `error` attribute to communicate an issue with the input to the user. A 
   ```
 </auro-accordion>
 
+Use the `borderless` attribute to remove the bottom border. This attribute is intended for use when input is wrapped in a container that already handles the different state displays, e.g. [auro-dropdown](http://auro.alaskaair.com/components/auro/dropdown).
+
+<div class="exampleWrapper exampleWrapper">
+  <auro-input id="demoBorderless" borderless>
+    <span slot="label">Name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input id="demoBorderless" borderless>
+    <span slot="label">Name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+  ```
+</auro-accordion>
+
 ## Password
 
 Use the `type="password"` attribute for a password style input. The hide/show password feature will automatically appear once a user begins to enter data.
