@@ -21,6 +21,29 @@
       "requireSameDimensions": true
     },
     {
+      "label": "borderless",
+      "url": "http://localhost:8000/demo/",
+      "delay": 500,
+      "postInteractionWait": 0,
+      "selectors": ["#demoBorderless"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 10,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "borderlessClick",
+      "url": "http://localhost:8000/demo/",
+      "delay": 500,
+      "clickSelector": ["#demoBorderless"],
+      "postInteractionWait": 100,
+      "selectors": ["#demoBorderless"],
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 10,
+      "requireSameDimensions": true
+    },
+    {
       "label": "click",
       "url": "http://localhost:8000/demo/",
       "delay": 500,
