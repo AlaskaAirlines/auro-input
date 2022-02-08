@@ -63,20 +63,14 @@ input {
   padding-bottom: var(--auro-size-xs);
   padding-left: 0;
 
-  border: 0 solid;
-  border-color: var(--auro-color-border-primary-on-light);
-  border-bottom-width: 2px;
-
   margin: 0;
   background-color: transparent;
-  border-radius: 0;
   caret-color: var(--auro-color-text-secondary-on-light);
   font-family: var(--auro-font-family-default);
   font-size: 1rem;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
 
   &:focus {
-    border-color: var(--auro-color-ui-default-on-light);
     outline: none;
 
     & ~ .iconContainer {
@@ -101,18 +95,42 @@ input {
     }
   }
 
-  &.error {
-    border-color: var(--auro-color-alert-error-on-light);
-  }
-
   &:disabled {
-    border-color: var(--auro-color-border-disabled-on-light);
     background: none;
     color: var(--auro-color-text-disabled-on-light);
   }
 
   &:invalid {
     box-shadow: none;
+  }
+}
+
+:host(:not([borderless])) {
+  .inputElement {
+    border-radius: 0;
+    border: 0 solid;
+    border-color: var(--auro-color-border-primary-on-light);
+    border-bottom-width: 2px;
+
+    &:disabled {
+      border-color: var(--auro-color-border-disabled-on-light);
+    }
+
+    &.error {
+      border-color: var(--auro-color-alert-error-on-light);
+    }
+
+    &:focus {
+      border-color: var(--auro-color-ui-default-on-light);
+    }
+  }
+}
+
+:host([borderless]) {
+  .inputElement {
+    border: 0 solid;
+    border-color: transparent;
+    border-bottom-width: 2px;
   }
 }
 

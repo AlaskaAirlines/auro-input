@@ -2,9 +2,10 @@
 
 ## Attributes
 
-| Attribute  | Type      | Description                  |
-|------------|-----------|------------------------------|
-| `bordered` | `Boolean` | Applies bordered UI variant. |
+| Attribute    | Type      | Description                    |
+|--------------|-----------|--------------------------------|
+| `bordered`   | `Boolean` | Applies bordered UI variant.   |
+| `borderless` | `Boolean` | Applies borderless UI variant. |
 
 ## Properties
 

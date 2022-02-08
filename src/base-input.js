@@ -31,6 +31,7 @@ import Cleave from 'cleave.js';
  * @attr {String} placeholder - Define custom placeholder text, only supported by date input formats.
  * @attr {Boolean} icon - If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format.
  * @attr {Boolean} bordered - Applies bordered UI variant.
+ * @attr {Boolean} borderless - Applies borderless UI variant.
  * @attr {Boolean} disabled - If set, disables the input.
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} isValid - Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer.
