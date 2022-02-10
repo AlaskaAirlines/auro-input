@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [2.2.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.1.3...v2.2.0) (2022-02-10)
+
+
+### Features
+
+* **borderless:** add new borderless UI ([6769b47](https://github.com/AlaskaAirlines/auro-input/commit/6769b47e5a4b803613a90a60ad29b85644bd73f2))
+
 ## [2.1.3](https://github.com/AlaskaAirlines/auro-input/compare/v2.1.2...v2.1.3) (2022-02-03)
 
 
