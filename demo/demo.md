@@ -361,6 +361,30 @@ Use the `placeholder` attribute for a custom placeholder message.
   ```
 </auro-accordion>
 
+Use the `type="month-fullYear"` attribute for a date formatted input.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="demo23" type="month-fullYear">
+    <slot slot="label">Departure date</slot>
+  </auro-input>
+  <auro-input id="demo25" bordered type="month-fullYear" required>
+    <slot slot="label">Arrival date</slot>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input id="demo23" type="month-fullYear">
+    <slot slot="label">Departure date</slot>
+  </auro-input>
+  <auro-input id="demo25" bordered type="month-fullYear" required>
+    <slot slot="label">Arrival date</slot>
+  </auro-input>
+  ```
+</auro-accordion>
+
 ## Disabled
 
 Example use cases for auro-input support the `disabled` attribute.

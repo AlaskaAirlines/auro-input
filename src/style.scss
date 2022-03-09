@@ -248,7 +248,8 @@ input {
 :host([bordered][icon][type='credit-card']),
 :host([bordered][type='month-day-year']),
 :host([bordered][type='year-month-day']),
-:host([bordered][type='month-year']) {
+:host([bordered][type='month-year']),
+:host([bordered][type='month-fullYear']) {
   .inputElement {
     padding-left: var(--size-xlsm);
   }
