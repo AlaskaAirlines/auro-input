@@ -22,7 +22,7 @@
 | `noValidate`  | `noValidate`  | `Boolean` | false                      | If set, disables auto-validation on blur.        |
 | `placeholder` | `placeholder` | `String`  | ""                         | Define custom placeholder text, only supported by date input formats. |
 | `required`    | `required`    | `Boolean` | false                      | Populates the `required` attribute on the input. Used for client-side validation. |
-| `type`        | `type`        | `String`  |                            | Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`, `month-day-year`, `month-year`, `year-month-day`  or `text`. If given value is not allowed or set, defaults to `text`. |
+| `type`        | `type`        | `String`  |                            | Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`, `month-day-year`, `month-year`, `year-month-day`, `month-fullYear`,  or `text`. If given value is not allowed or set, defaults to `text`. |
 | `value`       | `value`       | `String`  |                            | Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input. |
 
 ## Events
