@@ -96,7 +96,7 @@ export default class AuroInput extends BaseInput {
         `) : undefined
       }
 
-      ${this.type === 'month-day-year' || this.type === 'month-year' || this.type === 'year-month-day'
+      ${this.type === 'month-day-year' || this.type === 'month-year' || this.type === 'year-month-day' || this.type === 'month-fullYear'
         ? html`<auro-icon class="accentIcon" category="interface" name="calendar" customColor></auro-icon>`
         : undefined
       }

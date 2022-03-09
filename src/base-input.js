@@ -233,6 +233,19 @@ export default class BaseInput extends LitElement {
 
           break;
 
+        case 'month-fullYear':
+          config = {
+            date: true,
+            datePattern: [
+              'm',
+              'Y'
+            ]
+          };
+
+          this.numericKeyboard = true;
+
+          break;
+
         default:
           // Do nothing
       }
@@ -502,6 +515,8 @@ export default class BaseInput extends LitElement {
       return !this.placeholder ? 'MM/DD/YYYY' : this.placeholder;
     } else if (this.type === 'month-year') {
       return !this.placeholder ? 'MM/YY' : this.placeholder;
+    } else if (this.type === 'month-fullYear') {
+      return !this.placeholder ? 'MM/YYYY' : this.placeholder;
     } else if (this.type === 'year-month-day') {
       return !this.placeholder ? 'YYYY/MM/DD' : this.placeholder;
     }
