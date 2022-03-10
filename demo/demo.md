@@ -252,6 +252,7 @@ Use the `type="credit-card"` and `icon` attributes for a credit card formatted i
 
   ```html
   // Use 4147 3411 1111 1111 to see the Alaska Airline's credit card!
+  // Use 2744 0091 165 to test Alaska Airline's commercial card support
   <auro-input required icon type="credit-card" id="demo13">
     <slot slot="label">Card number</slot>
   </auro-input>
