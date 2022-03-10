@@ -83,6 +83,11 @@ export default class BaseInput extends LitElement {
     /**
      * @private
      */
+    this.minLength = undefined;
+
+    /**
+     * @private
+     */
     this.numericKeyboard = false;
 
     /**
@@ -578,6 +583,7 @@ export default class BaseInput extends LitElement {
     const card = this.matchInputValueToCreditCard();
 
     this.maxLength = card.formatLength;
+    this.minLength = card.formatMinLength;
 
     this.customValidationMessage = card.customValidationMessage;
 
@@ -596,6 +602,12 @@ export default class BaseInput extends LitElement {
 
     // eslint-disable-next-line sort-vars, one-var
     const creditCardTypes = [
+      {
+        name: 'Commercial',
+        regex: /^(?<num>2)\d/u,
+        formatMinLength: 8,
+        customValidationMessage: defaultCustomValidationMessage
+      },
       {
         name: 'American Express',
         regex: /^(?<num>34|37)\d{0,9}/u,
@@ -623,6 +635,13 @@ export default class BaseInput extends LitElement {
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'cc-discover'
+      },
+      {
+        name: 'Alaska Commercial',
+        regex: /^(?<num>27)\d/u,
+        formatMinLength: 8,
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'cc-alaska'
       },
       {
         name: 'Alaska Airlines Visa',
