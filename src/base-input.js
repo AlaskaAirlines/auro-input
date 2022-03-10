@@ -536,6 +536,8 @@ export default class BaseInput extends LitElement {
       return true;
     } else if (this.type === 'month-year') {
       return true;
+    } else if (this.type === 'month-fullYear') {
+      return true;
     } else if (this.type === 'year-month-day') {
       return true;
     }
@@ -554,6 +556,8 @@ export default class BaseInput extends LitElement {
     } else if (this.type === 'month-day-year') {
       return true;
     } else if (this.type === 'month-year') {
+      return true;
+    } else if (this.type === 'month-fullYear') {
       return true;
     } else if (this.type === 'year-month-day') {
       return true;
