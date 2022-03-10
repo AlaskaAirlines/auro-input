@@ -313,13 +313,13 @@ Use the `type="month-year"` attribute for a date formatted input.
   ```
 </auro-accordion>
 
-Use the `type="year-month-day"` attribute for a date formatted input.
+Use the `type="month-fullYear"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="demo19" type="year-month-day" required>
+  <auro-input id="demo19" type="month-fullYear">
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="demo20" bordered type="year-month-day">
+  <auro-input id="demo20" bordered type="month-fullYear" required>
     <slot slot="label">Arrival date</slot>
   </auro-input>
 </div>
@@ -328,10 +328,34 @@ Use the `type="year-month-day"` attribute for a date formatted input.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="demo19" type="year-month-day" required>
+  <auro-input id="demo19" type="month-fullYear">
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="demo20" bordered type="year-month-day">
+  <auro-input id="demo20" bordered type="month-fullYear" required>
+    <slot slot="label">Arrival date</slot>
+  </auro-input>
+  ```
+</auro-accordion>
+
+Use the `type="year-month-day"` attribute for a date formatted input.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="demo20" type="year-month-day" required>
+    <slot slot="label">Departure date</slot>
+  </auro-input>
+  <auro-input id="demo21" bordered type="year-month-day">
+    <slot slot="label">Arrival date</slot>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input id="demo20" type="year-month-day" required>
+    <slot slot="label">Departure date</slot>
+  </auro-input>
+  <auro-input id="demo21" bordered type="year-month-day">
     <slot slot="label">Arrival date</slot>
   </auro-input>
   ```
@@ -340,10 +364,10 @@ Use the `type="year-month-day"` attribute for a date formatted input.
 Use the `placeholder` attribute for a custom placeholder message.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="demo21" type="month-day-year" placeholder="Day / Month / Year">
+  <auro-input id="demo22" type="month-day-year" placeholder="Day / Month / Year">
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="demo22" bordered type="month-day-year" placeholder="Numbers only" required>
+  <auro-input id="demo23" bordered type="month-day-year" placeholder="Numbers only" required>
     <slot slot="label">Arrival date</slot>
   </auro-input>
 </div>
@@ -352,34 +376,10 @@ Use the `placeholder` attribute for a custom placeholder message.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="demo21" type="month-day-year" placeholder="Day / Month / Year">
+  <auro-input id="demo24" type="month-day-year" placeholder="Day / Month / Year">
     <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input id="demo22" bordered type="month-day-year" placeholder="Numbers only" required>
-    <slot slot="label">Arrival date</slot>
-  </auro-input>
-  ```
-</auro-accordion>
-
-Use the `type="month-fullYear"` attribute for a date formatted input.
-
-<div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="demo23" type="month-fullYear">
-    <slot slot="label">Departure date</slot>
-  </auro-input>
-  <auro-input id="demo25" bordered type="month-fullYear" required>
-    <slot slot="label">Arrival date</slot>
-  </auro-input>
-</div>
-
-<auro-accordion lowProfile justifyRight>
-  <span slot="trigger">See code</span>
-
-  ```html
-  <auro-input id="demo23" type="month-fullYear">
-    <slot slot="label">Departure date</slot>
-  </auro-input>
-  <auro-input id="demo25" bordered type="month-fullYear" required>
+  <auro-input id="demo25" bordered type="month-day-year" placeholder="Numbers only" required>
     <slot slot="label">Arrival date</slot>
   </auro-input>
   ```
