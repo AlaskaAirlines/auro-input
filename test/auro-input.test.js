@@ -290,13 +290,22 @@ describe('auro-input', () => {
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'credit-card');
     });
 
-    it('Alaska Air Visa Cards', async () => {
+    it('Alaska Visa Cards', async () => {
       const el = await fixture(html`
         <auro-input id="format-ccWithIcon" type="credit-card" icon label="Credit Card Number with Icon" required></auro-input>
       `);
 
       await setInputValue(el, '4147 34');
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-visa');
+    });
+
+    it('Alaska Corp Cards', async () => {
+      const el = await fixture(html`
+        <auro-input id="format-ccWithIcon" type="credit-card" icon label="Credit Card Number with Icon" required></auro-input>
+      `);
+
+      await setInputValue(el, '27');
+      expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-alaska');
     });
   })
 });
