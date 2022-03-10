@@ -604,48 +604,48 @@ export default class BaseInput extends LitElement {
     const creditCardTypes = [
       {
         name: 'Commercial',
-        regex: /^(?<num>2)\d/u,
+        regex: /^(?<num>2)\d{0}/u,
         formatMinLength: 8,
         customValidationMessage: defaultCustomValidationMessage
       },
       {
         name: 'American Express',
-        regex: /^(?<num>34|37)\d{0,9}/u,
+        regex: /^(?<num>34|37)\d{0}/u,
         formatLength: 17,
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'cc-amex'
       },
       {
         name: 'Visa',
-        regex: /^(?<num>4)\d{0,9}/u,
+        regex: /^(?<num>4)\d{0}/u,
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'cc-visa'
       },
       {
         name: 'Master Card',
-        regex: /^(?<num>5)\d{0,9}/u,
+        regex: /^(?<num>5)\d{0}/u,
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'cc-mastercard'
       },
       {
         name: 'Discover Card',
-        regex: /^(?<num>6)\d{0,9}/u,
+        regex: /^(?<num>6)\d{0}/u,
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'cc-discover'
       },
       {
         name: 'Alaska Commercial',
-        regex: /^(?<num>27)\d/u,
+        regex: /^(?<num>27)\d{0}/u,
         formatMinLength: 8,
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'cc-alaska'
       },
       {
         name: 'Alaska Airlines Visa',
-        regex: /^(?<num>4147\s34|4888\s93|4800\s11|4313\s51|4313\s07)\d{0,9}/u,
+        regex: /^(?<num>4147\s34|4888\s93|4800\s11|4313\s51|4313\s07)\d{0}/u,
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'cc-alaska'
