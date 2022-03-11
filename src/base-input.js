@@ -606,7 +606,8 @@ export default class BaseInput extends LitElement {
         name: 'Commercial',
         regex: /^(?<num>2)\d{0}/u,
         formatMinLength: 8,
-        customValidationMessage: defaultCustomValidationMessage
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'credit-card'
       },
       {
         name: 'American Express',
