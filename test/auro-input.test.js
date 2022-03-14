@@ -225,6 +225,16 @@ describe('auro-input', () => {
     });
   });
 
+  describe('handles i18n', () => {
+    it('credit-card translation', async () => {
+      const el = await fixture(html`
+        <auro-input type="credit-card" required lang="es" id="input01"></auro-input>
+      `);
+
+      expect(el.shadowRoot.querySelector('#input01')).to.have.attribute('lang', 'es');
+    });
+  });
+
   describe('handles credit card formatting', () => {
     it('starts with "34" is American Express', async () => {
       const el = await fixture(html`
@@ -316,7 +326,7 @@ describe('auro-input', () => {
       await setInputValue(el, '27');
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-alaska');
     });
-  })
+  });
 });
 
 function setInputValue(el, value) {
