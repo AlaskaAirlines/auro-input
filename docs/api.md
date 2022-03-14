@@ -18,6 +18,7 @@
 | `id`          | `id`          | `String`  |                            | Sets the unique ID of the element.               |
 | `isValid`     | `isValid`     | `Boolean` | true                       | Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer. |
 | `label`       | `label`       | `String`  | "Input label is undefined" | Deprecated, see `slot`.                          |
+| `lang`        | `lang`        | `String`  |                            | defines the language of an element.              |
 | `name`        | `name`        | `String`  |                            | Populates the `name` attribute on the input.     |
 | `noValidate`  | `noValidate`  | `Boolean` | false                      | If set, disables auto-validation on blur.        |
 | `placeholder` | `placeholder` | `String`  | ""                         | Define custom placeholder text, only supported by date input formats. |
