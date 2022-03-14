@@ -16,6 +16,7 @@ import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password_
 import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password_es6.js';
 import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
 import Cleave from 'cleave.js';
+import i18n from './i18n.js';
 
 /**
  * Auro-input provides users a way to enter data into a text field.
@@ -29,6 +30,7 @@ import Cleave from 'cleave.js';
  * @attr {String} type - Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`, `month-day-year`, `month-year`, `year-month-day`  or `text`. If given value is not allowed or set, defaults to `text`.
  * @attr {String} value - Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input.
  * @attr {String} placeholder - Define custom placeholder text, only supported by date input formats.
+ * @attr {String} lang - defines the language of an element.
  * @attr {Boolean} icon - If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format.
  * @attr {Boolean} bordered - Applies bordered UI variant.
  * @attr {Boolean} borderless - Applies borderless UI variant.
@@ -98,15 +100,6 @@ export default class BaseInput extends LitElement {
     /**
      * @private
      */
-    this.localContent = {
-      'email': 'Please enter a valid email address (name@domain.com).',
-      'password': 'Valid passwords must consist of at least 8 characters, including at least one uppercase letter, one lowercase letter, and one number.',
-      'creditcard': 'Please enter a valid credit card number.',
-    };
-
-    /**
-     * @private
-     */
     this.allowedInputTypes = [
       "text",
       "email",
@@ -142,6 +135,12 @@ export default class BaseInput extends LitElement {
     this.noValidate = false;
     this.placeholder = '';
     this.label = 'Input label is undefined';
+
+    /**
+     * It is desired that if the lang is `en` to maintain `undefined` as not to
+     * add the `lang` attribute to the individual element.
+     */
+    this.lang = document.documentElement.lang !== 'en' ? document.documentElement.lang : undefined;
   }
 
   // function to define props used within the scope of this component
@@ -153,6 +152,7 @@ export default class BaseInput extends LitElement {
       name:                    { type: String },
       type:                    { type: String },
       value:                   { type: String },
+      lang:                    { type: String },
       icon:                    { type: Boolean },
       disabled:                { type: Boolean },
       isValid:                 { type: Boolean },
@@ -416,18 +416,18 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * Determines default help text string from this.localContent.
+   * Determines default help text string from this.strings object.
    * @private
    * @param {string} type Value entered into component prop.
    * @returns {string} Evaluates pre-determined help text.
    */
   getHelpText(type) {
     if (type === 'password') {
-      this.helpText = this.localContent.password;
+      this.helpText = i18n(this.lang, 'password');
     } else if (type === 'email') {
-      this.helpText = this.localContent.email;
+      this.helpText = i18n(this.lang, 'email');
     } else if (type === 'credit-card') {
-      this.helpText = this.localContent.creditcard;
+      this.helpText = i18n(this.lang, 'creditcard');
     } else {
       this.helpText = '';
     }
@@ -598,7 +598,7 @@ export default class BaseInput extends LitElement {
    * @returns {object} JSON with data for credit card formatting.
    */
   matchInputValueToCreditCard() {
-    const defaultCustomValidationMessage = 'Please enter a valid credit card number.';
+    const defaultCustomValidationMessage = `${i18n(this.lang, 'validCard')})`;
 
     // eslint-disable-next-line sort-vars, one-var
     const creditCardTypes = [
