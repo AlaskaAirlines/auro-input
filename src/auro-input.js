@@ -59,7 +59,7 @@ export default class AuroInput extends BaseInput {
         pattern="${ifDefined(this.type === 'credit-card' && !this.noValidate && this.maxLength ? `.{${this.maxLength},${this.maxLength}}` : undefined)}"
         maxlength="${ifDefined(this.maxLength ? this.maxLength : undefined)}"
         minlength="${ifDefined(this.minLength ? this.minLength : undefined)}"
-        inputmode="${ifDefined(this.numericKeyboard ? `numeric` : undefined)}"
+        inputmode="${ifDefined(this.inputmode ? this.inputmode : undefined)}"
         ?required="${this.required}"
         ?disabled="${this.disabled}"
         .value="${this.initializeValue()}"

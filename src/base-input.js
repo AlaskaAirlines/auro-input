@@ -90,7 +90,7 @@ export default class BaseInput extends LitElement {
     /**
      * @private
      */
-    this.numericKeyboard = false;
+    this.inputmode = '';
 
     /**
      * @private
@@ -186,7 +186,7 @@ export default class BaseInput extends LitElement {
             creditCard: true
           };
 
-          this.numericKeyboard = true;
+          this.inputmode = 'numeric';
 
           break;
           // add additional supported formats and their config JSON here
@@ -202,7 +202,7 @@ export default class BaseInput extends LitElement {
             ]
           };
 
-          this.numericKeyboard = true;
+          this.inputmode = 'numeric';
 
           break;
 
@@ -217,7 +217,7 @@ export default class BaseInput extends LitElement {
             ]
           };
 
-          this.numericKeyboard = true;
+          this.inputmode = 'numeric';
 
           break;
 
@@ -230,7 +230,7 @@ export default class BaseInput extends LitElement {
             ]
           };
 
-          this.numericKeyboard = true;
+          this.inputmode = 'numeric';
 
           break;
 
@@ -243,7 +243,7 @@ export default class BaseInput extends LitElement {
             ]
           };
 
-          this.numericKeyboard = true;
+          this.inputmode = 'numeric';
 
           break;
 
