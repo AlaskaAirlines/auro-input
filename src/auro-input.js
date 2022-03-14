@@ -67,6 +67,9 @@ export default class AuroInput extends BaseInput {
         aria-invalid="${!this.isValid}"
         placeholder=${this.getPlaceholder()}
         lang="${ifDefined(this.lang)}"
+        spellcheck="${ifDefined(this.type === 'password' ? `false` : undefined)}"
+        autocorrect="${ifDefined(this.type === 'password' ? `off` : undefined)}"
+        autocapitalize="${ifDefined(this.type === 'password' ? `none` : undefined)}"
       />
 
       <!-- Input label template -->
