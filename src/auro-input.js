@@ -12,6 +12,7 @@ import { html } from "lit-element";
 import { repeat } from 'lit-html/directives/repeat.js';
 import { classMap } from 'lit-html/directives/class-map.js';
 import { ifDefined } from 'lit-html/directives/if-defined.js';
+import i18n from './i18n.js';
 import BaseInput from './base-input';
 
 // build the component class
@@ -65,6 +66,7 @@ export default class AuroInput extends BaseInput {
         aria-describedby="${this.uniqueId}"
         aria-invalid="${!this.isValid}"
         placeholder=${this.getPlaceholder()}
+        lang="${ifDefined(this.lang)}"
       />
 
       <!-- Input label template -->
@@ -72,7 +74,7 @@ export default class AuroInput extends BaseInput {
         <slot name="label">
           ${this.label}
         </slot>
-        ${this.required ? '' : ` (optional)`}
+        ${this.required ? '' : ` (${i18n(this.lang, 'optional')})`}
       </label>
 
       <!-- Help text and error message template -->
