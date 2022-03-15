@@ -1,3 +1,27 @@
+const watchedItems = new Set();
+
+/**
+ * @param {MutationRecord[]} mutationList
+ */
+function handleChange(mutationList) {
+  const [mutation] = mutationList;
+  const lang = mutation.target.getAttribute('lang');
+  watchedItems.forEach((item) => {
+
+    /**
+     * It is desired that if the lang is `en` to maintain `undefined` as not to
+     * add the `lang` attribute to the individual element.
+     */
+    item.lang = lang === 'en' ? undefined : lang;
+  });
+}
+
+if (window.MutationObserver) {
+  const observer = new MutationObserver(handleChange);
+  observer.observe(document.documentElement, { attributes: true,
+    attributeFilter: ['lang'] });
+}
+
 /**
  * Object containing default copy for this element.
  * Supported languages: en, es.
@@ -33,4 +57,12 @@ export default function i18n(lang, requestedString) {
   }
 
   return stringsEN[requestedString];
+}
+
+export function notifyOnLangChange(element) {
+  watchedItems.add(element);
+}
+
+export function stopNotifyingOnLangChange(element) {
+  watchedItems.delete(element);
 }
