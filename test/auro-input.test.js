@@ -235,8 +235,8 @@ describe('auro-input', () => {
         <auro-input type="credit-card" required lang="es" id="input01"></auro-input>
       `);
 
-      const eli18nContent = eli18n.shadowRoot.querySelectorAll('[name="helptext"]')[0].innerHTML;
-      const content = el.shadowRoot.querySelectorAll('[name="helptext"]')[0].innerHTML;
+      const eli18nContent = eli18n.shadowRoot.querySelector('[name="helptext"]').innerHTML;
+      const content = el.shadowRoot.querySelector('[name="helptext"]').innerHTML;
 
       expect(content).to.not.contain(`Por favor`);
       expect(eli18nContent).to.contain(`Por favor`);
