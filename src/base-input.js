@@ -417,7 +417,7 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * Determines default help text string from this.strings object.
+   * Determines default help text string.
    * @private
    * @param {string} type Value entered into component prop.
    * @returns {string} Evaluates pre-determined help text.
