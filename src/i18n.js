@@ -35,11 +35,6 @@ if (window.MutationObserver) {
     attributeFilter: ['lang'] });
 }
 
-/**
- * Object containing default copy for this element.
- * Supported languages: en, es.
- * @private
- */
 const stringsES = {
   'optional': 'opcional',
   'validCard': 'Por favor, introduzca un número de tarjeta de crédito válida.',
@@ -64,7 +59,6 @@ const stringsEN = {
  * @returns {string} Value of string request.
  */
 export default function i18n(lang, requestedString) {
-
   if (lang === 'es') {
     return stringsES[requestedString];
   }

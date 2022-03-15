@@ -142,7 +142,7 @@ Use the `borderless` attribute to remove the bottom border. This attribute is in
 
 ## Localization support
 
-The `auro-input` element supports the localization of all content managed within the scope of the element. This DOES NOT include any custom content places in the `slot` element.
+The `auro-input` element supports the localization of all content managed within the scope of the element. This DOES NOT include any custom content placed in the `slot` element.
 
 <auro-radio-group required horizontal>
   <span slot="legend">Use the options here to toggle between languages</span>
