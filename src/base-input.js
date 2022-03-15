@@ -16,7 +16,7 @@ import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password_
 import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password_es6.js';
 import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
 import Cleave from 'cleave.js';
-import i18n from './i18n.js';
+import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
 
 /**
  * Auro-input provides users a way to enter data into a text field.
@@ -135,12 +135,6 @@ export default class BaseInput extends LitElement {
     this.noValidate = false;
     this.placeholder = '';
     this.label = 'Input label is undefined';
-
-    /**
-     * It is desired that if the lang is `en` to maintain `undefined` as not to
-     * add the `lang` attribute to the individual element.
-     */
-    this.lang = document.documentElement.lang !== 'en' ? document.documentElement.lang : undefined;
   }
 
   // function to define props used within the scope of this component
@@ -178,6 +172,8 @@ export default class BaseInput extends LitElement {
   connectedCallback() {
     super.connectedCallback();
     this.isValid = !this.error;
+
+    notifyOnLangChange(this);
 
     // Process auto-formatting if defined for CleaveJS
     if (this.type) {
@@ -261,6 +257,11 @@ export default class BaseInput extends LitElement {
         const cleave = new Cleave(this, config);
       }
     }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    stopNotifyingOnLangChange(this);
   }
 
   firstUpdated() {
