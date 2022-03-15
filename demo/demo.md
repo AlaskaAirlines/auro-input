@@ -140,6 +140,16 @@ Use the `borderless` attribute to remove the bottom border. This attribute is in
   ```
 </auro-accordion>
 
+## Localization support
+
+The `auro-input` element supports the localization of all content managed within the scope of the element. This DOES NOT include any custom content places in the `slot` element.
+
+<auro-radio-group required horizontal>
+  <span slot="legend">Use the options here to toggle between languages</span>
+  <auro-radio id="radio" name="langDemo" value="en" onclick="changeLang('en')" checked>English</auro-radio>
+  <auro-radio id="radio" name="langDemo" value="es" onclick="changeLang('es')">Spanish</auro-radio>
+</auro-radio-group>
+
 ## Password
 
 Use the `type="password"` attribute for a password style input. The hide/show password feature will automatically appear once a user begins to enter data.
