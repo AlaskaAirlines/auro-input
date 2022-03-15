@@ -228,12 +228,23 @@ describe('auro-input', () => {
   describe('handles i18n', () => {
     it('credit-card translation', async () => {
       const el = await fixture(html`
+        <auro-input type="credit-card" required id="input01"></auro-input>
+      `);
+
+      const eli18n = await fixture(html`
         <auro-input type="credit-card" required lang="es" id="input01"></auro-input>
       `);
 
-      expect(el.shadowRoot.querySelector('#input01')).to.have.attribute('lang', 'es');
+      const eli18nContent = eli18n.shadowRoot.querySelectorAll('[name="helptext"]')[0].innerHTML;
+      const content = el.shadowRoot.querySelectorAll('[name="helptext"]')[0].innerHTML;
+
+      expect(content).to.not.contain(`Por favor`);
+      expect(eli18nContent).to.contain(`Por favor`);
+      expect(eli18n.shadowRoot.querySelector('#input01')).to.have.attribute('lang', 'es');
     });
   });
+
+
 
   describe('handles credit card formatting', () => {
     it('starts with "34" is American Express', async () => {
