@@ -1,18 +1,31 @@
 const watchedItems = new Set();
 
+
 /**
- * @param {MutationRecord[]} mutationList
+ * Function for setting the value of the lang attribute.
+ * @private
+ * @param {object} item - Individual DOM node from set of watchedItems.
+ * @param {string} lang - Current language set for the document.
+ */
+function setLang(item, lang) {
+
+  /**
+   * It is desired that if the lang is `en` to maintain `undefined` as not to
+   * add the `lang` attribute to the individual element.
+   */
+  item.lang = lang === 'en' ? undefined : lang;
+}
+
+/**
+ * Change handler for MutationObserver() callback.
+ * @private
+ * @param {MutationRecord[]} mutationList - Observed list of mutations.
  */
 function handleChange(mutationList) {
   const [mutation] = mutationList;
   const lang = mutation.target.getAttribute('lang');
   watchedItems.forEach((item) => {
-
-    /**
-     * It is desired that if the lang is `en` to maintain `undefined` as not to
-     * add the `lang` attribute to the individual element.
-     */
-    item.lang = lang === 'en' ? undefined : lang;
+    setLang(item, lang);
   });
 }
 
@@ -59,10 +72,21 @@ export default function i18n(lang, requestedString) {
   return stringsEN[requestedString];
 }
 
+/**
+ * @private
+ * @param {object} element - Pass in the scope of the element in use.
+ */
 export function notifyOnLangChange(element) {
+  if (!element.lang) {
+    setLang(element, document.documentElement.lang);
+  }
   watchedItems.add(element);
 }
 
+/**
+ * @private
+ * @param {object} element - Pass in the scope of the element in use.
+ */
 export function stopNotifyingOnLangChange(element) {
   watchedItems.delete(element);
 }
