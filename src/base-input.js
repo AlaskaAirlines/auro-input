@@ -38,6 +38,8 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} isValid - Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
+ * @attr {Number} maxlength - The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher.
+ * @attr {Number} minlength - The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`.
  * @slot helptext - Sets the help text displayed below the input.
  * @slot label - Sets the label text for the input.
  * @event input - Event fires when the value of an `auro-input` has been changed.
@@ -76,16 +78,6 @@ export default class BaseInput extends LitElement {
      * @private
      */
     this.inputIconName = undefined;
-
-    /**
-     * @private
-     */
-    this.maxLength = undefined;
-
-    /**
-     * @private
-     */
-    this.minLength = undefined;
 
     /**
      * @private
@@ -134,6 +126,8 @@ export default class BaseInput extends LitElement {
     this.required = false;
     this.noValidate = false;
     this.placeholder = '';
+    this.maxLength = undefined;
+    this.minLength = undefined;
     this.label = 'Input label is undefined';
   }
 
@@ -154,6 +148,8 @@ export default class BaseInput extends LitElement {
       noValidate:              { type: Boolean },
       helpText:                { type: String },
       placeholder:             { type: String },
+      maxLength:               { type: Number },
+      minLength:               { type: Number },
       showPassword:            { state: true },
 
       /**
@@ -181,6 +177,16 @@ export default class BaseInput extends LitElement {
 
       // Set config for credit card
       switch (this.type) {
+        case 'number':
+          config = {
+            numeral: true,
+            delimiter: ''
+          };
+
+          this.inputmode = 'numeric';
+
+          break;
+
         case 'credit-card':
           config = {
             creditCard: true
@@ -189,7 +195,6 @@ export default class BaseInput extends LitElement {
           this.inputmode = 'numeric';
 
           break;
-          // add additional supported formats and their config JSON here
 
         case 'month-day-year':
           config = {
