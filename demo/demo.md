@@ -212,6 +212,66 @@ Default help text will be added to the input `type="email"` if custom help text 
   ```
 </auro-accordion>
 
+## Numbers
+
+Use the `type="number"` attribute for a numeric style input and invoke a numeric virtual keyboard on handheld devices.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input required type="number" id="demo40">
+    <slot slot="label">Account number</slot>
+    <slot slot="helptext">Please enter your account number.</slot>
+  </auro-input>
+  <auro-input bordered required type="number" id="demo41">
+    <slot slot="label">Account number</slot>
+    <slot slot="helptext">Please enter your account number.</slot>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input required type="number" id="demo40" maxlength="12">
+    <slot slot="label">Account number</slot>
+    <slot slot="helptext">Please enter your 12 digit account number.</slot>
+  </auro-input>
+
+  <auro-input bordered required type="number" id="demo41">
+    <slot slot="label">Account number</slot>
+    <slot slot="helptext">Please enter your account number.</slot>
+  </auro-input>
+  ```
+</auro-accordion>
+
+Use the `type="number"` in combination wit the `maxlength` attribute to control the length of the number entered.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input required type="number" id="demo42" maxlength="12">
+    <slot slot="label">Account number</slot>
+    <slot slot="helptext">Please enter your 12 digit account number.</slot>
+  </auro-input>
+  <auro-input bordered required type="number" id="demo43" maxlength="12">
+    <slot slot="label">Account number</slot>
+    <slot slot="helptext">Please enter your 12 digit account number.</slot>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input required type="number" id="demo42" maxlength="12">
+    <slot slot="label">Account number</slot>
+    <slot slot="helptext">Please enter your 12 digit account number.</slot>
+  </auro-input>
+
+  <auro-input bordered required type="number" id="demo43" maxlength="12">
+    <slot slot="label">Account number</slot>
+    <slot slot="helptext">Please enter your 12 digit account number.</slot>
+  </auro-input>
+  ```
+</auro-accordion>
+
 ## Credit Card
 
 Use the `type="credit-card"` attribute for a credit card formatted input.
