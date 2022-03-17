@@ -38,11 +38,12 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} isValid - Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
- * @attr {Number} maxlength - The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher.
- * @attr {Number} minlength - The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`.
+ * @attr {Number} maxLength - The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher.
+ * @attr {Number} minLength - The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`.
  * @attr {String} spellcheck - An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`.
  * @attr {String} autocorrect - When set to `off`, stops iOS from auto correcting words when typed into a text box.
  * @attr {String} autocapitalize - An enumerated attribute that controls whether and how text input is automatically capitalized as it is entered/edited by the user. [off/none, on/sentences, words, characters]
+ * @attr {String} pattern - Specifies a regular expression the form control's value should match.
  * @slot helptext - Sets the help text displayed below the input.
  * @slot label - Sets the label text for the input.
  * @event input - Event fires when the value of an `auro-input` has been changed.
@@ -290,17 +291,7 @@ export default class BaseInput extends LitElement {
     if (changedProperties.has('error')) {
       this.validate();
     }
-  }
 
-  creditCardPattern() {
-    if (this.type === 'credit-card' && !this.noValidate && this.maxLength) {
-      return `.{${this.maxLength},${this.maxLength}}`;
-    }
-
-    return this.pattern;
-  }
-
-  setInputDefinition() {
     if (this.type === 'password') {
       this.spellcheck = 'false';
     }
@@ -308,9 +299,22 @@ export default class BaseInput extends LitElement {
     if (this.spellcheck === 'false') {
       this.autocorrect = 'off';
       this.autocapitalize = 'none';
+    } else {
+      this.autocorrect = this.autocorrect ? this.autocorrect : undefined;
+      this.autocapitalize = undefined;
+    }
+  }
+
+  /**
+   * @private
+   * @returns {string}
+   */
+  definePattern() {
+    if (this.type === 'credit-card' && !this.noValidate && this.maxLength) {
+      return `{${this.maxLength},${this.maxLength}}`;
     }
 
-    return undefined;
+    return this.pattern;
   }
 
   /**
