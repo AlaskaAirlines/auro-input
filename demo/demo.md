@@ -93,6 +93,37 @@ Use the `required` attribute to enable automatic input validation.
   ```
 </auro-accordion>
 
+Use the `pattern` attribute to set custom input validation. This example also uses the `spellcheck` attribute set to `false` which in turn sets `autocorrect` to `off` and `autocapitalize` to `none`. Additionally the `maxlength` attribute sets the maximum length of characters that can be entered.
+
+Be sure to review this element's API docs for all related information.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="demo5" pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false">
+    <span slot="label">Username</span>
+    <span slot="helptext">Username may only contain lowercase letters.</span>
+  </auro-input>
+  <auro-input id="demo6" bordered pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false">
+    <span slot="label">Username</span>
+    <span slot="helptext">Username may only contain lowercase letters.</span>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input id="demo5" pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false">
+    <span slot="label">Username</span>
+    <span slot="helptext">Username may only contain lowercase letters.</span>
+  </auro-input>
+
+  <auro-input id="demo6" bordered pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false">
+    <span slot="label">Username</span>
+    <span slot="helptext">Username may only contain lowercase letters.</span>
+  </auro-input>
+  ```
+</auro-accordion>
+
 Use the `error` attribute to communicate an issue with the input to the user. A default message of "_Please fill out this field._" will be used if a custom message is not passed into the attribute.
 
 <div class="exampleWrapper exampleWrapper--flex">
