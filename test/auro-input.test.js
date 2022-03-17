@@ -191,6 +191,16 @@ describe('auro-input', () => {
     await expect(el).to.be.true;
   });
 
+  it('Sets spellcheck and autocapitalize values', async () => {
+    const el = await fixture(html`
+      <auro-input id="checkSpellCheck" type="text" required spellcheck="false"></auro-input>
+    `);
+
+    // autocorrect is not accounted for, it is not a W3C spec, only works with iOS
+    expect(el.shadowRoot.querySelector('#checkSpellCheck')).to.have.attribute('spellcheck', 'false');
+    expect(el.shadowRoot.querySelector('#checkSpellCheck')).to.have.attribute('autocapitalize', 'none');
+  });
+
   describe('handles date formatting', () => {
     it('MM/DD/YYYY', async () => {
       const el = await fixture(html`
