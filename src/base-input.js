@@ -40,6 +40,9 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
  * @attr {Number} maxlength - The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher.
  * @attr {Number} minlength - The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`.
+ * @attr {String} spellcheck - An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`.
+ * @attr {String} autocorrect - When set to `off`, stops iOS from auto correcting words when typed into a text box.
+ * @attr {String} autocapitalize - An enumerated attribute that controls whether and how text input is automatically capitalized as it is entered/edited by the user. [off/none, on/sentences, words, characters]
  * @slot helptext - Sets the help text displayed below the input.
  * @slot label - Sets the label text for the input.
  * @event input - Event fires when the value of an `auro-input` has been changed.
@@ -141,12 +144,16 @@ export default class BaseInput extends LitElement {
       type:                    { type: String },
       value:                   { type: String },
       lang:                    { type: String },
+      pattern:                 { type: String },
       icon:                    { type: Boolean },
       disabled:                { type: Boolean },
       isValid:                 { type: Boolean },
       required:                { type: Boolean },
       noValidate:              { type: Boolean },
       helpText:                { type: String },
+      spellcheck:              { type: String },
+      autocorrect:             { type: String },
+      autocapitalize:          { type: String },
       placeholder:             { type: String },
       maxLength:               { type: Number },
       minLength:               { type: Number },
@@ -283,6 +290,27 @@ export default class BaseInput extends LitElement {
     if (changedProperties.has('error')) {
       this.validate();
     }
+  }
+
+  creditCardPattern() {
+    if (this.type === 'credit-card' && !this.noValidate && this.maxLength) {
+      return `.{${this.maxLength},${this.maxLength}}`;
+    }
+
+    return this.pattern;
+  }
+
+  setInputDefinition() {
+    if (this.type === 'password') {
+      this.spellcheck = 'false';
+    }
+
+    if (this.spellcheck === 'false') {
+      this.autocorrect = 'off';
+      this.autocapitalize = 'none';
+    }
+
+    return undefined;
   }
 
   /**
@@ -604,7 +632,7 @@ export default class BaseInput extends LitElement {
    * @returns {object} JSON with data for credit card formatting.
    */
   matchInputValueToCreditCard() {
-    const defaultCustomValidationMessage = `${i18n(this.lang, 'validCard')})`;
+    const defaultCustomValidationMessage = `${i18n(this.lang, 'validCard')}`;
 
     // eslint-disable-next-line sort-vars, one-var
     const creditCardTypes = [

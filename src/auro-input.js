@@ -56,7 +56,7 @@ export default class AuroInput extends BaseInput {
         id="${this.id}"
         name="${ifDefined(this.name)}"
         type="${this.type === 'password' && this.showPassword ? 'text' : this.getInputType(this.type)}"
-        pattern="${ifDefined(this.type === 'credit-card' && !this.noValidate && this.maxLength ? `.{${this.maxLength},${this.maxLength}}` : undefined)}"
+        pattern="${ifDefined(this.pattern ? this.creditCardPattern() : undefined)}"
         maxlength="${ifDefined(this.maxLength ? this.maxLength : undefined)}"
         minlength="${ifDefined(this.minLength ? this.minLength : undefined)}"
         inputmode="${ifDefined(this.inputmode ? this.inputmode : undefined)}"
@@ -67,9 +67,9 @@ export default class AuroInput extends BaseInput {
         aria-invalid="${!this.isValid}"
         placeholder=${this.getPlaceholder()}
         lang="${ifDefined(this.lang)}"
-        spellcheck="${ifDefined(this.type === 'password' ? `false` : undefined)}"
-        autocorrect="${ifDefined(this.type === 'password' ? `off` : undefined)}"
-        autocapitalize="${ifDefined(this.type === 'password' ? `none` : undefined)}"
+        spellcheck="${ifDefined(this.spellcheck ? this.spellcheck : this.setInputDefinition())}"
+        autocorrect="${ifDefined(this.autocorrect ? this.autocorrect : this.setInputDefinition())}"
+        autocapitalize="${ifDefined(this.autocapitalize ? this.autocapitalize : this.setInputDefinition())}"
       />
 
       <!-- Input label template -->
