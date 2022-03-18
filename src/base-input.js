@@ -311,7 +311,7 @@ export default class BaseInput extends LitElement {
    */
   definePattern() {
     if (this.type === 'credit-card' && !this.noValidate && this.maxLength) {
-      return `{${this.maxLength},${this.maxLength}}`;
+      return `.{${this.maxLength},${this.maxLength}}`;
     }
 
     return this.pattern;
