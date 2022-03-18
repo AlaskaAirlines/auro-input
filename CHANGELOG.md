@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.3.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.3.0...v2.3.1) (2022-03-18)
+
+
+### Bug Fixes
+
+* **credit card:** address typo with regex assignment ([7de0a22](https://github.com/AlaskaAirlines/auro-input/commit/7de0a2269e12430587b5b5c6edb3973aaff447d3))
+
 # [2.3.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.2.0...v2.3.0) (2022-03-18)
 
 
