@@ -25,7 +25,7 @@
 | `minLength`      | `minLength`      | `Number`  | "undefined"                | The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`. |
 | `name`           | `name`           | `String`  |                            | Populates the `name` attribute on the input.     |
 | `noValidate`     | `noValidate`     | `Boolean` | false                      | If set, disables auto-validation on blur.        |
-| `pattern`        | `pattern`        | `Strong`  |                            | Specifies a regular expression the form control's value should match. |
+| `pattern`        | `pattern`        | `String`  |                            | Specifies a regular expression the form control's value should match. |
 | `placeholder`    | `placeholder`    | `String`  | ""                         | Define custom placeholder text, only supported by date input formats. |
 | `required`       | `required`       | `Boolean` | false                      | Populates the `required` attribute on the input. Used for client-side validation. |
 | `spellcheck`     | `spellcheck`     | `String`  |                            | An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`. |

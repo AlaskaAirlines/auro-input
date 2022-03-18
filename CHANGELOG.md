@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [2.3.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.2.0...v2.3.0) (2022-03-18)
+
+
+### Features
+
+* **credit card:** add support for corp commercial cards [#112](https://github.com/AlaskaAirlines/auro-input/issues/112) ([fa807a8](https://github.com/AlaskaAirlines/auro-input/commit/fa807a87eb92d3834587b1d663186e33c7d9d10f))
+* **date format:** add support for MM/YYYY [#115](https://github.com/AlaskaAirlines/auro-input/issues/115) ([bf230d3](https://github.com/AlaskaAirlines/auro-input/commit/bf230d3fc6a72a288af5846936ef0af49c60dd95))
+* **i18n:** add feature to manage localized content [#103](https://github.com/AlaskaAirlines/auro-input/issues/103) ([ea44a1e](https://github.com/AlaskaAirlines/auro-input/commit/ea44a1e57ff759628ae8d2d7da19147f0c43211a))
+* **number:** add support for number input types [#47](https://github.com/AlaskaAirlines/auro-input/issues/47) ([8e70215](https://github.com/AlaskaAirlines/auro-input/commit/8e70215d901b07e4491bc9d44f771afa41d89069))
+* **pattern:** expose additional attributes to public api [#122](https://github.com/AlaskaAirlines/auro-input/issues/122) ([dbb9ea6](https://github.com/AlaskaAirlines/auro-input/commit/dbb9ea649e2e152d8d9209d5dadb1fb730e69efb))
+* **spellcheck:** remove spellcheck for password type [#57](https://github.com/AlaskaAirlines/auro-input/issues/57) ([f8c46f1](https://github.com/AlaskaAirlines/auro-input/commit/f8c46f1cdc18435392f266e2d2270457b023cd75))
+
 # [2.2.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.1.3...v2.2.0) (2022-02-10)
 
 
