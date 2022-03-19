@@ -641,11 +641,25 @@ export default class BaseInput extends LitElement {
     // eslint-disable-next-line sort-vars, one-var
     const creditCardTypes = [
       {
+        name: 'Airlines',
+        regex: /^(?<num>1|2)\d{0}/u,
+        formatMinLength: 17,
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'credit-card'
+      },
+      {
         name: 'Commercial',
         regex: /^(?<num>2)\d{0}/u,
         formatMinLength: 8,
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'credit-card'
+      },
+      {
+        name: 'Alaska Commercial',
+        regex: /^(?<num>27)\d{0}/u,
+        formatMinLength: 8,
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'cc-alaska'
       },
       {
         name: 'American Express',
@@ -655,11 +669,25 @@ export default class BaseInput extends LitElement {
         cardIcon: 'cc-amex'
       },
       {
+        name: 'Diners club',
+        regex: /^(?<num>36|38)\d{0}/u,
+        formatLength: 16,
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'credit-card'
+      },
+      {
         name: 'Visa',
         regex: /^(?<num>4)\d{0}/u,
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'cc-visa'
+      },
+      {
+        name: 'Alaska Airlines Visa',
+        regex: /^(?<num>4147\s34|4888\s93|4800\s11|4313\s51|4313\s07)\d{0}/u,
+        formatLength: 19,
+        customValidationMessage: defaultCustomValidationMessage,
+        cardIcon: 'cc-alaska'
       },
       {
         name: 'Master Card',
@@ -674,20 +702,6 @@ export default class BaseInput extends LitElement {
         formatLength: 19,
         customValidationMessage: defaultCustomValidationMessage,
         cardIcon: 'cc-discover'
-      },
-      {
-        name: 'Alaska Commercial',
-        regex: /^(?<num>27)\d{0}/u,
-        formatMinLength: 8,
-        customValidationMessage: defaultCustomValidationMessage,
-        cardIcon: 'cc-alaska'
-      },
-      {
-        name: 'Alaska Airlines Visa',
-        regex: /^(?<num>4147\s34|4888\s93|4800\s11|4313\s51|4313\s07)\d{0}/u,
-        formatLength: 19,
-        customValidationMessage: defaultCustomValidationMessage,
-        cardIcon: 'cc-alaska'
       }
     ];
 
