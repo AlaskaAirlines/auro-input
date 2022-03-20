@@ -49,6 +49,15 @@ describe('auro-input', () => {
     expect(input.type).to.equal('email');
   });
 
+  it('allows type number', async () => {
+    const el = await fixture(html`
+      <auro-input type="number"></auro-input>
+    `);
+
+    const input = el.shadowRoot.querySelector('input').getAttribute('inputmode');
+    expect(input).to.equal('numeric');
+  });
+
   it('does not allow color type', async () => {
     const el = await fixture(html`
       <auro-input type="color"></auro-input>

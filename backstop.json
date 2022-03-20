@@ -138,11 +138,37 @@
       "keyPressSelectors": [
         {
           "selector": "#demo11 > .inputElement",
-          "keyPress": "1111"
+          "keyPress": "4111"
         },
         {
           "selector": "#demo12 > .inputElement",
-          "keyPress": "1111"
+          "keyPress": "4111"
+        }
+      ]
+    }
+    ,
+    {
+      "label": "creditcardValidate2",
+      "url": "http://localhost:8000/demo/",
+      "delay": 500,
+      "selectors": ["#demo11"],
+      "postInteractionWait": 100,
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold" : 0,
+      "requireSameDimensions": true,
+      "keyPressSelectors": [
+        {
+          "selector": "#demo11 > .inputElement",
+          "keyPress": "4111"
+        },
+        {
+          "selector": "#demo12 > .inputElement",
+          "keyPress": "4111"
+        },
+        {
+          "selector": "#demo11 > .inputElement",
+          "keyPress": "4111222233334444"
         }
       ]
     },
