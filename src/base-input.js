@@ -546,6 +546,10 @@ export default class BaseInput extends LitElement {
     } else {
       iconContainer.classList.remove("passwordIcon--show");
     }
+
+    if (this.hasBlurred && this.type === 'credit-card') {
+      this.validate();
+    }
   }
 
   /**
