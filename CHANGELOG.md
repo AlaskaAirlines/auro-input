@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [2.3.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.3.1...v2.3.2) (2022-03-24)
+
+
+### Bug Fixes
+
+* **credit-card:** check validation on input post blur [#124](https://github.com/AlaskaAirlines/auro-input/issues/124) ([259da85](https://github.com/AlaskaAirlines/auro-input/commit/259da85dca531ab7d81d5ae2d714572bae2fc45e))
+* **validation:** add missing support [#125](https://github.com/AlaskaAirlines/auro-input/issues/125) ([4886fa3](https://github.com/AlaskaAirlines/auro-input/commit/4886fa3822cda4d1f3a83efd29aae3ec07124a2c))
+
 ## [2.3.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.3.0...v2.3.1) (2022-03-18)
 
 
