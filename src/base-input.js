@@ -46,6 +46,10 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {String} pattern - Specifies a regular expression the form control's value should match.
  * @slot helptext - Sets the help text displayed below the input.
  * @slot label - Sets the label text for the input.
+ * @csspart label - Use for customizing the style of the label element
+ * @csspart helpText - Use for customizing the style of the helpText element
+ * @csspart accentIcon - Use for customizing the style of the accentIcon element (e.g. credit card icon, calendar icon)
+ * @csspart iconContainer - Use for customizing the style of the iconContainer (e.g. X icon for clearing input value)
  * @event input - Event fires when the value of an `auro-input` has been changed.
  */
 

@@ -70,10 +70,11 @@ export default class AuroInput extends BaseInput {
         spellcheck="${ifDefined(this.spellcheck ? this.spellcheck : undefined)}"
         autocorrect="${ifDefined(this.autocorrect ? this.autocorrect : undefined)}"
         autocapitalize="${ifDefined(this.autocapitalize ? this.autocapitalize : undefined)}"
+        part="input"
       />
 
       <!-- Input label template -->
-      <label for=${this.id} class="${classMap(labelClasses)}">
+      <label for=${this.id} class="${classMap(labelClasses)}" part="label">
         <slot name="label">
           ${this.label}
         </slot>
@@ -83,11 +84,11 @@ export default class AuroInput extends BaseInput {
       <!-- Help text and error message template -->
       ${this.isValid
         ? html`
-          <p class="inputElement-helpText" id="${this.uniqueId}">
+          <p class="inputElement-helpText" id="${this.uniqueId}" part="helpText">
             <slot name="helptext">${this.getHelpText(this.type)}</slot>
           </p>`
         : html`
-          <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive">
+          <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive" part="helpText">
             ${this.getErrorMessage()}
           </p>`
       }
@@ -98,16 +99,16 @@ export default class AuroInput extends BaseInput {
            This should be cleaned up when auro-icon issue #31 is resolved. -->
       ${this.inputIconName
         ? repeat([this.inputIconName], (val) => val, (name) => html`
-          <auro-icon class="accentIcon" category="payment" name="${name}" customColor></auro-icon>
+          <auro-icon class="accentIcon" category="payment" name="${name}" part="accentIcon" customColor></auro-icon>
         `) : undefined
       }
 
       ${this.type === 'month-day-year' || this.type === 'month-year' || this.type === 'year-month-day' || this.type === 'month-fullYear'
-        ? html`<auro-icon class="accentIcon" category="interface" name="calendar" customColor></auro-icon>`
+        ? html`<auro-icon class="accentIcon" category="interface" name="calendar" part="accentIcon" customColor></auro-icon>`
         : undefined
       }
 
-      <div class="iconContainer">
+      <div class="iconContainer" part="iconContainer">
         <div class="${classMap(iconClasses)}">
           ${this.showPasswordIcon()}
           ${this.isValid
