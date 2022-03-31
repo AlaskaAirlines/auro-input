@@ -44,3 +44,12 @@
 |------------|-----------------------------------------------|
 | `helptext` | Sets the help text displayed below the input. |
 | `label`    | Sets the label text for the input.            |
+
+## CSS Shadow Parts
+
+| Part            | Description                                      |
+|-----------------|--------------------------------------------------|
+| `accentIcon`    | Use for customizing the style of the accentIcon element (e.g. credit card icon, calendar icon) |
+| `helpText`      | Use for customizing the style of the helpText element |
+| `iconContainer` | Use for customizing the style of the iconContainer (e.g. X icon for clearing input value) |
+| `label`         | Use for customizing the style of the label element |
