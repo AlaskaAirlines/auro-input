@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [2.4.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.3.2...v2.4.0) (2022-03-31)
+
+
+### Features
+
+* **styling:** support CSS Parts customization [#129](https://github.com/AlaskaAirlines/auro-input/issues/129) ([ca2d02f](https://github.com/AlaskaAirlines/auro-input/commit/ca2d02ff2684a181c5ab2c718cdfc5b8656e2347))
+
 ## [2.3.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.3.1...v2.3.2) (2022-03-24)
 
 
