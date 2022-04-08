@@ -14,6 +14,23 @@ describe('auro-input', () => {
     expect(input.value).to.equal('other value');
   });
 
+  it('Sets custom pattern and setCustomValidity message', async () => {
+    const el = await fixture(html`
+      <auro-input value="other value" pattern="[0-9]+" setCustomValidity="that's not a phone number" keyValidate>
+        <span slot="label">First name:</span>
+      </auro-input>
+    `);
+    const validateSpy = sinon.spy(el, 'validate');
+    const input = el.shadowRoot.querySelector('input');
+    const text = el.shadowRoot.querySelector('.inputElement-helpText').innerHTML;
+
+    input.focus();
+    setInputValue(el, 'whatever@alaskaair.com');
+    input.blur();
+    expect(el.isValid).to.not.be.true;
+    expect(text).to.not.contain(`not a phone number`);
+  });
+
   it('clears the value when clicked', async () => {
     const el = await fixture(html`
       <auro-input value="other value" label="First name"></auro-input>
@@ -113,6 +130,22 @@ describe('auro-input', () => {
     setInputValue(el, 'whatever');
     expect(validateSpy.callCount).to.equal(2);
     expect(el.isValid).to.be.false;
+  });
+
+  it('validates auro-input on input', async () => {
+    const el = await fixture(html`
+        <auro-input id="validation1" required validateOnInput pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidity="Full name requires two or more names with at least one space.">
+          <span slot="label">Full Name</span>
+          <span slot="helptext">Please enter your full name as it appears on the card.</span>
+        </auro-input>
+    `);
+    const input = el.shadowRoot.querySelector('input');
+
+    input.focus();
+    setInputValue(el, 'dale');
+    expect(el.isValid).to.be.false;
+    setInputValue(el, 'dale sande');
+    expect(el.isValid).to.be.true;
   });
 
   it('does not validate when novalidate is true', async () => {
