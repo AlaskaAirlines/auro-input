@@ -124,7 +124,31 @@ Be sure to review this element's API docs for all related information.
   ```
 </auro-accordion>
 
-Use the `error` attribute to communicate an issue with the input to the user. A default message of "_Please fill out this field._" will be used if a custom message is not passed into the attribute.
+Use the `borderless` attribute to remove the bottom border. This attribute is intended for use when input is wrapped in a container that already handles the different state displays, e.g. [auro-dropdown](http://auro.alaskaair.com/components/auro/dropdown).
+
+<div class="exampleWrapper exampleWrapper">
+  <auro-input id="demoBorderless" borderless>
+    <span slot="label">Name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input id="demoBorderless" borderless>
+    <span slot="label">Name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+  ```
+</auro-accordion>
+
+## Error support
+
+Use the `error` attribute to communicate an issue with the input to the user. Uses cases may include a refreshed page with an error returned from the server or a custom error message where the user of this element manages the error state.
+
+The following example is static to illustrate a error state returned with page load.
 
 <div class="exampleWrapper exampleWrapper--flex">
   <auro-input id="error1" required error>
@@ -151,11 +175,17 @@ Use the `error` attribute to communicate an issue with the input to the user. A 
   ```
 </auro-accordion>
 
-Use the `borderless` attribute to remove the bottom border. This attribute is intended for use when input is wrapped in a container that already handles the different state displays, e.g. [auro-dropdown](http://auro.alaskaair.com/components/auro/dropdown).
+When using the `required` property, a custom message can be inserted using the `setCustomValidity` property. The value will override the default message set by the client.
 
-<div class="exampleWrapper exampleWrapper">
-  <auro-input id="demoBorderless" borderless>
-    <span slot="label">Name</span>
+**NOTE:** Custom strings are NOT localized. It is the responsibility of the element consumer to provide localized strings when using this element property.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="error10" required setCustomValidity="Sorry, please enter your first and last name (one space required).">
+    <span slot="label">Full Name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+  <auro-input id="error20" bordered required setCustomValidity="Sorry, please enter your first and last name (one space required).">
+    <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name.</span>
   </auro-input>
 </div>
@@ -164,8 +194,12 @@ Use the `borderless` attribute to remove the bottom border. This attribute is in
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="demoBorderless" borderless>
-    <span slot="label">Name</span>
+  <auro-input id="error10" required setCustomValidity="Sorry, please enter your first and last name (one space required).">
+    <span slot="label">Full Name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+  <auro-input id="error20" bordered required setCustomValidity="Sorry, please enter your first and last name (one space required).">
+    <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name.</span>
   </auro-input>
   ```
