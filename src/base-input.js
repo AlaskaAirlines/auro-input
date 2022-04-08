@@ -21,7 +21,7 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
 /**
  * Auro-input provides users a way to enter data into a text field.
  *
- * @attr {String} customValidationMessage - Overrides the browser validation message when the input is invalid.
+ * @attr {String} setCustomValidity - Sets a custom automated validity message for the element.
  * @attr {String} error - Sets a persistent error message (e.g. an error message returned from the server).
  * @attr {String} helpText - Deprecated, see `slot`.
  * @attr {String} id - Sets the unique ID of the element.
@@ -163,11 +163,7 @@ export default class BaseInput extends LitElement {
       maxLength:               { type: Number },
       minLength:               { type: Number },
       showPassword:            { state: true },
-
-      /**
-       * @private
-       */
-      customValidationMessage: { type: String }
+      setCustomValidity:       { type: String }
     };
   }
 
@@ -486,8 +482,8 @@ export default class BaseInput extends LitElement {
     if (this.error) {
       return this.error;
     }
-    if (this.customValidationMessage) {
-      return this.customValidationMessage;
+    if (this.setCustomValidity) {
+      return this.setCustomValidity;
     }
 
     return this.internalError;
@@ -631,7 +627,7 @@ export default class BaseInput extends LitElement {
     this.maxLength = card.formatLength;
     this.minLength = card.formatMinLength;
 
-    this.customValidationMessage = card.customValidationMessage;
+    this.setCustomValidity = card.setCustomValidity;
 
     if (this.icon) {
       this.inputIconName = card.cardIcon;
@@ -644,7 +640,7 @@ export default class BaseInput extends LitElement {
    * @returns {object} JSON with data for credit card formatting.
    */
   matchInputValueToCreditCard() {
-    const defaultCustomValidationMessage = `${i18n(this.lang, 'validCard')}`;
+    const CreditCardValidationMessage = `${i18n(this.lang, 'validCard')}`;
 
     // eslint-disable-next-line sort-vars, one-var
     const creditCardTypes = [
@@ -652,63 +648,63 @@ export default class BaseInput extends LitElement {
         name: 'Airlines',
         regex: /^(?<num>1|2)\d{0}/u,
         formatMinLength: 17,
-        customValidationMessage: defaultCustomValidationMessage,
+        setCustomValidity: CreditCardValidationMessage,
         cardIcon: 'credit-card'
       },
       {
         name: 'Commercial',
         regex: /^(?<num>2)\d{0}/u,
         formatMinLength: 8,
-        customValidationMessage: defaultCustomValidationMessage,
+        setCustomValidity: CreditCardValidationMessage,
         cardIcon: 'credit-card'
       },
       {
         name: 'Alaska Commercial',
         regex: /^(?<num>27)\d{0}/u,
         formatMinLength: 8,
-        customValidationMessage: defaultCustomValidationMessage,
+        setCustomValidity: CreditCardValidationMessage,
         cardIcon: 'cc-alaska'
       },
       {
         name: 'American Express',
         regex: /^(?<num>34|37)\d{0}/u,
         formatLength: 17,
-        customValidationMessage: defaultCustomValidationMessage,
+        setCustomValidity: CreditCardValidationMessage,
         cardIcon: 'cc-amex'
       },
       {
         name: 'Diners club',
         regex: /^(?<num>36|38)\d{0}/u,
         formatLength: 16,
-        customValidationMessage: defaultCustomValidationMessage,
+        setCustomValidity: CreditCardValidationMessage,
         cardIcon: 'credit-card'
       },
       {
         name: 'Visa',
         regex: /^(?<num>4)\d{0}/u,
         formatLength: 19,
-        customValidationMessage: defaultCustomValidationMessage,
+        setCustomValidity: CreditCardValidationMessage,
         cardIcon: 'cc-visa'
       },
       {
         name: 'Alaska Airlines Visa',
         regex: /^(?<num>4147\s34|4888\s93|4800\s11|4313\s51|4313\s07)\d{0}/u,
         formatLength: 19,
-        customValidationMessage: defaultCustomValidationMessage,
+        setCustomValidity: CreditCardValidationMessage,
         cardIcon: 'cc-alaska'
       },
       {
         name: 'Master Card',
         regex: /^(?<num>5)\d{0}/u,
         formatLength: 19,
-        customValidationMessage: defaultCustomValidationMessage,
+        setCustomValidity: CreditCardValidationMessage,
         cardIcon: 'cc-mastercard'
       },
       {
         name: 'Discover Card',
         regex: /^(?<num>6)\d{0}/u,
         formatLength: 19,
-        customValidationMessage: defaultCustomValidationMessage,
+        setCustomValidity: CreditCardValidationMessage,
         cardIcon: 'cc-discover'
       }
     ];
@@ -716,7 +712,7 @@ export default class BaseInput extends LitElement {
     let type = {
       name: 'Default Card',
       formatLength: 19,
-      customValidationMessage: defaultCustomValidationMessage,
+      setCustomValidity: CreditCardValidationMessage,
       cardIcon: 'credit-card'
     };
 
