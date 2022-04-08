@@ -22,6 +22,7 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * Auro-input provides users a way to enter data into a text field.
  *
  * @attr {String} setCustomValidity - Sets a custom automated validity message for the element.
+ * @attr {Boolean} validateOnInput - Sets validation mode to re-eval with each input.
  * @attr {String} error - Sets a persistent error message (e.g. an error message returned from the server).
  * @attr {String} helpText - Deprecated, see `slot`.
  * @attr {String} id - Sets the unique ID of the element.
@@ -163,7 +164,8 @@ export default class BaseInput extends LitElement {
       maxLength:               { type: Number },
       minLength:               { type: Number },
       showPassword:            { state: true },
-      setCustomValidity:       { type: String }
+      setCustomValidity:       { type: String },
+      validateOnInput:         { type: Boolean }
     };
   }
 
@@ -392,8 +394,8 @@ export default class BaseInput extends LitElement {
     // Sets value property to value of element value (el.value).
     this.value = this.inputElement.value;
 
-    // Validation on blur.
-    if (this.hasBlurred) {
+    // Validation on blur or input.
+    if (this.hasBlurred || this.validateOnInput) {
       this.validate();
     }
 
