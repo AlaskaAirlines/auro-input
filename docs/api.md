@@ -31,6 +31,7 @@
 | `setCustomValidity` | `setCustomValidity` | `String`  |                            | Sets a custom automated validity message for the element. |
 | `spellcheck`        | `spellcheck`        | `String`  |                            | An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`. |
 | `type`              | `type`              | `String`  |                            | Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`, `month-day-year`, `month-year`, `year-month-day`  or `text`. If given value is not allowed or set, defaults to `text`. |
+| `validateOnInput`   | `validateOnInput`   | `Boolean` |                            | Sets validation mode to re-eval with each input. |
 | `value`             | `value`             | `String`  |                            | Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input. |
 
 ## Events
