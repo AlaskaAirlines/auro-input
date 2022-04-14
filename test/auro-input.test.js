@@ -14,6 +14,18 @@ describe('auro-input', () => {
     expect(input.value).to.equal('other value');
   });
 
+  it('sets placeholder on the input', async () => {
+    const el = await fixture(html`
+      <auro-input id="demo50" required placeholder="John Doe">
+        <span slot="label">Full name</span>
+      </auro-input>
+    `);
+
+    const input = el.shadowRoot.querySelector('input');
+
+    expect(input).to.have.attribute('placeholder', 'John Doe');
+  });
+
   it('Sets custom pattern and setCustomValidity message', async () => {
     const el = await fixture(html`
       <auro-input value="other value" pattern="[0-9]+" setCustomValidity="that's not a phone number" keyValidate>

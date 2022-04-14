@@ -8,6 +8,7 @@
 /* eslint-disable max-statements */
 
 import { LitElement, css, html } from "lit-element";
+import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import styleCss from "./style-css.js";
 import "focus-visible/dist/focus-visible.min.js";
@@ -134,7 +135,6 @@ export default class BaseInput extends LitElement {
     this.isValid = true;
     this.required = false;
     this.noValidate = false;
-    this.placeholder = '';
     this.maxLength = undefined;
     this.minLength = undefined;
     this.label = 'Input label is undefined';
@@ -570,7 +570,7 @@ export default class BaseInput extends LitElement {
       return !this.placeholder ? 'YYYY/MM/DD' : this.placeholder;
     }
 
-    return '';
+    return ifDefined(this.placeholder)
   }
 
   /**
