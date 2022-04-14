@@ -26,7 +26,7 @@
 | `name`              | `name`              | `String`  |                            | Populates the `name` attribute on the input.     |
 | `noValidate`        | `noValidate`        | `Boolean` | false                      | If set, disables auto-validation on blur.        |
 | `pattern`           | `pattern`           | `String`  |                            | Specifies a regular expression the form control's value should match. |
-| `placeholder`       | `placeholder`       | `String`  | ""                         | Define custom placeholder text, only supported by date input formats. |
+| `placeholder`       | `placeholder`       | `String`  | ""                         | Define custom placeholder text.                  |
 | `required`          | `required`          | `Boolean` | false                      | Populates the `required` attribute on the input. Used for client-side validation. |
 | `setCustomValidity` | `setCustomValidity` | `String`  |                            | Sets a custom automated validity message for the element. |
 | `spellcheck`        | `spellcheck`        | `String`  |                            | An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`. |

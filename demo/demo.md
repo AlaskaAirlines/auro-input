@@ -93,6 +93,33 @@ Use the `required` attribute to enable automatic input validation.
   ```
 </auro-accordion>
 
+Use the `placeholder` attribute to add a custom placeholder message within the element.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="demo50" required placeholder="John Doe">
+    <span slot="label">Full name</span>
+  </auro-input>
+  <auro-input id="demo51" required bordered placeholder="John Doe">
+    <span slot="label">Full name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input id="demo50" required placeholder="John Doe">
+    <span slot="label">Full name</span>
+  </auro-input>
+
+  <auro-input id="demo51" required bordered placeholder="John Doe">
+    <span slot="label">Full name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+  ```
+</auro-accordion>
+
 Use the `pattern` attribute to set custom input validation. This example also uses the `spellcheck` attribute set to `false` which in turn sets `autocorrect` to `off` and `autocapitalize` to `none`. Additionally the `maxlength` attribute sets the maximum length of characters that can be entered.
 
 Be sure to review this element's API docs for all related information.
