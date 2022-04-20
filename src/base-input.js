@@ -571,7 +571,7 @@ export default class BaseInput extends LitElement {
       return !this.placeholder ? 'YYYY/MM/DD' : this.placeholder;
     }
 
-    return ifDefined(this.placeholder)
+    return ifDefined(this.placeholder);
   }
 
   /**
