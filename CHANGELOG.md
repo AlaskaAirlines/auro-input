@@ -1,5 +1,19 @@
 # Semantic Release Automated Changelog
 
+# [2.5.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.4.0...v2.5.0) (2022-04-20)
+
+
+### Bug Fixes
+
+* **error:** expose api prop for setting custom message [#134](https://github.com/AlaskaAirlines/auro-input/issues/134) ([dfda3cb](https://github.com/AlaskaAirlines/auro-input/commit/dfda3cb7516dcf56951b7f8d5dd4d606eea884c8))
+* **placeholder:** expand to support all inputs [#136](https://github.com/AlaskaAirlines/auro-input/issues/136) ([5656e0f](https://github.com/AlaskaAirlines/auro-input/commit/5656e0f51a81eb674fda7cd7e6dd2243123343f6))
+* reflect `type` to attribute [#139](https://github.com/AlaskaAirlines/auro-input/issues/139) ([d7b5de1](https://github.com/AlaskaAirlines/auro-input/commit/d7b5de1e8e280eedf1304b40bceb607dbfd61b58))
+
+
+### Features
+
+* **validation:** enable real-time validation with key event [#132](https://github.com/AlaskaAirlines/auro-input/issues/132) ([0877cff](https://github.com/AlaskaAirlines/auro-input/commit/0877cff06d5e4a8513efc2a3e0587daf000dbe5d))
+
 # [2.4.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.3.2...v2.4.0) (2022-03-31)
 
 
