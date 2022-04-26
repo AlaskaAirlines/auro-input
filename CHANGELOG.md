@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.5.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.5.0...v2.5.1) (2022-04-26)
+
+
+### Bug Fixes
+
+* **label:** remove sticky label class when input is empty [#142](https://github.com/AlaskaAirlines/auro-input/issues/142) ([f8558de](https://github.com/AlaskaAirlines/auro-input/commit/f8558de558ff9e829fdb4defc9e708e0a6ac5f96))
+
 # [2.5.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.4.0...v2.5.0) (2022-04-20)
 
 
