@@ -36,9 +36,11 @@
 
 ## Events
 
-| Event   | Description                                      |
-|---------|--------------------------------------------------|
-| `input` | Event fires when the value of an `auro-input` has been changed. |
+| Event                 | Type                                 | Description                                      |
+|-----------------------|--------------------------------------|--------------------------------------------------|
+| `auroInput-helpText`  | `CustomEvent<{ message: string; }>`  | Notifies that the helpText value has changed.    |
+| `auroInput-validated` | `CustomEvent<{ isValid: boolean; }>` | Notifies that the isValid value has changed.     |
+| `input`               |                                      | Event fires when the value of an `auro-input` has been changed. |
 
 ## Slots
 

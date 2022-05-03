@@ -53,6 +53,8 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @csspart accentIcon - Use for customizing the style of the accentIcon element (e.g. credit card icon, calendar icon)
  * @csspart iconContainer - Use for customizing the style of the iconContainer (e.g. X icon for clearing input value)
  * @event input - Event fires when the value of an `auro-input` has been changed.
+ * @fires auroInput-helpText - Notifies that the helpText value has changed.
+ * @fires auroInput-validated - Notifies that the isValid value has changed.
  */
 
 export default class BaseInput extends LitElement {
@@ -440,6 +442,15 @@ export default class BaseInput extends LitElement {
 
     this.isValid = this.noValidate ? true : this.inputElement.checkValidity();
     this.internalError = this.isValid ? null : this.inputElement.validationMessage;
+
+    this.dispatchEvent(new CustomEvent('auroInput-validated', {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+      detail: {
+        isValid: this.isValid
+      }
+    }));
   }
 
   /**
@@ -482,14 +493,28 @@ export default class BaseInput extends LitElement {
    * @returns {string} Error string.
    */
   getErrorMessage() {
-    if (this.error) {
-      return this.error;
-    }
+    let message = '';
+
     if (this.setCustomValidity) {
-      return this.setCustomValidity;
+      // return this.setCustomValidity;
+      message = this.setCustomValidity;
+    } else if (this.error) {
+      // return this.error;
+      message = this.error;
+    } else {
+      // return this.internalError;
+      message = this.internalError;
     }
 
-    return this.internalError;
+    this.dispatchEvent(new CustomEvent('auroInput-helpText', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        message
+      }
+    }));
+
+    return message;
   }
 
   /**
