@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [2.6.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.5.1...v2.6.0) (2022-05-05)
+
+
+### Features
+
+* **events:** new events for isValid and helpText changes [#144](https://github.com/AlaskaAirlines/auro-input/issues/144) ([ee01264](https://github.com/AlaskaAirlines/auro-input/commit/ee012641aff364f1ed1c1667358d8d6899e5c96e))
+
 ## [2.5.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.5.0...v2.5.1) (2022-04-26)
 
 
