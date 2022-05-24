@@ -46,6 +46,7 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {String} autocorrect - When set to `off`, stops iOS from auto correcting words when typed into a text box.
  * @attr {String} autocapitalize - An enumerated attribute that controls whether and how text input is automatically capitalized as it is entered/edited by the user. [off/none, on/sentences, words, characters]
  * @attr {String} pattern - Specifies a regular expression the form control's value should match.
+ * @prop {Boolean} ready - When false the component API should not be called.
  * @slot helptext - Sets the help text displayed below the input.
  * @slot label - Sets the label text for the input.
  * @csspart label - Use for customizing the style of the label element
@@ -54,6 +55,7 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @csspart iconContainer - Use for customizing the style of the iconContainer (e.g. X icon for clearing input value)
  * @event input - Event fires when the value of an `auro-input` has been changed.
  * @fires auroInput-helpText - Notifies that the helpText value has changed.
+ * @fires auroInput-ready - Notifies that the component has finished initializing.
  * @fires auroInput-validated - Notifies that the isValid value has changed.
  */
 
@@ -140,6 +142,7 @@ export default class BaseInput extends LitElement {
     this.maxLength = undefined;
     this.minLength = undefined;
     this.label = 'Input label is undefined';
+    this.ready = false;
   }
 
   // function to define props used within the scope of this component
@@ -168,7 +171,8 @@ export default class BaseInput extends LitElement {
       minLength:               { type: Number },
       showPassword:            { state: true },
       setCustomValidity:       { type: String },
-      validateOnInput:         { type: Boolean }
+      validateOnInput:         { type: Boolean },
+      ready:                   { type: Boolean },
     };
   }
 
@@ -285,6 +289,7 @@ export default class BaseInput extends LitElement {
   firstUpdated() {
     this.inputElement = this.renderRoot.querySelector('input');
     this.labelElement = this.shadowRoot.querySelector('label');
+    this.notifyReady();
   }
 
   /**
@@ -308,6 +313,20 @@ export default class BaseInput extends LitElement {
       this.autocorrect = this.autocorrect ? this.autocorrect : undefined;
       this.autocapitalize = undefined;
     }
+  }
+
+  /**
+   * @private
+   * @returns {void} Marks the component as ready and sends event.
+   */
+  notifyReady() {
+    this.ready = true;
+
+    this.dispatchEvent(new CustomEvent('auroInput-ready', {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+    }));
   }
 
   /**
