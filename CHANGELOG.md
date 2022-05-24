@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [2.7.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.6.0...v2.7.0) (2022-05-24)
+
+
+### Features
+
+* **readiness:** add readiness check and event notification [#147](https://github.com/AlaskaAirlines/auro-input/issues/147) ([a470881](https://github.com/AlaskaAirlines/auro-input/commit/a47088145396bdbc0fa4be8dce50a1d0c3cc02b4))
+
 # [2.6.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.5.1...v2.6.0) (2022-05-05)
 
 
