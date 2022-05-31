@@ -41,8 +41,8 @@
 |-----------------------|--------------------------------------|--------------------------------------------------|
 | `auroInput-helpText`  | `CustomEvent<{ message: string; }>`  | Notifies that the helpText value has changed.    |
 | `auroInput-ready`     | `CustomEvent<any>`                   | Notifies that the component has finished initializing. |
-| `auroInput-validated` | `CustomEvent<{ isValid: boolean; }>` | Notifies that the isValid value has changed.     |
-| `input`               |                                      | Event fires when the value of an `auro-input` has been changed. |
+| `auroInput-validated` | `CustomEvent<any>` | Event fires when the value of `auro-input`'s isValid property has been changed. |
+| `input`               | `Input Event<any>` | Event fires when the value of an `auro-input` has been changed. Get both input data and isValid data at `event.target.data` for the input string, and `event.target.isValid` for the isValid boolean. |
 
 ## Slots
 
