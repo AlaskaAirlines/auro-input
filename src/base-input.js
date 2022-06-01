@@ -53,10 +53,10 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @csspart helpText - Use for customizing the style of the helpText element
  * @csspart accentIcon - Use for customizing the style of the accentIcon element (e.g. credit card icon, calendar icon)
  * @csspart iconContainer - Use for customizing the style of the iconContainer (e.g. X icon for clearing input value)
- * @event input - Event fires when the value of an `auro-input` has been changed.
+ * @event input - Event fires when the value of an `auro-input` has been changed. Both updated string and `isValid` boolean are accessible.
  * @fires auroInput-helpText - Notifies that the helpText value has changed.
  * @fires auroInput-ready - Notifies that the component has finished initializing.
- * @fires auroInput-validated - Notifies that the isValid value has changed.
+ * @fires auroInput-validated - Notifies that the isValid value has changed. Typically used for cross component communication of error states in more complex components.
  */
 
 export default class BaseInput extends LitElement {
