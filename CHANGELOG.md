@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.7.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.7.0...v2.7.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* remove white text color [#153](https://github.com/AlaskaAirlines/auro-input/issues/153) ([297fe50](https://github.com/AlaskaAirlines/auro-input/commit/297fe5055050874dfee8df810dd6812351853748))
+
 # [2.7.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.6.0...v2.7.0) (2022-05-24)
 
 
