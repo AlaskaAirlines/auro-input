@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auro Web Component Generator | auro-input credit card support</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/prismjs@1.24.1/themes/prism.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/demoWrapper.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/elementDemoStyles.css" />
+  </head>
+  <body class="auro-markdown">
+    <main></main>
+
+    <script type="module">
+      import 'https://unpkg.com/marked@latest/marked.min.js';
+      import 'https://unpkg.com/prismjs@latest/prism.js';
+      fetch('/demo/numberFormat.md')
+        .then((response) => response.text())
+        .then((text) => {
+          const rawHtml = marked.parse(text);
+          document.querySelector('main').innerHTML = rawHtml;
+          Prism.highlightAll();
+        });
+    </script>
+    <script type="module" src="../src/auro-input.js"></script>
+    <script src="./util.js"></script>
+
+    <!-- If additional elements are needed for the demo, add them here. -->
+    <script src="https://unpkg.com/@alaskaairux/auro-icon@latest/dist/auro-icon__bundled.js" type="module"></script>
+    <script src="https://unpkg.com/@alaskaairux/auro-accordion@latest/dist/auro-accordion__bundled.js" type="module"></script>
+    <script src="https://unpkg.com/@alaskaairux/auro-radio@latest/dist/auro-radio__bundled.js" type="module"></script>
+    <script src="https://unpkg.com/@alaskaairux/auro-radio@latest/dist/auro-radio-group__bundled.js" type="module"></script>
+  </body>
+</html>
