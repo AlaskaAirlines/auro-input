@@ -232,9 +232,17 @@ When using the `required` property, a custom message can be inserted using the `
   ```
 </auro-accordion>
 
+### Retrieving `isValid` attribute
+
+Use the `isValid` attribute to determine if the input is in an error state or not. For most usecases, the recommended method of retrieving this attribute on input is to look for it in the `input` event response's target object.
+
+When dealing with cross component communication of error states in more complex components (such as `auro-checkbox`), its possible that you may only want the `isValid` attribute and not the updated input string. For this usecase, utilize the `auroInput-validation` event. The `isValid` attribute is in the details section of the `auroInput-validation` event response's details object.
+
 ## Custom pattern and validation support
 
 Use the `validateOnInput` attribute to enable live validation on the `input` event. Recommended use is with setting a custom `pattern` and validation is required prior to a `blur` event.
+
+**NOTE:** Data passed into the custom `pattern` is interpreted as a string. When using this feature, make sure you're also passing in a string and not a `RegEx` object, and escape all your forward-slash characters with preceding back-slash characters. 
 
 <div class="exampleWrapper exampleWrapper--flex">
   <auro-input id="validation1" required validateOnInput pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidity="Full name requires two or more names with at least one space.">
