@@ -234,8 +234,6 @@ When using the `required` property, a custom message can be inserted using the `
 
 ### Functionally determining error state
 
-The `error` attribute is one way you're able to functionally determine whether or not a component is in error state. This attribute itself expects a string to be passed in that is used to display the error message below the field.
-
 To make this error state dynamic, use a function to determine whether or not this component is in error state by conditionally returning this message string based on your desired criteria. 
 
 ## Custom pattern and validation support
