@@ -1,6 +1,25 @@
+<!--
+The README.md file is a compiled document. No edits should be made directly to this file.
+
+README.md is created by running `npm run build:markdownDocs`.
+
+This file is generated based on a template fetched from
+`https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/README.md`
+and copied to `./componentDocs/README.md` each time the the docs are compiled.
+
+The following sections are editable by making changes to the following files:
+
+| SECTION                | DESCRIPTION                                       | FILE LOCATION                       |
+|------------------------|---------------------------------------------------|-------------------------------------|
+| Description            | Description of the component                      | `./docs/partials/description.md`    |
+| Use Cases              | Examples for when to use this component           | `./docs/partials/useCases.md`       |
+| Additional Information | For use to add any component specific information | `./docs/partials/readmeAddlInfo.md` |
+| Component Example Code | HTML sample code of the components use            | `./apiExamples/basic.html`          |
+-->
+
 # Input
 
-`<auro-input>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) containing styling and behavior for a HTML `<input>` element and associated `<label>`. Additional support for helper text to be displayed with the input and client-side validation of the input and display any resulting errors.
+Use the `auro-input` custom element to create basic single-line text fields. Supports type `text`, `password`, and `email` with validation, required input, error states and a secondary `bordered` theme. Use the slots `label` and `helptext` for additional content support.
 
 ## UI development browser support
 
@@ -16,6 +35,8 @@ For the most up to date information on [UI development browser support](https://
 $ npm i @aurodesignsystem/auro-input
 ```
 
+Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
+
 ### Peer dependencies
 
 ```shell
@@ -23,8 +44,6 @@ $ npm i @alaskaairux/auro-icon
 $ npm i @alaskaairux/design-tokens
 $ npm i @alaskaairux/webcorestylesheets
 ```
-
-Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
 
 ### Design Token CSS Custom Property dependency
 
@@ -40,71 +59,64 @@ Any update to the Auro Design Tokens will be immediately reflected with browsers
 
 Defining the component dependency within each component that is using the `<auro-input>` component.
 
-```javascript
+```js
 import "@aurodesignsystem/auro-input";
 ```
 
 **Reference component in HTML**
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
+
 ```html
 <auro-input id="demo"></auro-input>
 <auro-input id="demo" bordered></auro-input>
 ```
-<!-- AURO-GENERATED-CONTENT:END -->
 
 ## Install bundled assets from CDN
 
-In cases where the project is not able to process JS assets, there are pre-processed assets available for use.
+In cases where the project is not able to process JS assets, there are pre-processed assets available for use. Two bundles are available -- `auro-input__bundled.js` for modern browsers and `auro-input__bundled.es5.js` for legacy browsers (including IE11).
 
-**NOTE:** Be sure to replace `@latest` in the URL with the version of the asset you want. @latest is NOT aware of any MAJOR releases, use at your own risk.
+Since the legacy bundle includes many polyfills that are not needed by modern browsers, we recommend you load these bundles using [differential serving](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) so that the browser only loads the bundle it needs. To accomplish this, the script tag for the modern bundle should have `type="module"` and the script tag for the legacy bundle should have the `nomodule` attribute. See the example below.
+
+### Bundle example code
 
 ```html
+<!-- **NOTE:** Be sure to replace `@latest` in the URL with the version of the asset you want. @latest is NOT aware of any MAJOR releases, use at your own risk. -->
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
 <link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
-
 <script src="https://unpkg.com/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.js" type="module"></script>
+<script src="https://unpkg.com/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.es5.js" nomodule></script>
 ```
 
 ## auro-input use cases
 
 The `<auro-input>` element should be used in situations where users may:
 
-* enter a single line of text into a form
-* enter their email into a form
+* LOREM IPSUM
 
 ## API Code Examples
 
-Default auro-input
+### Default auro-input
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/advanced.html) -->
-<!-- The below code snippet is automatically added from ./apiExamples/advanced.html -->
 ```html
 <auro-input id="full-name" required>
   <span slot="label">Name</span>
 </auro-input>
-
 <auro-input id="full-name" required bordered>
   <span slot="label">Name</span>
   <span slot="helptext">Please enter your full name.</span>
 </auro-input>
-
 <auro-input id="full-name" type="password" required bordered>
   <span slot="label">Password</span>
   <span slot="helptext">Please enter a secure password.</span>
 </auro-input>
-
 <auro-input bordered required disabled type="email" id="email-address">
   <slot slot="label">Email address</slot>
   <slot slot="helptext">Please enter your email address.</slot>
 </auro-input>
-
 <auro-input bordered required icon type="credit-card" id="credit-card">
   <slot slot="label">Card number</slot>
   <slot slot="helptext">Valid credit card numbers must include 16 digits (15 for Amex).</slot>
 </auro-input>
 ```
-<!-- AURO-GENERATED-CONTENT:END -->
 
 ## Development
 
