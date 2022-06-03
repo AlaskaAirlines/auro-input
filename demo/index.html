@@ -19,7 +19,7 @@
     <script type="module">
       import 'https://unpkg.com/marked@latest/marked.min.js';
       import 'https://unpkg.com/prismjs@latest/prism.js';
-      fetch('/demo/demo.md')
+      fetch('/demo/apiExamples.md')
         .then((response) => response.text())
         .then((text) => {
           const rawHtml = marked.parse(text);
@@ -35,5 +35,7 @@
     <script src="https://unpkg.com/@alaskaairux/auro-accordion@latest/dist/auro-accordion__bundled.js" type="module"></script>
     <script src="https://unpkg.com/@alaskaairux/auro-radio@latest/dist/auro-radio__bundled.js" type="module"></script>
     <script src="https://unpkg.com/@alaskaairux/auro-radio@latest/dist/auro-radio-group__bundled.js" type="module"></script>
+
+    <script type="module" src="./../apiExamples/errorDateRange.js"></script>
   </body>
 </html>

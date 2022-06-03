@@ -84,7 +84,75 @@
 
 ### Attribute Examples
 
-#### <a name="attributeName"></a>`attributeName`<a href="#auro-input" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+#### disabled
+
+Explanation and use description.
+
+<div class="exampleWrapper">
+  <auro-input id="demo" disabled></auro-input>
+  <auro-input id="demo" bordered disabled></auro-input>
+</div>
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```html
+<auro-input id="demo" disabled></auro-input>
+<auro-input id="demo" bordered disabled></auro-input>
+```
+
+</auro-accordion>
+
+#### error
+
+Explanation and use description.
+
+<div class="exampleWrapper">
+  <auro-input id="demo" error="My custom error text"></auro-input>
+  <auro-input id="demo" error="My custom error text" bordered></auro-input>
+</div>
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```html
+<auro-input id="demo" error="My custom error text"></auro-input>
+<auro-input id="demo" error="My custom error text" bordered></auro-input>
+```
+
+</auro-accordion>
+Date formated auro-input with custom validation for restricted date range (e.g. date of birth must be within last 120 years).
+
+<div class="exampleWrapper">
+  <auro-input id="errorDateRange" type="month-day-year" bordered>
+    <slot slot="label">Date of birth</slot>
+  </auro-input>
+</div>
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+```html
+<auro-input id="errorDateRange" type="month-day-year" bordered>
+  <slot slot="label">Date of birth</slot>
+</auro-input>
+```
+
+```js
+let elem = document.querySelector('auro-input#errorDateRange');
+
+elem.addEventListener('input', () => {
+  console.warn(elem.value);
+})
+
+function validateDateRange() {
+  console.warn('validateDateRange()');
+}
+
+validateDateRange();
+```
+
+</auro-accordion>
+
+#### attributeName
+
 Explanation and use description.
 
 <div class="exampleWrapper">
@@ -103,7 +171,8 @@ Explanation and use description.
 
 ### Property Examples
 
-#### <a name="propertyName"></a>`propertyName`<a href="#auro-input" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+#### propertyName
+
 Explanation and use description.
 
 <div class="exampleWrapper">
@@ -122,7 +191,8 @@ Explanation and use description.
 
 ### Method Examples
 
-#### <a name="methodName"></a>`methodName`<a href="#auro-input" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+#### methodName
+
 Explanation and use description.
 
 <div class="exampleWrapper">
@@ -141,7 +211,8 @@ Explanation and use description.
 
 ### Event Examples
 
-#### <a name="eventName"></a>`eventName`<a href="#auro-input" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+#### eventName
+
 Explanation and use description.
 
 <div class="exampleWrapper">
@@ -160,7 +231,8 @@ Explanation and use description.
 
 ### Slot Examples
 
-#### <a name="slotName"></a>`slotName`<a href="#auro-input" style="float: right; font-size: 1rem; font-weight: 100;">back to top</a>
+#### slotName
+
 Explanation and use description.
 
 <div class="exampleWrapper">
