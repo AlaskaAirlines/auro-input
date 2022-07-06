@@ -28,9 +28,8 @@
     "@alaskaairux/auro-icon": "^3.2.0",
     "@alaskaairux/design-tokens": "^3.4.0",
     "@alaskaairux/icons": "^4.9.2",
-    "@alaskaairux/webcorestylesheets": "^3.7.2",
-    "@webcomponents/webcomponentsjs": "^2.6.0",
-    "focus-visible": "^5.2.0"
+    "@aurodesignsystem/webcorestylesheets": "^4.0.0",
+    "@webcomponents/webcomponentsjs": "^2.6.0"
   },
   "devDependencies": {
     "@alaskaairux/auro-icon": "^3.2.0",
@@ -59,7 +58,6 @@
     "core-js": "^3.19.1",
     "eslint": "^8.3.0",
     "eslint-plugin-jsdoc": "^37.0.3",
-    "focus-visible": "^5.2.0",
     "husky": "^7.0.0",
     "lodash": "^4.17.21",
     "markdown-magic": "^2.5.2",
