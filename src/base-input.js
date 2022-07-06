@@ -11,7 +11,6 @@ import { LitElement, css, html } from "lit-element";
 import { ifDefined } from 'lit-html/directives/if-defined.js';
 
 import styleCss from "./style-css.js";
-import "focus-visible/dist/focus-visible.min.js";
 import closelg from '@alaskaairux/icons/dist/icons/interface/x-sm_es6.js';
 import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password_es6.js';
 import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password_es6.js';
