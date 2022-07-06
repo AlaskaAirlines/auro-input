@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.7.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.7.1...v2.7.2) (2022-07-06)
+
+
+### Bug Fixes
+
+* **imports:** remove focus-visible import and dependency [#166](https://github.com/AlaskaAirlines/auro-input/issues/166) ([e9197b1](https://github.com/AlaskaAirlines/auro-input/commit/e9197b12fcaf18b9dd871e3e9d34ccdd1fa342f4))
+
 ## [2.7.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.7.0...v2.7.1) (2022-06-01)
 
 
