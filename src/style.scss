@@ -3,7 +3,15 @@
 
 // ---------------------------------------------------------------------
 
-/* stylelint-disable selector-max-class, scss/selector-no-redundant-nesting-selector, max-nesting-depth, selector-max-combinators, selector-max-compound-selectors, no-descending-specificity, at-rule-no-unknown */
+/* stylelint-disable
+  selector-max-class,
+  scss/selector-no-redundant-nesting-selector,
+  max-nesting-depth,
+  selector-max-combinators,
+  selector-max-compound-selectors,
+  no-descending-specificity,
+  at-rule-no-unknown,
+  selector-no-qualifying-type */
 
 // Import Auro tokens
 @import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
@@ -261,6 +269,29 @@ input {
   .accentIcon {
     top: -6px;
     left: var(--auro-size-sm);
+  }
+}
+
+:host([activeLabel]) {
+  .inputElement {
+    & + .inputElement-label {
+      padding: 0;
+      padding-top: var(--auro-size-xxs);
+
+      font-size: var(--auro-text-body-size-xs);
+    }
+  }
+
+  label {
+    left: var(--auro-size-sm);
+
+    &[class*='inputElement-'] {
+      left: var(--auro-size-sm);
+    }
+
+    &[class*='inputElement-labelIcon'] {
+      left: var(--size-xlsm);
+    }
   }
 }
 

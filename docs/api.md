@@ -11,6 +11,7 @@
 
 | Property            | Attribute           | Type      | Default                    | Description                                      |
 |---------------------|---------------------|-----------|----------------------------|--------------------------------------------------|
+| `activeLabel`       | `activeLabel`       | `Boolean` | false                      | If set, the label will remain fixed in the active position. |
 | `autocapitalize`    | `autocapitalize`    | `String`  |                            | An enumerated attribute that controls whether and how text input is automatically capitalized as it is entered/edited by the user. [off/none, on/sentences, words, characters] |
 | `autocorrect`       | `autocorrect`       | `String`  |                            | When set to `off`, stops iOS from auto correcting words when typed into a text box. |
 | `disabled`          | `disabled`          | `Boolean` | false                      | If set, disables the input.                      |
