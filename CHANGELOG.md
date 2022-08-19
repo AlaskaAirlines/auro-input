@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [2.8.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.7.2...v2.8.0) (2022-08-19)
+
+
+### Features
+
+* **activeLabel:** new attribute forces label fixed to active position [#173](https://github.com/AlaskaAirlines/auro-input/issues/173) ([be6903e](https://github.com/AlaskaAirlines/auro-input/commit/be6903e4ca2b1f5da899b73b2aa9faa5cf62b9aa))
+
 ## [2.7.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.7.1...v2.7.2) (2022-07-06)
 
 
