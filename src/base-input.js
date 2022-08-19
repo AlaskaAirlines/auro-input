@@ -39,6 +39,7 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} isValid - Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
+ * @attr {Boolean} activeLabel - If set, the label will remain fixed in the active position.
  * @attr {Number} maxLength - The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher.
  * @attr {Number} minLength - The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`.
  * @attr {String} spellcheck - An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`.
@@ -142,6 +143,7 @@ export default class BaseInput extends LitElement {
     this.minLength = undefined;
     this.label = 'Input label is undefined';
     this.ready = false;
+    this.activeLabel = false;
   }
 
   // function to define props used within the scope of this component
@@ -166,6 +168,10 @@ export default class BaseInput extends LitElement {
       autocorrect:             { type: String },
       autocapitalize:          { type: String },
       placeholder:             { type: String },
+      activeLabel:             {
+        type: Boolean,
+        reflect: true
+      },
       maxLength:               { type: Number },
       minLength:               { type: Number },
       showPassword:            { state: true },

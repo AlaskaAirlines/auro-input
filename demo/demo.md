@@ -644,6 +644,39 @@ Example use cases for auro-input support the `disabled` attribute.
   ```
 </auro-accordion>
 
+## activeLabel
+
+Example use cases for auro-input support the `activeLabel` attribute. If set, the label will stay fixed in the active position.
+
+<div class="exampleWrapper">
+  <auro-input activeLabel bordered id="demoActiveLabel">
+    <slot slot="label">Address</slot>
+    <slot slot="helptext">Please enter your home address.</slot>
+  </auro-input>
+</div>
+<br>
+<div class="exampleWrapper">
+  <auro-input bordered activeLabel id="demoActiveLabelIcon" type="month-day-year">
+    <slot slot="label">Arrival Date</slot>
+    <slot slot="helptext">Please enter your arrival date.</slot>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input activeLabel bordered id="demoActiveLabel">
+    <slot slot="label">Address</slot>
+    <slot slot="helptext">Please enter your home address.</slot>
+  </auro-input>
+  <auro-input activeLabel bordered id="demoActiveLabelIcon" type="month-day-year">
+    <slot slot="label">Arrival Date</slot>
+    <slot slot="helptext">Please enter your arrival date.</slot>
+  </auro-input>
+  ```
+</auro-accordion>
+
 ## Disable auto-validation
 
 For use cases where the field is `required`, but live validation is not wanted, use the `noValidate` attribute.
