@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [2.8.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.8.0...v2.8.1) (2022-08-30)
+
+
+### Bug Fixes
+
+* **deps:** update vulnerabilities and peer dependencies ([062c62f](https://github.com/AlaskaAirlines/auro-input/commit/062c62fd5059461d861a88ed0e433a962f9a783a))
+* upgrade @alaskaairux/icons from 4.14.0 to 4.15.0 ([20be9d7](https://github.com/AlaskaAirlines/auro-input/commit/20be9d7555ad7b450ace63dcb8b122119d7382d8))
+
 # [2.8.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.7.2...v2.8.0) (2022-08-19)
 
 
