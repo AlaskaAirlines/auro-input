@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.8.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.8.1...v2.8.2) (2022-09-01)
+
+
+### Bug Fixes
+
+* **event:** fire input event when programmatically changing value [#177](https://github.com/AlaskaAirlines/auro-input/issues/177) ([f8adc97](https://github.com/AlaskaAirlines/auro-input/commit/f8adc979ec53ecfc12a0d8dddae2dbf89582d133))
+
 ## [2.8.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.8.0...v2.8.1) (2022-08-30)
 
 
