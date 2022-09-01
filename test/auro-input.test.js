@@ -1,4 +1,4 @@
-import { fixture, html, expect, elementUpdated } from '@open-wc/testing';
+import { fixture, html, expect, elementUpdated, oneEvent } from '@open-wc/testing';
 import sinon from 'sinon';
 import '../src/auro-input.js';
 
@@ -113,6 +113,18 @@ describe('auro-input', () => {
     setInputValue(el, 'triggered');
     expect(el.value).to.equal('triggered');
   });
+
+  it('fires input event when setting the value programmatically', async () => {
+    const el = await fixture(html`
+      <auro-input></auro-input>
+    `);
+
+    const listener = oneEvent(el, 'input');
+    el.value = 'test'
+    const { result } = await listener;
+
+    expect(result).to.equal(undefined);
+  })
 
   it('sets disabled class on label when component disabled', async () => {
     const el = await fixture(html`

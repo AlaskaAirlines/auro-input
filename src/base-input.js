@@ -318,6 +318,10 @@ export default class BaseInput extends LitElement {
       this.autocorrect = this.autocorrect ? this.autocorrect : undefined;
       this.autocapitalize = undefined;
     }
+
+    if (changedProperties.has('value')) {
+      this.notifyValueChanged();
+    }
   }
 
   /**
@@ -383,29 +387,38 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * Handles event of clearing input content by clicking the X icon.
+   * Sends event notifying that the input has changed it's value.
    * @private
-   * @return {void}
+   * @returns {void}
    */
-  handleClickClear() {
+  notifyValueChanged() {
     let click = null;
-
-    this.inputElement.value = "";
-    this.value = "";
-    this.labelElement.classList.remove('inputElement-label--sticky');
-    this.focus();
 
     click = new Event('input', {
       bubbles: true,
       composed: true,
     });
 
+    // Dispatched event to alert outside shadow DOM context of event firing.
+    this.dispatchEvent(click);
+  }
+
+  /**
+   * Handles event of clearing input content by clicking the X icon.
+   * @private
+   * @return {void}
+   */
+  handleClickClear() {
+    this.inputElement.value = "";
+    this.value = "";
+    this.labelElement.classList.remove('inputElement-label--sticky');
+    this.focus();
+
     if (!this.noValidate) {
       this.validate();
     }
 
-    // Dispatched event to alert outside shadow DOM context of event firing.
-    this.dispatchEvent(click);
+    this.notifyValueChanged();
   }
 
   /**
