@@ -23,7 +23,14 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  *
  * @attr {String} setCustomValidity - Sets a custom automated validity message for the element.
  * @attr {Boolean} validateOnInput - Sets validation mode to re-eval with each input.
- * @attr {String} error - Sets a persistent error message (e.g. an error message returned from the server).
+ * @attr {String} error - When defined, sets persistent validity to `customError` and sets `setCustomValidity` = attribute value.
+ * @attr {String} validity - Specifies the `validityState` this element is in.
+ * @attr {String} customValidityCustomError - Help text message to display when validity = `customError`;
+ * @attr {String} customValidityValueMissing - Help text message to display when validity = `valueMissing`;
+ * @attr {String} customValidityBadInput - Help text message to display when validity = `badInput`;
+ * @attr {String} customValidityTooShort - Help text message to display when validity = `tooShort`;
+ * @attr {String} customValidityTooLong - Help text message to display when validity = `tooLong`;
+ * @attr {String} customValidityTypeEmail - Help text message to display when type = `email` and invalid email is entered;
  * @attr {String} helpText - Deprecated, see `slot`.
  * @attr {String} id - Sets the unique ID of the element.
  * @attr {String} label - Deprecated, see `slot`.
@@ -37,7 +44,6 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {Boolean} borderless - Applies borderless UI variant.
  * @attr {Boolean} disabled - If set, disables the input.
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
- * @attr {Boolean} isValid - Can be accessed to determine if the input is in an error state or not. Not intended to be set by the consumer.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
  * @attr {Boolean} activeLabel - If set, the label will remain fixed in the active position.
  * @attr {Number} maxLength - The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher.
@@ -54,9 +60,9 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @csspart accentIcon - Use for customizing the style of the accentIcon element (e.g. credit card icon, calendar icon)
  * @csspart iconContainer - Use for customizing the style of the iconContainer (e.g. X icon for clearing input value)
  * @event input - Event fires when the value of an `auro-input` has been changed.
- * @fires auroInput-helpText - Notifies that the helpText value has changed.
+ * @fires auroInput-helpText - Notifies that the helpText message has changed.
  * @fires auroInput-ready - Notifies that the component has finished initializing.
- * @fires auroInput-validated - Notifies that the isValid value has changed.
+ * @fires auroInput-validated - Notifies that the `validity` value has changed.
  */
 
 export default class BaseInput extends LitElement {
@@ -136,7 +142,6 @@ export default class BaseInput extends LitElement {
 
     this.icon = false;
     this.disabled = false;
-    this.isValid = true;
     this.required = false;
     this.noValidate = false;
     this.maxLength = undefined;
@@ -144,12 +149,18 @@ export default class BaseInput extends LitElement {
     this.label = 'Input label is undefined';
     this.ready = false;
     this.activeLabel = false;
+
+    this.customValidityCustomError = '';
+    this.customValidityValueMissing = 'Please fill out this field.';
+    this.customValidityBadInput = 'Please match the requested format.';
+    this.customValidityTooShort = 'Value is too short. Please enter a valid value.';
+    this.customValidityTooLong = 'Value is too long. Please enter a valid value';
+    this.customValidityTypeEmail = i18n(this.lang, 'email');
   }
 
   // function to define props used within the scope of this component
   static get properties() {
     return {
-      error:                   { type: String },
       id:                      { type: String },
       label:                   { type: String },
       name:                    { type: String },
@@ -160,7 +171,6 @@ export default class BaseInput extends LitElement {
       pattern:                 { type: String },
       icon:                    { type: Boolean },
       disabled:                { type: Boolean },
-      isValid:                 { type: Boolean },
       required:                { type: Boolean },
       noValidate:              { type: Boolean },
       helpText:                { type: String },
@@ -178,6 +188,20 @@ export default class BaseInput extends LitElement {
       setCustomValidity:       { type: String },
       validateOnInput:         { type: Boolean },
       ready:                   { type: Boolean },
+      error:                   {
+        type: String,
+        reflect: true
+      },
+      validity:                {
+        type: String,
+        reflect: true
+      },
+      customValidityCustomError:  { type: String },
+      customValidityValueMissing: { type: String },
+      customValidityBadInput:     { type: String },
+      customValidityTooShort:     { type: String },
+      customValidityTooLong:      { type: String },
+      customValidityTypeEmail:    { type: String }
     };
   }
 
@@ -189,7 +213,6 @@ export default class BaseInput extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.isValid = !this.error;
 
     notifyOnLangChange(this);
 
@@ -303,10 +326,6 @@ export default class BaseInput extends LitElement {
    * @returns {void}
    */
   updated(changedProperties) {
-    if (changedProperties.has('error')) {
-      this.validate();
-    }
-
     if (this.type === 'password') {
       this.spellcheck = 'false';
     }
@@ -319,8 +338,25 @@ export default class BaseInput extends LitElement {
       this.autocapitalize = undefined;
     }
 
-    if (changedProperties.has('value')) {
-      this.notifyValueChanged();
+    if (changedProperties.has('value') && this.value) {
+      if (this.value !== this.inputElement.value) {
+        this.inputElement.value = this.value;
+        this.notifyValueChanged();
+        this.validate();
+      }
+    }
+
+    if (changedProperties.has('error')) {
+      if (this.error) {
+        this.validity = 'customError';
+
+        if (this.error.length > 0) {
+          this.setCustomValidity = this.error;
+        }
+
+      } else {
+        this.validate();
+      }
     }
   }
 
@@ -372,21 +408,6 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * Sets undefined value to empty string.
-   * @private
-   * @returns {string} Value or empty string.
-   */
-  initializeValue() {
-    if (this.value === undefined) {
-      this.value = '';
-
-      return '';
-    }
-
-    return this.value;
-  }
-
-  /**
    * Sends event notifying that the input has changed it's value.
    * @private
    * @returns {void}
@@ -410,14 +431,10 @@ export default class BaseInput extends LitElement {
    */
   handleClickClear() {
     this.inputElement.value = "";
-    this.value = "";
+    this.value = undefined;
     this.labelElement.classList.remove('inputElement-label--sticky');
     this.focus();
-
-    if (!this.noValidate) {
-      this.validate();
-    }
-
+    this.validate();
     this.notifyValueChanged();
   }
 
@@ -435,7 +452,7 @@ export default class BaseInput extends LitElement {
     this.value = this.inputElement.value;
 
     // Validation on blur or input.
-    if (this.hasBlurred || this.validateOnInput) {
+    if (this.validateOnInput) {
       this.validate();
     }
 
@@ -451,6 +468,26 @@ export default class BaseInput extends LitElement {
         }
       });
     }
+
+    this.validate();
+  }
+
+  /**
+   * Function to support @focusin event.
+   * @private
+   * @return {void}
+   */
+  handleFocusin() {
+
+    /**
+     * The input is considered to be in it's initial state based on
+     * if this.value === undefined. The first time we interact with the
+     * input manually, by applying focusin, we need to flag the
+     * input as no longer in the initial state.
+     */
+    if (this.value === undefined) {
+      this.value = '';
+    }
   }
 
   /**
@@ -459,35 +496,81 @@ export default class BaseInput extends LitElement {
    * @return {void}
    */
   handleBlur() {
-    this.hasBlurred = true;
     this.inputElement.scrollLeft = 100;
 
     this.validate();
   }
 
   /**
-   * Validates content of the input element based on HTML spec.
+   * Determines the validity state of the element.
    * @private
-   * @return {void}
+   * @returns {void}
    */
   validate() {
-    if (this.error && this.error.length > 0) {
-      this.isValid = false;
+    // Validate only if noValidate is not true and the input does not have focus
+    if (!this.noValidate && (this !== document.activeElement || this.validateOnInput)) {
+      this.validity = 'valid';
+      this.setCustomValidity = '';
 
-      return;
+      /**
+       * Only validate once we interact with the datepicker
+       * this.value === undefined is the initial state pre-interaction.
+       *
+       * The validityState definitions are located at https://developer.mozilla.org/en-US/docs/Web/API/ValidityState.
+       */
+      if (this.value !== undefined) {
+        if ((!this.value || this.value.length === 0) && this.required) {
+          this.validity = 'valueMissing';
+          this.setCustomValidity = this.customValidityValueMissing;
+        } else {
+          this.validateInputType();
+          this.validateInputAttributes();
+        }
+      }
     }
 
-    this.isValid = this.noValidate ? true : this.inputElement.checkValidity();
-    this.internalError = this.isValid ? null : this.inputElement.validationMessage;
+    this.getErrorMessage();
+  }
 
-    this.dispatchEvent(new CustomEvent('auroInput-validated', {
-      bubbles: true,
-      cancelable: false,
-      composed: true,
-      detail: {
-        isValid: this.isValid
+  /**
+   * Determines the validity state of the element based on the common attribute restrictions (pattern).
+   * @private
+   * @returns {void}
+   */
+  validateInputAttributes() {
+    if (this.pattern) { // eslint-disable-line no-lonely-if
+      const pattern = new RegExp(`^${this.pattern}$`, 'u');
+
+      if (!pattern.test(this.value)) { // eslint-disable-line max-depth
+        this.validity = 'badInput';
+        this.setCustomValidity = this.customValidityBadInput;
       }
-    }));
+    } else if (this.value.length < this.minLength) {
+      this.validity = 'tooShort';
+      this.setCustomValidity = this.customValidityTooShort;
+    } else if (this.value.length > this.maxLength) {
+      this.validity = 'tooLong';
+      this.setCustomValidity = this.customValidityTooLong;
+    }
+  }
+
+  /**
+   * Determines the validity state of the element based on the type attribute.
+   * @private
+   * @returns {void}
+   */
+  validateInputType() {
+    if (this.hasAttribute('type')) {
+      if (this.type === 'email') {
+        // BUG - Need more accurate email regex | this one validates slightly different than the default html5 one
+        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; // eslint-disable-line require-unicode-regexp
+
+        if (!this.value.match(emailRegex)) {
+          this.validity = 'badInput';
+          this.setCustomValidity = this.customValidityTypeEmail;
+        }
+      }
+    }
   }
 
   /**
@@ -532,17 +615,20 @@ export default class BaseInput extends LitElement {
   getErrorMessage() {
     let message = '';
 
+    // reset setCustomValidity message if validity is not defined
+    if (!this.validity || this.validity === '') {
+      this.setCustomValidity = '';
+    }
+
     if (this.setCustomValidity) {
       // return this.setCustomValidity;
       message = this.setCustomValidity;
-    } else if (this.error) {
-      // return this.error;
-      message = this.error;
     } else {
       // return this.internalError;
       message = this.internalError;
     }
 
+    // Not sure if we still need this.
     this.dispatchEvent(new CustomEvent('auroInput-helpText', {
       bubbles: true,
       composed: true,
@@ -617,7 +703,7 @@ export default class BaseInput extends LitElement {
       iconContainer.classList.remove("passwordIcon--show");
     }
 
-    if (this.hasBlurred && this.type === 'credit-card') {
+    if (this.type === 'credit-card') {
       this.validate();
     }
   }

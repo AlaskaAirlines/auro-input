@@ -139,22 +139,36 @@ describe('auro-input', () => {
     const el = await fixture(html`
       <auro-input required type="email" label="Label"></auro-input>
     `);
-    const validateSpy = sinon.spy(el, 'validate');
     const input = el.shadowRoot.querySelector('input');
 
-    expect(el.isValid).to.be.true;
-    input.focus();
-    setInputValue(el, 'whatever@alaskaair.com');
-    expect(validateSpy.callCount).to.equal(0);
+    expect(el.hasAttribute('validity')).to.be.false;
 
+
+    input.focus();
     input.blur();
-    expect(validateSpy.callCount).to.equal(1);
-    expect(el.isValid).to.be.true;
+
+    await elementUpdated(el);
+
+    expect(el.hasAttribute('validity')).to.be.true;
+  });
+
+  it ('validates type="email" correctly', async () => {
+    const el = await fixture(html`
+      <auro-input required type="email" label="Label"></auro-input>
+    `);
+    expect(el.hasAttribute('validity')).to.be.false;
+    setInputValue(el, 'whatever@alaskaair.com');
+    await elementUpdated(el);
+
+    expect(el.hasAttribute('validity')).to.be.true;
+    expect(el.getAttribute('validity')).to.be.equal('valid');
 
     setInputValue(el, 'whatever');
-    expect(validateSpy.callCount).to.equal(2);
-    expect(el.isValid).to.be.false;
-  });
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('badInput');
+  })
 
   it('validates auro-input on input', async () => {
     const el = await fixture(html`
@@ -167,9 +181,11 @@ describe('auro-input', () => {
 
     input.focus();
     setInputValue(el, 'dale');
-    expect(el.isValid).to.be.false;
+    await elementUpdated(el);
+    expect(el.getAttribute('validity')).to.be.equal('badInput');
     setInputValue(el, 'dale sande');
-    expect(el.isValid).to.be.true;
+    await elementUpdated(el);
+    expect(el.getAttribute('validity')).to.be.equal('valid');
   });
 
   it('does not validate when novalidate is true', async () => {
@@ -183,7 +199,7 @@ describe('auro-input', () => {
     input.blur();
     await elementUpdated(el);
 
-    expect(el.isValid).to.be.true;
+    expect(el.hasAttribute('validity')).to.be.false;
   });
 
   it('sets aria-invalid', async () => {
@@ -191,14 +207,19 @@ describe('auro-input', () => {
       <auro-input required></auro-input>
     `);
 
-    expect(el.isValid).to.be.true;
-    expect(el.inputElement.getAttribute('aria-invalid')).to.equal('false');
+    expect(el.hasAttribute('validity')).to.be.false;
+    expect(el.inputElement.getAttribute('aria-invalid')).to.equal('true');
 
-    el.inputElement.focus();
-    el.inputElement.blur();
+    setInputValue(el, 'some value');
     await elementUpdated(el);
 
-    expect(el.isValid).to.be.false;
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+
+    setInputValue(el, '');
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valueMissing');
     expect(el.inputElement.getAttribute('aria-invalid')).to.equal('true');
   });
 
@@ -211,37 +232,42 @@ describe('auro-input', () => {
     expect(document.activeElement === el).to.be.true;
   });
 
-  it('updates validity when error message set after creation', async () => {
-    const el = await fixture(html`
-      <auro-input></auro-input>
-    `)
+  // LETS HANDLE THESE TWO TESTS BY SUPPORTING ERROR = "" shorthand
 
-    el.error = 'New error message';
-    await elementUpdated(el);
-    expect(el.isValid).to.be.false;
-  });
+  // it('updates validity when manually set after creation', async () => {
+  //   const el = await fixture(html`
+  //     <auro-input></auro-input>
+  //   `)
 
-  it('updates validity when error message removed after creation', async () => {
-    const el = await fixture(html`
-      <auro-input error="Test error"></auro-input>
-    `);
+  //   el.validity = 'customError';
+  //   el.setCustomValidity = 'Custom Error Message';
+  //   await elementUpdated(el);
 
-    el.error = '';
-    await elementUpdated(el);
-    expect(el.isValid).to.be.true;
-  });
+  //   expect(el.getAttribute('validity')).to.be.equal('customError');
 
-  it('updates validity when error message removed after creation and novalidate is true', async () => {
-    const el = await fixture(html`
-      <auro-input error="Test error" novalidate required></auro-input>
-    `);
+  //   const helpTextElem = el.shadowRoot.querySelector('.inputElement-helpText');
+  //   expect(helpTextElem.innerText).to.be.equal('Custom Error Message');
+  // });
 
-    expect(el.isValid).to.be.false;
-    el.error = '';
+  // it('updates validity when error message removed after creation', async () => {
+  //   const el = await fixture(html`
+  //     <auro-input></auro-input>
+  //   `);
 
-    await elementUpdated(el);
-    expect(el.isValid).to.be.true;
-  });
+  //   el.validity = 'customError';
+  //   el.setCustomValidity = 'Custom Error Message';
+  //   await elementUpdated(el);
+
+  //   const helpTextElem = el.shadowRoot.querySelector('.inputElement-helpText');
+  //   expect(helpTextElem.innerText).to.be.equal('Custom Error Message');
+
+  //   el.removeAttribute('validity');
+
+  //   expect(el.hasAttribute('validity')).to.be.false;
+  //   expect(helpTextElem.innerText).to.be.equal('');
+
+  //   // TEST - the right message is shown
+  // });
 
   it('is accessible', async () => {
     const el = await fixture(html`
