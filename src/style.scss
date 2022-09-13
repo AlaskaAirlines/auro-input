@@ -11,7 +11,8 @@
   selector-max-compound-selectors,
   no-descending-specificity,
   at-rule-no-unknown,
-  selector-no-qualifying-type */
+  selector-no-qualifying-type,
+  declaration-block-no-redundant-longhand-properties */
 
 // Import Auro tokens
 @import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
@@ -124,10 +125,6 @@ input {
       border-color: var(--auro-color-border-disabled-on-light);
     }
 
-    &.error {
-      border-color: var(--auro-color-alert-error-on-light);
-    }
-
     &:focus {
       border-color: var(--auro-color-ui-default-on-light);
     }
@@ -168,10 +165,6 @@ input {
   color: var(--auro-color-text-secondary-on-light);
   font-size: var(--auro-text-body-size-xs);
   line-height: 1rem;
-
-  &.error {
-    color: var(--auro-color-alert-error-on-light);
-  }
 }
 
 .inputElement-icon {
@@ -182,10 +175,6 @@ input {
   * {
     margin-left: var(--auro-size-xs);
   }
-}
-
-.alertIcon {
-  color: var(--auro-color-alert-error-on-light);
 }
 
 .iconButton {
@@ -312,12 +301,10 @@ input {
       }
     }
 
-    &.error {
-      border-color: var(--auro-color-alert-error-on-light);
-
-      @include auro_breakpoint--sm {
-        outline: 1px solid var(--auro-color-alert-error-on-light);
-      }
+    @include auro_breakpoint--sm {
+      outline-width: 1px;
+      outline-style: solid;
+      outline-color: transparent;
     }
 
     &:disabled {
@@ -360,5 +347,34 @@ input {
 :host([bordered][type='password']) {
   .inputElement {
     padding-right: 72px;
+  }
+}
+
+/**
+ * Invalid state styles
+ * valid attribute is not present on the element until after
+ * validation is wrong the first time. A required HTML5 input
+ * starts with the :invalid pseudo-selector even if our
+ * validation script has not been run.
+ */
+:host([validity]:not([validity='valid'])) {
+  .inputElement {
+    &:invalid {
+      border-color: var(--auro-color-alert-error-on-light);
+
+      @include auro_breakpoint--sm {
+        outline-color: var(--auro-color-alert-error-on-light);
+      }
+    }
+  }
+
+  .inputElement-helpText {
+    &.error {
+      color: var(--auro-color-alert-error-on-light);
+    }
+  }
+
+  .iconContainer {
+    color: var(--auro-color-alert-error-on-light);
   }
 }

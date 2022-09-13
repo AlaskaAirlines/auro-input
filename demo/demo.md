@@ -24,12 +24,17 @@ Use the `auro-input` custom element to create basic single-line text fields. Sup
 
 The default component supports the basic input `type="text"` structure. The `(optional)` label is provided to instruct the user that their input is not required.
 
-<div class="exampleWrapper exampleWrapper--flex">
+<!-- <div class="exampleWrapper exampleWrapper--flex">
   <auro-input id="demo1"></auro-input>
   <auro-input id="demo2" bordered></auro-input>
+</div> -->
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="demo1" required minlength="2"></auro-input>
+  <auro-input id="demo2" bordered required pattern="1\d{10}"></auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<!-- <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -706,4 +711,4 @@ For use cases where the field is `required`, but live validation is not wanted, 
     <slot slot="helptext">Please enter your home address.</slot>
   </auro-input>
   ```
-</auro-accordion>
+</auro-accordion> -->
