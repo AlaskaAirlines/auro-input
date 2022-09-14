@@ -24,17 +24,12 @@ Use the `auro-input` custom element to create basic single-line text fields. Sup
 
 The default component supports the basic input `type="text"` structure. The `(optional)` label is provided to instruct the user that their input is not required.
 
-<!-- <div class="exampleWrapper exampleWrapper--flex">
+<div class="exampleWrapper exampleWrapper--flex">
   <auro-input id="demo1"></auro-input>
   <auro-input id="demo2" bordered></auro-input>
-</div> -->
-
-<div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="demo1" required minlength="2"></auro-input>
-  <auro-input id="demo2" bordered required pattern="1\d{10}"></auro-input>
 </div>
 
-<!-- <auro-accordion lowProfile justifyRight>
+<auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -130,11 +125,11 @@ Use the `pattern` attribute to set custom input validation. This example also us
 Be sure to review this element's API docs for all related information.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="demo5" pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" setCustomValidity="Only contain lowercase letters w/no spaces">
+  <auro-input id="demo5" pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" customValidityBadInput="Only contain lowercase letters w/no spaces">
     <span slot="label">Username</span>
     <span slot="helptext">May only contain lowercase letters w/no spaces. Max 15 characters.</span>
   </auro-input>
-  <auro-input id="demo6" bordered pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" setCustomValidity="Only contain lowercase letters w/no spaces">
+  <auro-input id="demo6" bordered pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" customValidityBadInput="Only contain lowercase letters w/no spaces">
     <span slot="label">Username</span>
     <span slot="helptext">May only contain lowercase letters w/no spaces. Max 15 characters.</span>
   </auro-input>
@@ -144,12 +139,12 @@ Be sure to review this element's API docs for all related information.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="demo5" pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" setCustomValidity="Only contain lowercase letters w/no spaces">
+  <auro-input id="demo5" pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" customValidityBadInput="Only contain lowercase letters w/no spaces">
     <span slot="label">Username</span>
     <span slot="helptext">May only contain lowercase letters w/no spaces. Max 15 characters.</span>
   </auro-input>
 
-  <auro-input id="demo6" bordered pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" setCustomValidity="Only contain lowercase letters w/no spaces">
+  <auro-input id="demo6" bordered pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" customValidityBadInput="Only contain lowercase letters w/no spaces">
     <span slot="label">Username</span>
     <span slot="helptext">May only contain lowercase letters w/no spaces. Max 15 characters.</span>
   </auro-input>
@@ -178,17 +173,19 @@ Use the `borderless` attribute to remove the bottom border. This attribute is in
 
 ## Error support
 
-Use the `error` attribute to communicate an issue with the input to the user. Uses cases may include a refreshed page with an error returned from the server or a custom error message where the user of this element manages the error state.
+Use the `error` attribute to apply a persistent custom error that supersedes the validation logic.
 
-The following example is static to illustrate a error state returned with page load.
 
-<div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="error1" required error>
+
+The following example is loaded with `error` defined and the buttons can be used to apply a different error and to clear the error.
+
+
+<auro-button id="setCustomErrorBtn">Set Custom Error</auro-button>
+<auro-button id="setCustomErrorClearBtn">Clear Custom Error</auro-button>
+
+<div class="exampleWrapper">
+  <auro-input id="setCustomErrorExample" error="Initial error attribute value">
     <span slot="label">Name</span>
-  </auro-input>
-  <auro-input id="error2" required bordered error="Please enter your full name.">
-    <span slot="label">Name</span>
-    <span slot="helptext">Please enter your full name.</span>
   </auro-input>
 </div>
 
@@ -207,7 +204,9 @@ The following example is static to illustrate a error state returned with page l
   ```
 </auro-accordion>
 
-When using the `required` property, a custom message can be inserted using the `setCustomValidity` property. The value will override the default message set by the client.
+When using the `required` property, the default invalid message is `Please fill out this field.`. The invalid message may be customized using the `customValidityValueMissing` attribute.
+
+The value will override the default message set by the client.
 
 **NOTE:** Custom strings are NOT localized. It is the responsibility of the element consumer to provide localized strings when using this element property.
 
@@ -242,11 +241,11 @@ When using the `required` property, a custom message can be inserted using the `
 Use the `validateOnInput` attribute to enable live validation on the `input` event. Recommended use is with setting a custom `pattern` and validation is required prior to a `blur` event.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="validation1" required validateOnInput pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidity="Full name requires two or more names with at least one space.">
+  <auro-input id="validation1" required validateOnInput pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" customValidityBadInput="Full name requires two or more names with at least one space.">
     <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name as it appears on the card.</span>
   </auro-input>
-  <auro-input id="validation1" bordered validateOnInput required pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidity="Full name requires two or more names with at least one space.">
+  <auro-input id="validation1" bordered validateOnInput required pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" customValidityBadInput="Full name requires two or more names with at least one space.">
     <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name as it appears on the card.</span>
   </auro-input>
@@ -256,12 +255,12 @@ Use the `validateOnInput` attribute to enable live validation on the `input` eve
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="validation1" required validateOnInput pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidity="Full name requires two or more names with at least one space.">
+  <auro-input id="validation1" required validateOnInput pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" customValidityBadInput="Full name requires two or more names with at least one space.">
     <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name as it appears on the card.</span>
   </auro-input>
 
-  <auro-input id="validation1" bordered validateOnInput required pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidity="Full name requires two or more names with at least one space.">
+  <auro-input id="validation1" bordered validateOnInput required pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" customValidityBadInput="Full name requires two or more names with at least one space.">
     <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name as it appears on the card.</span>
   </auro-input>
@@ -711,4 +710,4 @@ For use cases where the field is `required`, but live validation is not wanted, 
     <slot slot="helptext">Please enter your home address.</slot>
   </auro-input>
   ```
-</auro-accordion> -->
+</auro-accordion>
