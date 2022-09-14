@@ -31,6 +31,10 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {String} customValidityTooShort - Help text message to display when validity = `tooShort`;
  * @attr {String} customValidityTooLong - Help text message to display when validity = `tooLong`;
  * @attr {String} customValidityTypeEmail - Help text message to display when type = `email` and invalid email is entered;
+ * @attr {String} customValidityTypeDateMMDDYYYY = Help text message to display when type = `month-day-year` and incomplete date is entered;
+ * @attr {String} customValidityTypeDateMMYY = Help text message to display when type = `month-year` and incomplete date is entered;
+ * @attr {String} customValidityTypeDateMMYYYY = Help text message to display when type = `month-fullyear` and incomplete date is entered;
+ * @attr {String} customValidityTypeDateYYYYMMDD = Help text message to display when type = `year-month-day` and incomplete date is entered;
  * @attr {String} helpText - Deprecated, see `slot`.
  * @attr {String} id - Sets the unique ID of the element.
  * @attr {String} label - Deprecated, see `slot`.
@@ -156,6 +160,10 @@ export default class BaseInput extends LitElement {
     this.customValidityTooShort = 'Value is too short. Please enter a valid value.';
     this.customValidityTooLong = 'Value is too long. Please enter a valid value';
     this.customValidityTypeEmail = i18n(this.lang, 'email');
+    this.customValidityTypeDateMMDDYYYY = 'Please enter a complete date in the format MM/DD/YYYY.';
+    this.customValidityTypeDateMMYY = 'Please enter a complete date in the format MM/YY.';
+    this.customValidityTypeDateMMYYYY = 'Please enter a complete date in the format MM/YYYY.';
+    this.customValidityTypeDateYYYYMMDD = 'Please enter a complete date in the format YYYY/MM/DD.';
 
     /**
      * @private
@@ -173,7 +181,10 @@ export default class BaseInput extends LitElement {
         reflect: true },
       value:                   { type: String },
       lang:                    { type: String },
-      pattern:                 { type: String },
+      pattern:                 {
+        type: String,
+        reflect: true
+      },
       icon:                    { type: Boolean },
       disabled:                { type: Boolean },
       required:                { type: Boolean },
@@ -578,6 +589,34 @@ export default class BaseInput extends LitElement {
         if (this.value.length < this.validationCCLength) {
           this.validity = 'tooShort';
           this.setCustomValidity = i18n(this.lang, 'creditcard');
+        }
+      } else if (this.type === 'month-day-year') {
+        const dateStrLength = 10;
+
+        if (this.value.length < dateStrLength) {
+          this.validity = 'tooShort';
+          this.setCustomValidity = this.customValidityTypeDateMMDDYYYY;
+        }
+      } else if (this.type === 'month-year') {
+        const dateStrLength = 5;
+
+        if (this.value.length < dateStrLength) {
+          this.validity = 'tooShort';
+          this.setCustomValidity = this.customValidityTypeDateMMYY;
+        }
+      } else if (this.type === 'month-fullYear') {
+        const dateStrLength = 7;
+
+        if (this.value.length < dateStrLength) {
+          this.validity = 'tooShort';
+          this.setCustomValidity = this.customValidityTypeDateMMYYYY;
+        }
+      } else if (this.type === 'year-month-day') {
+        const dateStrLength = 10;
+
+        if (this.value.length < dateStrLength) {
+          this.validity = 'tooShort';
+          this.setCustomValidity = this.customValidityTypeDateMMDDYYYY;
         }
       }
     }
