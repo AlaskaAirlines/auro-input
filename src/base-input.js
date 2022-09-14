@@ -156,6 +156,11 @@ export default class BaseInput extends LitElement {
     this.customValidityTooShort = 'Value is too short. Please enter a valid value.';
     this.customValidityTooLong = 'Value is too long. Please enter a valid value';
     this.customValidityTypeEmail = i18n(this.lang, 'email');
+
+    /**
+     * @private
+     */
+    this.validationCCLength = undefined;
   }
 
   // function to define props used within the scope of this component
@@ -569,6 +574,11 @@ export default class BaseInput extends LitElement {
           this.validity = 'badInput';
           this.setCustomValidity = this.customValidityTypeEmail;
         }
+      } else if (this.type === 'credit-card') {
+        if (this.value.length < this.validationCCLength) {
+          this.validity = 'tooShort';
+          this.setCustomValidity = i18n(this.lang, 'creditcard');
+        }
       }
     }
   }
@@ -877,6 +887,8 @@ export default class BaseInput extends LitElement {
         type = cardType;
       }
     });
+
+    this.validationCCLength = type.formatLength;
 
     return type;
   }
