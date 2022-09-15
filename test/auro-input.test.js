@@ -137,12 +137,11 @@ describe('auro-input', () => {
 
   it('validates input after first blur', async () => {
     const el = await fixture(html`
-      <auro-input required type="email" label="Label"></auro-input>
+      <auro-input required label="Label"></auro-input>
     `);
     const input = el.shadowRoot.querySelector('input');
 
     expect(el.hasAttribute('validity')).to.be.false;
-
 
     input.focus();
     input.blur();
@@ -154,7 +153,7 @@ describe('auro-input', () => {
 
   it ('validates type="email" correctly', async () => {
     const el = await fixture(html`
-      <auro-input required type="email" label="Label"></auro-input>
+      <auro-input type="email" label="Label"></auro-input>
     `);
     expect(el.hasAttribute('validity')).to.be.false;
     setInputValue(el, 'whatever@alaskaair.com');
@@ -257,7 +256,7 @@ describe('auro-input', () => {
 
     await elementUpdated(el);
 
-    expect(el.getAttribute('validity')).to.be.equal('valid');
+    expect(el.hasAttribute('validity')).to.be.false;
   });
 
   it('minlength validity checked correctly', async () => {
@@ -454,8 +453,6 @@ describe('auro-input', () => {
       expect(eli18n.shadowRoot.querySelector('#input01')).to.have.attribute('lang', 'es');
     });
   });
-
-
 
   describe('handles credit card formatting', () => {
     it('starts with "34" is American Express', async () => {

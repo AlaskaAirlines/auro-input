@@ -340,6 +340,7 @@ export default class BaseInput extends LitElement {
   firstUpdated() {
     this.inputElement = this.renderRoot.querySelector('input');
     this.labelElement = this.shadowRoot.querySelector('label');
+    this.validate();
     this.notifyReady();
   }
 
@@ -370,16 +371,9 @@ export default class BaseInput extends LitElement {
     }
 
     if (changedProperties.has('error')) {
-      if (this.error) {
-        this.validity = 'customError';
-
-        if (this.error.length > 0) {
-          this.setCustomValidity = this.error;
-        }
-
-      } else {
-        this.validate();
-      }
+      this.validity = undefined;
+      this.removeAttribute('validity');
+      this.validate();
     }
 
     if (changedProperties.has('validity')) {
@@ -547,7 +541,10 @@ export default class BaseInput extends LitElement {
    */
   validate() {
     // Validate only if noValidate is not true and the input does not have focus
-    if (!this.noValidate && (this !== document.activeElement || this.validateOnInput)) {
+    if (this.hasAttribute('error')) {
+      this.validity = 'customError';
+      this.setCustomValidity = this.error;
+    } else if (this.value !== undefined && !this.noValidate && (this !== document.activeElement || this.validateOnInput)) {
       this.validity = 'valid';
       this.setCustomValidity = '';
 

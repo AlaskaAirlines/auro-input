@@ -12,7 +12,8 @@
   no-descending-specificity,
   at-rule-no-unknown,
   selector-no-qualifying-type,
-  declaration-block-no-redundant-longhand-properties */
+  declaration-block-no-redundant-longhand-properties,
+  declaration-no-important */
 
 // Import Auro tokens
 @import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
@@ -369,12 +370,20 @@ input {
   }
 
   .inputElement-helpText {
-    &.error {
-      color: var(--auro-color-alert-error-on-light);
-    }
+    color: var(--auro-color-alert-error-on-light);
   }
 
   .iconContainer {
     color: var(--auro-color-alert-error-on-light);
+  }
+}
+
+:host([validity='customError']) {
+  .inputElement {
+    border-color: var(--auro-color-alert-error-on-light) !important;
+
+    @include auro_breakpoint--sm {
+      outline-color: var(--auro-color-alert-error-on-light) !important;
+    }
   }
 }

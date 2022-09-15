@@ -84,7 +84,7 @@ export default class AuroInput extends BaseInput {
       <!-- Help text and error message template -->
       ${this.validity !== undefined && this.validity !== 'valid'
         ? html`
-          <p class="inputElement-helpText error" id="${this.uniqueId}" role="alert" aria-live="assertive" part="helpText">
+          <p class="inputElement-helpText" id="${this.uniqueId}" role="alert" aria-live="assertive" part="helpText">
             ${this.getErrorMessage()}
           </p>`
         : html`
