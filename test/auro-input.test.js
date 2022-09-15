@@ -232,42 +232,141 @@ describe('auro-input', () => {
     expect(document.activeElement === el).to.be.true;
   });
 
-  // LETS HANDLE THESE TWO TESTS BY SUPPORTING ERROR = "" shorthand
+  it('error attribute sets custom validity', async () => {
+    const el = await fixture(html`
+      <auro-input error="Custom Error Message"></auro-input>
+    `)
 
-  // it('updates validity when manually set after creation', async () => {
-  //   const el = await fixture(html`
-  //     <auro-input></auro-input>
-  //   `)
+    expect(el.getAttribute('validity')).to.be.equal('customError');
 
-  //   el.validity = 'customError';
-  //   el.setCustomValidity = 'Custom Error Message';
-  //   await elementUpdated(el);
+    const helpTextElem = el.shadowRoot.querySelector('.inputElement-helpText');
+    expect(helpTextElem.innerText).to.be.equal('Custom Error Message');
+  });
 
-  //   expect(el.getAttribute('validity')).to.be.equal('customError');
+  it('updates validity when error message removed after creation', async () => {
+    const el = await fixture(html`
+      <auro-input error="Custom Error Message"></auro-input>
+    `)
 
-  //   const helpTextElem = el.shadowRoot.querySelector('.inputElement-helpText');
-  //   expect(helpTextElem.innerText).to.be.equal('Custom Error Message');
-  // });
+    expect(el.getAttribute('validity')).to.be.equal('customError');
 
-  // it('updates validity when error message removed after creation', async () => {
-  //   const el = await fixture(html`
-  //     <auro-input></auro-input>
-  //   `);
+    const helpTextElem = el.shadowRoot.querySelector('.inputElement-helpText');
+    expect(helpTextElem.innerText).to.be.equal('Custom Error Message');
 
-  //   el.validity = 'customError';
-  //   el.setCustomValidity = 'Custom Error Message';
-  //   await elementUpdated(el);
+    el.removeAttribute('error');
 
-  //   const helpTextElem = el.shadowRoot.querySelector('.inputElement-helpText');
-  //   expect(helpTextElem.innerText).to.be.equal('Custom Error Message');
+    await elementUpdated(el);
 
-  //   el.removeAttribute('validity');
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+  });
 
-  //   expect(el.hasAttribute('validity')).to.be.false;
-  //   expect(helpTextElem.innerText).to.be.equal('');
+  it('minlength validity checked correctly', async () => {
+    const el = await fixture(html`
+      <auro-input minlength="2"></auro-input>
+    `)
 
-  //   // TEST - the right message is shown
-  // });
+    setInputValue(el, 'a')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('tooShort');
+
+    setInputValue(el, 'aa')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+  });
+
+  it('maxlength validity checked correctly', async () => {
+    const el = await fixture(html`
+      <auro-input maxlength="2"></auro-input>
+    `)
+
+    setInputValue(el, 'aaa')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('tooLong');
+
+    setInputValue(el, 'aa')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+  });
+
+  it('type month-day-year validity checked correctly', async () => {
+    const el = await fixture(html`
+      <auro-input type="month-day-year"></auro-input>
+    `)
+
+    setInputValue(el, '10/10/202')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('tooShort');
+
+    setInputValue(el, '10/10/2022')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+  });
+
+  it('type month-year validity checked correctly', async () => {
+    const el = await fixture(html`
+      <auro-input type="month-year"></auro-input>
+    `)
+
+    setInputValue(el, '10/')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('tooShort');
+
+    setInputValue(el, '10/22')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+  });
+
+  it('type month-fullyear validity checked correctly', async () => {
+    const el = await fixture(html`
+      <auro-input type="month-fullYear"></auro-input>
+    `)
+
+    setInputValue(el, '10/')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('tooShort');
+
+    setInputValue(el, '10/2022')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+  });
+
+  it('type year-month-date validity checked correctly', async () => {
+    const el = await fixture(html`
+      <auro-input type="year-month-day"></auro-input>
+    `)
+
+    setInputValue(el, '20')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('tooShort');
+
+    setInputValue(el, '2022/10/10')
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+  });
 
   it('is accessible', async () => {
     const el = await fixture(html`
