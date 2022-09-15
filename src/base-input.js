@@ -561,7 +561,7 @@ export default class BaseInput extends LitElement {
         this.validity = 'badInput';
         this.setCustomValidity = this.customValidityBadInput;
       }
-    } else if (this.value.length < this.minLength) {
+    } else if (this.value.length > 0 && this.value.length < this.minLength) {
       this.validity = 'tooShort';
       this.setCustomValidity = this.customValidityTooShort;
     } else if (this.value.length > this.maxLength) {
@@ -586,35 +586,35 @@ export default class BaseInput extends LitElement {
           this.setCustomValidity = this.customValidityTypeEmail;
         }
       } else if (this.type === 'credit-card') {
-        if (this.value.length < this.validationCCLength) {
+        if (this.value.length > 0 && this.value.length < this.validationCCLength) {
           this.validity = 'tooShort';
           this.setCustomValidity = i18n(this.lang, 'creditcard');
         }
       } else if (this.type === 'month-day-year') {
         const dateStrLength = 10;
 
-        if (this.value.length < dateStrLength) {
+        if (this.value.length > 0 && this.value.length < dateStrLength) {
           this.validity = 'tooShort';
           this.setCustomValidity = this.customValidityTypeDateMMDDYYYY;
         }
       } else if (this.type === 'month-year') {
         const dateStrLength = 5;
 
-        if (this.value.length < dateStrLength) {
+        if (this.value.length > 0 && this.value.length < dateStrLength) {
           this.validity = 'tooShort';
           this.setCustomValidity = this.customValidityTypeDateMMYY;
         }
       } else if (this.type === 'month-fullYear') {
         const dateStrLength = 7;
 
-        if (this.value.length < dateStrLength) {
+        if (this.value.length > 0 && this.value.length < dateStrLength) {
           this.validity = 'tooShort';
           this.setCustomValidity = this.customValidityTypeDateMMYYYY;
         }
       } else if (this.type === 'year-month-day') {
         const dateStrLength = 10;
 
-        if (this.value.length < dateStrLength) {
+        if (this.value.length > 0 && this.value.length < dateStrLength) {
           this.validity = 'tooShort';
           this.setCustomValidity = this.customValidityTypeDateMMDDYYYY;
         }
