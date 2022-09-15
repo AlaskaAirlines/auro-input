@@ -49,12 +49,13 @@
 
 ## Events
 
-| Event                 | Type                                | Description                                      |
-|-----------------------|-------------------------------------|--------------------------------------------------|
-| `auroInput-helpText`  | `CustomEvent<{ message: string; }>` | Notifies that the helpText message has changed.  |
-| `auroInput-ready`     | `CustomEvent<any>`                  | Notifies that the component has finished initializing. |
-| `auroInput-validated` |                                     | Notifies that the `validity` value has changed.  |
-| `input`               |                                     | Event fires when the value of an `auro-input` has been changed. |
+| Event                      | Type                                | Description                                      |
+|----------------------------|-------------------------------------|--------------------------------------------------|
+| `auroInput-helpText`       | `CustomEvent<{ message: string; }>` | Notifies that the helpText message has changed.  |
+| `auroInput-ready`          | `CustomEvent<any>`                  | Notifies that the component has finished initializing. |
+| `auroInput-validated`      |                                     | Notifies that the `validity` value has changed.  |
+| `auroInput-validityChange` | `CustomEvent<any>`                  |                                                  |
+| `input`                    |                                     | Event fires when the value of an `auro-input` has been changed. |
 
 ## Slots
 
