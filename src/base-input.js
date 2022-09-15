@@ -381,6 +381,22 @@ export default class BaseInput extends LitElement {
         this.validate();
       }
     }
+
+    if (changedProperties.has('validity')) {
+      this.notifyValidityChange();
+    }
+  }
+
+  /**
+   * @private
+   * @returns {void} Notify validity state changed via event.
+   */
+  notifyValidityChange() {
+    this.dispatchEvent(new CustomEvent('auroInput-validityChange', {
+      bubbles: true,
+      cancelable: false,
+      composed: true,
+    }));
   }
 
   /**
