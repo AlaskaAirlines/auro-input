@@ -24,6 +24,7 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {String} setCustomValidity - Sets a custom automated validity message for the element.
  * @attr {Boolean} validateOnInput - Sets validation mode to re-eval with each input.
  * @attr {String} error - When defined, sets persistent validity to `customError` and sets `setCustomValidity` = attribute value.
+ * @attr {String} isValid - Can be accessed to determine if the input validity. Returns true when validity has not yet been checked or validity = 'valid', all other cases return false. Not intended to be set by the consumer.
  * @attr {String} validity - Specifies the `validityState` this element is in.
  * @attr {String} customValidityCustomError - Help text message to display when validity = `customError`;
  * @attr {String} customValidityValueMissing - Help text message to display when validity = `valueMissing`;
@@ -77,6 +78,8 @@ export default class BaseInput extends LitElement {
     const idLength = 36;
     const idSubstrEnd = 8;
     const idSubstrStart = 2;
+
+    this.isValid = false;
 
     /**
      * @private
@@ -205,6 +208,10 @@ export default class BaseInput extends LitElement {
       validateOnInput:         { type: Boolean },
       ready:                   { type: Boolean },
       error:                   {
+        type: String,
+        reflect: true
+      },
+      isValid: {
         type: String,
         reflect: true
       },
@@ -543,6 +550,12 @@ export default class BaseInput extends LitElement {
           this.validateInputAttributes();
         }
       }
+    }
+
+    if (this.validity && this.validity !== 'valid') {
+      this.isValid = false;
+    } else {
+      this.isValid = true;
     }
 
     this.getErrorMessage();
