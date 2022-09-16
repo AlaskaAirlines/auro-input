@@ -508,6 +508,14 @@ export default class BaseInput extends LitElement {
     // Prevents cursor jumping in Safari.
     const { selectionStart } = this.inputElement;
 
+    this.inputElement.addEventListener('keyup', (evt) => {
+      if (evt.key === 'Backspace') {
+        if (this.type === 'month-day-year' && this.value) {
+          this.inputElement.setSelectionRange(selectionStart, selectionStart);
+        }
+      }
+    });
+
     if (this.setSelectionInputTypes.includes(this.type)) {
       this.updateComplete.then(() => {
         try {
