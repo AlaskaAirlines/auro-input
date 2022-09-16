@@ -139,6 +139,16 @@ export default class BaseInput extends LitElement {
     /**
      * @private
      */
+    this.dateInputTypes = [
+      "month-day-year",
+      "year-month-day",
+      "month-year",
+      "month-fullYear"
+    ];
+
+    /**
+     * @private
+     */
     this.uniqueId = Math.random().
       toString(idLength).
       substring(idSubstrStart, idSubstrEnd);
@@ -836,13 +846,7 @@ export default class BaseInput extends LitElement {
   defineInputIcon() {
     if (this.icon && this.type === 'credit-card') {
       return true;
-    } else if (this.type === 'month-day-year') {
-      return true;
-    } else if (this.type === 'month-year') {
-      return true;
-    } else if (this.type === 'month-fullYear') {
-      return true;
-    } else if (this.type === 'year-month-day') {
+    } else if (this.dateInputTypes.includes(this.type)) {
       return true;
     }
 
@@ -857,13 +861,7 @@ export default class BaseInput extends LitElement {
   defineLabelPadding() {
     if (this.icon && this.type === 'credit-card' && (this.value === "" || this.value === undefined)) {
       return true;
-    } else if (this.type === 'month-day-year') {
-      return true;
-    } else if (this.type === 'month-year') {
-      return true;
-    } else if (this.type === 'month-fullYear') {
-      return true;
-    } else if (this.type === 'year-month-day') {
+    } else if (this.dateInputTypes.includes(this.type)) {
       return true;
     }
 
