@@ -40,7 +40,11 @@ const stringsES = {
   'validCard': 'Por favor, introduzca un número de tarjeta de crédito válida.',
   'email': 'Introduzca una dirección de correo electrónico válida (nombre@dominio.com).',
   'password': `Las contraseñas válidas deben constar de al menos 8 caracteres, incluyendo al menos una letra mayúscula, una letra minúscula y un número.`,
-  'creditcard': 'Por favor, introduzca un número de tarjeta de crédito válida.'
+  'creditcard': 'Por favor, introduzca un número de tarjeta de crédito válida.',
+  'dateMMDDYYYY': 'Ingrese una fecha completa en el formato MM/DD/AAAA',
+  'dateMMYY': 'Ingrese una fecha completa en el formato MM/AA',
+  'dateMMYYYY': 'Ingrese una fecha completa en el formato MM/AAAA',
+  'dateYYYYMMDD': 'Ingrese una fecha completa en el formato AAAA/MM/DD'
 };
 
 const stringsEN = {
@@ -48,7 +52,11 @@ const stringsEN = {
   'validCard': 'Please enter a valid credit card number.',
   'email': 'Please enter a valid email address (name@domain.com).',
   'password': 'Valid passwords must consist of at least 8 characters, including at least one uppercase letter, one lowercase letter, and one number.',
-  'creditcard': 'Please enter a valid credit card number.'
+  'creditcard': 'Please enter a valid credit card number.',
+  'dateMMDDYYYY': 'Please enter a complete date in the format MM/DD/YYYY',
+  'dateMMYY': 'Please enter a complete date in the format MM/YY',
+  'dateMMYYYY': 'Please enter a complete date in the format MM/YYYY',
+  'dateYYYYMMDD': 'Please enter a complete date in the format YYYY/MM/DD'
 };
 
 /**
