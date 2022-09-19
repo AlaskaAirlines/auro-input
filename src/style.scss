@@ -358,6 +358,12 @@ input {
  * starts with the :invalid pseudo-selector even if our
  * validation script has not been run.
  */
+:host(:not([validity])) {
+  .alertIcon {
+    display: none;
+  }
+}
+
 :host([validity]:not([validity='valid'])) {
   .inputElement {
     &:invalid {

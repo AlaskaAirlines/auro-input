@@ -112,7 +112,9 @@ export default class AuroInput extends BaseInput {
         <div class="${classMap(iconClasses)}">
           ${this.showPasswordIcon()}
           ${this.validity !== undefined && this.validity !== 'valid'
-            ? html`${this.alertSvg}` : html`
+            ? html`
+              <span class="alertIcon">${this.alertSvg}</span>
+            ` : html`
               <button
                 @click="${this.handleClickClear}"
                 aria-hidden="true"
