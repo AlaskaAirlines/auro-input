@@ -189,7 +189,7 @@ When the validity check fails the validityState equals `valueMissing`. The error
   ```
 </auro-accordion>
 
-### Custom pattern validation
+### Validation on input event
 
 Use the `validateOnInput` attribute to enable live validation on the `input` event. Recommended use is with setting a custom `pattern` and validation is required prior to a `blur` event.
 
@@ -262,6 +262,7 @@ Use the `error` attribute to apply a persistent custom error that supersedes the
 <div class="exampleWrapper">
   <auro-input id="setCustomErrorExample" error="Initial error attribute value">
     <span slot="label">Name</span>
+    <span slot="helptext">Please enter your full name.</span>
   </auro-input>
 </div>
 
@@ -269,7 +270,7 @@ Use the `error` attribute to apply a persistent custom error that supersedes the
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="error2" required bordered error="Please enter your full name.">
+  <auro-input id="error2" required bordered error="Initial error attribute value">
     <span slot="label">Name</span>
     <span slot="helptext">Please enter your full name.</span>
   </auro-input>
