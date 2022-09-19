@@ -28,19 +28,31 @@ describe('auro-input', () => {
 
   it('Sets custom pattern and setCustomValidity message', async () => {
     const el = await fixture(html`
-      <auro-input value="other value" pattern="[0-9]+" setCustomValidity="that's not a phone number" keyValidate>
+      <auro-input value="other value" pattern="zzz" setCustomValidity="that is not a valid entry" keyValidate>
         <span slot="label">First name:</span>
       </auro-input>
     `);
-    const validateSpy = sinon.spy(el, 'validate');
     const input = el.shadowRoot.querySelector('input');
-    const text = el.shadowRoot.querySelector('.inputElement-helpText').innerHTML;
+    const text = el.shadowRoot.querySelector('.inputElement-helpText').innerText;
+
+    await elementUpdated(el);
 
     input.focus();
-    setInputValue(el, 'whatever@alaskaair.com');
+    setInputValue(el, 'aaa');
     input.blur();
+
+    await elementUpdated(el);
+
     expect(el.isValid).to.not.be.true;
-    expect(text).to.not.contain(`not a phone number`);
+    expect(text).to.contain(`that is not a valid entry`);
+
+    input.focus();
+    setInputValue(el, 'zzz');
+    input.blur();
+
+    await elementUpdated(el);
+
+    expect(el.isValid).to.be.true;
   });
 
   it('clears the value when clicked', async () => {

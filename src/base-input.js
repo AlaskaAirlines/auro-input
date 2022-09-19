@@ -21,21 +21,17 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
 /**
  * Auro-input provides users a way to enter data into a text field.
  *
- * @attr {String} setCustomValidity - Sets a custom automated validity message for the element.
  * @attr {Boolean} validateOnInput - Sets validation mode to re-eval with each input.
  * @attr {String} error - When defined, sets persistent validity to `customError` and sets `setCustomValidity` = attribute value.
  * @attr {String} isValid - (DEPRECATED - Please use validity) Can be accessed to determine if the input validity. Returns true when validity has not yet been checked or validity = 'valid', all other cases return false. Not intended to be set by the consumer.
  * @attr {String} validity - Specifies the `validityState` this element is in.
- * @attr {String} customValidityCustomError - Help text message to display when validity = `customError`;
- * @attr {String} customValidityValueMissing - Help text message to display when validity = `valueMissing`;
- * @attr {String} customValidityBadInput - Help text message to display when validity = `badInput`;
- * @attr {String} customValidityTooShort - Help text message to display when validity = `tooShort`;
- * @attr {String} customValidityTooLong - Help text message to display when validity = `tooLong`;
- * @attr {String} customValidityTypeEmail - Help text message to display when type = `email` and invalid email is entered;
- * @attr {String} customValidityTypeDateMMDDYYYY = Help text message to display when type = `month-day-year` and incomplete date is entered;
- * @attr {String} customValidityTypeDateMMYY = Help text message to display when type = `month-year` and incomplete date is entered;
- * @attr {String} customValidityTypeDateMMYYYY = Help text message to display when type = `month-fullyear` and incomplete date is entered;
- * @attr {String} customValidityTypeDateYYYYMMDD = Help text message to display when type = `year-month-day` and incomplete date is entered;
+ * @attr {String} setCustomValidity - Sets a custom help text message to display for all validityStates.
+ * @attr {String} setCustomValidityCustomError - Custom help text message to display when validity = `customError`.
+ * @attr {String} setCustomValidityValueMissing - Custom help text message to display when validity = `valueMissing`.
+ * @attr {String} setCustomValidityBadInput - Custom help text message to display when validity = `badInput`.
+ * @attr {String} setCustomValidityTooShort - Custom help text message to display when validity = `tooShort`.
+ * @attr {String} setCustomValidityTooLong - Custom help text message to display when validity = `tooLong`.
+ * @attr {String} setCustomValidityForType - Custom help text message to display for the declared element `type` and type validity fails.
  * @attr {String} helpText - Deprecated, see `slot`.
  * @attr {String} id - Sets the unique ID of the element.
  * @attr {String} label - Deprecated, see `slot`.
@@ -157,16 +153,7 @@ export default class BaseInput extends LitElement {
     this.ready = false;
     this.activeLabel = false;
 
-    this.customValidityCustomError = '';
-    this.customValidityValueMissing = 'Please fill out this field.';
-    this.customValidityBadInput = 'Please match the requested format.';
-    this.customValidityTooShort = 'Value is too short. Please enter a valid value.';
-    this.customValidityTooLong = 'Value is too long. Please enter a valid value';
-    this.customValidityTypeEmail = i18n(this.lang, 'email');
-    this.customValidityTypeDateMMDDYYYY = 'Please enter a complete date in the format MM/DD/YYYY.';
-    this.customValidityTypeDateMMYY = 'Please enter a complete date in the format MM/YY.';
-    this.customValidityTypeDateMMYYYY = 'Please enter a complete date in the format MM/YYYY.';
-    this.customValidityTypeDateYYYYMMDD = 'Please enter a complete date in the format YYYY/MM/DD.';
+    this.setCustomValidityForType = undefined;
 
     /**
      * @private
@@ -219,11 +206,11 @@ export default class BaseInput extends LitElement {
         type: String,
         reflect: true
       },
-      customValidityCustomError:  { type: String },
-      customValidityValueMissing: { type: String },
-      customValidityBadInput:     { type: String },
-      customValidityTooShort:     { type: String },
-      customValidityTooLong:      { type: String },
+      setCustomValidityCustomError:  { type: String },
+      setCustomValidityValueMissing: { type: String },
+      setCustomValidityBadInput:     { type: String },
+      setCustomValidityTooShort:     { type: String },
+      setCustomValidityTooLong:      { type: String },
       customValidityTypeEmail:    { type: String }
     };
   }
@@ -340,6 +327,31 @@ export default class BaseInput extends LitElement {
   firstUpdated() {
     this.inputElement = this.renderRoot.querySelector('input');
     this.labelElement = this.shadowRoot.querySelector('label');
+
+    // use valiity message override if declared when initializing the component
+    if (this.hasAttribute('setCustomValidity')) {
+      this.ValidityMessageOverride = this.setCustomValidity;
+    }
+
+    // if setCustomValidityForType is not set, use our default
+    if (!this.setCustomValidityForType) {
+      if (this.type === 'password') {
+        this.setCustomValidityForType = i18n(this.lang, 'password');
+      } else if (this.type === 'credit-card') {
+        this.setCustomValidityForType = i18n(this.lang, 'creditcard');
+      } else if (this.type === 'email') {
+        this.setCustomValidityForType = i18n(this.lang, 'email');
+      } else if (this.type === 'month-day-year') {
+        this.setCustomValidityForType = i18n(this.lang, 'dateMMDDYYYY');
+      } else if (this.type === 'month-year') {
+        this.setCustomValidityForType = i18n(this.lang, 'dateMMYY');
+      } else if (this.type === 'month-fullyear') {
+        this.setCustomValidityForType = i18n(this.lang, 'dateMMYYYY');
+      } else if (this.type === 'year-month-day') {
+        this.setCustomValidityForType = i18n(this.lang, 'dateYYYYMMDD');
+      }
+    }
+
     this.validate();
     this.notifyReady();
   }
@@ -557,7 +569,7 @@ export default class BaseInput extends LitElement {
       if (this.value !== undefined) {
         if ((!this.value || this.value.length === 0) && this.required) {
           this.validity = 'valueMissing';
-          this.setCustomValidity = this.customValidityValueMissing;
+          this.setCustomValidity = this.setCustomValidityValueMissing;
         } else {
           this.validateInputType();
           this.validateInputAttributes();
@@ -567,6 +579,11 @@ export default class BaseInput extends LitElement {
 
     if (this.validity && this.validity !== 'valid') {
       this.isValid = false;
+
+      // Use the validity message override if it is declared
+      if (this.ValidityMessageOverride) {
+        this.setCustomValidity = this.ValidityMessageOverride;
+      }
     } else {
       this.isValid = true;
     }
@@ -580,19 +597,19 @@ export default class BaseInput extends LitElement {
    * @returns {void}
    */
   validateInputAttributes() {
-    if (this.pattern) { // eslint-disable-line no-lonely-if
+    if (this.pattern) {
       const pattern = new RegExp(`^${this.pattern}$`, 'u');
 
-      if (!pattern.test(this.value)) { // eslint-disable-line max-depth
+      if (!pattern.test(this.value)) {
         this.validity = 'badInput';
-        this.setCustomValidity = this.customValidityBadInput;
+        this.setCustomValidity = this.setCustomValidityBadInput;
       }
     } else if (this.value.length > 0 && this.value.length < this.minLength) {
       this.validity = 'tooShort';
-      this.setCustomValidity = this.customValidityTooShort;
+      this.setCustomValidity = this.setCustomValidityTooShort;
     } else if (this.value.length > this.maxLength) {
       this.validity = 'tooLong';
-      this.setCustomValidity = this.customValidityTooLong;
+      this.setCustomValidity = this.setCustomValidityTooLong;
     }
   }
 
@@ -609,40 +626,40 @@ export default class BaseInput extends LitElement {
 
         if (!this.value.match(emailRegex)) {
           this.validity = 'badInput';
-          this.setCustomValidity = this.customValidityTypeEmail;
+          this.setCustomValidity = this.setCustomValidityForType;
         }
       } else if (this.type === 'credit-card') {
         if (this.value.length > 0 && this.value.length < this.validationCCLength) {
           this.validity = 'tooShort';
-          this.setCustomValidity = i18n(this.lang, 'creditcard');
+          this.setCustomValidity = this.setCustomValidityForType;
         }
       } else if (this.type === 'month-day-year') {
         const dateStrLength = 10;
 
         if (this.value.length > 0 && this.value.length < dateStrLength) {
           this.validity = 'tooShort';
-          this.setCustomValidity = this.customValidityTypeDateMMDDYYYY;
+          this.setCustomValidity = this.setCustomValidityForType;
         }
       } else if (this.type === 'month-year') {
         const dateStrLength = 5;
 
         if (this.value.length > 0 && this.value.length < dateStrLength) {
           this.validity = 'tooShort';
-          this.setCustomValidity = this.customValidityTypeDateMMYY;
+          this.setCustomValidity = this.setCustomValidityForType;
         }
       } else if (this.type === 'month-fullYear') {
         const dateStrLength = 7;
 
         if (this.value.length > 0 && this.value.length < dateStrLength) {
           this.validity = 'tooShort';
-          this.setCustomValidity = this.customValidityTypeDateMMYYYY;
+          this.setCustomValidity = this.setCustomValidityForType;
         }
       } else if (this.type === 'year-month-day') {
         const dateStrLength = 10;
 
         if (this.value.length > 0 && this.value.length < dateStrLength) {
           this.validity = 'tooShort';
-          this.setCustomValidity = this.customValidityTypeDateMMDDYYYY;
+          this.setCustomValidity = this.setCustomValidityForType;
         }
       }
     }
@@ -675,6 +692,14 @@ export default class BaseInput extends LitElement {
       this.helpText = i18n(this.lang, 'email');
     } else if (type === 'credit-card') {
       this.helpText = i18n(this.lang, 'creditcard');
+    } else if (type === 'month-day-year') {
+      this.helpText = i18n(this.lang, 'dateMMDDYYYY');
+    } else if (type === 'month-year') {
+      this.helpText = i18n(this.lang, 'dateMMYY');
+    } else if (type === 'month-fullyear') {
+      this.helpText = i18n(this.lang, 'dateMMYYYY');
+    } else if (type === 'year-month-day') {
+      this.helpText = i18n(this.lang, 'dateYYYYMMDD');
     } else {
       this.helpText = '';
     }
@@ -690,17 +715,12 @@ export default class BaseInput extends LitElement {
   getErrorMessage() {
     let message = '';
 
-    // reset setCustomValidity message if validity is not defined
-    if (!this.validity || this.validity === '') {
-      this.setCustomValidity = '';
-    }
-
     if (this.setCustomValidity) {
       // return this.setCustomValidity;
       message = this.setCustomValidity;
     } else {
       // return this.internalError;
-      message = this.internalError;
+      message = this.inputElement.validationMessage;
     }
 
     // Not sure if we still need this.
