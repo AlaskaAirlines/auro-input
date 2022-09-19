@@ -82,15 +82,16 @@ export default class AuroInput extends BaseInput {
       </label>
 
       <!-- Help text and error message template -->
-      ${this.validity !== undefined && this.validity !== 'valid'
+      ${!this.validity || this.validity === undefined || this.validity === 'valid'
         ? html`
-          <p class="inputElement-helpText" id="${this.uniqueId}" role="alert" aria-live="assertive" part="helpText">
-            ${this.getErrorMessage()}
-          </p>`
-        : html`
           <p class="inputElement-helpText" id="${this.uniqueId}" part="helpText">
             <slot name="helptext">${this.getHelpText(this.type)}</slot>
           </p>`
+        : html`
+          <p class="inputElement-helpText" id="${this.uniqueId}" role="alert" aria-live="assertive" part="helpText">
+            ${this.getErrorMessage()}
+          </p>`
+
       }
 
       ${this.type === 'credit-card' ? this.processCreditCard() : undefined}
