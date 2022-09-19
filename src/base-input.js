@@ -383,8 +383,12 @@ export default class BaseInput extends LitElement {
     }
 
     if (changedProperties.has('error')) {
-      this.validity = undefined;
-      this.removeAttribute('validity');
+      if (!this.error) {
+        this.setCustomValidity = undefined;
+        this.validity = undefined;
+        this.removeAttribute('validity');
+      }
+
       this.validate();
     }
 
