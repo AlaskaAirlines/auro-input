@@ -3,7 +3,7 @@
 
 // ---------------------------------------------------------------------
 
-/* eslint-disable max-lines */
+/* eslint-disable max-lines, no-magic-numbers */
 /* eslint no-magic-numbers: ["error", { "ignore": [0] }] */
 /* eslint-disable max-statements */
 
@@ -124,6 +124,11 @@ export default class BaseInput extends LitElement {
       "year-month-day",
       "month-year"
     ];
+
+    /**
+     * @private
+     */
+    // this.cursorPosition = 1;
 
     /**
      * Credit Card is not included as this caused cursor placement issues.
@@ -363,6 +368,48 @@ export default class BaseInput extends LitElement {
     }
 
     this.validate();
+    this.addEventListener('keydown', (evt) => {
+      const autoFormattingTypes = [
+        'credit-card',
+        'month-day-year',
+        'month-year',
+        'month-fullyear',
+        'year-month-day'
+      ];
+
+      if (autoFormattingTypes.includes(this.type)) {
+        if (evt.key.length === 1 || evt.key === 'Backspace' || evt.key === 'Delete') {
+          if (evt.key.length === 1) {
+            const numCharSelected = this.inputElement.selectionEnd - this.inputElement.selectionStart;
+
+            if (numCharSelected > 1) {
+              this.cursorPosition = this.inputElement.selectionStart + 1;
+            } else if (numCharSelected === 1) {
+              this.cursorPosition = this.inputElement.selectionEnd;
+            } else {
+              this.cursorPosition = this.inputElement.selectionEnd + 1;
+            }
+          } else if (evt.key === 'Backspace') {
+            this.cursorPosition = this.inputElement.selectionEnd - 1;
+          } else if (evt.key === 'Delete') {
+            this.cursorPosition = this.inputElement.selectionEnd;
+          }
+        }
+
+        if (evt.key === "ArrowUp" || evt.key === "ArrowDown" || evt.key === "ArrowLeft" || evt.key === "ArrowRight") {
+          if (evt.key === 'ArrowUp') {
+            this.cursorPosition = 0;
+          } else if (evt.key === 'ArrowDown') {
+            this.cursorPosition = this.value.length;
+          } else if (evt.key === 'ArrowLeft') {
+            this.cursorPosition = this.inputElement.selectionEnd - 1;
+          } else if (evt.key === 'ArrowRight') {
+            this.cursorPosition = this.inputElement.selectionEnd + 1;
+          }
+        }
+      }
+    });
+
     this.notifyReady();
   }
 
@@ -387,6 +434,12 @@ export default class BaseInput extends LitElement {
     if (changedProperties.has('value') && this.value) {
       if (this.value !== this.inputElement.value) {
         this.inputElement.value = this.value;
+
+        // Make sure we don't move the cursor to the end when using CleaveJS to autoformat;
+        if (this.cursorPosition) {
+          this.inputElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
+        }
+
         this.notifyValueChanged();
         this.validate();
       }
@@ -517,14 +570,6 @@ export default class BaseInput extends LitElement {
 
     // Prevents cursor jumping in Safari.
     const { selectionStart } = this.inputElement;
-
-    this.inputElement.addEventListener('keyup', (evt) => {
-      if (evt.key === 'Backspace') {
-        if (this.type === 'month-day-year' && this.value) {
-          this.inputElement.setSelectionRange(selectionStart, selectionStart);
-        }
-      }
-    });
 
     if (this.setSelectionInputTypes.includes(this.type)) {
       this.updateComplete.then(() => {
