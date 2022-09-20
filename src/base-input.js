@@ -717,14 +717,12 @@ export default class BaseInput extends LitElement {
    * @returns {string} Error string.
    */
   getErrorMessage() {
-    let message = '';
-
     if (this.setCustomValidity) {
       // return this.setCustomValidity;
-      message = this.setCustomValidity;
-    } else {
+      this.errorMessage = this.setCustomValidity;
+    } else if (this.inputElement.validationMessage.length > 0) {
       // return this.internalError;
-      message = this.inputElement.validationMessage;
+      this.errorMessage = this.inputElement.validationMessage;
     }
 
     // Not sure if we still need this.
@@ -732,11 +730,11 @@ export default class BaseInput extends LitElement {
       bubbles: true,
       composed: true,
       detail: {
-        message
+        message: this.errorMessage
       }
     }));
 
-    return message;
+    return this.errorMessage;
   }
 
   /**
@@ -800,10 +798,6 @@ export default class BaseInput extends LitElement {
       iconContainer.classList.add("passwordIcon--show");
     } else {
       iconContainer.classList.remove("passwordIcon--show");
-    }
-
-    if (this.type === 'credit-card') {
-      this.validate();
     }
   }
 
