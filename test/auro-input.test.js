@@ -136,7 +136,7 @@ describe('auro-input', () => {
     const { result } = await listener;
 
     expect(result).to.equal(undefined);
-  })
+  });
 
   it('sets disabled class on label when component disabled', async () => {
     const el = await fixture(html`
@@ -241,6 +241,28 @@ describe('auro-input', () => {
 
     el.focus();
     expect(document.activeElement === el).to.be.true;
+  });
+
+  it('date inputs use programmatic placeholder', async () => {
+    // All date types and their default placeholders at their corresponding index
+    let dateTypes = ['month-day-year', 'month-year', 'month-fullYear', 'year-month-day'];
+    let defaultDatePH = ['MM/DD/YYYY', 'MM/YY', 'MM/YYYY', 'YYYY/MM/DD'];
+
+    for (let index = 0; index < dateTypes.length; index++) {
+      const el = await fixture(html`
+        <auro-input type=${dateTypes[index]}></auro-input>
+      `);
+
+      let placeholder = el.getPlaceholder();
+
+      expect(placeholder).to.equal(defaultDatePH[index]);
+
+      el.placeholder = "some date";
+
+      placeholder = el.getPlaceholder();
+
+      expect(placeholder).not.to.equal(defaultDatePH[index]);
+    }
   });
 
   it('error attribute sets custom validity', async () => {
