@@ -1,5 +1,24 @@
 # Semantic Release Automated Changelog
 
+# [2.9.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.8.2...v2.9.0) (2022-09-20)
+
+
+### Bug Fixes
+
+* **error:** dont validate to remove persistent error attribute validation ([75d0e15](https://github.com/AlaskaAirlines/auro-input/commit/75d0e1584d8d976da82df15318a4fc41aaf71a35))
+* **errorMessage:** persist error message until validation ([0859ecf](https://github.com/AlaskaAirlines/auro-input/commit/0859ecf0c7b75b9d502585f1b194ad889f8c7f33))
+* **error:** reset setCustomValidity and hide icon when removing error ([018d55b](https://github.com/AlaskaAirlines/auro-input/commit/018d55ba8407e40c17e1ef7a108be282e04ea6b0))
+* **helpText:** show helpText when validity === null ([2ab89a0](https://github.com/AlaskaAirlines/auro-input/commit/2ab89a027ad958b5c0b320bf58b23388b13dca89))
+* **tooShort:** only validate too short if a value exists ([696639a](https://github.com/AlaskaAirlines/auro-input/commit/696639a4654783989792dff0cb8e6817f183cdad))
+
+
+### Features
+
+* **isValid:** persist isInvalid attribute ([255ce2c](https://github.com/AlaskaAirlines/auro-input/commit/255ce2ca9194b579f3b4f7ceece1cec9156c8d71))
+* **valdity:** notify validity changed via event ([895b65c](https://github.com/AlaskaAirlines/auro-input/commit/895b65c326fe3b15b205f26194610f506e43da2a))
+* **validation:** use html5 validation spec instead of error attribute [#170](https://github.com/AlaskaAirlines/auro-input/issues/170) ([6ec40c3](https://github.com/AlaskaAirlines/auro-input/commit/6ec40c3f3aaf1b04e101f26da078b1546357b757))
+* **validity:** custom date error messages ([ab1d768](https://github.com/AlaskaAirlines/auro-input/commit/ab1d7689e2d0bacddfe330276306ddfa79ff8392))
+
 ## [2.8.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.8.1...v2.8.2) (2022-09-01)
 
 
