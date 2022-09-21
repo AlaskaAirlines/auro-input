@@ -174,6 +174,17 @@ export default class BaseInput extends LitElement {
      * @private
      */
     this.validationCCLength = undefined;
+
+    /**
+     * @private
+     */
+    this.autoFormattingTypes = [
+      'credit-card',
+      'month-day-year',
+      'month-year',
+      'month-fullyear',
+      'year-month-day'
+    ];
   }
 
   // function to define props used within the scope of this component
@@ -369,15 +380,7 @@ export default class BaseInput extends LitElement {
 
     this.validate();
     this.addEventListener('keydown', (evt) => {
-      const autoFormattingTypes = [
-        'credit-card',
-        'month-day-year',
-        'month-year',
-        'month-fullyear',
-        'year-month-day'
-      ];
-
-      if (autoFormattingTypes.includes(this.type)) {
+      if (this.autoFormattingTypes.includes(this.type)) {
         if (evt.key.length === 1 || evt.key === 'Backspace' || evt.key === 'Delete') {
           if (evt.key.length === 1) {
             const numCharSelected = this.inputElement.selectionEnd - this.inputElement.selectionStart;
@@ -435,13 +438,30 @@ export default class BaseInput extends LitElement {
       if (this.value !== this.inputElement.value) {
         this.inputElement.value = this.value;
 
-        // Make sure we don't move the cursor to the end when using CleaveJS to autoformat;
-        if (this.cursorPosition) {
-          this.inputElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
-        }
-
         this.notifyValueChanged();
         this.validate();
+      }
+
+      if (this.cursorPosition >= 0 && this.autoFormattingTypes.includes(this.type)) {
+        const dateTypes = [
+          'month-day-year',
+          'month-year',
+          'month-fullyear',
+          'year-month-day'
+        ];
+
+        if (this.type === 'credit-card' && this.inputElement.value.charAt(this.cursorPosition) === ' ') {
+          this.cursorPosition += 1;
+        } else if (dateTypes.includes(this.type)) {
+          const divider = '/';
+          const dividerNextChar = this.inputElement.value.charAt(this.cursorPosition) === divider;
+
+          if (this.cursorPosition > 1 && dividerNextChar && this.inputElement.value.charAt(this.cursorPosition - 2) !== divider) {
+            this.cursorPosition += 1;
+          }
+        }
+
+        this.inputElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
       }
     }
 
