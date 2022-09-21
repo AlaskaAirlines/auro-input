@@ -1,5 +1,14 @@
 # Semantic Release Automated Changelog
 
+## [2.9.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.0...v2.9.1) (2022-09-21)
+
+
+### Bug Fixes
+
+* **cursor:** correct cursor placement for single digit date input [#181](https://github.com/AlaskaAirlines/auro-input/issues/181) ([639cd35](https://github.com/AlaskaAirlines/auro-input/commit/639cd356815e65ce5067cd0c5ff69a356a05757a))
+* **cursor:** keep cursor in place during keyboard input [#181](https://github.com/AlaskaAirlines/auro-input/issues/181) ([5c01949](https://github.com/AlaskaAirlines/auro-input/commit/5c0194949f1d0ddbd343e34294905bbe93e343d9))
+* **formatting:** better handling of cursor position when autoformating ([e45a907](https://github.com/AlaskaAirlines/auro-input/commit/e45a907e0cef580cf46a980b96c6f18b180203d4))
+
 # [2.9.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.8.2...v2.9.0) (2022-09-20)
 
 
