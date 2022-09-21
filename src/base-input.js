@@ -441,28 +441,7 @@ export default class BaseInput extends LitElement {
         this.notifyValueChanged();
         this.validate();
       }
-
-      if (this.cursorPosition >= 0 && this.autoFormattingTypes.includes(this.type)) {
-        const dateTypes = [
-          'month-day-year',
-          'month-year',
-          'month-fullyear',
-          'year-month-day'
-        ];
-
-        if (this.type === 'credit-card' && this.inputElement.value.charAt(this.cursorPosition) === ' ') {
-          this.cursorPosition += 1;
-        } else if (dateTypes.includes(this.type)) {
-          const divider = '/';
-          const dividerNextChar = this.inputElement.value.charAt(this.cursorPosition) === divider;
-
-          if (this.cursorPosition > 1 && dividerNextChar && this.inputElement.value.charAt(this.cursorPosition - 2) !== divider) {
-            this.cursorPosition += 1;
-          }
-        }
-
-        this.inputElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
-      }
+      this.autoFormatHandling();
     }
 
     if (changedProperties.has('error')) {
@@ -477,6 +456,30 @@ export default class BaseInput extends LitElement {
 
     if (changedProperties.has('validity')) {
       this.notifyValidityChange();
+    }
+  }
+
+  /**
+   * @private
+   * @returns {void} Handles cursor position when input auto-formats.
+   */
+  autoFormatHandling() {
+    if (this.cursorPosition >= 0 && this.autoFormattingTypes.includes(this.type)) {
+      if (this.type === 'credit-card' && this.inputElement.value.charAt(this.cursorPosition) === ' ') {
+        this.cursorPosition += 1;
+      } else if (this.dateInputTypes.includes(this.type)) {
+        const divider = '/';
+        const dividerNextChar = this.inputElement.value.charAt(this.cursorPosition) === divider;
+
+        if (this.cursorPosition > 1 && dividerNextChar && this.inputElement.value.charAt(this.cursorPosition - 2) !== divider) {
+          this.cursorPosition += 1;
+        } else if (this.cursorPosition > 0 && this.inputElement.value.charAt(this.cursorPosition + 1) === divider
+                  && this.inputElement.value.charAt(this.cursorPosition - 1) === '0') { // eslint-disable-line operator-linebreak
+          this.cursorPosition += 2;
+        }
+      }
+
+      this.inputElement.setSelectionRange(this.cursorPosition, this.cursorPosition);
     }
   }
 
