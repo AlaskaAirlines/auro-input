@@ -73,14 +73,6 @@ export default class AuroInput extends BaseInput {
         part="input"
       />
 
-      <!-- Input label template -->
-      <label for=${this.id} class="${classMap(labelClasses)}" part="label">
-        <slot name="label">
-          ${this.label}
-        </slot>
-        ${this.required ? '' : ` (${i18n(this.lang, 'optional')})`}
-      </label>
-
       <!-- Help text and error message template -->
       ${!this.validity || this.validity === undefined || this.validity === 'valid'
         ? html`
@@ -109,23 +101,35 @@ export default class AuroInput extends BaseInput {
         : undefined
       }
 
-      <div class="iconContainer" part="iconContainer">
-        <div class="${classMap(iconClasses)}">
-          ${this.showPasswordIcon()}
-          ${this.validity !== undefined && this.validity !== 'valid'
-            ? html`
-              <span class="alertIcon">${this.alertSvg}</span>
-            ` : html`
-              <button
-                @click="${this.handleClickClear}"
-                aria-hidden="true"
-                class="inputElement-icon iconButton"
-                tabindex="-1">
-                ${this.closeSvg}
-              </button>
-            `}
-        </div>
-      </div>
+      <!-- Input label template -->
+        <label for=${this.id} class="${classMap(labelClasses)}" part="label">
+          <slot name="label">
+            ${this.label}
+          </slot>
+          ${this.required ? '' : ` (${i18n(this.lang, 'optional')})`}
+        </label>
+
+        <!-- Icon container template -->
+        ${this.renderIconContainer()
+          ? html`<div class="iconContainer" part="iconContainer">
+              <div class="${classMap(iconClasses)}">
+                ${this.showPasswordIcon()}
+                ${this.validity !== undefined && this.validity !== 'valid'
+                  ? html`
+                    <span class="alertIcon">${this.alertSvg}</span>
+                  ` : html`
+                    <button
+                      @click="${this.handleClickClear}"
+                      aria-hidden="true"
+                      class="inputElement-icon iconButton"
+                      tabindex="-1">
+                      ${this.closeSvg}
+                    </button>
+                `}
+              </div>
+            </div>`
+          : undefined
+        }
     `;
   }
 }

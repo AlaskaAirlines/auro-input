@@ -413,6 +413,7 @@ export default class BaseInput extends LitElement {
       }
     });
 
+    this.renderIconContainer(); 
     this.notifyReady();
   }
 
@@ -457,6 +458,8 @@ export default class BaseInput extends LitElement {
     if (changedProperties.has('validity')) {
       this.notifyValidityChange();
     }
+
+    this.renderIconContainer();
   }
 
   /**
@@ -933,6 +936,21 @@ export default class BaseInput extends LitElement {
       return true;
     }
 
+    return false;
+  }
+
+  /**
+   * Inserts icon container in template when icon is present in input.
+   * @private
+   * @returns {boolean}
+   */
+  renderIconContainer() {
+    if (this === document.activeElement) {
+      return true;
+    } else if (this.required && this.validity === 'valueMissing') {
+      return true;
+    } 
+    
     return false;
   }
 
