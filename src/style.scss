@@ -115,6 +115,32 @@ input {
   }
 }
 
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+  .leftBox {
+    flex: 1;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .iconContainer {
+    align-items: center;
+    .inputElement-icon {
+      height: 100%;
+      svg {
+        width: 32px;
+      }
+    }
+  }
+  // background-color: blue;
+}
+
 :host(:not([borderless])) {
   .inputElement {
     border-radius: 0;
