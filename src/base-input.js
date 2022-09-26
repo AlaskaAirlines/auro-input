@@ -809,6 +809,8 @@ export default class BaseInput extends LitElement {
     } else if (this.inputElement.validationMessage.length > 0) {
       // return this.internalError;
       this.errorMessage = this.inputElement.validationMessage;
+    } else {
+      this.errorMessage = undefined;
     }
 
     // Not sure if we still need this.
