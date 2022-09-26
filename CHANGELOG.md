@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.9.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.1...v2.9.2) (2022-09-26)
+
+
+### Bug Fixes
+
+* **error:** reset error message in event [#189](https://github.com/AlaskaAirlines/auro-input/issues/189) ([7d13edd](https://github.com/AlaskaAirlines/auro-input/commit/7d13eddcb209daea0696c619bbd3104914dedf43))
+
 ## [2.9.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.0...v2.9.1) (2022-09-21)
 
 
