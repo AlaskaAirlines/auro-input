@@ -37,6 +37,7 @@ export default class AuroInput extends BaseInput {
       "inputIcon": this.defineInputIcon(),
       "inputElement": true,
       "inputElement--filled": this.value,
+      "hidden": !this.visibleInput
     };
 
     // eslint-disable-next-line one-var
@@ -48,7 +49,16 @@ export default class AuroInput extends BaseInput {
 
     return html`
       <div class=contentWrapper>
-        <div class="leftBox">
+        <div class="center">
+
+          <!-- Input label template -->
+          <label for=${this.id} class="${classMap(labelClasses)}" part="label">
+            <slot name="label">
+              ${this.label}
+            </slot>
+            ${this.required ? '' : ` (${i18n(this.lang, 'optional')})`}
+          </label>
+
           <input
             @input="${this.handleInput}"
             @focusin="${this.handleFocusin}"
@@ -74,37 +84,19 @@ export default class AuroInput extends BaseInput {
             autocapitalize="${ifDefined(this.autocapitalize ? this.autocapitalize : undefined)}"
             part="input"
           />
-
-          <!-- Input label template -->
-          <label for=${this.id} class="${classMap(labelClasses)}" part="label">
-            <slot name="label">
-              ${this.label}
-            </slot>
-            ${this.required ? '' : ` (${i18n(this.lang, 'optional')})`}
-          </label>
         </div>
 
         <!-- Icon container template -->
-        ${this.renderIconContainer()
-          ? html`<div class="iconContainer" part="iconContainer">
-              <div class="${classMap(iconClasses)}">
-                ${this.showPasswordIcon()}
-                ${this.validity !== undefined && this.validity !== 'valid'
-                  ? html`
-                    <span class="alertIcon">${this.alertSvg}</span>
-                  ` : html`
-                    <button
-                      @click="${this.handleClickClear}"
-                      aria-hidden="true"
-                      class="inputElement-icon iconButton"
-                      tabindex="-1">
-                      ${this.closeSvg}
-                    </button>
-                `}
-              </div>
-            </div>`
-          : undefined
-        }
+        <div class="iconContainer" part="iconContainer">
+          <div class="${classMap(iconClasses)}">
+            ${this.showPasswordIcon()}
+            ${this.validity !== undefined && this.validity !== 'valid'
+              ? html`
+                <span class="alertIcon">${this.alertSvg}</span>
+              ` : this.showClearIcon()
+            }
+          </div>
+        </div>
       </div>
 
       <!-- Help text and error message template -->

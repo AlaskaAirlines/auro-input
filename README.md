@@ -48,7 +48,7 @@ import "@aurodesignsystem/auro-input";
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
 <!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
 ```html
-<auro-input id="demo"></auro-input>
+<!-- <auro-input id="demo"></auro-input> -->
 <auro-input id="demo" bordered></auro-input>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->

@@ -35,6 +35,27 @@
   display: block;
 }
 
+:host(:focus-within) {
+  label {
+    font-size: var(--auro-text-body-size-xs);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    position: relative;
+    width: 100%;
+
+    color: var(--auro-color-text-secondary-on-light);
+    pointer-events: none;
+    transition: all .3s cubic-bezier(.215, .61, .355, 1);
+  }
+}
+
 .passwordToggle {
   visibility: hidden;
 }
@@ -64,14 +85,22 @@ input {
   }
 }
 
-.inputElement {
-  position: relative;
-  width: 100%;
+.contentWrapper {
+  padding: 0 var(--auro-size-sm);
+}
 
-  padding: var(--auro-size-xl);
-  padding-right: 1.875rem;
-  padding-bottom: var(--auro-size-xs);
-  padding-left: 0;
+.inputElement {
+  flex: 1;
+  display: block;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  border: 0;
+  position: relative;
+
+  padding: var(--auro-size-xs) 0;
 
   margin: 0;
   background-color: transparent;
@@ -98,11 +127,10 @@ input {
     }
   }
 
-  &:focus,
-  &--filled {
-    & + .inputElement-label {
-      @extend %activeLabel;
-    }
+  &.hidden {
+    height: 0;
+    width: 0;
+    position: absolute;
   }
 
   &:disabled {
@@ -121,12 +149,15 @@ input {
   justify-content: start;
   align-items: center;
 
-  .leftBox {
+  height: 58px;
+
+  .center {
+    display: flex;
+    flex-direction: column;
     flex: 1;
 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    justify-content: center;
+    min-width: 0;
   }
 
   .iconContainer {
@@ -138,11 +169,10 @@ input {
       }
     }
   }
-  // background-color: blue;
 }
 
 :host(:not([borderless])) {
-  .inputElement {
+  .contentWrapper {
     border-radius: 0;
     border: 0 solid;
     border-color: var(--auro-color-border-primary-on-light);
@@ -159,7 +189,7 @@ input {
 }
 
 :host([borderless]) {
-  .inputElement {
+  .contentWrapper {
     border: 0 solid;
     border-color: transparent;
     border-bottom-width: 2px;
@@ -167,12 +197,16 @@ input {
 }
 
 .inputElement-label {
-  position: absolute;
-  top: 0;
-  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-  padding: 0;
-  padding-top: 1.8rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  position: relative;
+  width: 100%;
 
   color: var(--auro-color-text-secondary-on-light);
   pointer-events: none;
@@ -205,12 +239,10 @@ input {
 }
 
 .iconButton {
-  z-index: -1;
   padding: 0;
   border: none;
   margin: 0;
   background: none;
-  opacity: 0;
 
   &:active {
     z-index: auto;
@@ -221,14 +253,6 @@ input {
   &:hover {
     cursor: pointer;
   }
-}
-
-.iconContainer {
-  position: absolute;
-  top: calc(2rem - .1rem);
-  right: 0;
-
-  pointer-events: none;
 }
 
 .is-disabled {
@@ -260,123 +284,53 @@ input {
 // =-=-=-=-=-=-=-=-= Extends -=-=-=-=-=-=-=-=-=-=-=-=-
 
 %activeLabel {
-  left: 0;
-
-  padding: 0;
-  padding-top: var(--auro-size-xxs);
-
   font-size: var(--auro-text-body-size-xs);
 }
 
 // =-=-=-=-=-=-=-=-= bordered -=-=-=-=-=-=-=-=-=-=-=-=-
-:host([bordered][icon][type='credit-card']),
-:host([bordered][type='month-day-year']),
-:host([bordered][type='year-month-day']),
-:host([bordered][type='month-year']),
-:host([bordered][type='month-fullYear']) {
-  .inputElement {
-    padding-left: var(--size-xlsm);
-  }
 
-  .inputElement-label {
-    left: var(--size-xlsm);
-  }
+:host([bordered][isvalid="false"]) {
+  .contentWrapper {
+    border-color: var(--auro-color-alert-error-on-light);
 
-  .accentIcon {
-    top: -6px;
-    left: var(--auro-size-sm);
-  }
-}
-
-:host([activeLabel]) {
-  .inputElement {
-    & + .inputElement-label {
-      padding: 0;
-      padding-top: var(--auro-size-xxs);
-
-      font-size: var(--auro-text-body-size-xs);
-    }
-  }
-
-  label {
-    left: var(--auro-size-sm);
-
-    &[class*='inputElement-'] {
-      left: var(--auro-size-sm);
-    }
-
-    &[class*='inputElement-labelIcon'] {
-      left: var(--size-xlsm);
+    @include auro_breakpoint--sm {
+      outline-color: var(--auro-color-alert-error-on-light);
     }
   }
 }
 
+:host([bordered]:focus-within) {
+  .contentWrapper {
+    border-color: var(--auro-color-ui-default-on-light);
+
+    @include auro_breakpoint--sm {
+      outline: 1px solid var(--auro-color-ui-default-on-light);
+    }
+  }
+}
+
+:host([bordered][disabled]) {
+  .contentWrapper {
+    border-color: var(--auro-color-alert-disabled-on-light);
+
+    @include auro_breakpoint--sm {
+      outline: 1px solid var(--auro-color-alert-disabled-on-light);
+    }
+  }
+}
 
 :host([bordered]) {
-  .inputElement {
-    padding-right: 2.375rem;
-    padding-left: var(--auro-size-sm);
-    border: 1px solid var(--auro-color-border-primary-on-light);
+  .contentWrapper {
     border-radius: var(--auro-border-radius);
-    background-color: var(--auro-color-base-white);
-
-    &:focus {
-      border-color: var(--auro-color-ui-default-on-light);
-
-      @include auro_breakpoint--sm {
-        outline: 1px solid var(--auro-color-ui-default-on-light);
-      }
-    }
+    border: 1px solid var(--auro-color-border-primary-on-light);
 
     @include auro_breakpoint--sm {
       outline-width: 1px;
       outline-style: solid;
       outline-color: transparent;
     }
-
-    &:disabled {
-      border-color: var(--auro-color-alert-disabled-on-light);
-
-      @include auro_breakpoint--sm {
-        outline: 1px solid var(--auro-color-alert-disabled-on-light);
-      }
-    }
-
-    &:focus,
-    &--filled {
-      & + .inputElement-label {
-        padding-top: var(--auro-size-xxs);
-      }
-    }
-  }
-
-  .inputElement-label {
-    left: var(--auro-size-sm);
-    padding-top: var(--size-mdxxs);
-
-    &--sticky {
-      padding-top: var(--auro-size-xxs);
-    }
-  }
-
-  .iconContainer {
-    top: var(--size-mdxxs);
-    right: var(--auro-size-sm);
   }
 }
-
-:host([type='password']) {
-  .inputElement {
-    padding-right: 68px;
-  }
-}
-
-:host([bordered][type='password']) {
-  .inputElement {
-    padding-right: 72px;
-  }
-}
-
 /**
  * Invalid state styles
  * valid attribute is not present on the element until after
@@ -391,16 +345,6 @@ input {
 }
 
 :host([validity]:not([validity='valid'])) {
-  .inputElement {
-    &:invalid {
-      border-color: var(--auro-color-alert-error-on-light);
-
-      @include auro_breakpoint--sm {
-        outline-color: var(--auro-color-alert-error-on-light);
-      }
-    }
-  }
-
   .inputElement-helpText {
     color: var(--auro-color-alert-error-on-light);
   }
@@ -411,7 +355,7 @@ input {
 }
 
 :host([validity='customError']) {
-  .inputElement {
+  .contentWrapper {
     border-color: var(--auro-color-alert-error-on-light) !important;
 
     @include auro_breakpoint--sm {

@@ -157,6 +157,11 @@ export default class BaseInput extends LitElement {
     this.uniqueId = Math.random().
       toString(idLength).
       substring(idSubstrStart, idSubstrEnd);
+    
+    /**
+     * @private
+     */
+    this.visibleInput = false;
 
     this.icon = false;
     this.disabled = false;
@@ -237,7 +242,8 @@ export default class BaseInput extends LitElement {
       setCustomValidityBadInput:     { type: String },
       setCustomValidityTooShort:     { type: String },
       setCustomValidityTooLong:      { type: String },
-      customValidityTypeEmail:    { type: String }
+      customValidityTypeEmail:    { type: String },
+      visibleInput: { type: Boolean }
     };
   }
 
@@ -354,6 +360,14 @@ export default class BaseInput extends LitElement {
     this.inputElement = this.renderRoot.querySelector('input');
     this.labelElement = this.shadowRoot.querySelector('label');
 
+    this.addEventListener('click', () => {
+      console.log('click function', this.visibleInput);
+      this.visibleInput = true;
+      this.requestUpdate();
+      this.focus();
+      console.log('after click', this.visibleInput);
+    });
+
     // use valiity message override if declared when initializing the component
     if (this.hasAttribute('setCustomValidity')) {
       this.ValidityMessageOverride = this.setCustomValidity;
@@ -413,7 +427,6 @@ export default class BaseInput extends LitElement {
       }
     });
 
-    this.renderIconContainer(); 
     this.notifyReady();
   }
 
@@ -458,8 +471,6 @@ export default class BaseInput extends LitElement {
     if (changedProperties.has('validity')) {
       this.notifyValidityChange();
     }
-
-    this.renderIconContainer();
   }
 
   /**
@@ -568,7 +579,7 @@ export default class BaseInput extends LitElement {
    * @return {void}
    */
   handleClickClear() {
-    this.inputElement.value = "";
+    this.inputElement.value = '';
     this.value = undefined;
     this.labelElement.classList.remove('inputElement-label--sticky');
     this.focus();
@@ -611,6 +622,18 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * Function to handle the hide/show of the HTML input.
+   * @private
+   * @return {void}
+   */
+  showHtmlInput() {
+    if ((this.inputElement && this.inputElement.value.length > 0) || this.contains(document.activeElement)) {
+      this.visibleInput = true;
+    }
+    console.log("show input value", this.visibleInput);
+  }
+
+  /**
    * Function to support @focusin event.
    * @private
    * @return {void}
@@ -626,6 +649,8 @@ export default class BaseInput extends LitElement {
     if (this.value === undefined) {
       this.value = '';
     }
+
+    this.requestUpdate();
   }
 
   /**
@@ -636,7 +661,12 @@ export default class BaseInput extends LitElement {
   handleBlur() {
     this.inputElement.scrollLeft = 100;
 
+    if (this.inputElement && this.inputElement.value.length == 0) {
+      this.visibleInput = false;
+    }
+
     this.validate();
+    this.requestUpdate();
   }
 
   /**
@@ -869,6 +899,27 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * Supports
+   * @private
+   * @returns {string} Function for managing the display of the clear icon.
+   */
+  showClearIcon() {
+    if (this.inputElement && this.inputElement.value.length > 0) {
+      return html`
+        <button
+          @click="${this.handleClickClear}"
+          aria-hidden="true"
+          class="inputElement-icon iconButton"
+          tabindex="-1">
+          ${this.closeSvg}
+        </button>
+      `;
+    }
+
+    return null;
+  }
+
+  /**
    * Support @keyup event.
    * @private
    * @returns {void}
@@ -936,21 +987,6 @@ export default class BaseInput extends LitElement {
       return true;
     }
 
-    return false;
-  }
-
-  /**
-   * Inserts icon container in template when icon is present in input.
-   * @private
-   * @returns {boolean}
-   */
-  renderIconContainer() {
-    if (this === document.activeElement) {
-      return true;
-    } else if (this.required && this.validity === 'valueMissing') {
-      return true;
-    } 
-    
     return false;
   }
 
