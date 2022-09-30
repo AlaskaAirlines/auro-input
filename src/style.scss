@@ -163,6 +163,12 @@ input {
   padding: 0;
   padding-top: 1.8rem;
 
+  width: calc(100% - 1.875rem);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   color: var(--auro-color-text-secondary-on-light);
   pointer-events: none;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
@@ -342,6 +348,8 @@ input {
   .inputElement-label {
     left: var(--auro-size-sm);
     padding-top: var(--size-mdxxs);
+
+    width: calc(100% - 2.375rem - 1px);
 
     &--sticky {
       padding-top: var(--auro-size-xxs);
