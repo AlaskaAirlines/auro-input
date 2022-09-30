@@ -72,6 +72,10 @@ input {
   }
 }
 
+// .inputElement:focus-within {
+//   padding-right: 1.875rem;
+// }
+
 .inputElement {
   position: relative;
   width: 100%;
@@ -80,7 +84,7 @@ input {
   max-height: calc(var(--auro-size-700, 56px) + 2px);
 
   padding: var(--auro-size-xl);
-  padding-right: 1.875rem;
+  padding-right: var(--auro-size-xs);
   padding-bottom: var(--auro-size-xs);
   padding-left: 0;
 
@@ -94,6 +98,10 @@ input {
   font-family: var(--auro-font-family-default);
   font-size: 1rem;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
+
+  &:focus-within {
+    padding-right: 1.875rem;
+  }
 
   &:focus {
     outline: none;
@@ -306,10 +314,15 @@ input {
   }
 }
 
+:host([bordered]:focus-within) {
+  .inputElement {
+    padding-right: 2.375rem;
+  }
+}
 
 :host([bordered]) {
   .inputElement {
-    padding-right: 2.375rem;
+    padding-right: var(--auro-size-sm);
     padding-left: var(--auro-size-sm);
     border: 1px solid var(--auro-color-border-primary-on-light);
     border-radius: var(--auro-border-radius);
@@ -349,7 +362,7 @@ input {
     left: var(--auro-size-sm);
     padding-top: var(--size-mdxxs);
 
-    width: calc(100% - 2.375rem - 1px);
+    width: calc(100% - 2.375rem - 1px - var(--auro-size-sm));
 
     &--sticky {
       padding-top: var(--auro-size-xxs);
@@ -362,13 +375,13 @@ input {
   }
 }
 
-:host([type='password']) {
+:host([type='password']:focus-within) {
   .inputElement {
     padding-right: 68px;
   }
 }
 
-:host([bordered][type='password']) {
+:host([bordered][type='password']:focus-within) {
   .inputElement {
     padding-right: 72px;
   }
