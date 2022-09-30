@@ -84,6 +84,10 @@ input {
   padding-bottom: var(--auro-size-xs);
   padding-left: 0;
 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   margin: 0;
   background-color: transparent;
   caret-color: var(--auro-color-text-secondary-on-light);
