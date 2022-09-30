@@ -72,10 +72,6 @@ input {
   }
 }
 
-// .inputElement:focus-within {
-//   padding-right: 1.875rem;
-// }
-
 .inputElement {
   position: relative;
   width: 100%;
@@ -99,10 +95,6 @@ input {
   font-size: 1rem;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
 
-  &:focus-within {
-    padding-right: 1.875rem;
-  }
-
   &:focus {
     outline: none;
 
@@ -125,6 +117,14 @@ input {
   &--filled {
     & + .inputElement-label {
       @extend %activeLabel;
+    }
+  }
+
+  &:focus-within {
+    padding-right: 1.875rem;
+
+    & + .inputElement-label {
+      width: calc(100% - 1.875rem);
     }
   }
 
@@ -171,7 +171,7 @@ input {
   padding: 0;
   padding-top: 1.8rem;
 
-  width: calc(100% - 1.875rem);
+  width: calc(100% - var(--auro-size-xs));
 
   white-space: nowrap;
   overflow: hidden;
@@ -272,6 +272,27 @@ input {
 }
 
 // =-=-=-=-=-=-=-=-= bordered -=-=-=-=-=-=-=-=-=-=-=-=-
+:host([bordered][icon][type='credit-card']:focus-within),
+:host([bordered][type='month-day-year']:focus-within),
+:host([bordered][type='year-month-day']:focus-within),
+:host([bordered][type='month-year']:focus-within),
+:host([bordered][type='month-fullYear']:focus-within) {
+  .inputElement {
+    padding-left: var(--size-xlsm);
+  }
+
+  .inputElement-label {
+    left: var(--size-xlsm);
+
+    width: calc(100% - var(--size-xlsm) - 1.875rem);
+  }
+
+  .accentIcon {
+    top: -6px;
+    left: var(--auro-size-sm);
+  }
+}
+
 :host([bordered][icon][type='credit-card']),
 :host([bordered][type='month-day-year']),
 :host([bordered][type='year-month-day']),
@@ -283,6 +304,50 @@ input {
 
   .inputElement-label {
     left: var(--size-xlsm);
+
+    width: calc(100% - 2.375rem - 1px - var(--auro-size-sm));
+  }
+
+  .accentIcon {
+    top: -6px;
+    left: var(--auro-size-sm);
+  }
+}
+
+:host([icon][type='credit-card']:focus-within),
+:host([type='month-day-year']:focus-within),
+:host([type='year-month-day']:focus-within),
+:host([type='month-year']:focus-within),
+:host([type='month-fullYear']:focus-within) {
+  .inputElement {
+    padding-left: var(--size-xlsm);
+  }
+
+  .inputElement-label {
+    left: var(--size-xlsm);
+
+    width: calc(100% - var(--size-xlsm) - 1.875rem);
+  }
+
+  .accentIcon {
+    top: -6px;
+    left: var(--auro-size-sm);
+  }
+}
+
+:host([icon][type='credit-card']),
+:host([type='month-day-year']),
+:host([type='year-month-day']),
+:host([type='month-year']),
+:host([type='month-fullYear']) {
+  .inputElement {
+    padding-left: var(--size-xlsm);
+  }
+
+  .inputElement-label {
+    left: var(--size-xlsm);
+
+    width: calc(100% - 2.375rem - 1px - var(--auro-size-sm));
   }
 
   .accentIcon {
@@ -317,6 +382,10 @@ input {
 :host([bordered]:focus-within) {
   .inputElement {
     padding-right: 2.375rem;
+  }
+
+  .inputElement-label {
+    width: calc(100% - 2.375rem - 1px - var(--auro-size-sm));
   }
 }
 
@@ -362,7 +431,7 @@ input {
     left: var(--auro-size-sm);
     padding-top: var(--size-mdxxs);
 
-    width: calc(100% - 2.375rem - 1px - var(--auro-size-sm));
+    width: calc(100% - var(--auro-size-sm) - 1px - var(--auro-size-sm));
 
     &--sticky {
       padding-top: var(--auro-size-xxs);
@@ -379,11 +448,19 @@ input {
   .inputElement {
     padding-right: 68px;
   }
+
+  .inputElement-label {
+    width: calc(100% - 68px);
+  }
 }
 
 :host([bordered][type='password']:focus-within) {
   .inputElement {
     padding-right: 72px;
+  }
+
+  .inputElement-label {
+    width: calc(100% - 86px);
   }
 }
 
@@ -427,5 +504,25 @@ input {
     @include auro_breakpoint--sm {
       outline-color: var(--auro-color-alert-error-on-light) !important;
     }
+  }
+}
+
+:host([error]) {
+  .inputElement {
+    padding-right: 1.875rem;
+  }
+
+  .inputElement-label {
+    width: calc(100% - 1.875rem);
+  }
+}
+
+:host([error][bordered]) {
+  .inputElement {
+    padding-right: 2.375rem;
+  }
+
+  .inputElement-label {
+    width: calc(100% - 2.375rem - 1px - var(--auro-size-sm));
   }
 }
