@@ -68,6 +68,9 @@ input {
   position: relative;
   width: 100%;
 
+  min-height: calc(var(--auro-size-700, 56px) + 2px);
+  max-height: calc(var(--auro-size-700, 56px) + 2px);
+
   padding: var(--auro-size-xl);
   padding-right: 1.875rem;
   padding-bottom: var(--auro-size-xs);
