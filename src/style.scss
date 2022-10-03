@@ -94,22 +94,17 @@ input {
   font-family: var(--auro-font-family-default);
   font-size: 1rem;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
+  outline: none;
 
-  &:focus {
-    outline: none;
+  & ~ .iconContainer {
+    background: none;
 
-    & ~ .iconContainer {
-      background: none;
+    .iconButton {
+      z-index: auto;
 
-      .iconButton {
-        z-index: auto;
-
-        // This is needed because iOS chooses to
-        // turn the icons blue
-        color: var(--auro-color-text-primary-on-light);
-
-        opacity: 1;
-      }
+      // This is needed because iOS chooses to
+      // turn the icons blue
+      color: var(--auro-color-text-primary-on-light);
     }
   }
 
@@ -117,14 +112,6 @@ input {
   &--filled {
     & + .inputElement-label {
       @extend %activeLabel;
-    }
-  }
-
-  &:focus-within {
-    padding-right: 1.875rem;
-
-    & + .inputElement-label {
-      width: calc(100% - 1.875rem);
     }
   }
 
@@ -213,7 +200,6 @@ input {
   border: none;
   margin: 0;
   background: none;
-  opacity: 0;
 
   &:active {
     z-index: auto;
@@ -379,16 +365,6 @@ input {
   }
 }
 
-:host([bordered]:focus-within) {
-  .inputElement {
-    padding-right: 2.375rem;
-  }
-
-  .inputElement-label {
-    width: calc(100% - 2.375rem - 1px - var(--auro-size-sm));
-  }
-}
-
 :host([bordered]) {
   .inputElement {
     padding-right: var(--auro-size-sm);
@@ -517,12 +493,48 @@ input {
   }
 }
 
-:host([error][bordered]) {
+// Hide and show visibility of the icon button
+:host(:not([error])),
+:host([validity]:not([validity='valid'])),
+:host(:not(:focus-within)),
+:host(:not(:hover)) {
+  .iconButton {
+    opacity: 0;
+  }
+}
+
+:host([error]),
+:host([validity]:not([validity='valid'])),
+:host(:focus-within),
+:host(:hover) {
+  .iconButton {
+    opacity: 1;
+  }
+}
+
+// Handle element right padding for icons depending on icon visibility
+:host(:not([bordered])[error]),
+:host(:not([bordered][validity]):not([validity='valid'])),
+:host(:not([bordered]):focus-within),
+:host(:not([bordered]):hover) {
   .inputElement {
-    padding-right: 2.375rem;
+    padding-right: 2rem;
   }
 
   .inputElement-label {
-    width: calc(100% - 2.375rem - 1px - var(--auro-size-sm));
+    width: calc(100% - 2rem);
+  }
+}
+
+:host([bordered][error]),
+:host([bordered][validity]:not([validity='valid'])),
+:host([bordered]:focus-within),
+:host([bordered]:hover) {
+  .inputElement {
+    padding-right: 2.75rem;
+  }
+
+  .inputElement-label {
+    width: calc(100% - 2.75rem - var(--auro-size-sm));
   }
 }
