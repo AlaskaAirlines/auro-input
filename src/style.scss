@@ -79,9 +79,9 @@ input {
   min-height: calc(var(--auro-size-700, 56px) + 2px);
   max-height: calc(var(--auro-size-700, 56px) + 2px);
 
-  padding: var(--auro-size-xl);
-  padding-right: var(--auro-size-xs);
-  padding-bottom: var(--auro-size-xs);
+  padding: var(--auro-size-400, 2rem);
+  padding-right: var(--auro-size-100, .5rem);
+  padding-bottom: var(--auro-size-100, .5rem);
   padding-left: 0;
 
   white-space: nowrap;
@@ -158,7 +158,7 @@ input {
   padding: 0;
   padding-top: 1.8rem;
 
-  width: calc(100% - var(--auro-size-xs));
+  width: calc(100% - var(--auro-size-100, .5rem));
 
   white-space: nowrap;
   overflow: hidden;
@@ -178,7 +178,7 @@ input {
 }
 
 .inputElement-helpText {
-  margin: var(--auro-size-xxs) 0;
+  margin: var(--auro-size-50, .25rem) 0;
   color: var(--auro-color-text-secondary-on-light);
   font-size: var(--auro-text-body-size-xs);
   line-height: 1rem;
@@ -190,7 +190,7 @@ input {
   pointer-events: auto;
 
   * {
-    margin-left: var(--auro-size-xs);
+    margin-left: var(--auro-size-100, .5rem);
   }
 }
 
@@ -241,9 +241,9 @@ input {
   left: 0;
 
   display: flex;
-  height: var(--auro-size-xl);
+  height: var(--auro-size-400, 2rem);
   align-items: center;
-  margin-top: var(--auro-size-lg);
+  margin-top: var(--auro-size-300, 1.5rem);
 }
 
 // =-=-=-=-=-=-=-=-= Extends -=-=-=-=-=-=-=-=-=-=-=-=-
@@ -252,7 +252,7 @@ input {
   left: 0;
 
   padding: 0;
-  padding-top: var(--auro-size-xxs);
+  padding-top: var(--auro-size-50, .25rem);
 
   font-size: var(--auro-text-body-size-xs);
 }
@@ -275,7 +275,7 @@ input {
 
   .accentIcon {
     top: -6px;
-    left: var(--auro-size-sm);
+    left: var(--auro-size-150, .75rem);
   }
 }
 
@@ -291,12 +291,12 @@ input {
   .inputElement-label {
     left: var(--size-xlsm);
 
-    width: calc(100% - 2.375rem - 1px - var(--auro-size-sm));
+    width: calc(100% - 2.375rem - 1px - var(--auro-size-150, .75rem));
   }
 
   .accentIcon {
     top: -6px;
-    left: var(--auro-size-sm);
+    left: var(--auro-size-150, .75rem);
   }
 }
 
@@ -317,7 +317,7 @@ input {
 
   .accentIcon {
     top: -6px;
-    left: var(--auro-size-sm);
+    left: var(--auro-size-150, .75rem);
   }
 }
 
@@ -333,12 +333,12 @@ input {
   .inputElement-label {
     left: var(--size-xlsm);
 
-    width: calc(100% - 2.375rem - 1px - var(--auro-size-sm));
+    width: calc(100% - 2.375rem - 1px - var(--auro-size-150, .75rem));
   }
 
   .accentIcon {
     top: -6px;
-    left: var(--auro-size-sm);
+    left: var(--auro-size-150, .75rem);
   }
 }
 
@@ -346,17 +346,17 @@ input {
   .inputElement {
     & + .inputElement-label {
       padding: 0;
-      padding-top: var(--auro-size-xxs);
+      padding-top: var(--auro-size-50, .25rem);
 
       font-size: var(--auro-text-body-size-xs);
     }
   }
 
   label {
-    left: var(--auro-size-sm);
+    left: var(--auro-size-150, .75rem);
 
     &[class*='inputElement-'] {
-      left: var(--auro-size-sm);
+      left: var(--auro-size-150, .75rem);
     }
 
     &[class*='inputElement-labelIcon'] {
@@ -367,8 +367,8 @@ input {
 
 :host([bordered]) {
   .inputElement {
-    padding-right: var(--auro-size-sm);
-    padding-left: var(--auro-size-sm);
+    padding-right: var(--auro-size-150, .75rem);
+    padding-left: var(--auro-size-150, .75rem);
     border: 1px solid var(--auro-color-border-primary-on-light);
     border-radius: var(--auro-border-radius);
     background-color: var(--auro-color-base-white);
@@ -398,25 +398,25 @@ input {
     &:focus,
     &--filled {
       & + .inputElement-label {
-        padding-top: var(--auro-size-xxs);
+        padding-top: var(--auro-size-50, .25rem);
       }
     }
   }
 
   .inputElement-label {
-    left: var(--auro-size-sm);
+    left: var(--auro-size-150, .75rem);
     padding-top: var(--size-mdxxs);
 
-    width: calc(100% - var(--auro-size-sm) - 1px - var(--auro-size-sm));
+    width: calc(100% - var(--auro-size-150, .75rem) - 1px - var(--auro-size-150, .75rem));
 
     &--sticky {
-      padding-top: var(--auro-size-xxs);
+      padding-top: var(--auro-size-50, .25rem);
     }
   }
 
   .iconContainer {
     top: var(--size-mdxxs);
-    right: var(--auro-size-sm);
+    right: var(--auro-size-150, .75rem);
   }
 }
 
@@ -535,6 +535,6 @@ input {
   }
 
   .inputElement-label {
-    width: calc(100% - 2.75rem - var(--auro-size-sm));
+    width: calc(100% - 2.75rem - var(--auro-size-150, .75rem));
   }
 }
