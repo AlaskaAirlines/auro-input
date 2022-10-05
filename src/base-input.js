@@ -637,6 +637,26 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * Returns focused element, even if it's in the shadow DOM.
+   * @private
+   * @param {Object} root - Element to check for focus.
+   * @returns {Object}
+   */
+  getActiveElement(root = document) {
+    const activeEl = root.activeElement;
+
+    if (!activeEl) {
+      return null;
+    }
+
+    if (activeEl.shadowRoot) {
+      return this.getActiveElement(activeEl.shadowRoot);
+    }
+
+    return activeEl;
+  }
+
+  /**
    * Determines the validity state of the element.
    * @private
    * @returns {void}
@@ -646,7 +666,7 @@ export default class BaseInput extends LitElement {
     if (this.hasAttribute('error')) {
       this.validity = 'customError';
       this.setCustomValidity = this.error;
-    } else if (this.value !== undefined && !this.noValidate && (this !== document.activeElement || this.validateOnInput)) {
+    } else if (this.value !== undefined && !this.noValidate && (!this.shadowRoot.contains(this.getActiveElement()) || this.validateOnInput)) {
       this.validity = 'valid';
       this.setCustomValidity = '';
 
@@ -656,14 +676,12 @@ export default class BaseInput extends LitElement {
        *
        * The validityState definitions are located at https://developer.mozilla.org/en-US/docs/Web/API/ValidityState.
        */
-      if (this.value !== undefined) {
-        if ((!this.value || this.value.length === 0) && this.required) {
-          this.validity = 'valueMissing';
-          this.setCustomValidity = this.setCustomValidityValueMissing;
-        } else {
-          this.validateInputType();
-          this.validateInputAttributes();
-        }
+      if ((!this.value || this.value.length === 0) && this.required) {
+        this.validity = 'valueMissing';
+        this.setCustomValidity = this.setCustomValidityValueMissing;
+      } else {
+        this.validateInputType();
+        this.validateInputAttributes();
       }
     }
 
