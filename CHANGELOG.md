@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.9.3](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.2...v2.9.3) (2022-10-06)
+
+
+### Bug Fixes
+
+* **focus:** calculate focus correctly in shadow DOM [#196](https://github.com/AlaskaAirlines/auro-input/issues/196) ([3872a76](https://github.com/AlaskaAirlines/auro-input/commit/3872a76acd802f1b3e3f4b7c202b4034269fe13c))
+
 ## [2.9.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.1...v2.9.2) (2022-09-26)
 
 
