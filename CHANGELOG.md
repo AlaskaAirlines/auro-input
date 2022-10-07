@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.9.5](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.4...v2.9.5) (2022-10-07)
+
+
+### Bug Fixes
+
+* **hover:** improve hover event handling [#198](https://github.com/AlaskaAirlines/auro-input/issues/198) ([20fabc0](https://github.com/AlaskaAirlines/auro-input/commit/20fabc0ac58625b6ebfe4e72cafb5947ad6553db))
+
 ## [2.9.4](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.3...v2.9.4) (2022-10-07)
 
 
