@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.9.4](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.3...v2.9.4) (2022-10-07)
+
+
+### Bug Fixes
+
+* **height:** make height consistent with other form elements [#184](https://github.com/AlaskaAirlines/auro-input/issues/184) ([1ce15a1](https://github.com/AlaskaAirlines/auro-input/commit/1ce15a1d9c3b8b240f218a75f0a997f29ba3b9b5))
+
 ## [2.9.3](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.2...v2.9.3) (2022-10-06)
 
 
