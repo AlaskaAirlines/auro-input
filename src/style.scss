@@ -33,6 +33,14 @@
 
   position: relative;
   display: block;
+
+  cursor: text;
+}
+
+:host(:not(.hover)) {
+  .inputElement {
+    pointer-events: none;
+  }
 }
 
 .passwordToggle {

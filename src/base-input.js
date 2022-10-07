@@ -413,6 +413,14 @@ export default class BaseInput extends LitElement {
       }
     });
 
+    this.addEventListener('mouseover', () => {
+      this.classList.add('hover');
+    });
+
+    this.addEventListener('mouseout', () => {
+      this.classList.remove('hover');
+    });
+
     this.notifyReady();
   }
 
