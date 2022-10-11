@@ -1,5 +1,18 @@
 # Semantic Release Automated Changelog
 
+# [2.10.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.5...v2.10.0) (2022-10-11)
+
+
+### Bug Fixes
+
+* **ellipse:** make input label ellipse when too long [#186](https://github.com/AlaskaAirlines/auro-input/issues/186) ([4032274](https://github.com/AlaskaAirlines/auro-input/commit/40322748883d2ab14f0d973322342c0ce5680722))
+* **ellipse:** make input text ellipse when too long [#187](https://github.com/AlaskaAirlines/auro-input/issues/187) ([8b2185b](https://github.com/AlaskaAirlines/auro-input/commit/8b2185b61dbb128099938c825e72167a9901d521))
+
+
+### Features
+
+* **hover:** show clear icon on hover, plus CSS clean up ([f344e38](https://github.com/AlaskaAirlines/auro-input/commit/f344e3881afc85c425459208151a2c77a35b18fb))
+
 ## [2.9.5](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.4...v2.9.5) (2022-10-07)
 
 
