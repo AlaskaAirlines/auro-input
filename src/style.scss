@@ -237,7 +237,7 @@ input {
 
 .accentIcon {
   position: absolute;
-  top: 4px;
+  top: 3px;
   left: 0;
 
   display: flex;
@@ -314,11 +314,6 @@ input {
 
     width: calc(100% - var(--size-xlsm) - 1.875rem);
   }
-
-  .accentIcon {
-    top: -6px;
-    left: var(--auro-size-150, .75rem);
-  }
 }
 
 :host([icon][type='credit-card']),
@@ -334,11 +329,6 @@ input {
     left: var(--size-xlsm);
 
     width: calc(100% - 2.375rem - 1px - var(--auro-size-150, .75rem));
-  }
-
-  .accentIcon {
-    top: -6px;
-    left: var(--auro-size-150, .75rem);
   }
 }
 
