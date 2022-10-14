@@ -305,10 +305,6 @@ input {
 :host([type='year-month-day']:focus-within),
 :host([type='month-year']:focus-within),
 :host([type='month-fullYear']:focus-within) {
-  .inputElement {
-    padding-left: var(--size-xlsm);
-  }
-
   .inputElement-label {
     left: var(--size-xlsm);
 
@@ -321,10 +317,6 @@ input {
 :host([type='year-month-day']),
 :host([type='month-year']),
 :host([type='month-fullYear']) {
-  .inputElement {
-    padding-left: var(--size-xlsm);
-  }
-
   .inputElement-label {
     left: var(--size-xlsm);
 
