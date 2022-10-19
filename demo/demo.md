@@ -97,6 +97,49 @@ Use the `placeholder` attribute to add a custom placeholder message within the e
   ```
 </auro-accordion>
 
+### Value
+
+Use the `value` attribute to preset the value of the element.
+
+Note: Setting the `value` to `undefined` will also reset the element.
+
+<auro-button id="setValidValueBtn">Set Value to Alaska</auro-button>
+<auro-button id="resetValueBtn">Reset</auro-button>
+
+<div class="exampleWrapper">
+  <auro-input id="setProgrammaticValueExample" value="Press one of the buttons above!" bordered>
+    <span slot="label">Name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```js
+  export function programmaticallySetValue(elem) {
+    // set value of auro-input element
+    document.querySelector('#setValidValueBtn').addEventListener('click', () => {
+        elem.value = "Alaska Airlines is the best";
+    });
+
+    // reset the value of auro-input element
+    document.querySelector('#resetValueBtn').addEventListener('click', () => {
+        elem.value = '';
+    });
+  }
+  ```
+
+  ```html
+  <div class="exampleWrapper">
+    <auro-input id="setProgrammaticValueExample">
+      <span slot="label">Name</span>
+      <span slot="helptext">Please enter your full name.</span>
+    </auro-input>
+  </div>
+  ```
+</auro-accordion>
+
 ### Pattern
 
 Use the `pattern` attribute to set custom input validation. This example also uses the `spellcheck` attribute set to `false` which in turn sets `autocorrect` to `off` and `autocapitalize` to `none`. Additionally the `maxlength` attribute sets the maximum length of characters that can be entered.
