@@ -442,12 +442,16 @@ export default class BaseInput extends LitElement {
       this.autocapitalize = undefined;
     }
 
-    if (changedProperties.has('value') && this.value) {
+    if (changedProperties.has('value')) {
       if (this.value !== this.inputElement.value) {
-        this.inputElement.value = this.value;
+        if (this.value) {
+          this.inputElement.value = this.value;
+        } else {
+          this.inputElement.value = '';
+        }
 
-        this.notifyValueChanged();
         this.validate();
+        this.notifyValueChanged();
       }
       this.autoFormatHandling();
     }
@@ -556,15 +560,15 @@ export default class BaseInput extends LitElement {
    * @returns {void}
    */
   notifyValueChanged() {
-    let click = null;
+    let inputEvent = null;
 
-    click = new Event('input', {
+    inputEvent = new Event('input', {
       bubbles: true,
       composed: true,
     });
 
     // Dispatched event to alert outside shadow DOM context of event firing.
-    this.dispatchEvent(click);
+    this.dispatchEvent(inputEvent);
   }
 
   /**
