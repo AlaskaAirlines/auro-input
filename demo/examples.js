@@ -29,3 +29,16 @@ import { customError } from './../apiExamples/customError';
     customError(elem);
   });
 }());
+
+/**
+ * set value programmatically
+ */
+ import { programmaticallySetValue } from './../apiExamples/value';
+
+ (function(){
+   initializeExample('#setProgrammaticValueExample', function(elem) {
+     programmaticallySetValue(elem);
+   });
+ }());
+
+
