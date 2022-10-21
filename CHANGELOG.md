@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.10.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.0...v2.10.1) (2022-10-21)
+
+
+### Bug Fixes
+
+* **value:** make undefined value attribute reset element [#191](https://github.com/AlaskaAirlines/auro-input/issues/191) ([7f7b355](https://github.com/AlaskaAirlines/auro-input/commit/7f7b355bbb178c2ea60b5bac439fec6cccabda9a))
+
 # [2.10.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.9.5...v2.10.0) (2022-10-11)
 
 
