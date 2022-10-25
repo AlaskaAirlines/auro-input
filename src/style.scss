@@ -455,12 +455,10 @@ input {
 
 :host([validity]:not([validity='valid'])) {
   .inputElement {
-    &:invalid {
-      border-color: var(--auro-color-alert-error-on-light);
+    border-color: var(--auro-color-alert-error-on-light);
 
-      @include auro_breakpoint--sm {
-        outline-color: var(--auro-color-alert-error-on-light);
-      }
+    @include auro_breakpoint--sm {
+      outline-color: var(--auro-color-alert-error-on-light);
     }
   }
 
