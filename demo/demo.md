@@ -147,11 +147,11 @@ Use the `pattern` attribute to set custom input validation. This example also us
 Be sure to review this element's API docs for all related information.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="demo5" pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" customValidityBadInput="Only contain lowercase letters w/no spaces">
+  <auro-input id="demo5" pattern="[a-z]{1,15}" maxlength="15" spellcheck="false" setCustomValidityBadInput="Only contain lowercase letters w/no spaces">
     <span slot="label">Username</span>
     <span slot="helptext">May only contain lowercase letters w/no spaces. Max 15 characters.</span>
   </auro-input>
-  <auro-input id="demo6" bordered pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" customValidityBadInput="Only contain lowercase letters w/no spaces">
+  <auro-input id="demo6" bordered pattern="[a-z]{1,15}" maxlength="15" spellcheck="false" setCustomValidityBadInput="Only contain lowercase letters w/no spaces">
     <span slot="label">Username</span>
     <span slot="helptext">May only contain lowercase letters w/no spaces. Max 15 characters.</span>
   </auro-input>
@@ -161,12 +161,12 @@ Be sure to review this element's API docs for all related information.
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="demo5" pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" customValidityBadInput="Only contain lowercase letters w/no spaces">
+  <auro-input id="demo5" pattern="[a-z]{1,15}" maxlength="15" spellcheck="false" setCustomValidityBadInput="Only contain lowercase letters w/no spaces">
     <span slot="label">Username</span>
     <span slot="helptext">May only contain lowercase letters w/no spaces. Max 15 characters.</span>
   </auro-input>
 
-  <auro-input id="demo6" bordered pattern="[a-z]{1,15}" required maxlength="15" spellcheck="false" customValidityBadInput="Only contain lowercase letters w/no spaces">
+  <auro-input id="demo6" bordered pattern="[a-z]{1,15}" maxlength="15" spellcheck="false" setCustomValidityBadInput="Only contain lowercase letters w/no spaces">
     <span slot="label">Username</span>
     <span slot="helptext">May only contain lowercase letters w/no spaces. Max 15 characters.</span>
   </auro-input>
