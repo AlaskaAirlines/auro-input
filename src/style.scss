@@ -119,10 +119,6 @@ input {
     background: none;
     color: var(--auro-color-text-disabled-on-light);
   }
-
-  &:invalid {
-    box-shadow: none;
-  }
 }
 
 :host(:not([borderless])) {
@@ -377,21 +373,15 @@ input {
       border-color: var(--auro-color-ui-default-on-light);
 
       @include auro_breakpoint--sm {
-        outline: 1px solid var(--auro-color-ui-default-on-light);
+        box-shadow: inset 0 0 0 1px var(--auro-color-ui-default-on-light);
       }
-    }
-
-    @include auro_breakpoint--sm {
-      outline-width: 1px;
-      outline-style: solid;
-      outline-color: transparent;
     }
 
     &:disabled {
       border-color: var(--auro-color-alert-disabled-on-light);
 
       @include auro_breakpoint--sm {
-        outline: 1px solid var(--auro-color-alert-disabled-on-light);
+        box-shadow: inset 0 0 0 1px var(--auro-color-alert-disabled-on-light);
       }
     }
 
@@ -458,7 +448,7 @@ input {
     border-color: var(--auro-color-alert-error-on-light);
 
     @include auro_breakpoint--sm {
-      outline-color: var(--auro-color-alert-error-on-light);
+      box-shadow: inset 0 0 0 1px var(--auro-color-alert-error-on-light);
     }
   }
 
@@ -476,7 +466,7 @@ input {
     border-color: var(--auro-color-alert-error-on-light) !important;
 
     @include auro_breakpoint--sm {
-      outline-color: var(--auro-color-alert-error-on-light) !important;
+      box-shadow: inset 0 0 0 1px var(--auro-color-alert-error-on-light);
     }
   }
 }
