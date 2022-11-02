@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [2.10.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.1...v2.10.2) (2022-11-02)
+
+
+### Bug Fixes
+
+* **border:** round border corners in safari [#106](https://github.com/AlaskaAirlines/auro-input/issues/106) ([92d097d](https://github.com/AlaskaAirlines/auro-input/commit/92d097db17405dd486b50c35231c17303313af8b))
+* **error:** improve UI for non required error states [#200](https://github.com/AlaskaAirlines/auro-input/issues/200) ([2e5ee65](https://github.com/AlaskaAirlines/auro-input/commit/2e5ee65a8c3593a3083e7d57f626fa67670c72c1))
+
 ## [2.10.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.0...v2.10.1) (2022-10-21)
 
 
