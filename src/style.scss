@@ -443,7 +443,25 @@ input {
   }
 }
 
-:host([validity]:not([validity='valid'])) {
+:host(:not([bordered])[validity]:not([validity='valid'])) {
+  .inputElement {
+    border-color: var(--auro-color-alert-error-on-light);
+
+    @include auro_breakpoint--sm {
+      box-shadow: inset 0 0 0 0 var(--auro-color-alert-error-on-light);
+    }
+  }
+
+  .inputElement-helpText {
+    color: var(--auro-color-alert-error-on-light);
+  }
+
+  .iconContainer {
+    color: var(--auro-color-alert-error-on-light);
+  }
+}
+
+:host([bordered][validity]:not([validity='valid'])) {
   .inputElement {
     border-color: var(--auro-color-alert-error-on-light);
 
@@ -464,10 +482,6 @@ input {
 :host([validity='customError']) {
   .inputElement {
     border-color: var(--auro-color-alert-error-on-light) !important;
-
-    @include auro_breakpoint--sm {
-      box-shadow: inset 0 0 0 1px var(--auro-color-alert-error-on-light);
-    }
   }
 }
 
