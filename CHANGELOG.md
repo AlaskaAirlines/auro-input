@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.10.3](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.2...v2.10.3) (2022-11-04)
+
+
+### Bug Fixes
+
+* **box-shadow:** render correct box-shadow UI in all states [#215](https://github.com/AlaskaAirlines/auro-input/issues/215) ([51e1a78](https://github.com/AlaskaAirlines/auro-input/commit/51e1a782a1dacc6acc0203dd381ca9244c177270))
+
 ## [2.10.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.1...v2.10.2) (2022-11-02)
 
 
