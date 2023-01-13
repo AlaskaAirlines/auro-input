@@ -34,7 +34,7 @@
   "devDependencies": {
     "@alaskaairux/auro-icon": "^3.2.0",
     "@alaskaairux/design-tokens": "^3.11.0",
-    "@alaskaairux/icons": "^4.19.0",
+    "@alaskaairux/icons": "^4.20.0",
     "@alaskaairux/webcorestylesheets": "^3.7.2",
     "@aurodesignsystem/eslint-config": "^1.2.0",
     "@commitlint/cli": "^15.0.0",
