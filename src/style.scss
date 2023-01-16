@@ -116,6 +116,7 @@ input {
   }
 
   &:disabled {
+    pointer-events: none;
     background: none;
     color: var(--auro-color-text-disabled-on-light);
   }
@@ -502,21 +503,23 @@ input {
 :host(:not(:hover)) {
   .iconButton {
     opacity: 0;
+    pointer-events: none;
   }
 }
 
 :host([error]),
 :host([validity]:not([validity='valid'])),
 :host(:focus-within),
-:host(:hover) {
+:host(:hover:not([disabled])) {
   .iconButton {
     opacity: 1;
+    pointer-events: unset;
   }
 }
 
 // Handle element right padding for icons depending on icon visibility
 :host(:not([bordered])[error]),
-:host(:not([bordered][validity]):not([validity='valid'])),
+:host(:not([bordered][validity][validity='valid'])),
 :host(:not([bordered]):focus-within),
 :host(:not([bordered]):hover) {
   .inputElement {
