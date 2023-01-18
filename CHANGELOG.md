@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [2.10.4](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.3...v2.10.4) (2023-01-18)
+
+
+### Bug Fixes
+
+* **disabled:** fixed styles to prevent clear while disabled [#221](https://github.com/AlaskaAirlines/auro-input/issues/221) ([d70d07c](https://github.com/AlaskaAirlines/auro-input/commit/d70d07c24044361ed6658132e82832f531bf4909))
+* **style:** no cursor change on hover when disabled ([fbcc2b1](https://github.com/AlaskaAirlines/auro-input/commit/fbcc2b10a2656aa03ec4cf89c9d0d80dd3c5060b))
+
 ## [2.10.3](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.2...v2.10.3) (2022-11-04)
 
 
