@@ -223,6 +223,7 @@ input {
 
 :host([disabled]) {
   color: var(--auro-color-text-disabled-on-light);
+  cursor: unset;
 }
 
 // =-=-=-=-=-=-=-=-= creditCard -=-=-=-=-=-=-=-=-=-=-=-=-
