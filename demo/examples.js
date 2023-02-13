@@ -50,3 +50,14 @@ import { customError } from './../apiExamples/customError';
      programmaticallySetValue(document.querySelector(selector));
    });
  }());
+
+/**
+ * swap values example
+ */
+import { swapInputValues } from './../apiExamples/swapValue';
+
+(function(){
+  initializeExample(['#swapExampleBtn', '#swapExampleLeft', '#swapExampleRight'], function(selectors) {
+    swapInputValues(selectors);
+  });
+}());
