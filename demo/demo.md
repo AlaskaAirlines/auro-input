@@ -766,3 +766,38 @@ For use cases where the field is `required`, but live validation is not wanted, 
   </auro-input>
   ```
 </auro-accordion>
+
+## Swapping Values Between Inputs
+
+<div class="exampleWrapper exampleWrapper--flex">
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/swapValue.html) -->
+<!-- The below content is automatically added from ./../apiExamples/swapValue.html -->
+<auro-input id="swapExampleLeft" bordered>
+  <span slot="label">Left Input</span>
+</auro-input>
+<auro-button id="swapExampleBtn">Swap Values</auro-button>
+<auro-input id="swapExampleRight" bordered>
+  <span slot="label">Right Input</span>
+</auro-input>
+<!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/swapValue.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/swapValue.html -->
+```html
+<auro-input id="swapExampleLeft" bordered>
+  <span slot="label">Left Input</span>
+</auro-input>
+<auro-button id="swapExampleBtn">Swap Values</auro-button>
+<auro-input id="swapExampleRight" bordered>
+  <span slot="label">Right Input</span>
+</auro-input>
+```
+<!-- The below code snippet is automatically added from ./../apiExamples/swapValue.html -->
+<!-- AURO-GENERATED-CONTENT:END -->
+  ```
+</auro-accordion>
