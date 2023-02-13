@@ -1,21 +1,31 @@
-function initializeExample(element, callback, retryCount) {
-  const elem = document.querySelector(element);
+function initializeExample(elements, callback, elementsPendingReady, retryCount) {
+  if (!elementsPendingReady) {
+    elementsPendingReady = elementsPendingReady || [];
 
-  if (!elem || !elem.ready) {
-    // If the component is not ready, retry until it is
-    if (!retryCount && retryCount != 0) {
-      retryCount = 0;
+    if (typeof elements === 'string') {
+      elementsPendingReady.push(elements);
     } else {
-      retryCount += 1;
+      elementsPendingReady = elements;
     }
 
-    if (retryCount < 10) {
-      setTimeout(initializeExample, 500, element, callback, retryCount);
-    } else {
-      console.error('Unable to initialize functional example code for:', element);
-    }
+    initializeExample(elements, callback, elementsPendingReady);
   } else {
-    callback(elem);
+    let readyCount = 0;
+
+    elementsPendingReady.forEach(element => {
+      if (document.querySelector(element) && document.querySelector(element)['ready']) {
+        readyCount++;
+      }
+    });
+
+    retryCount = retryCount || 0;
+
+    if (elementsPendingReady.length != readyCount && retryCount < 10) {
+      retryCount = retryCount + 1;
+      setTimeout(initializeExample, 500, elements, callback, elementsPendingReady, retryCount);
+    } else {
+      callback(elements);
+    }
   }
 }
 
@@ -25,8 +35,8 @@ function initializeExample(element, callback, retryCount) {
 import { customError } from './../apiExamples/customError';
 
 (function(){
-  initializeExample('#setCustomErrorExample', function(elem) {
-    customError(elem);
+  initializeExample('#setCustomErrorExample', function(selector) {
+    customError(document.querySelector(selector));
   });
 }());
 
@@ -36,9 +46,7 @@ import { customError } from './../apiExamples/customError';
  import { programmaticallySetValue } from './../apiExamples/value';
 
  (function(){
-   initializeExample('#setProgrammaticValueExample', function(elem) {
-     programmaticallySetValue(elem);
+   initializeExample('#setProgrammaticValueExample', function(selector) {
+     programmaticallySetValue(document.querySelector(selector));
    });
  }());
-
-
