@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.10.5](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.4...v2.10.5) (2023-02-21)
+
+
+### Bug Fixes
+
+* **icon:** adjust position of icon on non bordered input [#201](https://github.com/AlaskaAirlines/auro-input/issues/201) ([0c49556](https://github.com/AlaskaAirlines/auro-input/commit/0c495568cfad6c2a6518ae9d4c35b91759879623))
+
 ## [2.10.4](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.3...v2.10.4) (2023-01-18)
 
 
