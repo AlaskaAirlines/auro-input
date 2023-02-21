@@ -785,7 +785,6 @@ For use cases where the field is `required`, but live validation is not wanted, 
 <auro-accordion lowProfile justifyRight>
   <span slot="trigger">See code</span>
 
-  ```html
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/swapValue.html) -->
 <!-- The below code snippet is automatically added from ./../apiExamples/swapValue.html -->
 ```html
@@ -799,5 +798,22 @@ For use cases where the field is `required`, but live validation is not wanted, 
 ```
 <!-- The below code snippet is automatically added from ./../apiExamples/swapValue.html -->
 <!-- AURO-GENERATED-CONTENT:END -->
-  ```
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/swapValue.js) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/swapValue.js -->
+```js
+export function swapInputValues(selectors) {
+  const btn = document.querySelector(selectors[0]);
+  const inputOne = document.querySelector(selectors[1]);
+  const inputTwo = document.querySelector(selectors[2]);
+
+  btn.addEventListener('click', () => {
+    const valueOne = inputOne.value;
+    const valueTwo = inputTwo.value;
+
+    inputOne.value = valueTwo;
+    inputTwo.value = valueOne;
+  });
+}
+```
+<!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
