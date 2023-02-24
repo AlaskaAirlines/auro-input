@@ -767,9 +767,13 @@ For use cases where the field is `required`, but live validation is not wanted, 
   ```
 </auro-accordion>
 
-## Swapping Values Between Inputs
+## Additional Use Case Examples
 
-<div class="exampleWrapper exampleWrapper--flex">
+### Swapping Values Between Inputs
+
+Example illustrates using a JavaScript function attached to an `auro-button` component `click` event to swap the values of two `auro-input` elements. An example of this use case would be swapping the departure and arrival airports in a flight search form.
+
+<div class="exampleWrapper exampleWrapper--flex" id="swapExampleWrapper">
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/swapValue.html) -->
 <!-- The below content is automatically added from ./../apiExamples/swapValue.html -->
 <auro-input id="swapExampleLeft" bordered>
@@ -779,6 +783,22 @@ For use cases where the field is `required`, but live validation is not wanted, 
 <auro-input id="swapExampleRight" bordered>
   <span slot="label">Right Input</span>
 </auro-input>
+
+<style>
+  #swapExampleWrapper {
+    align-items: center;
+  }
+
+  #swapExampleLeft,
+  #swapExampleRight {
+    flex: 1;
+  }
+
+  #swapExampleBtn {
+    width: unset;
+    margin: 0 var(--auro-size-xs);
+  }
+</style>
 <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 
@@ -795,6 +815,22 @@ For use cases where the field is `required`, but live validation is not wanted, 
 <auro-input id="swapExampleRight" bordered>
   <span slot="label">Right Input</span>
 </auro-input>
+
+<style>
+  #swapExampleWrapper {
+    align-items: center;
+  }
+
+  #swapExampleLeft,
+  #swapExampleRight {
+    flex: 1;
+  }
+
+  #swapExampleBtn {
+    width: unset;
+    margin: 0 var(--auro-size-xs);
+  }
+</style>
 ```
 <!-- The below code snippet is automatically added from ./../apiExamples/swapValue.html -->
 <!-- AURO-GENERATED-CONTENT:END -->
