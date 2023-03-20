@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.10.6](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.5...v2.10.6) (2023-03-20)
+
+
+### Bug Fixes
+
+* **event:** validation event defined in docs is fired [#233](https://github.com/AlaskaAirlines/auro-input/issues/233) ([d62484f](https://github.com/AlaskaAirlines/auro-input/commit/d62484f2d24ff1fa2d7cb4bc78ccd71c528c564e))
+
 ## [2.10.5](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.4...v2.10.5) (2023-02-21)
 
 
