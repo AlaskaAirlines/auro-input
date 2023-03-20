@@ -709,6 +709,14 @@ export default class BaseInput extends LitElement {
     }
 
     this.getErrorMessage();
+
+    this.dispatchEvent(new CustomEvent('auroInput-validated', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        validity: this.validity
+      }
+    }));
   }
 
   /**
