@@ -1,5 +1,19 @@
 # Semantic Release Automated Changelog
 
+# [2.11.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.6...v2.11.0) (2023-03-21)
+
+
+### Features
+
+* **validate:** validate method is publc [#236](https://github.com/AlaskaAirlines/auro-input/issues/236) ([5abe4f2](https://github.com/AlaskaAirlines/auro-input/commit/5abe4f206eac7c04f58afed3b271bc0be081a137))
+
+
+### Performance Improvements
+
+* **deps:** update to latest dependencies ([1efd1ef](https://github.com/AlaskaAirlines/auro-input/commit/1efd1ef25c7a81180a10c8b799c2c8572416e8c6))
+* **node18:** complete updates to <node 18 dependencies ([36d7fc6](https://github.com/AlaskaAirlines/auro-input/commit/36d7fc6cc1a9058df50ff73e7fbcec4381519208))
+* **node:** update to node 18 ([651d16e](https://github.com/AlaskaAirlines/auro-input/commit/651d16eab6025ac44a0d4e96216069383386a793))
+
 ## [2.10.6](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.5...v2.10.6) (2023-03-20)
 
 
