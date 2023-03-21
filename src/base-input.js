@@ -670,7 +670,6 @@ export default class BaseInput extends LitElement {
 
   /**
    * Determines the validity state of the element.
-   * @private
    * @returns {void}
    */
   validate() {
