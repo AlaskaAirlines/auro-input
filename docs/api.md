@@ -44,6 +44,12 @@
 | `validity`                      | `validity`                      | `String`  |                            | Specifies the `validityState` this element is in. |
 | `value`                         | `value`                         | `String`  |                            | Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input. |
 
+## Methods
+
+| Method     | Type       | Description                                   |
+|------------|------------|-----------------------------------------------|
+| `validate` | `(): void` | Determines the validity state of the element. |
+
 ## Events
 
 | Event                      | Type                                             | Description                                      |
