@@ -163,6 +163,23 @@ describe('auro-input', () => {
     expect(el.hasAttribute('validity')).to.be.true;
   });
 
+  it('fires input event when validation executes', async () => {
+    const el = await fixture(html`
+      <auro-input required></auro-input>
+    `);
+
+    const listener = oneEvent(el, 'auroInput-validated');
+    const input = el.shadowRoot.querySelector('input');
+
+    input.focus();
+    setInputValue(el, 'whatever');
+    input.blur();
+
+    const { result } = await listener;
+
+    expect(result).to.equal(undefined);
+  });
+
   it ('validates correctly with noValidate attribute set and force = true passed to validate method', async () => {
     const el = await fixture(html`
       <auro-input type="email" label="Label" noValidate></auro-input>
