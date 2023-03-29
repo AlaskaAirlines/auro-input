@@ -163,6 +163,37 @@ describe('auro-input', () => {
     expect(el.hasAttribute('validity')).to.be.true;
   });
 
+  it ('validates correctly with noValidate attribute set and force = true passed to validate method', async () => {
+    const el = await fixture(html`
+      <auro-input type="email" label="Label" noValidate></auro-input>
+    `);
+    expect(el.hasAttribute('validity')).to.be.false;
+
+    const input = el.shadowRoot.querySelector('input');
+
+    input.focus();
+    setInputValue(el, 'whatever@alaskaair.com');
+    input.blur();
+
+    await elementUpdated(el);
+
+    el.validate(true);
+
+    await elementUpdated(el);
+
+    expect(el.hasAttribute('validity')).to.be.true;
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+
+    setInputValue(el, 'whatever');
+
+    el.validate(true);
+
+    await elementUpdated(el);
+
+    expect(el.hasAttribute('validity')).to.be.true;
+    expect(el.getAttribute('validity')).to.be.equal('badInput');
+  })
+
   it ('validates type="email" correctly', async () => {
     const el = await fixture(html`
       <auro-input type="email" label="Label"></auro-input>

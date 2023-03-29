@@ -670,14 +670,17 @@ export default class BaseInput extends LitElement {
 
   /**
    * Determines the validity state of the element.
+   * @param {Boolean} force - ignores the noValidate attribute when determining if validation should run
    * @returns {void}
    */
-  validate() {
+  validate(force) {
     // Validate only if noValidate is not true and the input does not have focus
+    const validationShouldRun = this.value !== undefined && (!this.noValidate || force) && (!this.shadowRoot.contains(this.getActiveElement()) || this.validateOnInput);
+
     if (this.hasAttribute('error')) {
       this.validity = 'customError';
       this.setCustomValidity = this.error;
-    } else if (this.value !== undefined && !this.noValidate && (!this.shadowRoot.contains(this.getActiveElement()) || this.validateOnInput)) {
+    } else if (validationShouldRun) {
       this.validity = 'valid';
       this.setCustomValidity = '';
 
@@ -709,13 +712,15 @@ export default class BaseInput extends LitElement {
 
     this.getErrorMessage();
 
-    this.dispatchEvent(new CustomEvent('auroInput-validated', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        validity: this.validity
-      }
-    }));
+    if (validationShouldRun || this.hasAttribute('error')) {
+      this.dispatchEvent(new CustomEvent('auroInput-validated', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          validity: this.validity
+        }
+      }));
+    }
   }
 
   /**
