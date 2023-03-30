@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [2.12.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.11.0...v2.12.0) (2023-03-30)
+
+
+### Features
+
+* **validate:** add force attribute and only fire event when logic executes [#239](https://github.com/AlaskaAirlines/auro-input/issues/239) [#240](https://github.com/AlaskaAirlines/auro-input/issues/240) ([11ff882](https://github.com/AlaskaAirlines/auro-input/commit/11ff882c7f0f4a438c477700de264541c475df60))
+
 # [2.11.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.10.6...v2.11.0) (2023-03-21)
 
 
