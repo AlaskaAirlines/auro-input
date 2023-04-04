@@ -32,6 +32,8 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {String} setCustomValidityTooShort - Custom help text message to display when validity = `tooShort`.
  * @attr {String} setCustomValidityTooLong - Custom help text message to display when validity = `tooLong`.
  * @attr {String} setCustomValidityForType - Custom help text message to display for the declared element `type` and type validity fails.
+ * @attr {String} setCustomValidityRangeOverflow - Custom help text message to display when validity = `rangeOverflow`.
+ * @attr {String} setCustomValidityRangeUnderflow - Custom help text message to display when validity = `rangeUnderflow`.
  * @attr {String} helpText - Deprecated, see `slot`.
  * @attr {String} id - Sets the unique ID of the element.
  * @attr {String} label - Deprecated, see `slot`.
@@ -47,6 +49,8 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
  * @attr {Boolean} activeLabel - If set, the label will remain fixed in the active position.
+ * @attr {String} max = The maximum value allowed. This only applies for inputs with a type of `numeric` and all date formats.
+ * @attr {String} min = The minimum value allowed. This only applies for inputs with a type of `numeric` and all date formats.
  * @attr {Number} maxLength - The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher.
  * @attr {Number} minLength - The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`.
  * @attr {String} spellcheck - An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`.
@@ -162,6 +166,8 @@ export default class BaseInput extends LitElement {
     this.disabled = false;
     this.required = false;
     this.noValidate = false;
+    this.max = undefined;
+    this.min = undefined;
     this.maxLength = undefined;
     this.minLength = undefined;
     this.label = 'Input label is undefined';
@@ -214,6 +220,8 @@ export default class BaseInput extends LitElement {
         type: Boolean,
         reflect: true
       },
+      max:               { type: String },
+      min:               { type: String },
       maxLength:               { type: Number },
       minLength:               { type: Number },
       showPassword:            { state: true },
@@ -232,12 +240,14 @@ export default class BaseInput extends LitElement {
         type: String,
         reflect: true
       },
-      setCustomValidityCustomError:  { type: String },
-      setCustomValidityValueMissing: { type: String },
-      setCustomValidityBadInput:     { type: String },
-      setCustomValidityTooShort:     { type: String },
-      setCustomValidityTooLong:      { type: String },
-      customValidityTypeEmail:    { type: String }
+      setCustomValidityCustomError:    { type: String },
+      setCustomValidityValueMissing:   { type: String },
+      setCustomValidityBadInput:       { type: String },
+      setCustomValidityTooShort:       { type: String },
+      setCustomValidityTooLong:        { type: String },
+      setCustomValidityRangeOverflow:  { type: String},
+      setCustomValidityRangeUnderflow: { type: String},
+      customValidityTypeEmail:         { type: String }
     };
   }
 
@@ -440,6 +450,10 @@ export default class BaseInput extends LitElement {
     } else {
       this.autocorrect = this.autocorrect ? this.autocorrect : undefined;
       this.autocapitalize = undefined;
+    }
+
+    if (changedProperties.has('type')) {
+      this.configureDataForType();
     }
 
     if (changedProperties.has('value')) {
@@ -706,11 +720,11 @@ export default class BaseInput extends LitElement {
       if (this.ValidityMessageOverride) {
         this.setCustomValidity = this.ValidityMessageOverride;
       }
+      this.getErrorMessage();
+
     } else {
       this.isValid = true;
     }
-
-    this.getErrorMessage();
 
     if (validationShouldRun || this.hasAttribute('error')) {
       this.dispatchEvent(new CustomEvent('auroInput-validated', {
@@ -746,6 +760,23 @@ export default class BaseInput extends LitElement {
   }
 
   /**
+   * Sets configuration data used elsewhere based on the `type` attribute.
+   * @private
+   * @returns {void}
+   */
+  configureDataForType() {
+    if (this.type === 'month-day-year') {
+      this.dateStrLength = 10;
+    } else if (this.type === 'month-year') {
+      this.dateStrLength = 5;
+    } else if (this.type === 'month-fullYear') {
+      this.dateStrLength = 7;
+    } else if (this.type === 'year-month-day') {
+      this.dateStrLength = 10;
+    }
+  }
+
+  /**
    * Determines the validity state of the element based on the type attribute.
    * @private
    * @returns {void}
@@ -765,33 +796,37 @@ export default class BaseInput extends LitElement {
           this.validity = 'tooShort';
           this.setCustomValidity = this.setCustomValidityForType;
         }
-      } else if (this.type === 'month-day-year') {
-        const dateStrLength = 10;
-
-        if (this.value.length > 0 && this.value.length < dateStrLength) {
+      } else if ( this.type === 'month-day-year' ||
+                  this.type === 'month-year' ||
+                  this.type === 'month-fullYear' ||
+                  this.type === 'year-month-day'
+        ) {
+        if (this.value.length > 0 && this.value.length < this.dateStrLength) {
           this.validity = 'tooShort';
           this.setCustomValidity = this.setCustomValidityForType;
-        }
-      } else if (this.type === 'month-year') {
-        const dateStrLength = 5;
+        } else {
+          const valueDate = new Date(this.value);
 
-        if (this.value.length > 0 && this.value.length < dateStrLength) {
-          this.validity = 'tooShort';
-          this.setCustomValidity = this.setCustomValidityForType;
-        }
-      } else if (this.type === 'month-fullYear') {
-        const dateStrLength = 7;
+          // validate min
+          if (this.max !== undefined) {
+            const maxDate = new Date(this.max);
 
-        if (this.value.length > 0 && this.value.length < dateStrLength) {
-          this.validity = 'tooShort';
-          this.setCustomValidity = this.setCustomValidityForType;
-        }
-      } else if (this.type === 'year-month-day') {
-        const dateStrLength = 10;
+            if (valueDate > maxDate) {
+              this.validity = 'rangeOverflow';
+              this.setCustomValidity = this.getAttribute('setCustomValidityRangeOverflow');
+            }
+          }
 
-        if (this.value.length > 0 && this.value.length < dateStrLength) {
-          this.validity = 'tooShort';
-          this.setCustomValidity = this.setCustomValidityForType;
+          // validate max
+          if (this.min) {
+            const minDate = new Date();
+
+            if (valueDate < minDate) {
+              this.validity = 'rangeUnderflow';
+              this.setCustomValidity = this.getAttribute('setCustomValidityRangeUnderflow');
+            }
+          }
+
         }
       }
     }
