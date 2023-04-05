@@ -3,7 +3,7 @@
 
 // ---------------------------------------------------------------------
 
-/* eslint-disable max-lines, no-magic-numbers */
+/* eslint-disable max-lines, no-magic-numbers, complexity, max-depth */
 /* eslint no-magic-numbers: ["error", { "ignore": [0] }] */
 /* eslint-disable max-statements */
 
@@ -684,7 +684,7 @@ export default class BaseInput extends LitElement {
 
   /**
    * Determines the validity state of the element.
-   * @param {Boolean} force - ignores the noValidate attribute when determining if validation should run
+   * @param {Boolean} force - Ignores the noValidate attribute when determining if validation should run.
    * @returns {void}
    */
   validate(force) {
@@ -796,11 +796,22 @@ export default class BaseInput extends LitElement {
           this.validity = 'tooShort';
           this.setCustomValidity = this.setCustomValidityForType;
         }
-      } else if ( this.type === 'month-day-year' ||
-                  this.type === 'month-year' ||
-                  this.type === 'month-fullYear' ||
-                  this.type === 'year-month-day'
-        ) {
+      } else if (this.type === 'numeric') {
+        if (this.max !== undefined && Number(this.max) < Number(this.value)) {
+          this.validity = 'rangeOverflow';
+          this.setCustomValidity = this.getAttribute('setCustomValidityRangeOverflow');
+        }
+
+        if (this.min !== undefined && Number(this.min) > Number(this.value)) {
+          this.validity = 'rangeUnderflow';
+          this.setCustomValidity = this.getAttribute('setCustomValidityRangeUnderflow');
+        }
+
+      } else if (this.type === 'month-day-year' ||
+                 this.type === 'month-year' ||
+                 this.type === 'month-fullYear' ||
+                 this.type === 'year-month-day'
+      ) {
         if (this.value.length > 0 && this.value.length < this.dateStrLength) {
           this.validity = 'tooShort';
           this.setCustomValidity = this.setCustomValidityForType;
