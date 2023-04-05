@@ -140,6 +140,90 @@ Note: Setting the `value` to `undefined` will also reset the element.
   ```
 </auro-accordion>
 
+### max
+
+Use the `max` attribute to define a maximum value used during validation. The attribute will only apply when `auro-input` also has a `type` attribute for `numeric` or any date format.
+
+The `max` attribute should be used in combination with the `setCustomValidityRangeOverflow` attribute to define help text used when the `max` attribute validation fails.
+
+#### Date Example
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="demoMaxDate" type="month-day-year" max="03/25/2023" setCustomValidityRangeOverflow="The selected date is past the defined maximum date.">
+    <span slot="label">Choose a date</span>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input id="demoMaxDate" type="month-day-year" max="03/25/2023" setCustomValidityRangeOverflow="The selected date is past the defined maximum date.">
+    <span slot="label">Choose a date</span>
+  </auro-input>
+  ```
+</auro-accordion>
+
+#### Numeric Example
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="demoMaxNumber" type="numeric" max="10" setCustomValidityRangeOverflow="The selected value is above the defined maximum.">
+    <span slot="label">Choose a number</span>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input id="demoMaxNumber" type="numeric" max="10" setCustomValidityRangeOverflow="The selected value is above the defined maximum.">
+    <span slot="label">Choose a number</span>
+  </auro-input>
+  ```
+</auro-accordion>
+
+### min
+
+Use the `min` attribute to define a minimum value used during validation. The attribute will only apply when `auro-input` also has a `type` attribute for `numeric` or any date format.
+
+The `min` attribute should be used in combination with the `setCustomValidityRangeUnderrflow` attribute to define help text used when the `min` attribute validation fails.
+
+#### Date Example
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="demoMinDate" type="month-day-year" min="03/25/2023" setCustomValidityRangeUnderflow="The selected date is before the defined minimum date.">
+    <span slot="label">Choose a date</span>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input id="demoMaxDate" type="month-day-year" max="03/25/2023" setCustomValidityRangeOverflow="The selected date is past the defined maximum date.">
+    <span slot="label">Choose a date</span>
+  </auro-input>
+  ```
+</auro-accordion>
+
+#### Numeric Example
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <auro-input id="demoMinNumber" type="numeric" min="10" setCustomValidityRangeUnderflow="The selected value is below the defined minimum.">
+    <span slot="label">Choose a number</span>
+  </auro-input>
+</div>
+
+<auro-accordion lowProfile justifyRight>
+  <span slot="trigger">See code</span>
+
+  ```html
+  <auro-input id="demoMinNumber" type="numeric" min="10" setCustomValidityRangeUnderflow="The selected value is below the defined minimum.">
+    <span slot="label">Choose a number</span>
+  </auro-input>
+  ```
+</auro-accordion>
+
 ### Pattern
 
 Use the `pattern` attribute to set custom input validation. This example also uses the `spellcheck` attribute set to `false` which in turn sets `autocorrect` to `off` and `autocapitalize` to `none`. Additionally the `maxlength` attribute sets the maximum length of characters that can be entered.
