@@ -830,7 +830,7 @@ export default class BaseInput extends LitElement {
 
           // validate max
           if (this.min) {
-            const minDate = new Date();
+            const minDate = new Date(this.min);
 
             if (valueDate < minDate) {
               this.validity = 'rangeUnderflow';
