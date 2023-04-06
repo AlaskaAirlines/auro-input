@@ -449,6 +449,78 @@ describe('auro-input', () => {
     expect(el.getAttribute('validity')).to.be.equal('valid');
   });
 
+  it('type month-day-year validity checked correctly when using the max attribute', async () => {
+    const el = await fixture(html`
+      <auro-input type="month-day-year" max="03/03/2023"></auro-input>
+    `)
+
+    setInputValue(el, '03/03/2023');
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+
+    setInputValue(el, '03/04/2023');
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('rangeOverflow');
+  });
+
+  it('type month-day-year validity checked correctly when using the min attribute', async () => {
+    const el = await fixture(html`
+      <auro-input type="month-day-year" min="03/03/2023"></auro-input>
+    `)
+
+    setInputValue(el, '03/04/2023');
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+
+    setInputValue(el, '03/02/2023');
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('rangeUnderflow');
+  });
+
+  it('type numeric checked correctly when using the min attribute', async () => {
+    const el = await fixture(html`
+      <auro-input type="numeric" min="10"></auro-input>
+    `)
+
+    setInputValue(el, '10');
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+
+    setInputValue(el, '9');
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('rangeUnderflow');
+  });
+
+  it('type numeric checked correctly when using the min attribute', async () => {
+    const el = await fixture(html`
+      <auro-input type="numeric" max="10"></auro-input>
+    `)
+
+    setInputValue(el, '10');
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('valid');
+
+    setInputValue(el, '11');
+
+    await elementUpdated(el);
+
+    expect(el.getAttribute('validity')).to.be.equal('rangeOverflow');
+  });
+
   it('is accessible', async () => {
     const el = await fixture(html`
       <auro-input cssclass="testClass"></auro-input>
