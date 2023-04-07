@@ -17,6 +17,7 @@
 | `customValidityTypeEmail`         | `customValidityTypeEmail`         | `string`  |                            |                                                  |
 | `disabled`                        | `disabled`                        | `Boolean` | false                      | If set, disables the input.                      |
 | `error`                           | `error`                           | `String`  |                            | When defined, sets persistent validity to `customError` and sets `setCustomValidity` = attribute value. |
+| `errorMessage`                    | `errorMessage`                    | `String`  |                            | Contains the help text message for the current validity error. |
 | `helpText`                        | `helpText`                        | `String`  |                            | Deprecated, see `slot`.                          |
 | `icon`                            | `icon`                            | `Boolean` | false                      | If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format. |
 | `id`                              | `id`                              | `String`  |                            | Sets the unique ID of the element.               |
@@ -52,7 +53,7 @@
 
 | Method     | Type                     | Description                                      |
 |------------|--------------------------|--------------------------------------------------|
-| `validate` | `(force: boolean): void` | Determines the validity state of the element.<br /><br />**force**: ignores the noValidate attribute when determining if validation should run |
+| `validate` | `(force: boolean): void` | Determines the validity state of the element.<br /><br />**force**: Ignores the noValidate attribute when determining if validation should run. |
 
 ## Events
 

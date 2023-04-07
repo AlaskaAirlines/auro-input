@@ -23,6 +23,7 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  *
  * @attr {Boolean} validateOnInput - Sets validation mode to re-eval with each input.
  * @attr {String} error - When defined, sets persistent validity to `customError` and sets `setCustomValidity` = attribute value.
+ * @prop {String} errorMessage - Contains the help text message for the current validity error.
  * @attr {String} isValid - (DEPRECATED - Please use validity) Can be accessed to determine if the input validity. Returns true when validity has not yet been checked or validity = 'valid', all other cases return false. Not intended to be set by the consumer.
  * @attr {String} validity - Specifies the `validityState` this element is in.
  * @attr {String} setCustomValidity - Sets a custom help text message to display for all validityStates.
@@ -225,13 +226,13 @@ export default class BaseInput extends LitElement {
       maxLength:               { type: Number },
       minLength:               { type: Number },
       showPassword:            { state: true },
-      setCustomValidity:       { type: String },
       validateOnInput:         { type: Boolean },
       ready:                   { type: Boolean },
       error:                   {
         type: String,
         reflect: true
       },
+      errorMessage:            { type: String },
       isValid: {
         type: String,
         reflect: true
@@ -240,6 +241,7 @@ export default class BaseInput extends LitElement {
         type: String,
         reflect: true
       },
+      setCustomValidity:               { type: String },
       setCustomValidityCustomError:    { type: String },
       setCustomValidityValueMissing:   { type: String },
       setCustomValidityBadInput:       { type: String },
@@ -706,27 +708,27 @@ export default class BaseInput extends LitElement {
        */
       if ((!this.value || this.value.length === 0) && this.required) {
         this.validity = 'valueMissing';
-        this.setCustomValidity = this.setCustomValidityValueMissing;
+        this.setCustomValidity = this.setCustomValidityValueMissing || '';
       } else {
         this.validateInputType();
         this.validateInputAttributes();
       }
     }
 
-    if (this.validity && this.validity !== 'valid') {
-      this.isValid = false;
+    if (validationShouldRun || this.hasAttribute('error')) {
+      if (this.validity && this.validity !== 'valid') {
+        this.isValid = false;
 
-      // Use the validity message override if it is declared
-      if (this.ValidityMessageOverride) {
-        this.setCustomValidity = this.ValidityMessageOverride;
+        // Use the validity message override if it is declared
+        if (this.ValidityMessageOverride) {
+          this.setCustomValidity = this.ValidityMessageOverride;
+        }
+      } else {
+        this.isValid = true;
       }
+
       this.getErrorMessage();
 
-    } else {
-      this.isValid = true;
-    }
-
-    if (validationShouldRun || this.hasAttribute('error')) {
       this.dispatchEvent(new CustomEvent('auroInput-validated', {
         bubbles: true,
         composed: true,
@@ -748,14 +750,14 @@ export default class BaseInput extends LitElement {
 
       if (!pattern.test(this.value)) {
         this.validity = 'badInput';
-        this.setCustomValidity = this.setCustomValidityBadInput;
+        this.setCustomValidity = this.setCustomValidityBadInput || '';
       }
     } else if (this.value.length > 0 && this.value.length < this.minLength) {
       this.validity = 'tooShort';
-      this.setCustomValidity = this.setCustomValidityTooShort;
+      this.setCustomValidity = this.setCustomValidityTooShort || '';
     } else if (this.value.length > this.maxLength) {
       this.validity = 'tooLong';
-      this.setCustomValidity = this.setCustomValidityTooLong;
+      this.setCustomValidity = this.setCustomValidityTooLong || '';
     }
   }
 
@@ -789,22 +791,22 @@ export default class BaseInput extends LitElement {
 
         if (!this.value.match(emailRegex)) {
           this.validity = 'badInput';
-          this.setCustomValidity = this.setCustomValidityForType;
+          this.setCustomValidity = this.setCustomValidityForType || '';
         }
       } else if (this.type === 'credit-card') {
         if (this.value.length > 0 && this.value.length < this.validationCCLength) {
           this.validity = 'tooShort';
-          this.setCustomValidity = this.setCustomValidityForType;
+          this.setCustomValidity = this.setCustomValidityForType || '';
         }
       } else if (this.type === 'numeric') {
         if (this.max !== undefined && Number(this.max) < Number(this.value)) {
           this.validity = 'rangeOverflow';
-          this.setCustomValidity = this.getAttribute('setCustomValidityRangeOverflow');
+          this.setCustomValidity = this.getAttribute('setCustomValidityRangeOverflow') || '';
         }
 
         if (this.min !== undefined && Number(this.min) > Number(this.value)) {
           this.validity = 'rangeUnderflow';
-          this.setCustomValidity = this.getAttribute('setCustomValidityRangeUnderflow');
+          this.setCustomValidity = this.getAttribute('setCustomValidityRangeUnderflow') || '';
         }
 
       } else if (this.type === 'month-day-year' ||
@@ -814,7 +816,7 @@ export default class BaseInput extends LitElement {
       ) {
         if (this.value.length > 0 && this.value.length < this.dateStrLength) {
           this.validity = 'tooShort';
-          this.setCustomValidity = this.setCustomValidityForType;
+          this.setCustomValidity = this.setCustomValidityForType || '';
         } else {
           const valueDate = new Date(this.value);
 
@@ -824,7 +826,7 @@ export default class BaseInput extends LitElement {
 
             if (valueDate > maxDate) {
               this.validity = 'rangeOverflow';
-              this.setCustomValidity = this.getAttribute('setCustomValidityRangeOverflow');
+              this.setCustomValidity = this.getAttribute('setCustomValidityRangeOverflow') || '';
             }
           }
 
@@ -834,7 +836,7 @@ export default class BaseInput extends LitElement {
 
             if (valueDate < minDate) {
               this.validity = 'rangeUnderflow';
-              this.setCustomValidity = this.getAttribute('setCustomValidityRangeUnderflow');
+              this.setCustomValidity = this.getAttribute('setCustomValidityRangeUnderflow') || '';
             }
           }
 
@@ -891,12 +893,12 @@ export default class BaseInput extends LitElement {
    * @returns {string} Error string.
    */
   getErrorMessage() {
-    if (this.setCustomValidity) {
-      // return this.setCustomValidity;
-      this.errorMessage = this.setCustomValidity;
-    } else if (this.inputElement.validationMessage.length > 0) {
-      // return this.internalError;
-      this.errorMessage = this.inputElement.validationMessage;
+    if (this.validity !== 'valid') {
+      if (this.setCustomValidity) {
+        this.errorMessage = this.setCustomValidity;
+      } else if (this.inputElement.validationMessage.length > 0) {
+        this.errorMessage = this.inputElement.validationMessage;
+      }
     } else {
       this.errorMessage = undefined;
     }
@@ -909,8 +911,6 @@ export default class BaseInput extends LitElement {
         message: this.errorMessage
       }
     }));
-
-    return this.errorMessage;
   }
 
   /**

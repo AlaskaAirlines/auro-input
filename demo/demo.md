@@ -200,7 +200,7 @@ The `min` attribute should be used in combination with the `setCustomValidityRan
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="demoMaxDate" type="month-day-year" max="03/25/2023" setCustomValidityRangeOverflow="The selected date is past the defined maximum date.">
+  <auro-input id="demoMinDate" type="month-day-year" min="03/25/2023" setCustomValidityRangeUnderflow="The selected date is before the defined minimum date.">
     <span slot="label">Choose a date</span>
   </auro-input>
   ```
