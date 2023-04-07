@@ -89,7 +89,7 @@ export default class AuroInput extends BaseInput {
           </p>`
         : html`
           <p class="inputElement-helpText" id="${this.uniqueId}" role="alert" aria-live="assertive" part="helpText">
-            ${this.getErrorMessage()}
+            ${this.errorMessage}
           </p>`
 
       }
