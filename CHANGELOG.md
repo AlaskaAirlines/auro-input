@@ -1,5 +1,27 @@
 # Semantic Release Automated Changelog
 
+# [2.13.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.12.0...v2.13.0) (2023-04-12)
+
+
+### Bug Fixes
+
+* **date:** validates date format length correctly ([169a13f](https://github.com/AlaskaAirlines/auro-input/commit/169a13fa82bbbe524942ef1c0d80100579c1f0a6))
+* **docs:** correct typo in API attribute ([bf469e7](https://github.com/AlaskaAirlines/auro-input/commit/bf469e77313775d6d7ddfd48de7291aa70c4997a))
+* **min:** correct validation check for min attribute ([3a29cf5](https://github.com/AlaskaAirlines/auro-input/commit/3a29cf58f9b295059f154436015a235a8be6518d))
+
+
+### Features
+
+* **validation:** add min max validation for type === numeric [#242](https://github.com/AlaskaAirlines/auro-input/issues/242) ([c9e32d7](https://github.com/AlaskaAirlines/auro-input/commit/c9e32d7dc22ccdf70ec1d596f23679932a2e5746))
+* **validity:** add validation for min and max values [#242](https://github.com/AlaskaAirlines/auro-input/issues/242) ([0ec2e21](https://github.com/AlaskaAirlines/auro-input/commit/0ec2e21d0ce8897fd000710c5f3737dda5791fc0))
+
+
+### Performance Improvements
+
+* **deps:** update several dependencies to latest versions ([539edfe](https://github.com/AlaskaAirlines/auro-input/commit/539edfe195a23505424556f9ada171d3c7474a0c))
+* **validity:** improve validation workflow and messaging ([c248645](https://github.com/AlaskaAirlines/auro-input/commit/c2486459ea5a6780b6efa7b594bf6b87a546c166))
+* **validity:** simplify if statement in valdity logic ([6f3da9f](https://github.com/AlaskaAirlines/auro-input/commit/6f3da9f0451bfd0066cb259f15879d025d1381d7))
+
 # [2.12.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.11.0...v2.12.0) (2023-03-30)
 
 
