@@ -767,7 +767,7 @@ export default class BaseInput extends LitElement {
    * @returns {void}
    */
   configureDataForType() {
-    if (this.type === 'month-day-year' || 'year-month-day') {
+    if (this.type === 'month-day-year' || this.type === 'year-month-day') {
       this.dateStrLength = 10;
     } else if (this.type === 'month-year') {
       this.dateStrLength = 5;
