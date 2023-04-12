@@ -186,7 +186,7 @@ The `max` attribute should be used in combination with the `setCustomValidityRan
 
 Use the `min` attribute to define a minimum value used during validation. The attribute will only apply when `auro-input` also has a `type` attribute for `numeric` or any date format.
 
-The `min` attribute should be used in combination with the `setCustomValidityRangeUnderrflow` attribute to define help text used when the `min` attribute validation fails.
+The `min` attribute should be used in combination with the `setCustomValidityRangeUnderflow` attribute to define help text used when the `min` attribute validation fails.
 
 #### Date Example
 
