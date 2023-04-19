@@ -51,9 +51,9 @@
 
 ## Methods
 
-| Method     | Type                     | Description                                      |
-|------------|--------------------------|--------------------------------------------------|
-| `validate` | `(force: boolean): void` | Determines the validity state of the element.<br /><br />**force**: Ignores the noValidate attribute when determining if validation should run. |
+| Method     | Type       | Description                                   |
+|------------|------------|-----------------------------------------------|
+| `validate` | `(): void` | Determines the validity state of the element. |
 
 ## Events
 

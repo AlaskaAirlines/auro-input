@@ -390,7 +390,6 @@ export default class BaseInput extends LitElement {
       }
     }
 
-    this.validate();
     this.addEventListener('keydown', (evt) => {
       if (this.autoFormattingTypes.includes(this.type)) {
         if (evt.key.length === 1 || evt.key === 'Backspace' || evt.key === 'Delete') {
@@ -466,7 +465,10 @@ export default class BaseInput extends LitElement {
           this.inputElement.value = '';
         }
 
-        this.validate();
+        if (!this.shadowRoot.contains(this.getActiveElement())) {
+          this.validate();
+        }
+
         this.notifyValueChanged();
       }
       this.autoFormatHandling();
@@ -631,8 +633,6 @@ export default class BaseInput extends LitElement {
         }
       });
     }
-
-    this.validate();
   }
 
   /**
@@ -661,7 +661,9 @@ export default class BaseInput extends LitElement {
   handleBlur() {
     this.inputElement.scrollLeft = 100;
 
-    this.validate();
+    if (!this.noValidate) {
+      this.validate();
+    }
   }
 
   /**
@@ -686,12 +688,11 @@ export default class BaseInput extends LitElement {
 
   /**
    * Determines the validity state of the element.
-   * @param {Boolean} force - Ignores the noValidate attribute when determining if validation should run.
    * @returns {void}
    */
-  validate(force) {
+  validate() {
     // Validate only if noValidate is not true and the input does not have focus
-    const validationShouldRun = this.value !== undefined && (!this.noValidate || force) && (!this.shadowRoot.contains(this.getActiveElement()) || this.validateOnInput);
+    const validationShouldRun = this.value !== undefined;
 
     if (this.hasAttribute('error')) {
       this.validity = 'customError';
@@ -818,7 +819,7 @@ export default class BaseInput extends LitElement {
         } else {
           const valueDate = new Date(this.value);
 
-          // validate min
+          // validate max
           if (this.max !== undefined) {
             const maxDate = new Date(this.max);
 
@@ -828,7 +829,7 @@ export default class BaseInput extends LitElement {
             }
           }
 
-          // validate max
+          // validate min
           if (this.min) {
             const minDate = new Date(this.min);
 
@@ -837,7 +838,6 @@ export default class BaseInput extends LitElement {
               this.setCustomValidity = this.getAttribute('setCustomValidityRangeUnderflow') || '';
             }
           }
-
         }
       }
     }

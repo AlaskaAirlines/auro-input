@@ -38,7 +38,7 @@ describe('auro-input', () => {
     await elementUpdated(el);
 
     input.focus();
-    setInputValue(el, 'aaa');
+    el.value = 'aaa';
     input.blur();
 
     await elementUpdated(el);
@@ -47,7 +47,7 @@ describe('auro-input', () => {
     expect(text).to.contain(`that is not a valid entry`);
 
     input.focus();
-    setInputValue(el, 'zzz');
+    el.value = 'zzz';
     input.blur();
 
     await elementUpdated(el);
@@ -122,7 +122,7 @@ describe('auro-input', () => {
       <auro-input></auro-input>
     `);
 
-    setInputValue(el, 'triggered');
+    el.value = 'triggered';
     expect(el.value).to.equal('triggered');
   });
 
@@ -172,7 +172,7 @@ describe('auro-input', () => {
     const input = el.shadowRoot.querySelector('input');
 
     input.focus();
-    setInputValue(el, 'whatever');
+    el.value = 'whatever';
     input.blur();
 
     const { result } = await listener;
@@ -189,7 +189,7 @@ describe('auro-input', () => {
     const input = el.shadowRoot.querySelector('input');
 
     input.focus();
-    setInputValue(el, 'whatever@alaskaair.com');
+    el.value = 'whatever@alaskaair.com';
     input.blur();
 
     await elementUpdated(el);
@@ -201,7 +201,7 @@ describe('auro-input', () => {
     expect(el.hasAttribute('validity')).to.be.true;
     expect(el.getAttribute('validity')).to.be.equal('valid');
 
-    setInputValue(el, 'whatever');
+    el.value = 'whatever';
 
     el.validate(true);
 
@@ -216,13 +216,13 @@ describe('auro-input', () => {
       <auro-input type="email" label="Label"></auro-input>
     `);
     expect(el.hasAttribute('validity')).to.be.false;
-    setInputValue(el, 'whatever@alaskaair.com');
+    el.value = 'whatever@alaskaair.com';
     await elementUpdated(el);
 
     expect(el.hasAttribute('validity')).to.be.true;
     expect(el.getAttribute('validity')).to.be.equal('valid');
 
-    setInputValue(el, 'whatever');
+    el.value = 'whatever';
 
     await elementUpdated(el);
 
@@ -254,7 +254,6 @@ describe('auro-input', () => {
     const input = el.shadowRoot.querySelector('input');
 
     input.focus();
-    setInputValue(el, '');
     input.blur();
     await elementUpdated(el);
 
@@ -269,12 +268,12 @@ describe('auro-input', () => {
     expect(el.hasAttribute('validity')).to.be.false;
     expect(el.inputElement.getAttribute('aria-invalid')).to.equal('true');
 
-    setInputValue(el, 'some value');
+    el.value = 'some value';
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('valid');
 
-    setInputValue(el, '');
+    el.value = '';
 
     await elementUpdated(el);
 
@@ -346,13 +345,13 @@ describe('auro-input', () => {
       <auro-input minlength="2"></auro-input>
     `)
 
-    setInputValue(el, 'a')
+    el.value = 'a';
 
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('tooShort');
 
-    setInputValue(el, 'aa')
+    el.value = 'aa';
 
     await elementUpdated(el);
 
@@ -364,13 +363,13 @@ describe('auro-input', () => {
       <auro-input maxlength="2"></auro-input>
     `)
 
-    setInputValue(el, 'aaa')
+    el.value = 'aaa';
 
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('tooLong');
 
-    setInputValue(el, 'aa')
+    el.value = 'aa';
 
     await elementUpdated(el);
 
@@ -382,13 +381,13 @@ describe('auro-input', () => {
       <auro-input type="month-day-year"></auro-input>
     `)
 
-    setInputValue(el, '10/10/202')
+    el.value = '10/10/202';
 
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('tooShort');
 
-    setInputValue(el, '10/10/2022')
+    el.value = '10/10/2022';
 
     await elementUpdated(el);
 
@@ -400,13 +399,13 @@ describe('auro-input', () => {
       <auro-input type="month-year"></auro-input>
     `)
 
-    setInputValue(el, '10/')
+    el.value = '10/';
 
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('tooShort');
 
-    setInputValue(el, '10/22')
+    el.value = '10/22';
 
     await elementUpdated(el);
 
@@ -418,13 +417,13 @@ describe('auro-input', () => {
       <auro-input type="month-fullYear"></auro-input>
     `)
 
-    setInputValue(el, '10/')
+    el.value = '10/';
 
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('tooShort');
 
-    setInputValue(el, '10/2022')
+    el.value = '10/2022';
 
     await elementUpdated(el);
 
@@ -436,13 +435,13 @@ describe('auro-input', () => {
       <auro-input type="year-month-day"></auro-input>
     `)
 
-    setInputValue(el, '20')
+    el.value = '20';
 
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('tooShort');
 
-    setInputValue(el, '2022/10/10')
+    el.value = '2022/10/10';
 
     await elementUpdated(el);
 
@@ -454,13 +453,13 @@ describe('auro-input', () => {
       <auro-input type="month-day-year" max="03/03/2023"></auro-input>
     `)
 
-    setInputValue(el, '03/03/2023');
+    el.value = '03/03/2023';
 
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('valid');
 
-    setInputValue(el, '03/04/2023');
+    el.value = '03/04/2023';
 
     await elementUpdated(el);
 
@@ -472,13 +471,13 @@ describe('auro-input', () => {
       <auro-input type="month-day-year" min="03/03/2023"></auro-input>
     `)
 
-    setInputValue(el, '03/04/2023');
+    el.value = '03/04/2023';
 
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('valid');
 
-    setInputValue(el, '03/02/2023');
+    el.value = '03/02/2023';
 
     await elementUpdated(el);
 
@@ -490,13 +489,13 @@ describe('auro-input', () => {
       <auro-input type="numeric" min="10"></auro-input>
     `)
 
-    setInputValue(el, '10');
+    el.value = '10';
 
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('valid');
 
-    setInputValue(el, '9');
+    el.value = '9';
 
     await elementUpdated(el);
 
@@ -508,13 +507,13 @@ describe('auro-input', () => {
       <auro-input type="numeric" max="10"></auro-input>
     `)
 
-    setInputValue(el, '10');
+    el.value = '10';
 
     await elementUpdated(el);
 
     expect(el.getAttribute('validity')).to.be.equal('valid');
 
-    setInputValue(el, '11');
+    el.value = '11';
 
     await elementUpdated(el);
 
@@ -615,7 +614,8 @@ describe('auro-input', () => {
       `);
 
 
-      await setInputValue(el, '34');
+      el.value = '34';
+      await elementUpdated(el);
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-amex');
     });
 
@@ -624,7 +624,8 @@ describe('auro-input', () => {
         <auro-input id="format-ccWithIcon" type="credit-card" icon label="Credit Card Number with Icon" required></auro-input>
       `);
 
-      await setInputValue(el, '37');
+      el.value = '37';
+      await elementUpdated(el);
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-amex');
     });
 
@@ -633,7 +634,8 @@ describe('auro-input', () => {
         <auro-input id="format-ccWithIcon" type="credit-card" icon label="Credit Card Number with Icon" required></auro-input>
       `);
 
-      await setInputValue(el, '4');
+      el.value = '4';
+      await elementUpdated(el);
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-visa');
     });
 
@@ -642,7 +644,8 @@ describe('auro-input', () => {
         <auro-input id="format-ccWithIcon" type="credit-card" icon label="Credit Card Number with Icon" required></auro-input>
       `);
 
-      await setInputValue(el, '5');
+      el.value = '5';
+      await elementUpdated(el);
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-mastercard');
     });
 
@@ -651,7 +654,8 @@ describe('auro-input', () => {
         <auro-input id="format-ccWithIcon" type="credit-card" icon label="Credit Card Number with Icon" required></auro-input>
       `);
 
-      await setInputValue(el, '6');
+      el.value = '6';
+      await elementUpdated(el);
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-discover');
     });
 
@@ -661,6 +665,7 @@ describe('auro-input', () => {
       `);
 
       await setInputValue(el, undefined);
+      await elementUpdated(el);
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'credit-card');
     });
 
@@ -669,7 +674,8 @@ describe('auro-input', () => {
         <auro-input id="format-ccWithIcon" type="credit-card" icon label="Credit Card Number with Icon" required></auro-input>
       `);
 
-      await setInputValue(el, '');
+      el.value = '';
+      await elementUpdated(el);
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'credit-card');
     });
 
@@ -678,7 +684,8 @@ describe('auro-input', () => {
         <auro-input id="format-ccWithIcon" type="credit-card" icon label="Credit Card Number with Icon" required></auro-input>
       `);
 
-      await setInputValue(el, '4147 34');
+      setInputValue(el,'4147 34');
+      await elementUpdated(el);
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-visa');
     });
 
@@ -687,7 +694,8 @@ describe('auro-input', () => {
         <auro-input id="format-ccWithIcon" type="credit-card" icon label="Credit Card Number with Icon" required></auro-input>
       `);
 
-      await setInputValue(el, '2');
+      el.value = '2';
+      await elementUpdated(el);
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'credit-card');
     });
 
@@ -696,7 +704,8 @@ describe('auro-input', () => {
         <auro-input id="format-ccWithIcon" type="credit-card" icon label="Credit Card Number with Icon" required></auro-input>
       `);
 
-      await setInputValue(el, '27');
+      el.value = '27';
+      await elementUpdated(el);
       expect(el.shadowRoot.querySelector('.accentIcon')).to.have.attribute('name', 'cc-alaska');
     });
   });
