@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.13.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.13.1...v2.13.2) (2023-04-20)
+
+
+### Performance Improvements
+
+* **ce:** implement ce naming convention [#246](https://github.com/AlaskaAirlines/auro-input/issues/246) ([e8a78c8](https://github.com/AlaskaAirlines/auro-input/commit/e8a78c84b4c1e0763a120b3ab335b5b7ca236a51))
+
 ## [2.13.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.13.0...v2.13.1) (2023-04-20)
 
 
