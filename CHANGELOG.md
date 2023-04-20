@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.13.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.13.0...v2.13.1) (2023-04-20)
+
+
+### Bug Fixes
+
+* **focus:** remove focus attribute from validation [#244](https://github.com/AlaskaAirlines/auro-input/issues/244) ([9b65bf9](https://github.com/AlaskaAirlines/auro-input/commit/9b65bf9206206ff3c0432667167dbc99824f1c63))
+
 # [2.13.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.12.0...v2.13.0) (2023-04-12)
 
 
