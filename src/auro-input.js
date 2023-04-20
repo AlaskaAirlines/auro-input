@@ -16,7 +16,7 @@ import i18n from './i18n.js';
 import BaseInput from './base-input';
 
 // build the component class
-export default class AuroInput extends BaseInput {
+export class AuroInput extends BaseInput {
 
   // function to define props used within the scope of this component
   // static get properties() {
@@ -130,8 +130,7 @@ export default class AuroInput extends BaseInput {
   }
 }
 
-/* istanbul ignore else */
-// define the name of the custom component
+// default internal definition
 if (!customElements.get("auro-input")) {
   customElements.define("auro-input", AuroInput);
 }
