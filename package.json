@@ -32,7 +32,7 @@
     "@webcomponents/webcomponentsjs": "^2.6.0"
   },
   "devDependencies": {
-    "@alaskaairux/auro-icon": "^3.4.0",
+    "@alaskaairux/auro-icon": "^3.4.1",
     "@alaskaairux/design-tokens": "^3.13.0",
     "@alaskaairux/icons": "^4.24.0",
     "@aurodesignsystem/eslint-config": "^1.2.0",
