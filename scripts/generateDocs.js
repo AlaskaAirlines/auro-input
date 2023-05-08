@@ -1,5 +1,4 @@
 const path = require('path')
-const chalk = require('chalk');
 const markdownMagic = require('markdown-magic')
 
 const config = {
@@ -7,7 +6,7 @@ const config = {
 }
 
 const callback = function(updatedContent, outputConfig) {
-  console.log(chalk.green('Finished compiling documentation.'));
+  console.log('Finished compiling documentation.');
 }
 
 const markdownPath = path.join(__dirname, '../**/*.md')
