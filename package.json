@@ -79,6 +79,7 @@
     "stylelint-config-standard-scss": "^7.0.1",
     "stylelint-order": "^6.0.3",
     "stylelint-scss": "^4.6.0",
+    "typescript": "^5.0.4",
     "wc-sass-render": "^1.4.0",
     "web-component-analyzer": "^1.1.6",
     "whatwg-fetch": "^3.6.2",
@@ -137,7 +138,7 @@
     "web components"
   ],
   "scripts": {
-    "build": "npm-run-all build:sass sass:render dist:js build:api test build:markdownDocs bundler postinstall",
+    "build": "npm-run-all build:sass sass:render dist:js build:api test build:markdownDocs bundler postinstall types",
     "build:ci": "npm-run-all sweep build",
     "build:api": "wca analyze 'src/auro-input.js' --outFiles docs/api.md",
     "build:demo": "npm-run-all build demo:rm:build demo:new:build demo:copy:index demo:copy:demo demo:update:index",
@@ -170,6 +171,7 @@
     "vrt:approve": "backstop approve",
     "vrt:ref": "backstop reference",
     "vrt:report": "backstop openReport",
-    "vrt:test": "backstop test"
+    "vrt:test": "backstop test",
+    "types": "tsc"
   }
 }
