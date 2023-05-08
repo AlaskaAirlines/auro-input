@@ -21,8 +21,7 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "cleave.js": "^1.6.0",
-    "lit-element": "^2.5.1",
-    "lit-html": "^1.4.1"
+    "lit": "^2.7.4"
   },
   "peerDependencies": {
     "@alaskaairux/auro-icon": "^3.4.0",
