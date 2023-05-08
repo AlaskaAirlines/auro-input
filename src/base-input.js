@@ -7,8 +7,8 @@
 /* eslint no-magic-numbers: ["error", { "ignore": [0] }] */
 /* eslint-disable max-statements */
 
-import { LitElement, css, html } from "lit-element";
-import { ifDefined } from 'lit-html/directives/if-defined.js';
+import { LitElement, css, html } from "lit";
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 import styleCss from "./style-css.js";
 import closelg from '@alaskaairux/icons/dist/icons/interface/x-sm_es6.js';
