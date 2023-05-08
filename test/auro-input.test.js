@@ -521,7 +521,7 @@ describe('auro-input', () => {
 
   it('is accessible', async () => {
     const el = await fixture(html`
-      <auro-input cssclass="testClass"></auro-input>
+      <auro-input cssclass="testClass" id="input-test"></auro-input>
     `);
 
     await expect(el).to.be.accessible();
