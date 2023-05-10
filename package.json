@@ -84,6 +84,11 @@
     "whatwg-fetch": "^3.6.2",
     "yaml-lint": "^1.7.0"
   },
+  "overrides": {
+    "wc-sass-render": {
+      "sass": "$sass"
+    }
+  },
   "browserslist": [
     "last 2 Chrome versions",
     "last 2 iOS major versions",
