@@ -68,6 +68,10 @@ branches:
 
 # Labels: define labels for Issues and Pull Requests
 labels:
+  - name: auro-input
+    color: 'fa23e4'
+    description:
+    process: Key filter for this repo
   - name: duplicate
     color: '156fad'
     description: This Issue or Pull Request already exists
