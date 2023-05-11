@@ -1,5 +1,24 @@
 # Semantic Release Automated Changelog
 
+# [2.14.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.13.2...v2.14.0) (2023-05-11)
+
+
+### Bug Fixes
+
+* **postCss:** update postCss script ([d889f5d](https://github.com/AlaskaAirlines/auro-input/commit/d889f5d9becc1a4a1323f547e423fae4b88cf240))
+* **test:** update test script accessibility issue ([5d92eed](https://github.com/AlaskaAirlines/auro-input/commit/5d92eed17922b9420525f716396d3bfcd5b38f1e))
+
+
+### Features
+
+* **typescript:** add typescript support [#249](https://github.com/AlaskaAirlines/auro-input/issues/249) ([548d17f](https://github.com/AlaskaAirlines/auro-input/commit/548d17f47730751e3bb6859f7582c3ad35e6f773))
+
+
+### Performance Improvements
+
+* **es5:** remove legacy bundling resource [#248](https://github.com/AlaskaAirlines/auro-input/issues/248) ([3e81ecc](https://github.com/AlaskaAirlines/auro-input/commit/3e81ecc93f6e396f5410d9d07b844b233ef7c973))
+* **lit:** update to Lit2.0 [#249](https://github.com/AlaskaAirlines/auro-input/issues/249) ([3b6f52d](https://github.com/AlaskaAirlines/auro-input/commit/3b6f52d7a39958d9a908adfee0d9627f102c9f1d))
+
 ## [2.13.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.13.1...v2.13.2) (2023-04-20)
 
 
