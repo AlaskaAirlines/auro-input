@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "chalk": "^5.2.0",
-    "cleave.js": "^1.6.0",
+    "cleave.js": "^1.5.10",
     "lit": "^2.7.4"
   },
   "peerDependencies": {
