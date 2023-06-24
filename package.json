@@ -21,7 +21,7 @@
   "dependencies": {
     "chalk": "^5.2.0",
     "cleave.js": "^1.5.10",
-    "lit": "^2.7.4"
+    "lit": "^2.7.5"
   },
   "peerDependencies": {
     "@alaskaairux/design-tokens": "^3.12.2",
