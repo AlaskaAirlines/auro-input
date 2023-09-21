@@ -51,7 +51,6 @@ export class AuroInput extends BaseInput {
         @input="${this.handleInput}"
         @focusin="${this.handleFocusin}"
         @blur="${this.handleBlur}"
-        @keyup="${this.handleKeyUp}"
         class="${classMap(inputClasses)}"
         id="${this.id}"
         name="${ifDefined(this.name)}"
