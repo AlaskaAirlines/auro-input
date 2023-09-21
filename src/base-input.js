@@ -18,6 +18,8 @@ import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
 import Cleave from 'cleave.js';
 import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
 
+import { AuroFormValidation } from "./validation.js";
+
 /**
  * Auro-input provides users a way to enter data into a text field.
  *
@@ -75,6 +77,11 @@ export default class BaseInput extends LitElement {
 
   constructor() {
     super();
+
+    /**
+     * @private
+     */
+    this.validation = new AuroFormValidation();
 
     const idLength = 36;
     const idSubstrEnd = 8;
@@ -363,6 +370,13 @@ export default class BaseInput extends LitElement {
   }
 
   firstUpdated() {
+    // add attribute for queryselectors when auro-input is registered under a custom name
+    const tagName = this.tagName.toLowerCase();
+
+    if (tagName !== 'auro-inputs') {
+      this.setAttribute('auro-icon', true);
+    }
+
     this.inputElement = this.renderRoot.querySelector('input');
     this.labelElement = this.shadowRoot.querySelector('label');
 
@@ -466,7 +480,7 @@ export default class BaseInput extends LitElement {
         }
 
         if (!this.shadowRoot.contains(this.getActiveElement())) {
-          this.validate();
+          this.validation.validate(this);
         }
 
         this.notifyValueChanged();
@@ -481,7 +495,7 @@ export default class BaseInput extends LitElement {
         this.removeAttribute('validity');
       }
 
-      this.validate();
+      this.validation.validate(this);
     }
 
     if (changedProperties.has('validity')) {
@@ -599,7 +613,7 @@ export default class BaseInput extends LitElement {
     this.value = undefined;
     this.labelElement.classList.remove('inputElement-label--sticky');
     this.focus();
-    this.validate();
+    this.validation.validate(this);
     this.notifyValueChanged();
   }
 
@@ -618,7 +632,7 @@ export default class BaseInput extends LitElement {
 
     // Validation on blur or input.
     if (this.validateOnInput) {
-      this.validate();
+      this.validation.validate(this);
     }
 
     // Prevents cursor jumping in Safari.
@@ -662,7 +676,7 @@ export default class BaseInput extends LitElement {
     this.inputElement.scrollLeft = 100;
 
     if (!this.noValidate) {
-      this.validate();
+      this.validation.validate(this);
     }
   }
 
@@ -687,82 +701,6 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * Determines the validity state of the element.
-   * @returns {void}
-   */
-  validate() {
-    // Validate only if noValidate is not true and the input does not have focus
-    const validationShouldRun = this.value !== undefined;
-
-    if (this.hasAttribute('error')) {
-      this.validity = 'customError';
-      this.setCustomValidity = this.error;
-    } else if (validationShouldRun) {
-      this.validity = 'valid';
-      this.setCustomValidity = '';
-
-      /**
-       * Only validate once we interact with the datepicker
-       * this.value === undefined is the initial state pre-interaction.
-       *
-       * The validityState definitions are located at https://developer.mozilla.org/en-US/docs/Web/API/ValidityState.
-       */
-      if ((!this.value || this.value.length === 0) && this.required) {
-        this.validity = 'valueMissing';
-        this.setCustomValidity = this.setCustomValidityValueMissing || '';
-      } else {
-        this.validateInputType();
-        this.validateInputAttributes();
-      }
-    }
-
-    if (validationShouldRun || this.hasAttribute('error')) {
-      if (this.validity && this.validity !== 'valid') {
-        this.isValid = false;
-
-        // Use the validity message override if it is declared
-        if (this.ValidityMessageOverride) {
-          this.setCustomValidity = this.ValidityMessageOverride;
-        }
-      } else {
-        this.isValid = true;
-      }
-
-      this.getErrorMessage();
-
-      this.dispatchEvent(new CustomEvent('auroInput-validated', {
-        bubbles: true,
-        composed: true,
-        detail: {
-          validity: this.validity
-        }
-      }));
-    }
-  }
-
-  /**
-   * Determines the validity state of the element based on the common attribute restrictions (pattern).
-   * @private
-   * @returns {void}
-   */
-  validateInputAttributes() {
-    if (this.pattern) {
-      const pattern = new RegExp(`^${this.pattern}$`, 'u');
-
-      if (!pattern.test(this.value)) {
-        this.validity = 'badInput';
-        this.setCustomValidity = this.setCustomValidityBadInput || '';
-      }
-    } else if (this.value.length > 0 && this.value.length < this.minLength) {
-      this.validity = 'tooShort';
-      this.setCustomValidity = this.setCustomValidityTooShort || '';
-    } else if (this.value.length > this.maxLength) {
-      this.validity = 'tooLong';
-      this.setCustomValidity = this.setCustomValidityTooLong || '';
-    }
-  }
-
-  /**
    * Sets configuration data used elsewhere based on the `type` attribute.
    * @private
    * @returns {void}
@@ -774,72 +712,6 @@ export default class BaseInput extends LitElement {
       this.dateStrLength = 5;
     } else if (this.type === 'month-fullYear') {
       this.dateStrLength = 7;
-    }
-  }
-
-  /**
-   * Determines the validity state of the element based on the type attribute.
-   * @private
-   * @returns {void}
-   */
-  validateInputType() {
-    if (this.hasAttribute('type')) {
-      if (this.type === 'email') {
-        // BUG - Need more accurate email regex | this one validates slightly different than the default html5 one
-        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; // eslint-disable-line require-unicode-regexp
-
-        if (!this.value.match(emailRegex)) {
-          this.validity = 'badInput';
-          this.setCustomValidity = this.setCustomValidityForType || '';
-        }
-      } else if (this.type === 'credit-card') {
-        if (this.value.length > 0 && this.value.length < this.validationCCLength) {
-          this.validity = 'tooShort';
-          this.setCustomValidity = this.setCustomValidityForType || '';
-        }
-      } else if (this.type === 'numeric') {
-        if (this.max !== undefined && Number(this.max) < Number(this.value)) {
-          this.validity = 'rangeOverflow';
-          this.setCustomValidity = this.getAttribute('setCustomValidityRangeOverflow') || '';
-        }
-
-        if (this.min !== undefined && Number(this.min) > Number(this.value)) {
-          this.validity = 'rangeUnderflow';
-          this.setCustomValidity = this.getAttribute('setCustomValidityRangeUnderflow') || '';
-        }
-
-      } else if (this.type === 'month-day-year' ||
-                 this.type === 'month-year' ||
-                 this.type === 'month-fullYear' ||
-                 this.type === 'year-month-day'
-      ) {
-        if (this.value.length > 0 && this.value.length < this.dateStrLength) {
-          this.validity = 'tooShort';
-          this.setCustomValidity = this.setCustomValidityForType || '';
-        } else {
-          const valueDate = new Date(this.value);
-
-          // validate max
-          if (this.max !== undefined) {
-            const maxDate = new Date(this.max);
-
-            if (valueDate > maxDate) {
-              this.validity = 'rangeOverflow';
-              this.setCustomValidity = this.getAttribute('setCustomValidityRangeOverflow') || '';
-            }
-          }
-
-          // validate min
-          if (this.min) {
-            const minDate = new Date(this.min);
-
-            if (valueDate < minDate) {
-              this.validity = 'rangeUnderflow';
-              this.setCustomValidity = this.getAttribute('setCustomValidityRangeUnderflow') || '';
-            }
-          }
-        }
-      }
     }
   }
 
@@ -883,32 +755,6 @@ export default class BaseInput extends LitElement {
     }
 
     return this.helpText;
-  }
-
-  /**
-   * Return appropriate error message.
-   * @private
-   * @returns {string} Error string.
-   */
-  getErrorMessage() {
-    if (this.validity !== 'valid') {
-      if (this.setCustomValidity) {
-        this.errorMessage = this.setCustomValidity;
-      } else if (this.inputElement.validationMessage.length > 0) {
-        this.errorMessage = this.inputElement.validationMessage;
-      }
-    } else {
-      this.errorMessage = undefined;
-    }
-
-    // Not sure if we still need this.
-    this.dispatchEvent(new CustomEvent('auroInput-helpText', {
-      bubbles: true,
-      composed: true,
-      detail: {
-        message: this.errorMessage
-      }
-    }));
   }
 
   /**
