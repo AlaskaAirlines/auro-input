@@ -363,6 +363,11 @@ export default class BaseInput extends LitElement {
   }
 
   firstUpdated() {
+    // add attribute for queryselectors when auro-input is registered under a custom name
+    if (this.tagName.toLowerCase() !== 'auro-input') {
+      this.setAttribute('auro-icon', true);
+    }
+
     this.inputElement = this.renderRoot.querySelector('input');
     this.labelElement = this.shadowRoot.querySelector('label');
 
