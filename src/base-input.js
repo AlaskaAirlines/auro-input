@@ -959,28 +959,6 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * Support @keyup event.
-   * @private
-   * @returns {void}
-   */
-  handleKeyUp() {
-    const iconContainer = this.shadowRoot.querySelector('.iconContainer');
-
-    if (this.value.length > 0) {
-      this.labelElement.classList.add('inputElement-label--sticky');
-
-    } else {
-      this.labelElement.classList.remove('inputElement-label--sticky');
-    }
-
-    if (this.inputElement.value) {
-      iconContainer.classList.add("passwordIcon--show");
-    } else {
-      iconContainer.classList.remove("passwordIcon--show");
-    }
-  }
-
-  /**
    * Support placeholder text.
    * @private
    * @returns {string}
