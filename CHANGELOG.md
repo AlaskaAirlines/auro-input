@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [2.15.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.14.1...v2.15.0) (2023-09-24)
+
+
+### Bug Fixes
+
+* **keyup:** remove stale keyup event code that broke UI [#265](https://github.com/AlaskaAirlines/auro-input/issues/265) ([fbc767c](https://github.com/AlaskaAirlines/auro-input/commit/fbc767c18beb17c3964358c38fe403d502722bf8))
+
+
+### Features
+
+* **selector:** add auro-icon attribute if element tagname is custom [#267](https://github.com/AlaskaAirlines/auro-input/issues/267) ([98e11f6](https://github.com/AlaskaAirlines/auro-input/commit/98e11f6c269eb03dd771220be75f416115862bf3))
+
 ## [2.14.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.14.0...v2.14.1) (2023-05-21)
 
 
