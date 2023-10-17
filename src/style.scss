@@ -16,11 +16,14 @@
   declaration-no-important */
 
 // Import Auro tokens
-@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SCSSVariables';
-@import './../node_modules/@alaskaairux/design-tokens/dist/tokens/SassCustomProperties';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SassCustomProperties';
 
-@import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/breakpoints';
-@import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/core';
+@import './../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints';
+@import './../node_modules/@aurodesignsystem/webcorestylesheets/src/core';
+
+// Support for fallback values
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
 
 // Support for auroElement styles
 @import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/auroElement/auroElement';
@@ -67,7 +70,7 @@ input {
 
   &:focus {
     &::placeholder {
-      color: var(--auro-color-text-secondary-on-light);
+      color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
     }
   }
 }
@@ -76,12 +79,12 @@ input {
   position: relative;
   width: 100%;
 
-  min-height: calc(var(--auro-size-700, 56px) + 2px);
-  max-height: calc(var(--auro-size-700, 56px) + 2px);
+  min-height: calc(var(--ds-size-700, $ds-size-700) + var(--ds-size-25, $ds-size-25));
+  max-height: calc(var(--ds-size-700, $ds-size-700) + var(--ds-size-25, $ds-size-25));
 
-  padding: var(--auro-size-400, 2rem);
-  padding-right: var(--auro-size-100, .5rem);
-  padding-bottom: var(--auro-size-100, .5rem);
+  padding: var(--ds-size-400, $ds-size-400);
+  padding-right: var(--ds-size-100, $ds-size-100);
+  padding-bottom: var(--ds-size-100, $ds-size-100);
   padding-left: 0;
 
   white-space: nowrap;
@@ -90,8 +93,8 @@ input {
 
   margin: 0;
   background-color: transparent;
-  caret-color: var(--auro-color-text-secondary-on-light);
-  font-family: var(--auro-font-family-default);
+  caret-color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
+  font-family: var(--ds-font-family-default, $ds-font-family-default);
   font-size: 1rem;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
   outline: none;
@@ -104,7 +107,7 @@ input {
 
       // This is needed because iOS chooses to
       // turn the icons blue
-      color: var(--auro-color-text-primary-on-light);
+      color: var(--ds-color-text-primary-default, $ds-color-text-primary-default);
     }
   }
 
@@ -118,7 +121,7 @@ input {
   &:disabled {
     pointer-events: none;
     background: none;
-    color: var(--auro-color-text-disabled-on-light);
+    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
   }
 }
 
@@ -126,15 +129,15 @@ input {
   .inputElement {
     border-radius: 0;
     border: 0 solid;
-    border-color: var(--auro-color-border-primary-on-light);
-    border-bottom-width: 2px;
+    border-color: var(--ds-color-border-primary-default, $ds-color-border-primary-default);
+    border-bottom-width: var(--ds-size-25, $ds-size-25);
 
     &:disabled {
-      border-color: var(--auro-color-border-disabled-on-light);
+      border-color: var(--ds-color-border-disabled-default, $ds-color-border-disabled-default);
     }
 
     &:focus {
-      border-color: var(--auro-color-ui-default-on-light);
+      border-color: var(--ds-color-ui-default-default, $ds-color-ui-default-default);
     }
   }
 }
@@ -143,7 +146,7 @@ input {
   .inputElement {
     border: 0 solid;
     border-color: transparent;
-    border-bottom-width: 2px;
+    border-bottom-width: var(--ds-size-25, $ds-size-25);
   }
 }
 
@@ -155,13 +158,13 @@ input {
   padding: 0;
   padding-top: 1.8rem;
 
-  width: calc(100% - var(--auro-size-100, .5rem));
+  width: calc(100% - var(--ds-size-100, $ds-size-100));
 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  color: var(--auro-color-text-secondary-on-light);
+  color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
   pointer-events: none;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
 }
@@ -175,9 +178,9 @@ input {
 }
 
 .inputElement-helpText {
-  margin: var(--auro-size-50, .25rem) 0;
-  color: var(--auro-color-text-secondary-on-light);
-  font-size: var(--auro-text-body-size-xs);
+  margin: var(--ds-size-50, $ds-size-50) 0;
+  color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
+  font-size: var(--ds-text-body-size-xs, $ds-text-body-size-xs);
   line-height: 1rem;
 }
 
@@ -187,7 +190,7 @@ input {
   pointer-events: auto;
 
   * {
-    margin-left: var(--auro-size-100, .5rem);
+    margin-left: var(--ds-size-100, $ds-size-100);
   }
 }
 
@@ -211,18 +214,18 @@ input {
 
 .iconContainer {
   position: absolute;
-  top: calc(2rem - .1rem);
+  top: calc(var(--ds-size-400, $ds-size-400) - .1rem);
   right: 0;
 
   pointer-events: none;
 }
 
 .is-disabled {
-  color: var(--auro-color-text-disabled-on-light);
+  color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
 }
 
 :host([disabled]) {
-  color: var(--auro-color-text-disabled-on-light);
+  color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
   cursor: unset;
 }
 
@@ -239,9 +242,9 @@ input {
   left: 0;
 
   display: flex;
-  height: var(--auro-size-400, 2rem);
+  height: var(--ds-size-400, $ds-size-400);
   align-items: center;
-  margin-top: var(--auro-size-300, 1.5rem);
+  margin-top: var(--ds-size-300, $ds-size-100);
 }
 
 // =-=-=-=-=-=-=-=-= Extends -=-=-=-=-=-=-=-=-=-=-=-=-
@@ -250,9 +253,9 @@ input {
   left: 0;
 
   padding: 0;
-  padding-top: var(--auro-size-50, .25rem);
+  padding-top: var(--ds-size-50, $ds-size-50);
 
-  font-size: var(--auro-text-body-size-xs);
+  font-size: var(--ds-text-body-size-xs, $ds-text-body-size-xs);
 }
 
 // =-=-=-=-=-=-=-=-= bordered -=-=-=-=-=-=-=-=-=-=-=-=-
@@ -273,7 +276,7 @@ input {
 
   .accentIcon {
     top: -6px;
-    left: var(--auro-size-150, .75rem);
+    left: var(--ds-size-150, $ds-size-150);
   }
 }
 
@@ -289,12 +292,12 @@ input {
   .inputElement-label {
     left: var(--size-xlsm);
 
-    width: calc(100% - 2.375rem - 1px - var(--auro-size-150, .75rem));
+    width: calc(100% - 2.375rem - 1px - var(--ds-size-150, $ds-size-150));
   }
 
   .accentIcon {
     top: -6px;
-    left: var(--auro-size-150, .75rem);
+    left: var(--ds-size-150, $ds-size-150);
   }
 }
 
@@ -314,7 +317,7 @@ input {
   }
 
   .accentIcon {
-    left: var(--auro-size-150, .75rem);
+    left: var(--ds-size-150, $ds-size-150);
   }
 }
 
@@ -330,11 +333,11 @@ input {
   .inputElement-label {
     left: var(--size-xlsm);
 
-    width: calc(100% - 2.375rem - 1px - var(--auro-size-150, .75rem));
+    width: calc(100% - 2.375rem - 1px - var(--ds-size-150, $ds-size-150));
   }
 
   .accentIcon {
-    left: var(--auro-size-150, .75rem);
+    left: var(--ds-size-150, $ds-size-150);
   }
 }
 
@@ -342,17 +345,17 @@ input {
   .inputElement {
     & + .inputElement-label {
       padding: 0;
-      padding-top: var(--auro-size-50, .25rem);
+      padding-top: var(--ds-size-50, $ds-size-50);
 
-      font-size: var(--auro-text-body-size-xs);
+      font-size: var(--ds-text-body-size-xs, $ds-text-body-size-xs);
     }
   }
 
   label {
-    left: var(--auro-size-150, .75rem);
+    left: var(--ds-size-150, $ds-size-150);
 
     &[class*='inputElement-'] {
-      left: var(--auro-size-150, .75rem);
+      left: var(--ds-size-150, $ds-size-150);
     }
 
     &[class*='inputElement-labelIcon'] {
@@ -363,50 +366,50 @@ input {
 
 :host([bordered]) {
   .inputElement {
-    padding-right: var(--auro-size-150, .75rem);
-    padding-left: var(--auro-size-150, .75rem);
-    border: 1px solid var(--auro-color-border-primary-on-light);
-    border-radius: var(--auro-border-radius);
-    background-color: var(--auro-color-base-white);
+    padding-right: var(--ds-size-150, $ds-size-150);
+    padding-left: var(--ds-size-150, $ds-size-150);
+    border: 1px solid var(--ds-color-border-primary-default, $ds-color-border-primary-default);
+    border-radius: var(--ds-border-radius, $ds-border-radius);
+    background-color: var(--ds-color-base-white, $ds-color-base-white);
 
     &:focus {
-      border-color: var(--auro-color-ui-default-on-light);
+      border-color: var(--ds-color-ui-default-default, $ds-color-ui-default-default);
 
       @include auro_breakpoint--sm {
-        box-shadow: inset 0 0 0 1px var(--auro-color-ui-default-on-light);
+        box-shadow: inset 0 0 0 1px var(--ds-color-ui-default-default, $ds-color-ui-default-default);
       }
     }
 
     &:disabled {
-      border-color: var(--auro-color-alert-disabled-on-light);
+      border-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
 
       @include auro_breakpoint--sm {
-        box-shadow: inset 0 0 0 1px var(--auro-color-alert-disabled-on-light);
+        box-shadow: inset 0 0 0 1px var(--ds-color-alert-error-default, $ds-color-alert-error-default);
       }
     }
 
     &:focus,
     &--filled {
       & + .inputElement-label {
-        padding-top: var(--auro-size-50, .25rem);
+        padding-top: var(--ds-size-50, $ds-size-50);
       }
     }
   }
 
   .inputElement-label {
-    left: var(--auro-size-150, .75rem);
+    left: var(--ds-size-150, $ds-size-150);
     padding-top: var(--size-mdxxs);
 
-    width: calc(100% - var(--auro-size-150, .75rem) - 1px - var(--auro-size-150, .75rem));
+    width: calc(100% - var(--ds-size-150, $ds-size-150) - 1px - var(--ds-size-150, $ds-size-150));
 
     &--sticky {
-      padding-top: var(--auro-size-50, .25rem);
+      padding-top: var(--ds-size-50, $ds-size-50);
     }
   }
 
   .iconContainer {
     top: var(--size-mdxxs);
-    right: var(--auro-size-150, .75rem);
+    right: var(--ds-size-150, $ds-size-150);
   }
 }
 
@@ -422,7 +425,7 @@ input {
 
 :host([bordered][type='password']:focus-within) {
   .inputElement {
-    padding-right: 72px;
+    padding-right: var(--ds-size-900, $ds-size-900);
   }
 
   .inputElement-label {
@@ -445,43 +448,43 @@ input {
 
 :host(:not([bordered])[validity]:not([validity='valid'])) {
   .inputElement {
-    border-color: var(--auro-color-alert-error-on-light);
+    border-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
 
     @include auro_breakpoint--sm {
-      box-shadow: inset 0 0 0 0 var(--auro-color-alert-error-on-light);
+      box-shadow: inset 0 0 0 0 var(--ds-color-alert-error-default, $ds-color-alert-error-default);
     }
   }
 
   .inputElement-helpText {
-    color: var(--auro-color-alert-error-on-light);
+    color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
   }
 
   .iconContainer {
-    color: var(--auro-color-alert-error-on-light);
+    color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
   }
 }
 
 :host([bordered][validity]:not([validity='valid'])) {
   .inputElement {
-    border-color: var(--auro-color-alert-error-on-light);
+    border-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
 
     @include auro_breakpoint--sm {
-      box-shadow: inset 0 0 0 1px var(--auro-color-alert-error-on-light);
+      box-shadow: inset 0 0 0 1px var(--ds-color-alert-error-default, $ds-color-alert-error-default);
     }
   }
 
   .inputElement-helpText {
-    color: var(--auro-color-alert-error-on-light);
+    color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
   }
 
   .iconContainer {
-    color: var(--auro-color-alert-error-on-light);
+    color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
   }
 }
 
 :host([validity='customError']) {
   .inputElement {
-    border-color: var(--auro-color-alert-error-on-light) !important;
+    border-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default) !important;
   }
 }
 
@@ -522,11 +525,11 @@ input {
 :host(:not([bordered]):focus-within),
 :host(:not([bordered]):hover) {
   .inputElement {
-    padding-right: 2rem;
+    padding-right: var(--ds-size-400, $ds-size-400);
   }
 
   .inputElement-label {
-    width: calc(100% - 2rem);
+    width: calc(100% - var(--ds-size-400, $ds-size-400));
   }
 }
 
@@ -539,6 +542,6 @@ input {
   }
 
   .inputElement-label {
-    width: calc(100% - 2.75rem - var(--auro-size-150, .75rem));
+    width: calc(100% - 2.75rem - var(--ds-size-150, $ds-size-150));
   }
 }
