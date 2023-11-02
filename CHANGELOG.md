@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.15.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.15.0...v2.15.1) (2023-11-02)
+
+
+### Performance Improvements
+
+* **token:** update token per new theming [#269](https://github.com/AlaskaAirlines/auro-input/issues/269) ([c1043b2](https://github.com/AlaskaAirlines/auro-input/commit/c1043b2e6bfdda83b4f989713d6a9042cabd61f9))
+
 # [2.15.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.14.1...v2.15.0) (2023-09-24)
 
 
