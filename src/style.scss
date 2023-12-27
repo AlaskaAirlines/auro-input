@@ -381,10 +381,10 @@ input {
     }
 
     &:disabled {
-      border-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+      border-color: var(--ds-color-border-disabled-default, $ds-color-border-disabled-default);
 
       @include auro_breakpoint--sm {
-        box-shadow: inset 0 0 0 1px var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+        box-shadow: inset 0 0 0 1px var(--ds-color-border-disabled-default, $ds-color-border-disabled-default);
       }
     }
 
