@@ -323,11 +323,11 @@ When the validity check fails the validityState equals `valueMissing`. The error
 Use the `validateOnInput` attribute to enable live validation on the `input` event. Recommended use is with setting a custom `pattern` and validation is required prior to a `blur` event.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <auro-input id="validation1" required validateOnInput pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" customValidityBadInput="Full name requires two or more names with at least one space.">
+  <auro-input id="validation1" required validateOnInput pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidityBadInput="Full name requires two or more names with at least one space.">
     <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name as it appears on the card.</span>
   </auro-input>
-  <auro-input id="validation1" bordered validateOnInput required pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" customValidityBadInput="Full name requires two or more names with at least one space.">
+  <auro-input id="validation1" bordered validateOnInput required pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidityBadInput="Full name requires two or more names with at least one space.">
     <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name as it appears on the card.</span>
   </auro-input>
@@ -337,12 +337,12 @@ Use the `validateOnInput` attribute to enable live validation on the `input` eve
   <span slot="trigger">See code</span>
 
   ```html
-  <auro-input id="validation1" required validateOnInput pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" customValidityBadInput="Full name requires two or more names with at least one space.">
+  <auro-input id="validation1" required validateOnInput pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidityBadInput="Full name requires two or more names with at least one space.">
     <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name as it appears on the card.</span>
   </auro-input>
 
-  <auro-input id="validation1" bordered validateOnInput required pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" customValidityBadInput="Full name requires two or more names with at least one space.">
+  <auro-input id="validation1" bordered validateOnInput required pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidityBadInput="Full name requires two or more names with at least one space.">
     <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name as it appears on the card.</span>
   </auro-input>
