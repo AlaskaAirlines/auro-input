@@ -29,7 +29,7 @@ The default component supports the basic input `type="text"` structure. The `(op
   <auro-input id="demo2" bordered></auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -53,7 +53,7 @@ Use the `label` slot to add content to the input label. Use the `helptext` slot 
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -82,7 +82,7 @@ Use the `placeholder` attribute to add a custom placeholder message within the e
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -113,7 +113,7 @@ Note: Setting the `value` to `undefined` will also reset the element.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```js
@@ -154,7 +154,7 @@ The `max` attribute should be used in combination with the `setCustomValidityRan
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -172,7 +172,7 @@ The `max` attribute should be used in combination with the `setCustomValidityRan
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -196,7 +196,7 @@ The `min` attribute should be used in combination with the `setCustomValidityRan
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -214,7 +214,7 @@ The `min` attribute should be used in combination with the `setCustomValidityRan
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -243,7 +243,7 @@ Be sure to review this element's API docs for all related information.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -270,7 +270,7 @@ Use the `borderless` attribute to remove the bottom border. This attribute is in
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -303,7 +303,7 @@ When the validity check fails the validityState equals `valueMissing`. The error
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -333,7 +333,7 @@ Use the `validateOnInput` attribute to enable live validation on the `input` eve
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -366,7 +366,7 @@ The `setCustomValidity` attribute can be used to set a custom string for all val
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -395,7 +395,7 @@ Use the `error` attribute to apply a persistent custom error that supersedes the
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -432,7 +432,7 @@ Default help text will be added to the input `type="password"` if custom help te
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -463,7 +463,7 @@ Default help text will be added to the input `type="email"` if custom help text 
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -493,7 +493,7 @@ Use the `type="number"` attribute for a numeric style input and invoke a numeric
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -522,7 +522,7 @@ Use the `type="number"` in combination wit the `maxlength` attribute to control 
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -554,7 +554,7 @@ Default help text will be added to the input `type="credit-card"` if custom help
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -583,7 +583,7 @@ Use the `type="credit-card"` and `icon` attributes for a credit card formatted i
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -612,7 +612,7 @@ Use the `type="month-day-year"` attribute for a date formatted input.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -636,7 +636,7 @@ Use the `type="month-year"` attribute for a date formatted input.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -660,7 +660,7 @@ Use the `type="month-fullYear"` attribute for a date formatted input.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -684,7 +684,7 @@ Use the `type="year-month-day"` attribute for a date formatted input.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -708,7 +708,7 @@ Use the `placeholder` attribute for a custom placeholder message.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -756,7 +756,7 @@ Example use cases for auro-input support the `disabled` attribute.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -805,7 +805,7 @@ Example use cases for auro-input support the `activeLabel` attribute. If set, th
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -835,7 +835,7 @@ For use cases where the field is `required`, but live validation is not wanted, 
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -886,7 +886,7 @@ Example illustrates using a JavaScript function attached to an `auro-button` com
 <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
 <!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/swapValue.html) -->
