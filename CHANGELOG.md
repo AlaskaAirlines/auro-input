@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+## [2.15.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.15.1...v2.15.2) (2024-01-07)
+
+
+### Bug Fixes
+
+* styling border issue on disabled state [#274](https://github.com/AlaskaAirlines/auro-input/issues/274) ([ec13076](https://github.com/AlaskaAirlines/auro-input/commit/ec13076d6f3020ed9122902934aa26c03d7bd4c3))
+
+
+### Performance Improvements
+
+* update to support current Node policy ([e640d0f](https://github.com/AlaskaAirlines/auro-input/commit/e640d0f8b2a85fae57937e7c397ad0865ad32fac))
+
 ## [2.15.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.15.0...v2.15.1) (2023-11-02)
 
 
