@@ -16,7 +16,7 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=18.12.1"
+    "node": "^18 || ^20"
   },
   "dependencies": {
     "chalk": "^5.2.0",
