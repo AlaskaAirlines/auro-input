@@ -1,5 +1,7 @@
-const path = require('path')
-const markdownMagic = require('markdown-magic')
+import path from 'path';
+import markdownMagic from 'markdown-magic';
+
+const __dirname = new URL('.', import.meta.url).pathname;
 
 const config = {
   matchWord: 'AURO-GENERATED-CONTENT'
