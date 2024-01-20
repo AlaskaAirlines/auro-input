@@ -1,5 +1,17 @@
 # Semantic Release Automated Changelog
 
+# [2.16.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.15.2...v2.16.0) (2024-01-20)
+
+
+### Bug Fixes
+
+* set correct CSS value fallback [#280](https://github.com/AlaskaAirlines/auro-input/issues/280) ([646c2fd](https://github.com/AlaskaAirlines/auro-input/commit/646c2fd33fb7025c1610a27d57fcdc7579750598))
+
+
+### Features
+
+* add suport for SSR projects [#281](https://github.com/AlaskaAirlines/auro-input/issues/281) ([deb6499](https://github.com/AlaskaAirlines/auro-input/commit/deb6499a28dc00421875209db5a25e65489c9d67))
+
 ## [2.15.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.15.1...v2.15.2) (2024-01-07)
 
 
