@@ -291,7 +291,7 @@ The `auro-input` component follows the HTML5 input `validity` and `validityState
 
 When present, the `required` attribute specifies that an input field must be filled out before submitting the form.
 
-When the validity check fails the validityState equals `valueMissing`. The error message for the `valueMissing` validityState can be changed to a custom string using the `customValidityValueMissing`.
+When the validity check fails the validityState equals `valueMissing`. The error message for the `valueMissing` validityState can be changed to a custom string using the `setCustomValidityValueMissing`.
 
 <div class="exampleWrapper exampleWrapper--flex">
   <auro-input id="demo5" required>
