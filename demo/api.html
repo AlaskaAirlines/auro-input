@@ -19,7 +19,7 @@
     <script type="module">
       import 'https://cdn.jsdelivr.net/npm/marked@latest/marked.min.js';
       import 'https://cdn.jsdelivr.net/npm/prismjs@latest/prism.js';
-      fetch('/demo/index.md')
+      fetch('/demo/api.md')
         .then((response) => response.text())
         .then((text) => {
           const rawHtml = marked.parse(text);
@@ -29,14 +29,12 @@
     </script>
     <script type="module" src="../index.js"></script>
     <script src="./util.js"></script>
-    <script type="module">
-      import { registerComponent } from '../index.js';
-
-      registerComponent('custom-input');
-    </script>
+    <script src="./examples.js" type="module"></script>
 
     <!-- If additional elements are needed for the demo, add them here. -->
     <script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-icon@latest/dist/auro-icon__bundled.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-accordion@latest/dist/auro-accordion__bundled.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-radio@latest/dist/auro-radio__bundled.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-button@latest/dist/auro-button__bundled.js" type="module"></script>
   </body>
 </html>

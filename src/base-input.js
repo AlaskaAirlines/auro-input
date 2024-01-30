@@ -51,8 +51,8 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
  * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
  * @attr {Boolean} activeLabel - If set, the label will remain fixed in the active position.
- * @attr {String} max = The maximum value allowed. This only applies for inputs with a type of `numeric` and all date formats.
- * @attr {String} min = The minimum value allowed. This only applies for inputs with a type of `numeric` and all date formats.
+ * @attr {String} max - The maximum value allowed. This only applies for inputs with a type of `numeric` and all date formats.
+ * @attr {String} min - The minimum value allowed. This only applies for inputs with a type of `numeric` and all date formats.
  * @attr {Number} maxLength - The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher.
  * @attr {Number} minLength - The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`.
  * @attr {String} spellcheck - An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`.

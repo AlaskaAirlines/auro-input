@@ -24,9 +24,9 @@
 | `isValid`                         | `isValid`                         | `String`  | false                      | (DEPRECATED - Please use validity) Can be accessed to determine if the input validity. Returns true when validity has not yet been checked or validity = 'valid', all other cases return false. Not intended to be set by the consumer. |
 | `label`                           | `label`                           | `String`  | "Input label is undefined" | Deprecated, see `slot`.                          |
 | `lang`                            | `lang`                            | `String`  |                            | defines the language of an element.              |
-| `max`                             | `max`                             | `string`  | "undefined"                |                                                  |
+| `max`                             | `max`                             | `String`  | "undefined"                | The maximum value allowed. This only applies for inputs with a type of `numeric` and all date formats. |
 | `maxLength`                       | `maxLength`                       | `Number`  | "undefined"                | The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher. |
-| `min`                             | `min`                             | `string`  | "undefined"                |                                                  |
+| `min`                             | `min`                             | `String`  | "undefined"                | The minimum value allowed. This only applies for inputs with a type of `numeric` and all date formats. |
 | `minLength`                       | `minLength`                       | `Number`  | "undefined"                | The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`. |
 | `name`                            | `name`                            | `String`  |                            | Populates the `name` attribute on the input.     |
 | `noValidate`                      | `noValidate`                      | `Boolean` | false                      | If set, disables auto-validation on blur.        |
