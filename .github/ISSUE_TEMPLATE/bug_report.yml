@@ -18,7 +18,7 @@ body:
     attributes:
       value: >
         [![See it on
-        NPM!](https://img.shields.io/npm/v/@alaskaairux/auro-input?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@alaskaairux/auro-input)
+        NPM!](https://img.shields.io/npm/v/@aurodesignsystem/auro-input?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurodesignsystem/auro-input)
   - type: textarea
     id: details
     attributes:

@@ -20,8 +20,8 @@ $ npm i @aurodesignsystem/auro-input
 
 ```shell
 $ npm i @alaskaairux/auro-icon
-$ npm i @alaskaairux/design-tokens
-$ npm i @alaskaairux/webcorestylesheets
+$ npm i @aurodesignsystem/design-tokens
+$ npm i @aurodesignsystem/webcorestylesheets
 ```
 
 Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
@@ -60,10 +60,10 @@ In cases where the project is not able to process JS assets, there are pre-proce
 **NOTE:** Be sure to replace `@latest` in the URL with the version of the asset you want. @latest is NOT aware of any MAJOR releases, use at your own risk.
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
-<link rel="stylesheet" href="https://unpkg.com/@alaskaairux/webcorestylesheets@latest/dist/bundled/essentials.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aurodesignsystem/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aurodesignsystem/webcorestylesheets@latest/dist/bundled/essentials.css" />
 
-<script src="https://unpkg.com/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.js" type="module"></script>
 ```
 
 ## auro-input use cases
