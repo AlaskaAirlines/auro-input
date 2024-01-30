@@ -1,5 +1,5 @@
 import { fixture, html, expect, elementUpdated, oneEvent } from '@open-wc/testing';
-import '../index.js';
+import '../src/auro-input.js';
 
 describe('auro-input', () => {
 
@@ -144,6 +144,20 @@ describe('auro-input', () => {
 
     const label = el.shadowRoot.querySelector('label');
     expect([...label.classList]).to.contain('is-disabled');
+  });
+
+  it('sets readonly attribute on HTML5 input', async () => {
+    const el = await fixture(html`
+      <auro-input readonly></auro-input>
+    `);
+
+    expect(el.inputElement.hasAttribute('readonly')).to.be.true;
+
+    el.removeAttribute('readonly');
+
+    await elementUpdated(el);
+    
+    expect(el.inputElement.hasAttribute('readonly')).to.be.false;
   });
 
   it('validates input after first blur', async () => {
