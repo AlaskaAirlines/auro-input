@@ -22,6 +22,7 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
  * Auro-input provides users a way to enter data into a text field.
  *
  * @attr {Boolean} validateOnInput - Sets validation mode to re-eval with each input.
+ * @attr {Boolean} readonly - Makes the input read-only, but can be set programmatically.
  * @attr {String} error - When defined, sets persistent validity to `customError` and sets `setCustomValidity` = attribute value.
  * @prop {String} errorMessage - Contains the help text message for the current validity error.
  * @attr {String} isValid - (DEPRECATED - Please use validity) Can be accessed to determine if the input validity. Returns true when validity has not yet been checked or validity = 'valid', all other cases return false. Not intended to be set by the consumer.
@@ -227,6 +228,7 @@ export default class BaseInput extends LitElement {
       minLength:               { type: Number },
       showPassword:            { state: true },
       validateOnInput:         { type: Boolean },
+      readonly:                { type: Boolean },
       ready:                   { type: Boolean },
       error:                   {
         type: String,
@@ -456,6 +458,14 @@ export default class BaseInput extends LitElement {
     } else {
       this.autocorrect = this.autocorrect ? this.autocorrect : undefined;
       this.autocapitalize = undefined;
+    }
+
+    if (changedProperties.has('readonly')) {
+      if (this.readonly) {
+        this.inputElement.setAttribute('readonly', true);
+      } else {
+        this.inputElement.removeAttribute('readonly');
+      }
     }
 
     if (changedProperties.has('type')) {
