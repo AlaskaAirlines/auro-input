@@ -32,6 +32,7 @@
 | `noValidate`                      | `noValidate`                      | `Boolean` | false                      | If set, disables auto-validation on blur.        |
 | `pattern`                         | `pattern`                         | `String`  |                            | Specifies a regular expression the form control's value should match. |
 | `placeholder`                     | `placeholder`                     | `String`  |                            | Define custom placeholder text, only supported by date input formats. |
+| `readonly`                        | `readonly`                        | `Boolean` |                            | Makes the input read-only, but can be set programmatically. |
 | `ready`                           | `ready`                           | `Boolean` | false                      | When false the component API should not be called. |
 | `required`                        | `required`                        | `Boolean` | false                      | Populates the `required` attribute on the input. Used for client-side validation. |
 | `setCustomValidity`               | `setCustomValidity`               | `String`  |                            | Sets a custom help text message to display for all validityStates. |
