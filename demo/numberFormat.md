@@ -47,7 +47,7 @@ To simulate a payment use test cards from the list below.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -93,7 +93,7 @@ Use the `type="month-day-year"` attribute for a date formatted input.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -117,7 +117,7 @@ Use the `type="month-year"` attribute for a date formatted input.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -141,7 +141,7 @@ Use the `type="month-fullYear"` attribute for a date formatted input.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
@@ -165,7 +165,7 @@ Use the `type="year-month-day"` attribute for a date formatted input.
   </auro-input>
 </div>
 
-<auro-accordion lowProfile justifyRight>
+<auro-accordion alignRight>
   <span slot="trigger">See code</span>
 
   ```html
