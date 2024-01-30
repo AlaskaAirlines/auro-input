@@ -32,7 +32,7 @@ function initializeExample(elements, callback, elementsPendingReady, retryCount)
 /**
  * custom Errors
  */
-import { customError } from './../apiExamples/customError';
+import { customError } from './../apiExamples/error';
 
 (function(){
   initializeExample('#setCustomErrorExample', function(selector) {
@@ -59,5 +59,16 @@ import { swapInputValues } from './../apiExamples/swapValue';
 (function(){
   initializeExample(['#swapExampleBtn', '#swapExampleLeft', '#swapExampleRight'], function(selectors) {
     swapInputValues(selectors);
+  });
+}());
+
+/**
+ * readonly example
+ */
+import { setReadonlyValue } from '../apiExamples/readonly';
+
+(function(){
+  initializeExample(['#readonlyExample', '#setReadonlyValueBtn'], function(selectors) {
+    setReadonlyValue(selectors);
   });
 }());

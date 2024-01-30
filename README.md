@@ -1,14 +1,43 @@
+<!--
+The README.md file is a compiled document. No edits should be made directly to this file.
+
+README.md is created by running `npm run build:docs`.
+
+This file is generated based on a template fetched from
+`https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/README.md`
+and copied to `./componentDocs/README.md` each time the the docs are compiled.
+
+The following sections are editable by making changes to the following files:
+
+| SECTION                | DESCRIPTION                                       | FILE LOCATION                       |
+|------------------------|---------------------------------------------------|-------------------------------------|
+| Description            | Description of the component                      | `./docs/partials/description.md`    |
+| Use Cases              | Examples for when to use this component           | `./docs/partials/useCases.md`       |
+| Additional Information | For use to add any component specific information | `./docs/partials/readmeAddlInfo.md` |
+| Component Example Code | HTML sample code of the components use            | `./apiExamples/basic.html`          |
+-->
+
 # Input
 
-`<auro-input>` is a [HTML custom element](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) containing styling and behavior for a HTML `<input>` element and associated `<label>`. Additional support for helper text to be displayed with the input and client-side validation of the input and display any resulting errors.
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/description.md) -->
+<!-- The below content is automatically added from ./../docs/partials/description.md -->
+Use the `<auro-input>` custom element to create basic single-line text fields. Supports type `text`, `password`, and `email` with validation, required input, error states and a secondary `bordered` theme. Use the slots `label` and `helptext` for additional content support.
+<!-- AURO-GENERATED-CONTENT:END -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/readmeAddlInfo.md) -->
+<!-- The below content is automatically added from ./../docs/partials/readmeAddlInfo.md -->
+<!-- AURO-GENERATED-CONTENT:END -->
 
 ## UI development browser support
 
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/browserSupport.md) -->
 For the most up to date information on [UI development browser support](https://auro.alaskaair.com/support/browsersSupport)
+
+<!-- AURO-GENERATED-CONTENT:END -->
 
 ## Install
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/AlaskaAirlines/auro-input/testPublish.yml?style=for-the-badge)](https://github.com/AlaskaAirlines/auro-input/actions/actions/workflows/testPublish.yml)
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/usage/componentInstall.md) -->
+[![Build Status](https://img.shields.io/github/actions/workflow/status/AlaskaAirlines/auro-input/testPublish.yml?style=for-the-badge)](https://github.com/AlaskaAirlines/auro-input/actions/workflows/testPublish.yml)
 [![See it on NPM!](https://img.shields.io/npm/v/@aurodesignsystem/auro-input?style=for-the-badge&color=orange)](https://www.npmjs.com/package/@aurodesignsystem/auro-input)
 [![License](https://img.shields.io/npm/l/@aurodesignsystem/auro-input?color=blue&style=for-the-badge)](https://www.apache.org/licenses/LICENSE-2.0)
 
@@ -26,94 +55,104 @@ $ npm i @aurodesignsystem/webcorestylesheets
 
 Installing as a direct, dev or peer dependency is up to the user installing the package. If you are unsure as to what type of dependency you should use, consider reading this [stack overflow](https://stackoverflow.com/questions/18875674/whats-the-difference-between-dependencies-devdependencies-and-peerdependencies) answer.
 
+<!-- AURO-GENERATED-CONTENT:END -->
+
 ### Design Token CSS Custom Property dependency
 
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/development/designTokens.md) -->
 The use of any Auro custom element has a dependency on the [Auro Design Tokens](https://auro.alaskaair.com/getting-started/developers/design-tokens).
+
+<!-- AURO-GENERATED-CONTENT:END -->
 
 ### CSS Custom Property fallbacks
 
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/usage/cssFallbacks.md) -->
 [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) are [not supported](https://auro.alaskaair.com/support/custom-properties) in older browsers. For this, fallback properties are pre-generated and included with the npm.
 
 Any update to the Auro Design Tokens will be immediately reflected with browsers that support CSS custom properties, legacy browsers will require updated components with pre-generated fallback properties.
 
+<!-- AURO-GENERATED-CONTENT:END -->
+
 ### Define dependency in project component
 
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/usage/componentImportDescription.md) -->
 Defining the component dependency within each component that is using the `<auro-input>` component.
 
-```javascript
+<!-- AURO-GENERATED-CONTENT:END -->
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/usage/componentImport.md) -->
+
+```js
 import "@aurodesignsystem/auro-input";
 ```
 
+<!-- AURO-GENERATED-CONTENT:END -->
 **Reference component in HTML**
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/basic.html -->
+
 ```html
-<auro-input id="demo"></auro-input>
-<auro-input id="demo" bordered></auro-input>
+<auro-input></auro-input>
+<auro-input bordered></auro-input>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## Install bundled assets from CDN
 
-In cases where the project is not able to process JS assets, there are pre-processed assets available for use.
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/usage/bundleInstallDescription.md) -->
+In cases where the project is not able to process JS assets, there are pre-processed assets available for use. See -- `auro-input__bundled.js` for modern browsers. Legacy browsers such as IE11 are no longer supported.
 
-**NOTE:** Be sure to replace `@latest` in the URL with the version of the asset you want. @latest is NOT aware of any MAJOR releases, use at your own risk.
+We recommend you load these bundles using [differential serving](https://philipwalton.com/articles/deploying-es2015-code-in-production-today/) so that the browser only loads the bundle correctly. To accomplish this, the script tag for the modern bundle should have `type="module"` and the script tag.
+
+<!-- AURO-GENERATED-CONTENT:END -->
+
+### Bundle example code
+
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/usage/bundleUse.md) -->
 
 ```html
+<!-- **NOTE:** Be sure to replace `@latest` in the URL with the version of the asset you want. @latest is NOT aware of any MAJOR releases, use at your own risk. -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aurodesignsystem/design-tokens@latest/dist/tokens/CSSCustomProperties.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aurodesignsystem/webcorestylesheets@latest/dist/bundled/essentials.css" />
-
 <script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-input@latest/dist/auro-input__bundled.js" type="module"></script>
 ```
 
+<!-- AURO-GENERATED-CONTENT:END -->
+
 ## auro-input use cases
 
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/useCases.md) -->
+<!-- The below content is automatically added from ./../docs/partials/useCases.md -->
 The `<auro-input>` element should be used in situations where users may:
 
-* enter a single line of text into a form
-* enter their email into a form
+* needs to enter information
+* be filling out a form
+<!-- AURO-GENERATED-CONTENT:END -->
 
 ## API Code Examples
 
-Default auro-input
+### Default auro-input
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/advanced.html) -->
-<!-- The below code snippet is automatically added from ./apiExamples/advanced.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/basic.html -->
+
 ```html
-<auro-input id="full-name" required>
-  <span slot="label">Name</span>
-</auro-input>
-
-<auro-input id="full-name" required bordered>
-  <span slot="label">Name</span>
-  <span slot="helptext">Please enter your full name.</span>
-</auro-input>
-
-<auro-input id="full-name" type="password" required bordered>
-  <span slot="label">Password</span>
-  <span slot="helptext">Please enter a secure password.</span>
-</auro-input>
-
-<auro-input bordered required disabled type="email" id="email-address">
-  <slot slot="label">Email address</slot>
-  <slot slot="helptext">Please enter your email address.</slot>
-</auro-input>
-
-<auro-input bordered required icon type="credit-card" id="credit-card">
-  <slot slot="label">Card number</slot>
-  <slot slot="helptext">Valid credit card numbers must include 16 digits (15 for Amex).</slot>
-</auro-input>
+<auro-input></auro-input>
+<auro-input bordered></auro-input>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## Development
 
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/development/developmentDescription.md) -->
 In order to develop against this project, if you are not part of the core team, you will be required to fork the project prior to submitting a pull request.
 
 Please be sure to review the [contribution guidelines](https://auro.alaskaair.com/contributing) for this project. Please make sure to **pay special attention** to the **conventional commits** section of the document.
 
+<!-- AURO-GENERATED-CONTENT:END -->
+
 ### Start development environment
 
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/development/localhost.md) -->
 Once the project has been cloned to your local resource and you have installed all the dependencies you will need to open a shell session to run the **dev server**.
 
 ```shell
@@ -130,46 +169,25 @@ $ npm run build:watch
 $ npm run serve
 ```
 
+<!-- AURO-GENERATED-CONTENT:END -->
+
 ### API generation
 
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/development/api.md) -->
 The custom element API file is generated in the build and committed back to the repo with a version change. If the API doc has changed without a version change, author's are to run `npm run build:api` to generate the doc and commit to version control.
+
+<!-- AURO-GENERATED-CONTENT:END -->
 
 ### Testing
 
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/development/testing.md) -->
 Automated tests are required for every Auro component. See `.\test\auro-input.test.js` for the tests for this component. Run `npm test` to run the tests and check code coverage. Tests must pass and meet a certain coverage threshold to commit. See [the testing documentation](https://auro.alaskaair.com/support/tests) for more details.
 
-### Visual regression testing
-
-[BackstopJS](https://github.com/garris/BackstopJS#backstop-features) is used to support our visual regression testing scenarios. Testing is based off of a series of reference images that are committed to this repository. As new work is done, testing will be required in order to ensure visual stability of this element.
-
-For a full description of the [test API](https://github.com/garris/BackstopJS#using-backstopjs).
-
-Visual regression tests require running a local server. Tests will expect `http://localhost:8000`. If a server is not running, please run `$ npm run dev` to start a local server.
-
-The command `$ npm run vrt:test` is part of this element's pre-commit feature. If an issue is discovered it will fall into one of two categories, **resolve** or **approve**.
-
-#### Resolve
-
-If there is a change that is unintended, please address the issue and re-run `$ vrt:test`. Please DO NOT APPROVE an error to the tests.
-
-#### Approve
-
-If the change is expected, run `$ vrt:approve` and the new diff will be added to the test reference files. This step should be committed to the repo's history.
-
-```shell
-test(vrt): update test baseline reference
-```
-
-#### Adding a new scenario
-
-If a new scenario is added to the visual regression suite, you will need to run `$ vrt:ref` to generate new references.
+<!-- AURO-GENERATED-CONTENT:END -->
 
 ### Bundled assets
 
+<!-- AURO-GENERATED-CONTENT:START (REMOTE:url=https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/partials/development/bundles.md) -->
 Bundled assets are only generated in the remote and not merged back to this repo. To review and/or test a bundled asset locally, run `$ npm run bundler` to generate assets.
 
-### Demo deployment
-
-To deploy a demo version of the component for review, run `npm run build:demo` to create a `./build` directory that can be pushed to any static server.
-
-<small>Built from WC-Generator v3.11.0</small>
+<!-- AURO-GENERATED-CONTENT:END -->
