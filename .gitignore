@@ -1,16 +1,15 @@
 .DS_Store
 node_modules/
+docTemplates/
 .cache/
-
-## Backstop resources
-backstop_data/html_report/
-backstop_data/bitmaps_test/
 
 ## Demo support files
 demo/*.css
+demo/*.css.map
 
 ## CSS built from Sass process
 src/*.css
+src/*.css.map
 
 ## *-css built from sass-render process
 *-css.js
@@ -19,5 +18,5 @@ src/*.css
 dist/
 build/
 
-## Karma code coverage reports
+## Code coverage reports
 coverage/
