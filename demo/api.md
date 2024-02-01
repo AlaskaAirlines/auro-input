@@ -195,7 +195,34 @@ Use the `placeholder` attribute to add a custom placeholder message within the e
 </auro-accordion>
 
 ### Value <a name="value"></a>
-Use the `value` attribute to preset the value of the element. This example illustrates how to dynamically change the value of the input.
+Use the `value` attribute to programmatically set the value of the input.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/programmaticValue.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/programmaticValue.html -->
+  <auro-input value="Alaska Airlines is the best!" bordered>
+    <span slot="label">Name</span>
+    <span slot="helptext">Please enter your full name.</span>
+  </auro-input>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/programmaticValue.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/programmaticValue.html -->
+
+```html
+<auro-input value="Alaska Airlines is the best!" bordered>
+  <span slot="label">Name</span>
+  <span slot="helptext">Please enter your full name.</span>
+</auro-input>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
+</auro-accordion>
+
+#### Dynamically Set Value
+
+Use the `value` and other components to dynamically set the value of the input.
 
 Note: Setting the `value` to `undefined` will also reset the element.
 
@@ -224,31 +251,21 @@ Note: Setting the `value` to `undefined` will also reset the element.
 </auro-input>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
-</auro-accordion>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.js) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/value.js -->
 
-#### Setting Value Programmatically
+```js
+export function programmaticallySetValue(elem) {
+  // set value of auro-input element
+  document.querySelector('#setValidValueBtn').addEventListener('click', () => {
+      elem.value = "Alaska Airlines is the best";
+  });
 
-Use the `value` attribute to preset the value of the element. This example illustrates how to programmatically set the value of the input.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/programmaticValue.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/programmaticValue.html -->
-  <auro-input value="Alaska Airlines is the best!" bordered>
-    <span slot="label">Name</span>
-    <span slot="helptext">Please enter your full name.</span>
-  </auro-input>
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-<auro-accordion alignRight>
-  <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/programmaticValue.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/programmaticValue.html -->
-
-```html
-<auro-input value="Alaska Airlines is the best!" bordered>
-  <span slot="label">Name</span>
-  <span slot="helptext">Please enter your full name.</span>
-</auro-input>
+  // reset the value of auro-input element
+  document.querySelector('#resetValueBtn').addEventListener('click', () => {
+      elem.value = '';
+  });
+}
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>

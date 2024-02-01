@@ -74,26 +74,7 @@ Use the `placeholder` attribute to add a custom placeholder message within the e
 
 ### Value <a name="value"></a>
 
-Use the `value` attribute to preset the value of the element. This example illustrates how to dynamically change the value of the input.
-
-Note: Setting the `value` to `undefined` will also reset the element.
-
-<div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/value.html) -->
-  <!-- AURO-GENERATED-CONTENT:END -->
-</div>
-
-<auro-accordion alignRight>
-  <span slot="trigger">See code</span>
-
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.html) -->
-<!-- AURO-GENERATED-CONTENT:END -->
-
-</auro-accordion>
-
-#### Setting Value Programmatically
-
-Use the `value` attribute to preset the value of the element. This example illustrates how to programmatically set the value of the input.
+Use the `value` attribute to programmatically set the value of the input.
 
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/programmaticValue.html) -->
@@ -108,6 +89,27 @@ Use the `value` attribute to preset the value of the element. This example illus
 
 </auro-accordion>
 
+#### Dynamically Set Value
+
+Use the `value` and other components to dynamically set the value of the input.
+
+Note: Setting the `value` to `undefined` will also reset the element.
+
+<div class="exampleWrapper">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/value.html) -->
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.html) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.js) -->
+<!-- AURO-GENERATED-CONTENT:END -->
+
+</auro-accordion>
 
 ### Max <a name="max"></a>
 
