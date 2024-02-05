@@ -1,5 +1,21 @@
 # Semantic Release Automated Changelog
 
+# [2.17.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.16.1...v2.17.0) (2024-02-05)
+
+
+### Features
+
+* **readonly:** add readonly attribute [#284](https://github.com/AlaskaAirlines/auro-input/issues/284) ([2852c1c](https://github.com/AlaskaAirlines/auro-input/commit/2852c1c15939a86736044df2c46b127b32355738))
+
+
+### Performance Improvements
+
+* **docs:** refactor doc structure ([8afb847](https://github.com/AlaskaAirlines/auro-input/commit/8afb84733669901cf6cacfb82e0c86b0f90b48e2))
+* **ignore:** edit ignore files ([598ecaf](https://github.com/AlaskaAirlines/auro-input/commit/598ecafbea5ac410eba7e37d49071e36bbe561ab))
+* **readme:** update readme based on template ([d02017f](https://github.com/AlaskaAirlines/auro-input/commit/d02017f9898147947b9afabefeb7f3bebd888012))
+* **readonly:** make fixes based on PR review ([0283fba](https://github.com/AlaskaAirlines/auro-input/commit/0283fba4d67b7f43fae9d2bbd17f038445534135))
+* **value:** improve value example ([ccaa421](https://github.com/AlaskaAirlines/auro-input/commit/ccaa421321327a030aca23e254def1e6e935fc20))
+
 ## [2.16.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.16.0...v2.16.1) (2024-01-31)
 
 
