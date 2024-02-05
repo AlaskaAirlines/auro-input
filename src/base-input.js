@@ -463,8 +463,10 @@ export default class BaseInput extends LitElement {
     if (changedProperties.has('readonly')) {
       if (this.readonly) {
         this.inputElement.setAttribute('readonly', true);
+        this.inputElement.setAttribute('aria-readonly', true);
       } else {
         this.inputElement.removeAttribute('readonly');
+        this.inputElement.removeAttribute('aria-readonly');
       }
     }
 
