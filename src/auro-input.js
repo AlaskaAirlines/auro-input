@@ -120,7 +120,7 @@ export class AuroInput extends BaseInput {
                 aria-hidden="true"
                 class="inputElement-icon iconButton"
                 tabindex="-1">
-                ${this.closeSvg}
+                ${this.readonly ? undefined : this.closeSvg}
               </button>
             `}
         </div>

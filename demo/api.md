@@ -443,6 +443,7 @@ In this example, the user is able to programmatically change the value of the in
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/readonly.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/readonly.html -->
   <auro-button id="setReadonlyValueBtn">Set Value to Auro Alaska</auro-button>
+  <auro-button id="resetReadonlyValueBtn">Reset</auro-button>
   <auro-input readonly bordered id="readonlyExample">
     <span slot="label">Name</span>
     <span slot="helptext">Please enter your full name.</span>
@@ -456,6 +457,7 @@ In this example, the user is able to programmatically change the value of the in
 
 ```html
 <auro-button id="setReadonlyValueBtn">Set Value to Auro Alaska</auro-button>
+<auro-button id="resetReadonlyValueBtn">Reset</auro-button>
 <auro-input readonly bordered id="readonlyExample">
   <span slot="label">Name</span>
   <span slot="helptext">Please enter your full name.</span>
@@ -473,6 +475,10 @@ export function setReadonlyValue() {
   document.querySelector('#setReadonlyValueBtn').addEventListener('click', () => {
       elem.value = "Auro Alaska";
   });
+
+  document.querySelector('#resetReadonlyValueBtn').addEventListener('click', () => {
+    elem.value = undefined;
+});
 }
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
