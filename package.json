@@ -20,6 +20,7 @@
     "node": "^18 || ^20"
   },
   "dependencies": {
+    "@aurodesignsystem/auro-library": "^2.4.7",
     "chalk": "^5.2.0",
     "cleave.js": "^1.6.0",
     "lit": "^3.1.2"
