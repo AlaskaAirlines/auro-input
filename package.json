@@ -120,7 +120,9 @@
             "./package.json",
             "./CHANGELOG.md",
             "./README.md",
-            "./docs/api.md"
+            "./docs/api.md",
+            "./demo/demo.md",
+            "./demo/apiExamples.md"
           ]
         }
       ],
@@ -170,6 +172,7 @@
     "vrt:ref": "backstop reference",
     "vrt:report": "backstop openReport",
     "vrt:test": "backstop test",
-    "types": "tsc"
+    "types": "tsc",
+    "postversion": "npm-run-all build:api build:docs"
   }
 }
