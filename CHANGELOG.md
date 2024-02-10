@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.17.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.0...v2.17.1) (2024-02-10)
+
+
+### Performance Improvements
+
+* update dependencies to support SSR ([7e14f74](https://github.com/AlaskaAirlines/auro-input/commit/7e14f742d8f4b54ebaab6cfe57a8a92030f654dc))
+
 # [2.17.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.16.1...v2.17.0) (2024-02-05)
 
 
