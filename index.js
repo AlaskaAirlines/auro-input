@@ -1,4 +1,4 @@
-import { AuroInput } from './src/auro-input.js';
+import { AuroInput } from './src/auro-input.mjs';
 
 /**
  * Register Custom Element.

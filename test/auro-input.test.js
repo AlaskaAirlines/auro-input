@@ -1,5 +1,5 @@
 import { fixture, html, expect, elementUpdated, oneEvent } from '@open-wc/testing';
-import '../src/auro-input.js';
+import '../src/auro-input.mjs';
 
 describe('auro-input', () => {
 
@@ -156,7 +156,7 @@ describe('auro-input', () => {
     el.removeAttribute('readonly');
 
     await elementUpdated(el);
-    
+
     expect(el.inputElement.hasAttribute('readonly')).to.be.false;
   });
 

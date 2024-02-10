@@ -12,8 +12,8 @@ import { html } from "lit";
 import { repeat } from 'lit/directives/repeat.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import i18n from './i18n.js';
-import BaseInput from './base-input';
+import i18n from './i18n.mjs';
+import BaseInput from './base-input.mjs';
 
 // build the component class
 export class AuroInput extends BaseInput {

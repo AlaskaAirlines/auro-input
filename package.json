@@ -140,7 +140,7 @@
   ],
   "scripts": {
     "build": "npm-run-all build:sass sass:render dist:js build:api test build:docs bundler postinstall types",
-    "build:api": "wca analyze 'src/auro-input.js' --outFiles docs/api.md",
+    "build:api": "wca analyze 'src/auro-input.mjs' --outFiles docs/api.md",
     "build:demo": "npm-run-all build demo:rm:build demo:new:build demo:copy:index demo:copy:demo demo:update:index",
     "build:dev:assets": "npm-run-all build:sass:component postCss:component sass:render",
     "build:docs": "node scripts/generateDocs.mjs",
