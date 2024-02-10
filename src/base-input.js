@@ -11,10 +11,10 @@ import { LitElement, css, html } from "lit";
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import styleCss from "./style-css.js";
-import closelg from '@alaskaairux/icons/dist/icons/interface/x-sm_es6.js';
-import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password_es6.js';
-import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password_es6.js';
-import alert from '@alaskaairux/icons/dist/icons/alert/error_es6.js';
+import closelg from '@alaskaairux/icons/dist/icons/interface/x-sm.mjs';
+import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password.mjs';
+import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password.mjs';
+import alert from '@alaskaairux/icons/dist/icons/alert/error.mjs';
 import Cleave from 'cleave.js';
 import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
 
