@@ -23,6 +23,11 @@ console.log(chalk.hex('#f26135')(`
         Thanks for installing the latest version
         of `) + chalk.hex('#ffd200').bold(`${pjson.name} v${pjson.version}.`) + chalk.hex('#f26135')(`
 
+          IMPORTANT: Auro Input requires
+        @alaskaairux/icons ${pjson.peerDependencies['@alaskaairux/icons']} installed.
+
+       Be sure to check your peer dependencies.
+
 ╰─────────────────────────────── ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─╯
 `)
 );
