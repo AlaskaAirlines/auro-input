@@ -29,10 +29,12 @@ function handleChange(mutationList) {
   });
 }
 
-if (window.MutationObserver) {
-  const observer = new MutationObserver(handleChange);
-  observer.observe(document.documentElement, { attributes: true,
-    attributeFilter: ['lang'] });
+if (typeof window !== "undefined") {
+  if (window.MutationObserver) {
+    const observer = new MutationObserver(handleChange);
+    observer.observe(document.documentElement, { attributes: true,
+      attributeFilter: ['lang'] });
+  }
 }
 
 const stringsES = {
