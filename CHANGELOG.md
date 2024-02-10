@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.17.2](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.1...v2.17.2) (2024-02-10)
+
+
+### Performance Improvements
+
+* update element to use new icon refs ([d9582c8](https://github.com/AlaskaAirlines/auro-input/commit/d9582c84d03bcd893162fa5d71b2a0fb722b238c))
+
 ## [2.17.1](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.0...v2.17.1) (2024-02-10)
 
 
