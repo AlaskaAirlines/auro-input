@@ -1,7 +1,7 @@
-export function swapInputValues(selectors) {
-  const btn = document.querySelector(selectors[0]);
-  const inputOne = document.querySelector(selectors[1]);
-  const inputTwo = document.querySelector(selectors[2]);
+export function swapInputValues() {
+  const btn = document.querySelector('#swapExampleBtn');
+  const inputOne = document.querySelector('#swapExampleLeft');
+  const inputTwo = document.querySelector('#swapExampleRight');
 
   btn.addEventListener('click', () => {
     const valueOne = inputOne.value;
