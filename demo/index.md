@@ -16,6 +16,13 @@
   }
 </style>
 
+# test
+
+  <auro-input type="password" required bordered>
+    <span slot="label">Password</span>
+    <span slot="helptext">Please enter a secure password.</span>
+  </auro-input>
+
 # Input
 
 <!-- AURO-GENERATED-CONTENT:START (FILE:src=./description.md) -->
