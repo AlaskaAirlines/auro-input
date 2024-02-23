@@ -3,7 +3,7 @@ import { setReadonlyValue } from "../apiExamples/readonly";
 import { swapInputValues } from "../apiExamples/swapValue";
 import { programmaticallySetValue } from "../apiExamples/value";
 
-export function initInputApiExamples(initCount) {
+export function initExamples(initCount) {
   initCount = initCount || 0;
 
   try {
@@ -15,7 +15,7 @@ export function initInputApiExamples(initCount) {
     if (initCount <= 20) {
       // setTimeout handles issue where content is sometimes loaded after the functions get called
       setTimeout(() => {
-        initInputApiExamples(initCount + 1);
+        initExamples(initCount + 1);
       }, 100);
     }
   }
