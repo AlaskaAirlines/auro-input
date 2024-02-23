@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [2.17.6](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.5...v2.17.6) (2024-02-23)
+
+
+### Performance Improvements
+
+* **docs:** update minified js system ([785fdf8](https://github.com/AlaskaAirlines/auro-input/commit/785fdf8e76b7964803be09da555353054e94eb9d))
+* **js:** implement minified js example system [#289](https://github.com/AlaskaAirlines/auro-input/issues/289) ([6b11a42](https://github.com/AlaskaAirlines/auro-input/commit/6b11a42b70a6283f1174d8a4868ea5afac42aa2d))
+
 ## [2.17.5](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.4...v2.17.5) (2024-02-13)
 
 
