@@ -47,17 +47,6 @@
   }
 }
 
-.passwordToggle {
-  visibility: hidden;
-}
-
-.passwordIcon--show {
-  .passwordToggle {
-    cursor: pointer;
-    visibility: visible;
-  }
-}
-
 // this is to disable the toggle-password feature in MS Edge only
 input {
   &::-ms-reveal,
@@ -219,6 +208,9 @@ input {
   right: 0;
 
   pointer-events: none;
+
+  display: flex;
+  flex-direction: row;
 }
 
 .is-disabled {

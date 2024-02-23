@@ -939,38 +939,6 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * Supports show-password feature.
-   * @private
-   * @returns {string} Returns HTML for SVG, function to toggle between password icons.
-   */
-  togglePasswordIcon() {
-    if (this.showPassword) {
-      return this.hidePassword;
-    }
-
-    return this.viewPassword;
-  }
-
-  /**
-   * Supports show-password feature.
-   * @private
-   * @returns {string} Function for managing the display of the show-password icon.
-   */
-  showPasswordIcon() {
-    if (this.type === 'password') {
-      return html`
-        <button
-          class="iconButton passwordToggle"
-          @click="${this.handleClickShowPassword}"
-          tabindex="-1"
-        >${this.togglePasswordIcon()}</button>
-      `;
-    }
-
-    return null;
-  }
-
-  /**
    * Support placeholder text.
    * @private
    * @returns {string}

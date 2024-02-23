@@ -109,21 +109,26 @@ export class AuroInput extends BaseInput {
       }
 
       <div class="iconContainer" part="iconContainer">
-        <div class="${classMap(iconClasses)}">
-          ${this.showPasswordIcon()}
-          ${this.validity !== undefined && this.validity !== 'valid'
-            ? html`
-              <span class="alertIcon">${this.alertSvg}</span>
-            ` : html`
-              <button
-                @click="${this.handleClickClear}"
-                aria-hidden="true"
-                class="inputElement-icon iconButton"
-                tabindex="-1">
-                ${this.readonly ? undefined : this.closeSvg}
-              </button>
-            `}
-        </div>
+        ${this.type === 'password' ? html`
+          <button
+            @click="${this.handleClickShowPassword}"
+            class="inputElement-icon iconButton "
+            tabindex="-1">
+            ${this.showPassword ? this.hidePassword : this.viewPassword}
+          </button>
+        ` : undefined}
+        ${this.value && this.value.length > 0 ? html`
+          <button
+            @click="${this.handleClickClear}"
+            aria-hidden="true"
+            class="inputElement-icon iconButton"
+            tabindex="-1">
+            ${this.readonly ? undefined : this.closeSvg}
+          </button>
+        ` : undefined}
+        ${this.validity !== undefined && this.validity !== 'valid' ? html`
+          <span class="alertIcon">${this.alertSvg}</span>
+        ` : undefined}
       </div>
     `;
   }
