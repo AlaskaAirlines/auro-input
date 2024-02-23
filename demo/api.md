@@ -255,7 +255,9 @@ Note: Setting the `value` to `undefined` will also reset the element.
 <!-- The below code snippet is automatically added from ./../../apiExamples/value.js -->
 
 ```js
-export function programmaticallySetValue(elem) {
+export function programmaticallySetValue() {
+  const elem = document.querySelector('#setProgrammaticValueExample');
+
   // set value of auro-input element
   document.querySelector('#setValidValueBtn').addEventListener('click', () => {
       elem.value = "Alaska Airlines is the best";
@@ -1127,10 +1129,10 @@ Example illustrates using a JavaScript function attached to an `auro-button` com
 <!-- The below code snippet is automatically added from ./../../apiExamples/swapValue.js -->
 
 ```js
-export function swapInputValues(selectors) {
-  const btn = document.querySelector(selectors[0]);
-  const inputOne = document.querySelector(selectors[1]);
-  const inputTwo = document.querySelector(selectors[2]);
+export function swapInputValues() {
+  const btn = document.querySelector('#swapExampleBtn');
+  const inputOne = document.querySelector('#swapExampleLeft');
+  const inputTwo = document.querySelector('#swapExampleRight');
 
   btn.addEventListener('click', () => {
     const valueOne = inputOne.value;

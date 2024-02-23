@@ -27,15 +27,13 @@
           Prism.highlightAll();
         });
     </script>
-    <script type="module" src="../index.js"></script>
-    <script src="./index.min.js"></script>
-    <script>
-      initInputIndexExamples();
-    </script>
+    
     <script type="module">
       import { registerComponent } from '../index.js';
+      import { initExamples } from "./index.min.js";
 
       registerComponent('custom-input');
+      initExamples();
     </script>
 
     <!-- If additional elements are needed for the demo, add them here. -->

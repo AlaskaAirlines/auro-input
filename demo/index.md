@@ -221,8 +221,8 @@ The `auro-input` element supports the localization of all content managed within
 
 <auro-radio-group required horizontal>
   <span slot="legend">Use the options here to toggle between languages</span>
-  <auro-radio id="radio" name="langDemo" value="en" onclick="changeLang('en')" checked>English</auro-radio>
-  <auro-radio id="radio" name="langDemo" value="es" onclick="changeLang('es')">Spanish</auro-radio>
+  <auro-radio id="enButton" name="langDemo" value="en" checked>English</auro-radio>
+  <auro-radio id="esButton" name="langDemo" value="es">Spanish</auro-radio>
 </auro-radio-group>
 
 ## Recommended Use and Version Control
