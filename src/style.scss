@@ -179,9 +179,9 @@ input {
   justify-content: flex-end;
   pointer-events: auto;
 
-  * {
-    margin-left: var(--ds-size-100, $ds-size-100);
-  }
+  // * {
+  //   margin-left: var(--ds-size-100, $ds-size-100);
+  // }
 }
 
 .iconButton {
@@ -211,6 +211,7 @@ input {
 
   display: flex;
   flex-direction: row;
+  gap: var(--ds-size-100, $ds-size-100);
 }
 
 .is-disabled {
@@ -508,7 +509,7 @@ input {
 :host(:hover:not([disabled])) {
   .iconButton {
     opacity: 1;
-    pointer-events: unset;
+    pointer-events: auto;
   }
 }
 
