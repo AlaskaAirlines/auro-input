@@ -69,8 +69,12 @@ describe('auro-input', () => {
       <auro-input type="password" value="password" label="password"></auro-input>
     `);
 
-    const toggle = el.shadowRoot.querySelector('.passwordToggle');
-    const input = el.shadowRoot.querySelector('.inputElement');
+    const toggle = el.shadowRoot.querySelector('.passwordBtn button');
+    const input = el.shadowRoot.querySelector('input');
+
+    input.focus();
+    el.value = 'test';
+    await elementUpdated();
     toggle.click();
     await elementUpdated(input);
     expect(input.type).to.equal('text');
@@ -94,8 +98,8 @@ describe('auro-input', () => {
       <auro-input type="number"></auro-input>
     `);
 
-    const input = el.shadowRoot.querySelector('input').getAttribute('inputmode');
-    expect(input).to.equal('numeric');
+    const inputMode = el.shadowRoot.querySelector('input').getAttribute('inputMode');
+    expect(inputMode).to.equal('numeric');
   });
 
   it('does not allow color type', async () => {
