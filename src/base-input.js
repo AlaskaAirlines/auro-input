@@ -7,7 +7,7 @@
 /* eslint no-magic-numbers: ["error", { "ignore": [0] }] */
 /* eslint-disable max-statements */
 
-import { LitElement, css, html } from "lit";
+import { LitElement, css } from "lit";
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import styleCss from "./style-css.js";
@@ -21,55 +21,58 @@ import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
 /**
  * Auro-input provides users a way to enter data into a text field.
  *
- * @attr {Boolean} validateOnInput - Sets validation mode to re-eval with each input.
- * @attr {Boolean} readonly - Makes the input read-only, but can be set programmatically.
- * @attr {String} error - When defined, sets persistent validity to `customError` and sets `setCustomValidity` = attribute value.
- * @prop {String} errorMessage - Contains the help text message for the current validity error.
- * @attr {String} isValid - (DEPRECATED - Please use validity) Can be accessed to determine if the input validity. Returns true when validity has not yet been checked or validity = 'valid', all other cases return false. Not intended to be set by the consumer.
- * @attr {String} validity - Specifies the `validityState` this element is in.
- * @attr {String} setCustomValidity - Sets a custom help text message to display for all validityStates.
- * @attr {String} setCustomValidityCustomError - Custom help text message to display when validity = `customError`.
- * @attr {String} setCustomValidityValueMissing - Custom help text message to display when validity = `valueMissing`.
- * @attr {String} setCustomValidityBadInput - Custom help text message to display when validity = `badInput`.
- * @attr {String} setCustomValidityTooShort - Custom help text message to display when validity = `tooShort`.
- * @attr {String} setCustomValidityTooLong - Custom help text message to display when validity = `tooLong`.
- * @attr {String} setCustomValidityForType - Custom help text message to display for the declared element `type` and type validity fails.
- * @attr {String} setCustomValidityRangeOverflow - Custom help text message to display when validity = `rangeOverflow`.
- * @attr {String} setCustomValidityRangeUnderflow - Custom help text message to display when validity = `rangeUnderflow`.
- * @attr {String} helpText - Deprecated, see `slot`.
- * @attr {String} id - Sets the unique ID of the element.
- * @attr {String} label - Deprecated, see `slot`.
- * @attr {String} name - Populates the `name` attribute on the input.
- * @attr {String} type - Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`, `month-day-year`, `month-year`, `year-month-day`  or `text`. If given value is not allowed or set, defaults to `text`.
- * @attr {String} value - Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input.
- * @attr {String} placeholder - Define custom placeholder text, only supported by date input formats.
- * @attr {String} lang - defines the language of an element.
- * @attr {Boolean} icon - If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format.
+ * @attr {Boolean} activeLabel - If set, the label will remain fixed in the active position.
+ * @attr {String}  autocapitalize - An enumerated attribute that controls whether and how text input is automatically capitalized as it is entered/edited by the user. [off/none, on/sentences, words, characters]
+ * @attr {String}  autocorrect - When set to `off`, stops iOS from auto correcting words when typed into a text box.
  * @attr {Boolean} bordered - Applies bordered UI variant.
  * @attr {Boolean} borderless - Applies borderless UI variant.
  * @attr {Boolean} disabled - If set, disables the input.
+ * @attr {String}  error - When defined, sets persistent validity to `customError` and sets `setCustomValidity` = attribute value.
+ * @prop {String}  errorMessage - Contains the help text message for the current validity error.
+ * @attr {String}  helpText - Deprecated, see `slot`.
+ * @attr {Boolean} icon - If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format.
+ * @attr {String}  id - Sets the unique ID of the element.
+ * @attr {String}  isValid - (DEPRECATED - Please use validity) Can be accessed to determine if the input validity. Returns true when validity has not yet been checked or validity = 'valid', all other cases return false. Not intended to be set by the consumer.
+ * @attr {String}  label - Deprecated, see `slot`.
+ * @attr {String}  lang - defines the language of an element.
+ * @attr {String}  max - The maximum value allowed. This only applies for inputs with a type of `numeric` and all date formats.
+ * @attr {Number}  maxLength - The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher.
+ * @attr {String}  min - The minimum value allowed. This only applies for inputs with a type of `numeric` and all date formats.
+ * @attr {Number}  minLength - The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`.
+ * @attr {String}  name - Populates the `name` attribute on the input.
  * @attr {Boolean} noValidate - If set, disables auto-validation on blur.
- * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
- * @attr {Boolean} activeLabel - If set, the label will remain fixed in the active position.
- * @attr {String} max - The maximum value allowed. This only applies for inputs with a type of `numeric` and all date formats.
- * @attr {String} min - The minimum value allowed. This only applies for inputs with a type of `numeric` and all date formats.
- * @attr {Number} maxLength - The maximum number of characters the user can enter into the text input. This must be an integer value `0` or higher.
- * @attr {Number} minLength - The minimum number of characters the user can enter into the text input. This must be an non-negative integer value smaller than or equal to the value specified by `maxlength`.
- * @attr {String} spellcheck - An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`.
- * @attr {String} autocorrect - When set to `off`, stops iOS from auto correcting words when typed into a text box.
- * @attr {String} autocapitalize - An enumerated attribute that controls whether and how text input is automatically capitalized as it is entered/edited by the user. [off/none, on/sentences, words, characters]
- * @attr {String} pattern - Specifies a regular expression the form control's value should match.
+ * @attr {Boolean} readonly - Makes the input read-only, but can be set programmatically.
  * @prop {Boolean} ready - When false the component API should not be called.
+ * @attr {Boolean} required - Populates the `required` attribute on the input. Used for client-side validation.
+ * @attr {String}  pattern - Specifies a regular expression the form control's value should match.
+ * @attr {String}  placeholder - Define custom placeholder text, only supported by date input formats.
+ * @attr {String}  setCustomValidity - Sets a custom help text message to display for all validityStates.
+ * @attr {String}  setCustomValidityCustomError - Custom help text message to display when validity = `customError`.
+ * @attr {String}  setCustomValidityValueMissing - Custom help text message to display when validity = `valueMissing`.
+ * @attr {String}  setCustomValidityBadInput - Custom help text message to display when validity = `badInput`.
+ * @attr {String}  setCustomValidityTooShort - Custom help text message to display when validity = `tooShort`.
+ * @attr {String}  setCustomValidityTooLong - Custom help text message to display when validity = `tooLong`.
+ * @attr {String}  setCustomValidityForType - Custom help text message to display for the declared element `type` and type validity fails.
+ * @attr {String}  setCustomValidityRangeOverflow - Custom help text message to display when validity = `rangeOverflow`.
+ * @attr {String}  setCustomValidityRangeUnderflow - Custom help text message to display when validity = `rangeUnderflow`.
+ * @attr {String}  spellcheck - An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`.
+ * @attr {String}  type - Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`, `month-day-year`, `month-year`, `year-month-day`  or `text`. If given value is not allowed or set, defaults to `text`.
+ * @attr {Boolean} validateOnInput - Sets validation mode to re-eval with each input.
+ * @attr {String}  validity - Specifies the `validityState` this element is in.
+ * @attr {String}  value - Populates the `value` attribute on the input. Can also be read to retrieve the current value of the input.
+ *
  * @slot helptext - Sets the help text displayed below the input.
  * @slot label - Sets the label text for the input.
+ *
  * @csspart label - Use for customizing the style of the label element
  * @csspart helpText - Use for customizing the style of the helpText element
  * @csspart accentIcon - Use for customizing the style of the accentIcon element (e.g. credit card icon, calendar icon)
  * @csspart iconContainer - Use for customizing the style of the iconContainer (e.g. X icon for clearing input value)
+ *
  * @event input - Event fires when the value of an `auro-input` has been changed.
- * @fires auroInput-helpText - Notifies that the helpText message has changed.
- * @fires auroInput-ready - Notifies that the component has finished initializing.
- * @fires auroInput-validated - Notifies that the `validity` value has changed.
+ * @event auroInput-helpText - Notifies that the helpText message has changed.
+ * @event auroInput-ready - Notifies that the component has finished initializing.
+ * @event auroInput-validated - Notifies that the `validity` value has changed.
  */
 
 export default class BaseInput extends LitElement {
@@ -111,7 +114,7 @@ export default class BaseInput extends LitElement {
     /**
      * @private
      */
-    this.inputmode = '';
+    this.inputMode = '';
 
     /**
      * @private
@@ -278,7 +281,7 @@ export default class BaseInput extends LitElement {
             delimiter: ''
           };
 
-          this.inputmode = 'numeric';
+          this.inputMode = 'numeric';
 
           break;
 
@@ -287,7 +290,7 @@ export default class BaseInput extends LitElement {
             creditCard: true
           };
 
-          this.inputmode = 'numeric';
+          this.inputMode = 'numeric';
 
           break;
 
@@ -302,7 +305,7 @@ export default class BaseInput extends LitElement {
             ]
           };
 
-          this.inputmode = 'numeric';
+          this.inputMode = 'numeric';
 
           break;
 
@@ -317,7 +320,7 @@ export default class BaseInput extends LitElement {
             ]
           };
 
-          this.inputmode = 'numeric';
+          this.inputMode = 'numeric';
 
           break;
 
@@ -330,7 +333,7 @@ export default class BaseInput extends LitElement {
             ]
           };
 
-          this.inputmode = 'numeric';
+          this.inputMode = 'numeric';
 
           break;
 
@@ -343,7 +346,7 @@ export default class BaseInput extends LitElement {
             ]
           };
 
-          this.inputmode = 'numeric';
+          this.inputMode = 'numeric';
 
           break;
 
@@ -365,7 +368,7 @@ export default class BaseInput extends LitElement {
   }
 
   firstUpdated() {
-    // add attribute for queryselectors when auro-input is registered under a custom name
+    // add attribute for query selectors when auro-input is registered under a custom name
     if (this.tagName.toLowerCase() !== 'auro-input') {
       this.setAttribute('auro-icon', true);
     }
@@ -373,7 +376,7 @@ export default class BaseInput extends LitElement {
     this.inputElement = this.renderRoot.querySelector('input');
     this.labelElement = this.shadowRoot.querySelector('label');
 
-    // use valiity message override if declared when initializing the component
+    // use validity message override if declared when initializing the component
     if (this.hasAttribute('setCustomValidity')) {
       this.ValidityMessageOverride = this.setCustomValidity;
     }
@@ -429,14 +432,6 @@ export default class BaseInput extends LitElement {
           }
         }
       }
-    });
-
-    this.addEventListener('mouseover', () => {
-      this.classList.add('hover');
-    });
-
-    this.addEventListener('mouseout', () => {
-      this.classList.remove('hover');
     });
 
     this.notifyReady();
@@ -903,9 +898,8 @@ export default class BaseInput extends LitElement {
   }
 
   /**
-   * Return appropriate error message.
+   * Set appropriate error message.
    * @private
-   * @returns {string} Error string.
    */
   getErrorMessage() {
     if (this.validity !== 'valid') {
