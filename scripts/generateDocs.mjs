@@ -151,7 +151,7 @@ function processDemo() {
  * Compiles `./docs/partials/api.md` -> `./demo/api.md`
  */
 
-function processApiExamples() {
+function processApi() {
   const callback = function(updatedContent, outputConfig) {
     if (fs.existsSync('./demo/api.md')) {
       fs.readFile('./demo/api.md', 'utf8', function(err, data) {
@@ -206,5 +206,5 @@ function copyReadmeLocally() {
  * Run all the actual document generation
  */
 copyReadmeLocally();
-processApiExamples();
+processApi();
 processDemo();

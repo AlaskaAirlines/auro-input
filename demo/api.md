@@ -134,13 +134,11 @@ Use the `disable` attribute to prevent the user from interacting with the input.
 <div class="exampleWrapper exampleWrapper--flex">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/disabled.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/disabled.html -->
-  <auro-input disabled required>
-    <slot slot="label">Address</slot>
-    <slot slot="helptext">Please enter your home address.</slot>
+  <auro-input disabled type="month-day-year" required>
+    <slot slot="label">Departure date</slot>
   </auro-input>
-  <auro-input disabled bordered required>
-    <slot slot="label">Address</slot>
-    <slot slot="helptext">Please enter your home address.</slot>
+  <auro-input disabled bordered type="month-day-year">
+    <slot slot="label">Arrival date</slot>
   </auro-input>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
@@ -150,13 +148,11 @@ Use the `disable` attribute to prevent the user from interacting with the input.
 <!-- The below code snippet is automatically added from ./../../apiExamples/disabled.html -->
 
 ```html
-<auro-input disabled required>
-  <slot slot="label">Address</slot>
-  <slot slot="helptext">Please enter your home address.</slot>
+<auro-input disabled type="month-day-year" required>
+  <slot slot="label">Departure date</slot>
 </auro-input>
-<auro-input disabled bordered required>
-  <slot slot="label">Address</slot>
-  <slot slot="helptext">Please enter your home address.</slot>
+<auro-input disabled bordered type="month-day-year">
+  <slot slot="label">Arrival date</slot>
 </auro-input>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
