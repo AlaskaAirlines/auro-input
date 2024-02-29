@@ -1,0 +1,92 @@
+@import './../../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
+
+.typeIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  auro-icon {
+    height: 24px;
+    width: 24px;
+    margin-right: var(--ds-size-100, $ds-size-100);
+  }
+}
+
+.notificationIcons {
+  display: flex;
+  flex-direction: row;
+  gap: var(--ds-size-100, $ds-size-100);
+  padding-right: var(--ds-size-100, $ds-size-100);
+}
+
+:host([disabled]) {
+  .typeIcon {
+    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
+  }
+}
+
+
+:host([bordered]) {
+  .typeIcon {
+    padding-left: var(--ds-size-100, $ds-size-100);
+  }
+
+  .notificationIcons {
+    align-items: center;
+  }
+}
+
+.notification {
+  height: 24px;
+  width: 24px;
+  margin-left: var(--ds-size-100, $ds-size-100);
+}
+
+
+.alertNotification {
+  color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+}
+
+.notificationBtn {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: unset;
+  cursor: pointer;
+}
+
+:host(:not([bordered])) {
+  .typeIcon,
+  .notificationIcons {
+    align-items: flex-end;
+    padding-bottom: 8px;
+  }
+}
+
+// Determine which icons to show based on focus and hover states
+
+@mixin hidden-notification {
+  // display: none;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+:host(:not(:focus-within, :hover)) {
+  .notification {
+    &:not(.alertNotification) {
+      @include hidden-notification;
+    }
+  }
+}
+
+:host(:focus-within),
+:host(:hover) {
+  .alertNotification {
+    @include hidden-notification;
+  }
+}

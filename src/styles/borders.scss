@@ -1,0 +1,117 @@
+/* stylelint-disable no-duplicate-selectors, max-nesting-depth, no-descending-specificity */
+
+@import './../../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
+@import './../../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints';
+
+$border-color: var(--ds-color-border-primary-default, $ds-color-border-primary-default);
+$focus-color: var(--ds-color-ui-default-default, $ds-color-ui-default-default);
+$error-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+
+input {
+  border: unset;
+}
+
+.wrapper {
+  border-style: solid;
+  border-color: transparent;
+  overflow: hidden;
+  position: relative;
+}
+
+:host(:not([bordered], [borderless])) {
+  .wrapper {
+    border-width: 1px 0;
+    border-bottom-color: $border-color;
+  }
+}
+
+:host([bordered]) {
+  .wrapper {
+    border-color: $border-color;
+    border-width: 1px;
+    border-radius: var(--ds-border-radius, $ds-border-radius);
+  }
+}
+
+// Handle highlighting the border during focus and invalid stat
+
+@mixin border-highlight {
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+    
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+    /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+  }
+}
+
+:host([validity]:not([validity='valid'])) {
+  .wrapper {
+    // background-color: lime;
+    // @include border-highlight;
+    // color: $error-color;
+    border-bottom-color: $error-color;
+    
+    // &:before {
+    //   border-bottom-color: $error-color;
+    // }
+  }
+}
+
+:host([validity]:not([validity='valid'])[bordered]) {
+  .wrapper {
+    // background-color: aqua;
+    // @include border-highlight;
+    box-shadow: inset 0 0 0 1px $error-color;
+    border-color: $error-color;
+    
+    // &:before {
+    //   color: $error-color;
+    // }
+  }
+}
+
+:host(:not([borderless])) {
+  .wrapper {
+    &:focus-within {
+      border-bottom-color: $focus-color;
+      
+      @include border-highlight;
+      
+      &:before {
+        border-bottom-color: $focus-color;
+      }
+    }
+  }
+}
+
+:host([bordered]) {
+  .wrapper {
+    &:focus-within {
+      box-shadow: inset 0 0 0 1px $focus-color;
+      border-color: $focus-color;
+    }
+  }
+}
+
+// Handle disabled state
+
+:host([disabled]) {
+  .wrapper {
+    border-bottom-color: var(--ds-color-border-disabled-default, $ds-color-border-disabled-default);
+  }
+}
+
+:host([disabled][bordered]) {
+  .wrapper {
+    border-color: var(--ds-color-border-disabled-default, $ds-color-border-disabled-default);
+  }
+}

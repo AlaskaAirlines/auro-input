@@ -1,0 +1,14 @@
+@import './../../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
+
+.inputElement-helpText {
+  margin: var(--ds-size-50, $ds-size-50) 0;
+  color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
+  font-size: var(--ds-text-body-size-xs, $ds-text-body-size-xs);
+  line-height: 1rem;
+}
+
+:host([validity]:not([validity='valid'])) {
+  .inputElement-helpText {
+    color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+  }
+}

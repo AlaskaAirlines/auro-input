@@ -1,0 +1,91 @@
+@import './../../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
+
+/* stylelint-disable no-duplicate-selectors, max-nesting-depth, no-descending-specificity, selector-max-combinators, selector-max-compound-selectors, selector-no-qualifying-type */
+
+label {
+  position: absolute;
+  transition: all .3s cubic-bezier(.215, .61, .355, 1);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
+  pointer-events: none;
+}
+
+:host(:not([bordered])) {
+  label {
+    top: calc(100% - 4px);
+    transform: translateY(-100%);
+  }
+
+  label {
+    &.withIcon {
+      left: calc(32px);
+    }
+  }
+}
+
+:host([bordered]) {
+  label {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  label {
+    &.withIcon {
+      left: calc(32px + var(--ds-size-100, $ds-size-100));
+    }
+  }
+
+  label {
+    &:not(label.withIcon) {
+      left: calc(var(--ds-size-100, $ds-size-100));
+    }
+  }
+}
+
+// active label for non-bordered inputs
+@mixin active-label {
+  top: 4px;
+  transform: unset;
+  font-size: var(--ds-text-body-size-xs, $ds-text-body-size-xs);
+}
+
+:host(:not([bordered])) {
+  .wrapper {
+    &:focus-within {
+      label {
+        @include active-label;
+      }
+    }
+  }
+
+  label {
+    &.withValue {
+      @include active-label;
+    }
+  }
+}
+
+
+:host([bordered]) {
+  .wrapper {
+    &:focus-within {
+      label {
+        @include active-label;
+      }
+    }
+  }
+
+  label {
+    &.withValue {
+      @include active-label;
+    }
+  }
+}
+
+:host([disabled]) {
+  label {
+    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
+  }
+}
