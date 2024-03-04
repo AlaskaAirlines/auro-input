@@ -30,6 +30,7 @@ input {
     border-color: $border-color;
     border-width: 1px;
     border-radius: var(--ds-border-radius, $ds-border-radius);
+    background-color: var(--ds-color-base-white, $ds-color-base-white);
   }
 }
 
