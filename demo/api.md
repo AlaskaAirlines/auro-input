@@ -485,9 +485,13 @@ export function setReadonlyValue() {
 ### Active Label <a name="activeLabel"></a>
 Example use cases for auro-input support the `activeLabel` attribute. If set, the label will stay fixed in the active position.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/activeLabel.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/activeLabel.html -->
+  <auro-input activeLabel>
+    <slot slot="label">Address</slot>
+    <slot slot="helptext">Please enter your home address.</slot>
+  </auro-input>
   <auro-input activeLabel bordered>
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
@@ -500,6 +504,10 @@ Example use cases for auro-input support the `activeLabel` attribute. If set, th
 <!-- The below code snippet is automatically added from ./../../apiExamples/activeLabel.html -->
 
 ```html
+<auro-input activeLabel>
+  <slot slot="label">Address</slot>
+  <slot slot="helptext">Please enter your home address.</slot>
+</auro-input>
 <auro-input activeLabel bordered>
   <slot slot="label">Address</slot>
   <slot slot="helptext">Please enter your home address.</slot>
