@@ -67,7 +67,6 @@ label {
   }
 }
 
-
 :host([bordered]) {
   .wrapper {
     &:focus-within {
@@ -79,6 +78,14 @@ label {
 
   label {
     &.withValue {
+      @include active-label;
+    }
+  }
+}
+
+:host([activeLabel]) {
+  .wrapper {
+    label {
       @include active-label;
     }
   }

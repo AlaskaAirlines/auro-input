@@ -245,7 +245,7 @@ In this example, the user is able to programmatically change the value of the in
 
 Example use cases for auro-input support the `activeLabel` attribute. If set, the label will stay fixed in the active position.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/activeLabel.html) -->
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
