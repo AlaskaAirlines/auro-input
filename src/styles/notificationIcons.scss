@@ -15,7 +15,6 @@
 .notificationIcons {
   display: flex;
   flex-direction: row;
-  gap: var(--ds-size-100, $ds-size-100);
   padding-right: var(--ds-size-100, $ds-size-100);
 }
 
@@ -39,7 +38,10 @@
 .notification {
   height: 24px;
   width: 24px;
-  margin-left: var(--ds-size-100, $ds-size-100);
+
+  &:not(:first-of-type) {
+    margin-left: var(--ds-size-100, $ds-size-100);
+  }
 }
 
 
