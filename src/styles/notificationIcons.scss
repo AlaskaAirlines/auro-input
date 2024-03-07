@@ -66,10 +66,9 @@
   }
 }
 
-// Determine which icons to show based on focus and hover states
+// Determine which icons to show based on focus state
 
 @mixin hidden-notification {
-  // display: none;
   visibility: hidden;
   height: 0;
   width: 0;
@@ -78,17 +77,10 @@
   padding: 0;
 }
 
-:host(:not(:focus-within, :hover)) {
-  .notification {
-    &:not(.alertNotification) {
+:host(:focus-within[type="password"]) {
+  .notificationIcons[hasValue] {
+    .alertNotification {
       @include hidden-notification;
     }
-  }
-}
-
-:host(:focus-within),
-:host(:hover) {
-  .alertNotification {
-    @include hidden-notification;
   }
 }
