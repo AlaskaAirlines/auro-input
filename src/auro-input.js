@@ -94,8 +94,11 @@ export class AuroInput extends BaseInput {
             part="input"
             />
         </div>
-        <div class="notificationIcons" part="notificationIcons">
-          ${this.value && this.value.length > 0 ? html`
+        <div
+          class="notificationIcons"
+          part="notificationIcons"
+          ?hasValue="${this.hasValue}">
+          ${this.hasValue ? html`
             ${this.type === 'password' ? html`
               <div class="notification passwordBtn">
                 <button

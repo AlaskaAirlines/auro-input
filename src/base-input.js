@@ -137,7 +137,7 @@ export default class BaseInput extends LitElement {
     /**
      * @private
      */
-    // this.cursorPosition = 1;
+    this.hasValue = false;
 
     /**
      * Credit Card is not included as this caused cursor placement issues.
@@ -470,6 +470,14 @@ export default class BaseInput extends LitElement {
     }
 
     if (changedProperties.has('value')) {
+      if (this.value && this.value.length > 0) {
+        this.hasValue = true;
+        this.requestUpdate();
+      } else {
+        this.hasValue = false;
+        this.requestUpdate();
+      }
+
       if (this.value !== this.inputElement.value) {
         if (this.value) {
           this.inputElement.value = this.value;
