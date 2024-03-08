@@ -101,6 +101,7 @@
 | [helpText](#helpText)      | Use for customizing the style of the helpText element |
 | [iconContainer](#iconContainer) | Use for customizing the style of the iconContainer (e.g. X icon for clearing input value) |
 | [label](#label)         | Use for customizing the style of the label element |
+| [wrapper](#wrapper)       | Use for customizing the style of the root element |
 <!-- AURO-GENERATED-CONTENT:END -->
 
 # API Examples
