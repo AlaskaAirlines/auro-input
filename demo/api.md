@@ -301,7 +301,7 @@ The `max` attribute should be used in combination with the `setCustomValidityRan
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/maxNumeric.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/maxNumeric.html -->
-  <auro-input type="numeric" max="10" setCustomValidityRangeOverflow="The selected value is above the defined maximum.">
+  <auro-input type="number" max="10" setCustomValidityRangeOverflow="The selected value is above the defined maximum.">
     <span slot="label">Choose a number</span>
   </auro-input>
   <!-- AURO-GENERATED-CONTENT:END -->
@@ -312,7 +312,7 @@ The `max` attribute should be used in combination with the `setCustomValidityRan
 <!-- The below code snippet is automatically added from ./../../apiExamples/maxNumeric.html -->
 
 ```html
-<auro-input type="numeric" max="10" setCustomValidityRangeOverflow="The selected value is above the defined maximum.">
+<auro-input type="number" max="10" setCustomValidityRangeOverflow="The selected value is above the defined maximum.">
   <span slot="label">Choose a number</span>
 </auro-input>
 ```
@@ -352,7 +352,7 @@ The `min` attribute should be used in combination with the `setCustomValidityRan
 <div class="exampleWrapper">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/minNumeric.html) -->
   <!-- The below content is automatically added from ./../../apiExamples/minNumeric.html -->
-  <auro-input type="numeric" min="10" setCustomValidityRangeUnderflow="The selected value is below the defined minimum.">
+  <auro-input type="number" min="10" setCustomValidityRangeUnderflow="The selected value is below the defined minimum.">
     <span slot="label">Choose a number</span>
   </auro-input>
   <!-- AURO-GENERATED-CONTENT:END -->
@@ -363,7 +363,7 @@ The `min` attribute should be used in combination with the `setCustomValidityRan
 <!-- The below code snippet is automatically added from ./../../apiExamples/minNumeric.html -->
 
 ```html
-<auro-input type="numeric" min="10" setCustomValidityRangeUnderflow="The selected value is below the defined minimum.">
+<auro-input type="number" min="10" setCustomValidityRangeUnderflow="The selected value is below the defined minimum.">
   <span slot="label">Choose a number</span>
 </auro-input>
 ```
