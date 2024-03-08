@@ -1,5 +1,7 @@
 @import './../../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
 
+/* stylelint-disable max-nesting-depth, selector-max-class, selector-max-combinators, selector-max-compound-selectors */
+
 .typeIcon {
   display: flex;
   flex-direction: row;
@@ -78,9 +80,11 @@
 }
 
 :host(:focus-within[type="password"]) {
-  .notificationIcons[hasValue] {
-    .alertNotification {
-      @include hidden-notification;
+  .notificationIcons {
+    &[hasValue] {
+      .alertNotification {
+        @include hidden-notification;
+      }
     }
   }
 }
