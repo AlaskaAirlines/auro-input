@@ -779,31 +779,6 @@ export default class BaseInput extends LitElement {
     return this.helpText;
   }
 
-  // /**
-  //  * Set appropriate error message.
-  //  * @private
-  //  */
-  // getErrorMessage() {
-  //   if (this.validity !== 'valid') {
-  //     if (this.setCustomValidity) {
-  //       this.errorMessage = this.setCustomValidity;
-  //     } else if (this.inputElement.validationMessage.length > 0) {
-  //       this.errorMessage = this.inputElement.validationMessage;
-  //     }
-  //   } else {
-  //     this.errorMessage = undefined;
-  //   }
-
-  //   // Not sure if we still need this.
-  //   this.dispatchEvent(new CustomEvent('auroInput-helpText', {
-  //     bubbles: true,
-  //     composed: true,
-  //     detail: {
-  //       message: this.errorMessage
-  //     }
-  //   }));
-  // }
-
   /**
    * Function to support show-password feature.
    * @private
