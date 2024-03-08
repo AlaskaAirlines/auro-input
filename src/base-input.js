@@ -65,6 +65,7 @@ import { AuroFormValidation } from '@aurodesignsystem/auro-formvalidation/src/va
  * @slot helptext - Sets the help text displayed below the input.
  * @slot label - Sets the label text for the input.
  *
+ * @csspart wrapper - Use for customizing the style of the root element
  * @csspart label - Use for customizing the style of the label element
  * @csspart helpText - Use for customizing the style of the helpText element
  * @csspart accentIcon - Use for customizing the style of the accentIcon element (e.g. credit card icon, calendar icon)

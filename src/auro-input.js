@@ -46,7 +46,7 @@ export class AuroInput extends BaseInput {
     };
 
     return html`
-      <div class="wrapper">
+      <div class="wrapper" part="wrapper">
         <div class="main">
           <div class="typeIcon">
             ${this.type === 'credit-card' ? this.processCreditCard() : undefined}
