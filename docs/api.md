@@ -52,19 +52,19 @@
 
 ## Methods
 
-| Method     | Type       | Description                                   |
-|------------|------------|-----------------------------------------------|
-| `validate` | `(): void` | Determines the validity state of the element. |
+| Method     | Type       | Description                              |
+|------------|------------|------------------------------------------|
+| `validate` | `(): void` | Public method force validation of input. |
 
 ## Events
 
-| Event                      | Type                                             | Description                                      |
-|----------------------------|--------------------------------------------------|--------------------------------------------------|
-| `auroInput-helpText`       | `CustomEvent<{ message: any; }>`                 | Notifies that the helpText message has changed.  |
-| `auroInput-ready`          | `CustomEvent<any>`                               | Notifies that the component has finished initializing. |
-| `auroInput-validated`      | `CustomEvent<{ validity: string \| undefined; }>` | Notifies that the `validity` value has changed.  |
-| `auroInput-validityChange` | `CustomEvent<any>`                               |                                                  |
-| `input`                    |                                                  | Event fires when the value of an `auro-input` has been changed. |
+| Event                      | Type               | Description                                      |
+|----------------------------|--------------------|--------------------------------------------------|
+| `auroInput-helpText`       |                    | Notifies that the helpText message has changed.  |
+| `auroInput-ready`          | `CustomEvent<any>` | Notifies that the component has finished initializing. |
+| `auroInput-validated`      |                    | Notifies that the `validity` value has changed.  |
+| `auroInput-validityChange` | `CustomEvent<any>` |                                                  |
+| `input`                    |                    | Event fires when the value of an `auro-input` has been changed. |
 
 ## Slots
 
