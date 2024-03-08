@@ -1,5 +1,23 @@
 # Semantic Release Automated Changelog
 
+## [2.17.7](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.6...v2.17.7) (2024-03-08)
+
+
+### Bug Fixes
+
+* **activeLabel:** fix rendering of label with activeLabel attribute true ([4e0129b](https://github.com/AlaskaAirlines/auro-input/commit/4e0129b6e5a87b6cecd1dd06c168eb9e979b6039))
+* **bordered:** restore backgrond color ([6abfaae](https://github.com/AlaskaAirlines/auro-input/commit/6abfaaeffa7a6ad3539e8c585bb1a2a385b982dc))
+* **error:** correct bottom border on error state ([7c1c8fa](https://github.com/AlaskaAirlines/auro-input/commit/7c1c8fa8f992fea480713b62e79dacee63f50b1a))
+* **icons:** correct icon spacing ([59a41fc](https://github.com/AlaskaAirlines/auro-input/commit/59a41fc8dae6c1d9049d4472256c437369c6d526))
+* styling updates ([1963848](https://github.com/AlaskaAirlines/auro-input/commit/196384814f8fe346d13b2be91247721b93608813))
+
+
+### Performance Improvements
+
+* **icons:** refactor icon implementation ([b809bc3](https://github.com/AlaskaAirlines/auro-input/commit/b809bc3e3369bdf438ecd77f2fa99199eea280fa))
+* **layout:** significatly refactor HTML and style code ([a30f1e9](https://github.com/AlaskaAirlines/auro-input/commit/a30f1e9febb6e775e0bb5bd221eb09f62141c8b1))
+* **validation:** use vaidation package instead of custom local validation ([5208ab2](https://github.com/AlaskaAirlines/auro-input/commit/5208ab2b162af45e4bf5a7cc2ccfd1932e815eaf))
+
 ## [2.17.6](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.5...v2.17.6) (2024-02-23)
 
 
