@@ -98,6 +98,11 @@ export class AuroInput extends BaseInput {
           class="notificationIcons"
           part="notificationIcons"
           ?hasValue="${this.hasValue}">
+          ${this.validity !== undefined && this.validity !== 'valid' ? html`
+            <div class="notification alertNotification">
+              ${this.alertSvg}
+            </div>
+          ` : undefined}
           ${this.hasValue ? html`
             ${this.type === 'password' ? html`
               <div class="notification passwordBtn">
@@ -118,11 +123,6 @@ export class AuroInput extends BaseInput {
                 @click="${this.handleClickClear}">
                 ${this.readonly ? undefined : this.closeSvg}
               </button>
-            </div>
-          ` : undefined}
-          ${this.validity !== undefined && this.validity !== 'valid' ? html`
-            <div class="notification alertNotification">
-              ${this.alertSvg}
             </div>
           ` : undefined}
         </div>
