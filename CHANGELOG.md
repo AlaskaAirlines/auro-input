@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.17.8](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.7...v2.17.8) (2024-03-11)
+
+
+### Performance Improvements
+
+* **part:** add new part for use in styling borders ([d9bddbe](https://github.com/AlaskaAirlines/auro-input/commit/d9bddbed0d8ef3ae1d23b98ea2d492328358cdc0))
+
 ## [2.17.7](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.6...v2.17.7) (2024-03-08)
 
 
