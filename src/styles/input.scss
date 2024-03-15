@@ -1,6 +1,12 @@
 // Support for fallback values
 @import './../../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
 
+$ds-color-ui-transparent-default: transparent;
+
+:host {
+  --ds-color-ui-transparent-default: transparent;
+}
+
 input {
   flex: 1;
   position: relative;
@@ -15,7 +21,7 @@ input {
   text-overflow: ellipsis;
 
   margin: 0;
-  background-color: transparent;
+  background-color: var(--ds-color-ui-transparent-default, $ds-color-ui-transparent-default);
   caret-color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
   font-family: var(--ds-font-family-default, $ds-font-family-default);
   font-size: 1rem;
@@ -29,7 +35,7 @@ input {
   }
 
   &::placeholder {
-    color: transparent;
+    color: var(--ds-color-ui-transparent-default, $ds-color-ui-transparent-default);;
   }
 
   &:focus {

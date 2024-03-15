@@ -3,9 +3,15 @@
 @import './../../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
 @import './../../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints';
 
-$border-color: var(--ds-color-border-primary-default, $ds-color-border-primary-default);
+$border-color-primary: var(--ds-color-border-primary-default, $ds-color-border-primary-default);
 $focus-color: var(--ds-color-ui-default-default, $ds-color-ui-default-default);
 $error-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+
+$ds-color-ui-transparent-default: transparent;
+
+:host {
+  --ds-color-ui-transparent-default: transparent;
+}
 
 input {
   border: unset;
@@ -21,16 +27,16 @@ input {
 :host(:not([bordered], [borderless])) {
   .wrapper {
     border-width: 1px 0;
-    border-bottom-color: $border-color;
+    border-bottom-color: $border-color-primary;
   }
 }
 
 :host([bordered]) {
   .wrapper {
-    border-color: $border-color;
+    border-color: $border-color-primary;
     border-width: 1px;
     border-radius: var(--ds-border-radius, $ds-border-radius);
-    background-color: var(--ds-color-base-white, $ds-color-base-white);
+    background-color: var(--ds-color-background-lightest, $ds-color-background-lightest);
   }
 }
 
@@ -46,7 +52,7 @@ input {
 
     /* stylelint-disable declaration-block-no-redundant-longhand-properties */
     
-    border-bottom-color: transparent;
+    border-bottom-color: var(--ds-color-ui-transparent-default, $ds-color-ui-transparent-default);
     border-bottom-style: solid;
     border-bottom-width: 1px;
 
