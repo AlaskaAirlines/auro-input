@@ -17,7 +17,7 @@ import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password.
 import alert from '@alaskaairux/icons/dist/icons/alert/error.mjs';
 import Cleave from 'cleave.js';
 import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
-import { AuroFormValidation } from '@aurodesignsystem/auro-formvalidation/src/validation.js';
+import AuroFormValidation from '@aurodesignsystem/auro-formvalidation/src/validation.js';
 
 /**
  * Auro-input provides users a way to enter data into a text field.
