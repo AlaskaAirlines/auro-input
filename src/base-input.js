@@ -11,13 +11,14 @@ import { LitElement, css } from "lit";
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import styleCss from "./style-css.js";
-import closelg from '@alaskaairux/icons/dist/icons/interface/x-sm.mjs';
-import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password.mjs';
-import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password.mjs';
-import alert from '@alaskaairux/icons/dist/icons/alert/error.mjs';
 import Cleave from 'cleave.js';
 import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
 import AuroFormValidation from '@aurodesignsystem/auro-formvalidation/src/validation.js';
+
+
+import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
+import { AuroIcon } from '@aurodesignsystem/auro-icon/src/auro-icon.js';
+import iconVersion from './iconVersion';
 
 /**
  * Auro-input provides users a way to enter data into a text field.
@@ -92,26 +93,6 @@ export default class BaseInput extends LitElement {
     const idSubstrStart = 2;
 
     this.isValid = false;
-
-    /**
-     * @private
-     */
-    this.closeSvg = this.getIconAsHtml(closelg);
-
-    /**
-     * @private
-     */
-    this.alertSvg = this.getIconAsHtml(alert);
-
-    /**
-     * @private
-     */
-    this.hidePassword = this.getIconAsHtml(hidePassword);
-
-    /**
-     * @private
-     */
-    this.viewPassword = this.getIconAsHtml(viewPassword);
 
     /**
      * @private
@@ -203,6 +184,14 @@ export default class BaseInput extends LitElement {
       'month-fullyear',
       'year-month-day'
     ];
+
+    /**
+     * Generate unique names for dependency components.
+     */
+    const versioning = new AuroDependencyVersioning();
+    this.iconTag = versioning.generateTag('auro-icon', iconVersion, AuroIcon);
+
+    console.warn(this.iconTag);
   }
 
   // function to define props used within the scope of this component
@@ -261,7 +250,12 @@ export default class BaseInput extends LitElement {
       setCustomValidityTooLong:        { type: String },
       setCustomValidityRangeOverflow:  { type: String},
       setCustomValidityRangeUnderflow: { type: String},
-      customValidityTypeEmail:         { type: String }
+      customValidityTypeEmail:         { type: String },
+
+      /**
+       * @private
+       */
+      iconTag: { type: Object }
     };
   }
 

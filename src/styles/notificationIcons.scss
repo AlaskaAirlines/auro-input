@@ -2,6 +2,14 @@
 
 /* stylelint-disable max-nesting-depth, selector-max-class, selector-max-combinators, selector-max-compound-selectors */
 
+// :root {
+//   --ds-auro-input-icon-color: red; // var(--ds-color-icon-primary-default, $ds-color-icon-primary-default); // pink;
+// }
+
+:host {
+  --ds-auro-input-icon-color: magenta; // var(--ds-color-icon-primary-default, $ds-color-icon-primary-default); // pink;
+}
+
 .typeIcon {
   display: flex;
   flex-direction: row;
@@ -18,6 +26,12 @@
   display: flex;
   flex-direction: row;
   padding-right: var(--ds-size-100, $ds-size-100);
+
+  // color: red; // var(--ds-auro-input-icon-color);
+  
+  [auro-icon] {
+    --ds-auro-icon-color: var(--ds-auro-input-icon-color);
+  }
 }
 
 :host([disabled]) {
@@ -57,7 +71,7 @@
   padding: 0;
   border: 0;
   background: unset;
-  cursor: pointer;
+  cursor: pointer; // this is broken
 }
 
 :host(:not([bordered])) {
