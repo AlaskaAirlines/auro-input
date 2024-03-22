@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.17.9](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.8...v2.17.9) (2024-03-22)
+
+
+### Performance Improvements
+
+* update to support named export [#298](https://github.com/AlaskaAirlines/auro-input/issues/298) ([48cb589](https://github.com/AlaskaAirlines/auro-input/commit/48cb589b566f66e66adb106f1c7ea00171151b10))
+
 ## [2.17.8](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.7...v2.17.8) (2024-03-11)
 
 
