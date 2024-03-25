@@ -3,6 +3,13 @@ import '../src/auro-input.js';
 
 describe('auro-input', () => {
 
+  it('web component is successfully created in the document', async () => {
+    // This test fails when attributes are put onto the component before it is attached to the DOM
+    const el = document.createElement('auro-input');
+
+    await expect(el.localName).to.equal('auro-input');
+  });
+
   it('sets value on the input', async () => {
     const el = await fixture(html`
       <auro-input value="other value" label="First name"></auro-input>
