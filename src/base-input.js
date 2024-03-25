@@ -6,6 +6,7 @@
 /* eslint-disable max-lines, no-magic-numbers, complexity, max-depth */
 /* eslint no-magic-numbers: ["error", { "ignore": [0] }] */
 /* eslint-disable max-statements */
+/* eslint-disable dot-location */
 
 import { LitElement, css } from "lit";
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -82,97 +83,7 @@ export default class BaseInput extends LitElement {
   constructor() {
     super();
 
-    /**
-     * @private
-     */
-    this.validation = new AuroFormValidation();
-
-    const idLength = 36;
-    const idSubstrEnd = 8;
-    const idSubstrStart = 2;
-
     this.isValid = false;
-
-    /**
-     * @private
-     */
-    this.closeSvg = this.getIconAsHtml(closelg);
-
-    /**
-     * @private
-     */
-    this.alertSvg = this.getIconAsHtml(alert);
-
-    /**
-     * @private
-     */
-    this.hidePassword = this.getIconAsHtml(hidePassword);
-
-    /**
-     * @private
-     */
-    this.viewPassword = this.getIconAsHtml(viewPassword);
-
-    /**
-     * @private
-     */
-    this.inputIconName = undefined;
-
-    /**
-     * @private
-     */
-    this.inputMode = '';
-
-    /**
-     * @private
-     */
-    this.showPassword = false;
-
-    /**
-     * @private
-     */
-    this.allowedInputTypes = [
-      "text",
-      "email",
-      "password",
-      "credit-card",
-      "month-day-year",
-      "year-month-day",
-      "month-year"
-    ];
-
-    /**
-     * @private
-     */
-    this.hasValue = false;
-
-    /**
-     * Credit Card is not included as this caused cursor placement issues.
-     * The Safari issue.
-     * @private
-     */
-    this.setSelectionInputTypes = [
-      "text",
-      "password",
-      "email",
-    ];
-
-    /**
-     * @private
-     */
-    this.dateInputTypes = [
-      "month-day-year",
-      "year-month-day",
-      "month-year",
-      "month-fullYear"
-    ];
-
-    /**
-     * @private
-     */
-    this.uniqueId = Math.random().
-      toString(idLength).
-      substring(idSubstrStart, idSubstrEnd);
 
     this.icon = false;
     this.disabled = false;
@@ -187,15 +98,42 @@ export default class BaseInput extends LitElement {
     this.activeLabel = false;
 
     this.setCustomValidityForType = undefined;
+  }
 
-    /**
-     * @private
-     */
+  /**
+   * Internal Defaults.
+   * @private
+   * @returns {void}
+   */
+  privateDefaults() {
+    this.validation = new AuroFormValidation();
+    this.closeSvg = this.getIconAsHtml(closelg);
+    this.alertSvg = this.getIconAsHtml(alert);
+    this.hidePassword = this.getIconAsHtml(hidePassword);
+    this.viewPassword = this.getIconAsHtml(viewPassword);
+    this.inputIconName = undefined;
+    this.inputMode = '';
+    this.showPassword = false;
     this.validationCCLength = undefined;
+    this.hasValue = false;
 
-    /**
-     * @private
-     */
+    this.allowedInputTypes = [
+      "text",
+      "email",
+      "password",
+      "credit-card",
+      "month-day-year",
+      "year-month-day",
+      "month-year"
+    ];
+
+    this.dateInputTypes = [
+      "month-day-year",
+      "year-month-day",
+      "month-year",
+      "month-fullYear"
+    ];
+
     this.autoFormattingTypes = [
       'credit-card',
       'month-day-year',
@@ -203,6 +141,24 @@ export default class BaseInput extends LitElement {
       'month-fullyear',
       'year-month-day'
     ];
+
+    /**
+     * Credit Card is not included as this caused cursor placement issues.
+     * The Safari issue.
+     */
+    this.setSelectionInputTypes = [
+      "text",
+      "password",
+      "email",
+    ];
+
+    const idLength = 36;
+    const idSubstrEnd = 8;
+    const idSubstrStart = 2;
+
+    this.uniqueId = Math.random()
+      .toString(idLength)
+      .substring(idSubstrStart, idSubstrEnd);
   }
 
   // function to define props used within the scope of this component
@@ -273,6 +229,8 @@ export default class BaseInput extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
+
+    this.privateDefaults();
 
     notifyOnLangChange(this);
 
