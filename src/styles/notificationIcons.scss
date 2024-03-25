@@ -22,7 +22,7 @@
 
 :host([disabled]) {
   .typeIcon {
-    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
+    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default); // Why are we using text color for icon?
   }
 }
 
@@ -45,7 +45,6 @@
     margin-left: var(--ds-size-100, $ds-size-100);
   }
 }
-
 
 .alertNotification {
   color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);

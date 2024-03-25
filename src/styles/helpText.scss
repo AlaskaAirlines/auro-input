@@ -9,6 +9,6 @@
 
 :host([validity]:not([validity='valid'])) {
   .inputElement-helpText {
-    color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+    color: var(--ds-color-text-error-default, $ds-color-text-error-default);
   }
 }
