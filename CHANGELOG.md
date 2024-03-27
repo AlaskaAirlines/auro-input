@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [2.17.10](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.9...v2.17.10) (2024-03-27)
+
+
+### Bug Fixes
+
+* **dom:** refactor constructor to fix dynamic creation of component [#300](https://github.com/AlaskaAirlines/auro-input/issues/300) ([0279b94](https://github.com/AlaskaAirlines/auro-input/commit/0279b941b66edaa90a1b93fde2a8d5061ec65673))
+
 ## [2.17.9](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.8...v2.17.9) (2024-03-22)
 
 
