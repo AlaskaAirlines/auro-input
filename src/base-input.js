@@ -192,6 +192,10 @@ export default class BaseInput extends LitElement {
       min:               { type: String },
       maxLength:               { type: Number },
       minLength:               { type: Number },
+
+      /**
+       * @ignore
+       */
       showPassword:            { state: true },
       validateOnInput:         { type: Boolean },
       readonly:                { type: Boolean },
