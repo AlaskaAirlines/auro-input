@@ -55,12 +55,12 @@ export class AuroInput extends BaseInput {
                This should be cleaned up when auro-icon issue #31 is resolved. -->
             ${this.inputIconName
             ? repeat([this.inputIconName], (val) => val, (name) => html`
-              <${this.iconTag} class="accentIcon" category="payment" name="${name}" part="accentIcon" customColor></${this.iconTag}>
+              <${this.iconTag} class="accentIcon" category="payment" name="${name}" part="accentIcon"></${this.iconTag}>
             `) : undefined
             }
 
             ${this.type === 'month-day-year' || this.type === 'month-year' || this.type === 'year-month-day' || this.type === 'month-fullYear'
-            ? html`<${this.iconTag} class="accentIcon" category="interface" name="calendar" part="accentIcon" customColor></${this.iconTag}>`
+            ? html`<${this.iconTag} class="accentIcon" category="interface" name="calendar" part="accentIcon"></${this.iconTag}>`
             : undefined
             }
           </div>

@@ -190,8 +190,6 @@ export default class BaseInput extends LitElement {
      */
     const versioning = new AuroDependencyVersioning();
     this.iconTag = versioning.generateTag('auro-icon', iconVersion, AuroIcon);
-
-    console.warn(this.iconTag);
   }
 
   // function to define props used within the scope of this component

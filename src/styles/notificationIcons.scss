@@ -2,20 +2,14 @@
 
 /* stylelint-disable max-nesting-depth, selector-max-class, selector-max-combinators, selector-max-compound-selectors */
 
-// :root {
-//   --ds-auro-input-icon-color: red; // var(--ds-color-icon-primary-default, $ds-color-icon-primary-default); // pink;
-// }
-
-:host {
-  --ds-auro-input-icon-color: magenta; // var(--ds-color-icon-primary-default, $ds-color-icon-primary-default); // pink;
-}
-
 .typeIcon {
   display: flex;
   flex-direction: row;
   align-items: center;
 
-  auro-icon {
+  [auro-icon] {
+    --ds-auro-icon-color: var(--ds-auro-input-default-type-icon-color-default);
+
     height: 24px;
     width: 24px;
     margin-right: var(--ds-size-100, $ds-size-100);
@@ -27,16 +21,22 @@
   flex-direction: row;
   padding-right: var(--ds-size-100, $ds-size-100);
 
-  // color: red; // var(--ds-auro-input-icon-color);
-  
   [auro-icon] {
-    --ds-auro-icon-color: var(--ds-auro-input-icon-color);
+    --ds-auro-icon-color: var(--ds-auro-input-default-action-icon-color-default);
+  }
+}
+
+.alertNotification {
+  [auro-icon] {
+    --ds-auro-icon-color: var(--ds-auro-input-invalid-alert-icon-color-default);
   }
 }
 
 :host([disabled]) {
   .typeIcon {
-    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
+    [auro-icon] {
+      --ds-auro-icon-color: var(--ds-auro-input-disabled-type-icon-color-default);
+    }
   }
 }
 
@@ -58,11 +58,6 @@
   &:not(:first-of-type) {
     margin-left: var(--ds-size-100, $ds-size-100);
   }
-}
-
-
-.alertNotification {
-  color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
 }
 
 .notificationBtn {

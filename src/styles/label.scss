@@ -8,7 +8,7 @@ label {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
+  color: var(--ds-auro-input-default-label-text-color-default);
   pointer-events: none;
 }
 
@@ -93,6 +93,6 @@ label {
 
 :host([disabled]) {
   label {
-    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
+    color: var(--ds-color-text-ui-disabled-default);
   }
 }

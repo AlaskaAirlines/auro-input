@@ -15,12 +15,14 @@ input {
   text-overflow: ellipsis;
 
   margin: 0;
-  background-color: transparent;
-  caret-color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
+  background-color: var(--ds-auro-input-default-container-background-color-default);
+  caret-color: var(--ds-auro-input-default-caret-color-default);
   font-family: var(--ds-font-family-default, $ds-font-family-default);
   font-size: 1rem;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
   outline: none;
+
+  color: var(--ds-auro-input-default-value-color-default);
 
   // this is to disable the toggle-password feature in MS Edge only
   &::-ms-reveal,
@@ -29,18 +31,18 @@ input {
   }
 
   &::placeholder {
-    color: transparent;
+    color: var(--ds-auro-input-default-placeholder-color-default);
   }
 
   &:focus {
     &::placeholder {
-      color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
+      color: var(--ds-auro-input-focus-placeholder-color-default);
     }
   }
 
   &:disabled {
     pointer-events: none;
-    background: none;
-    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
+    background: none; // Is this right? It's already transparent so why reset it?
+    color: var(--ds-auro-input-disabled-value-color-default);
   }
 }

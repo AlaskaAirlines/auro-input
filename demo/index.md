@@ -38,20 +38,22 @@ The `<auro-input>` element should be used in situations where users may:
 The default component supports the basic input `type="text"` structure. The `(optional)` label is provided to instruct the user that their input is not required. Use the `bordered` attribute for a bordered `<auro-input>`.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
-  <auro-input></auro-input>
-  <auro-input bordered></auro-input>
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/minDate.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/minDate.html -->
+  <auro-input type="month-day-year" min="03/25/2023" setCustomValidityRangeUnderflow="The selected date is before the defined minimum date.">
+    <span slot="label">Choose a date</span>
+  </auro-input>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/minDate.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/minDate.html -->
 
 ```html
-<auro-input></auro-input>
-<auro-input bordered></auro-input>
+<auro-input type="month-day-year" min="03/25/2023" setCustomValidityRangeUnderflow="The selected date is before the defined minimum date.">
+  <span slot="label">Choose a date</span>
+</auro-input>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>

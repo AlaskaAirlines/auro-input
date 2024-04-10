@@ -25,6 +25,7 @@
 // Support for auroElement styles
 @import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/auroElement/auroElement';
 
+@import './styles/tokens.scss';
 @import './styles/notificationIcons.scss';
 @import './styles/helpText.scss';
 @import './styles/borders.scss';

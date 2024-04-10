@@ -1,0 +1,40 @@
+:host {
+  // auro-input doesn't seem to currently support an 'inverse' mode?
+
+  // text - label
+  --ds-auro-input-default-label-text-color-default: var(--ds-color-text-secondary-default);
+  --ds-auro-input-disabled-label-text-color-default: var(--ds-color-text-ui-disabled-default);
+  
+  // text - helpText
+  --ds-auro-input-default-help-text-color-default: var(--ds-color-text-secondary-default);
+  --ds-auro-input-invalid-help-text-color-default: var(--ds-color-text-error-default);
+  --ds-auro-input-disabled-help-text-color-default: var(--ds-color-text-secondary-default); // should this not used the disabled color?
+  
+  // text - caret
+  --ds-auro-input-default-caret-color-default: var(--ds-color-text-secondary-default);
+
+  // text - placeholder
+  --ds-auro-input-default-placeholder-color-default: transparent;
+  --ds-auro-input-focus-placeholder-color-default: var(--ds-color-text-secondary-default);
+
+  // text - value
+  --ds-auro-input-default-value-color-default: var(--ds-color-text-primary-default);
+  --ds-auro-input-disabled-value-color-default: var(--ds-color-text-ui-disabled-default);
+
+  // border
+  --ds-auro-input-default-border-color-default: var(--ds-color-border-primary-default);
+  --ds-auro-input-invalid-border-color-default: var(--ds-color-border-error-default);
+  --ds-auro-input-focus-border-color-default: var(--ds-color-border-ui-focus-default);
+  --ds-auro-input-disabled-border-color-default: var(--ds-color-border-ui-disabled-default);
+
+  // container
+  --ds-auro-input-default-container-background-color-default: transparent;
+  --ds-auro-input-bordered-container-background-color-default: var(--ds-color-base-white);
+
+  // icons
+  --ds-auro-input-default-type-icon-color-default: var(--ds-color-icon-primary-default); // ??
+  --ds-auro-input-disabled-type-icon-color-default: var(--ds-color-icon-ui-disabled-default);
+  --ds-auro-input-default-action-icon-color-default: var(--ds-color-icon-ui-default-default); // --ds-color-icon-ui-default-default | what about hover?
+  --ds-auro-input-disabled-action-icon-color-default: var(--ds-color-icon-ui-disabled-default); // --ds-color-icon-ui-disabled-default | what about hover?
+  --ds-auro-input-invalid-alert-icon-color-default: var(--ds-color-icon-error-default); // --ds-color-alert-error-default | what about hover?
+}

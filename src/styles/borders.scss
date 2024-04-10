@@ -3,9 +3,9 @@
 @import './../../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
 @import './../../node_modules/@aurodesignsystem/webcorestylesheets/src/breakpoints';
 
-$border-color: var(--ds-color-border-primary-default, $ds-color-border-primary-default);
-$focus-color: var(--ds-color-ui-default-default, $ds-color-ui-default-default);
-$error-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+$border-color: var(--ds-auro-input-default-border-color-default);
+$focus-color: var(--ds-auro-input-focus-border-color-default);
+$invalid-color: var(--ds-auro-input-invalid-border-color-default);
 
 input {
   border: unset;
@@ -30,7 +30,7 @@ input {
     border-color: $border-color;
     border-width: 1px;
     border-radius: var(--ds-border-radius, $ds-border-radius);
-    background-color: var(--ds-color-base-white, $ds-color-base-white);
+    background-color: var(--ds-auro-input-bordered-container-background-color-default);
   }
 }
 
@@ -83,7 +83,7 @@ input {
 
 :host([validity]:not([validity='valid'])) {
   .wrapper {
-    border-bottom-color: $error-color;
+    border-bottom-color: $invalid-color;
 
     &:before {
       border-bottom: 0;
@@ -93,8 +93,8 @@ input {
 
 :host([validity]:not([validity='valid'])[bordered]) {
   .wrapper {
-    box-shadow: inset 0 0 0 1px $error-color;
-    border-color: $error-color;
+    box-shadow: inset 0 0 0 1px $invalid-color;
+    border-color: $invalid-color;
   }
 }
 
@@ -102,12 +102,12 @@ input {
 
 :host([disabled]) {
   .wrapper {
-    border-bottom-color: var(--ds-color-border-disabled-default, $ds-color-border-disabled-default);
+    border-bottom-color: var(--ds-auro-input-disabled-border-color-default);
   }
 }
 
 :host([disabled][bordered]) {
   .wrapper {
-    border-color: var(--ds-color-border-disabled-default, $ds-color-border-disabled-default);
+    border-color: var(--ds-auro-input-disabled-border-color-default);
   }
 }
