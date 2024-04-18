@@ -192,7 +192,7 @@ describe('auro-input', () => {
       <auro-input required></auro-input>
     `);
 
-    const listener = oneEvent(el, 'auroInput-validated');
+    const listener = oneEvent(el, 'auroFormElement-validated');
     const input = el.shadowRoot.querySelector('input');
 
     input.focus();
