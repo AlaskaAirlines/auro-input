@@ -98,7 +98,7 @@ export class AuroInput extends BaseInput {
           class="notificationIcons"
           part="notificationIcons"
           ?hasValue="${this.hasValue}">
-          ${this.validity !== undefined && this.validity !== 'valid' ? html`
+          ${this.validity && this.validity !== 'valid' ? html`
             <div class="notification alertNotification">
               ${this.alertSvg}
             </div>
