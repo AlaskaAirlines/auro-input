@@ -64,6 +64,7 @@
 | [setCustomValidityTooLong](#setCustomValidityTooLong)        | `setCustomValidityTooLong`        | `String`  |                            | Custom help text message to display when validity = `tooLong`. |
 | [setCustomValidityTooShort](#setCustomValidityTooShort)       | `setCustomValidityTooShort`       | `String`  |                            | Custom help text message to display when validity = `tooShort`. |
 | [setCustomValidityValueMissing](#setCustomValidityValueMissing)   | `setCustomValidityValueMissing`   | `String`  |                            | Custom help text message to display when validity = `valueMissing`. |
+| [showPassword](#showPassword)                    | `showPassword`                    |           |                            |                                                  |
 | [spellcheck](#spellcheck)                      | `spellcheck`                      | `String`  |                            | An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`. |
 | [type](#type)                            | `type`                            | `String`  |                            | Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`, `month-day-year`, `month-year`, `year-month-day`  or `text`. If given value is not allowed or set, defaults to `text`. |
 | [validateOnInput](#validateOnInput)                 | `validateOnInput`                 | `Boolean` |                            | Sets validation mode to re-eval with each input. |
@@ -78,13 +79,12 @@
 
 ## Events
 
-| Event                      | Type               | Description                                      |
-|----------------------------|--------------------|--------------------------------------------------|
-| `auroInput-helpText`       |                    | Notifies that the helpText message has changed.  |
-| `auroInput-ready`          | `CustomEvent<any>` | Notifies that the component has finished initializing. |
-| `auroInput-validated`      |                    | Notifies that the `validity` value has changed.  |
-| `auroInput-validityChange` | `CustomEvent<any>` |                                                  |
-| [input](#input)                    |                    | Event fires when the value of an `auro-input` has been changed. |
+| Event                       | Type               | Description                                      |
+|-----------------------------|--------------------|--------------------------------------------------|
+| `auroFormElement-validated` |                    | Notifies that the `validity` and `errorMessage` value has changed. |
+| `auroInput-ready`           | `CustomEvent<any>` |                                                  |
+| `auroInput-validityChange`  | `CustomEvent<any>` |                                                  |
+| [input](#input)                     |                    | Event fires when the value of an `auro-input` has been changed. |
 
 ## Slots
 
