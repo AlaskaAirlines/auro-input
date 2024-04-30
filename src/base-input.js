@@ -71,11 +71,8 @@ import AuroFormValidation from '@aurodesignsystem/auro-formvalidation/src/valida
  * @csspart helpText - Use for customizing the style of the helpText element
  * @csspart accentIcon - Use for customizing the style of the accentIcon element (e.g. credit card icon, calendar icon)
  * @csspart iconContainer - Use for customizing the style of the iconContainer (e.g. X icon for clearing input value)
- *
  * @event input - Event fires when the value of an `auro-input` has been changed.
- * @event auroInput-helpText - Notifies that the helpText message has changed.
- * @event auroInput-ready - Notifies that the component has finished initializing.
- * @event auroInput-validated - Notifies that the `validity` value has changed.
+ * @event auroFormElement-validated - Notifies that the `validity` and `errorMessage` value has changed.
  */
 
 export default class BaseInput extends LitElement {
