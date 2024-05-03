@@ -64,6 +64,7 @@
 | [setCustomValidityTooLong](#setCustomValidityTooLong)        | `setCustomValidityTooLong`        | `String`  |                            | Custom help text message to display when validity = `tooLong`. |
 | [setCustomValidityTooShort](#setCustomValidityTooShort)       | `setCustomValidityTooShort`       | `String`  |                            | Custom help text message to display when validity = `tooShort`. |
 | [setCustomValidityValueMissing](#setCustomValidityValueMissing)   | `setCustomValidityValueMissing`   | `String`  |                            | Custom help text message to display when validity = `valueMissing`. |
+| [showPassword](#showPassword)                    | `showPassword`                    |           |                            |                                                  |
 | [spellcheck](#spellcheck)                      | `spellcheck`                      | `String`  |                            | An enumerated attribute defines whether the element may be checked for spelling errors. [true, false]. When set to `false` the attribute `autocorrect` is set to `off` and `autocapitalize` is set to `none`. |
 | [type](#type)                            | `type`                            | `String`  |                            | Populates the `type` attribute on the input. Allowed values are `password`, `email`, `credit-card`, `month-day-year`, `month-year`, `year-month-day`  or `text`. If given value is not allowed or set, defaults to `text`. |
 | [validateOnInput](#validateOnInput)                 | `validateOnInput`                 | `Boolean` |                            | Sets validation mode to re-eval with each input. |
@@ -105,6 +106,16 @@
 <!-- AURO-GENERATED-CONTENT:END -->
 
 # API Examples
+
+## Localization Support
+
+The `auro-input` element supports the localization of all content managed within the scope of the element. This DOES NOT include any custom content placed in the `slot` element.
+
+<auro-radio-group required horizontal>
+  <span slot="legend">Use the options here to toggle between languages</span>
+  <auro-radio id="enButton" name="langDemo" value="en" checked>English</auro-radio>
+  <auro-radio id="esButton" name="langDemo" value="es">Spanish</auro-radio>
+</auro-radio-group>
 
 ## Basic
 

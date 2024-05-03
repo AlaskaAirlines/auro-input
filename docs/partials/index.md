@@ -112,7 +112,7 @@ Use the `value` attribute to preset the value of the element.
 </auro-accordion>
 
 
-## Pattern 
+## Pattern
 
 Use the `pattern` attribute to set custom input validation. This example also uses the `spellcheck` attribute set to `false` which in turn sets `autocorrect` to `off` and `autocapitalize` to `none`. Additionally the `maxlength` attribute sets the maximum length of characters that can be entered.
 
@@ -130,16 +130,6 @@ The `<auro-input>` component supports setting a custom validity message specific
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
-
-### Localization Support
-
-The `auro-input` element supports the localization of all content managed within the scope of the element. This DOES NOT include any custom content placed in the `slot` element.
-
-<auro-radio-group required horizontal>
-  <span slot="legend">Use the options here to toggle between languages</span>
-  <auro-radio id="enButton" name="langDemo" value="en" checked>English</auro-radio>
-  <auro-radio id="esButton" name="langDemo" value="es">Spanish</auro-radio>
-</auro-radio-group>
 
 ## Recommended Use and Version Control
 

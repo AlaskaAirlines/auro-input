@@ -1,3 +1,4 @@
+import { changeLang } from "../apiExamples/changeLang";
 import { customError } from "../apiExamples/error";
 import { setReadonlyValue } from "../apiExamples/readonly";
 import { swapInputValues } from "../apiExamples/swapValue";
@@ -7,6 +8,7 @@ export function initExamples(initCount) {
   initCount = initCount || 0;
 
   try {
+    changeLang();
     customError();
     setReadonlyValue();
     swapInputValues();

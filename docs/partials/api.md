@@ -21,6 +21,16 @@
 
 # API Examples
 
+## Localization Support
+
+The `auro-input` element supports the localization of all content managed within the scope of the element. This DOES NOT include any custom content placed in the `slot` element.
+
+<auro-radio-group required horizontal>
+  <span slot="legend">Use the options here to toggle between languages</span>
+  <auro-radio id="enButton" name="langDemo" value="en" checked>English</auro-radio>
+  <auro-radio id="esButton" name="langDemo" value="es">Spanish</auro-radio>
+</auro-radio-group>
+
 ## Basic
 
 <div class="exampleWrapper exampleWrapper--flex">
