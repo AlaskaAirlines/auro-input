@@ -361,7 +361,7 @@ describe('auro-input', () => {
 
     await elementUpdated(el);
 
-    expect(el.hasAttribute('validity')).to.be.false;
+    expect(el.getAttribute('validity')).to.equal('valid');
   });
 
   it('minlength validity checked correctly', async () => {
