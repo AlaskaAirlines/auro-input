@@ -81,7 +81,7 @@ Use the `disabled` attribute to prevent the user from interacting with the input
 
 Example use cases for auro-input support the `activeLabel` attribute. If set, the label will stay fixed in the active position.
 
-<div class="exampleWrapper">
+<div class="exampleWrapper exampleWrapper--flex">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/activeLabel.html) -->
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
