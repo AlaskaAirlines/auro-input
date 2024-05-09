@@ -115,15 +115,17 @@ export class AuroInput extends BaseInput {
                 </button>
               </div>
             ` : undefined}
-            <div class="notification">
-              <button
-                class="notificationBtn clearBtn"
-                aria-hidden="true"
-                tabindex="-1"
-                @click="${this.handleClickClear}">
-                ${this.readonly ? undefined : this.closeSvg}
-              </button>
-            </div>
+            ${!this.disabled ? html`
+              <div class="notification">
+                <button
+                  class="notificationBtn clearBtn"
+                  aria-hidden="true"
+                  tabindex="-1"
+                  @click="${this.handleClickClear}">
+                  ${this.readonly ? undefined : this.closeSvg}
+                </button>
+              </div>
+            ` : undefined}
           ` : undefined}
         </div>
       </div>
