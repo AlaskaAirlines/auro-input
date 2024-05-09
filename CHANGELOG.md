@@ -1,5 +1,27 @@
 # Semantic Release Automated Changelog
 
+# [3.0.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.10...v3.0.0) (2024-05-09)
+
+
+### Bug Fixes
+
+* **icon:** show icon when validity is null or undefined ([4454f73](https://github.com/AlaskaAirlines/auro-input/commit/4454f734fb1090d018885cb12a6b0e130230b9a2))
+
+
+### Documentation
+
+* **jsdocs:** update jsdocs ([4352348](https://github.com/AlaskaAirlines/auro-input/commit/4352348ea81ddf752a27af11b3669a1fe2f54480))
+
+
+### Performance Improvements
+
+* **validation:** use updated logic to handle all form components [#308](https://github.com/AlaskaAirlines/auro-input/issues/308) ([92ee1e0](https://github.com/AlaskaAirlines/auro-input/commit/92ee1e0ba73298fcbb6cbee629629b7f98277a1d))
+
+
+### BREAKING CHANGES
+
+* **jsdocs:** The auroInput-validated and auroInput-helpText events have been deprecated and replaced by auroFormElement-validated.
+
 ## [2.17.10](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.9...v2.17.10) (2024-03-27)
 
 
