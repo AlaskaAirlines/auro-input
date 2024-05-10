@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [3.0.1](https://github.com/AlaskaAirlines/auro-input/compare/v3.0.0...v3.0.1) (2024-05-10)
+
+
+### Bug Fixes
+
+* **btn:** only render clear button when input is not disabled [#309](https://github.com/AlaskaAirlines/auro-input/issues/309) ([1d250b9](https://github.com/AlaskaAirlines/auro-input/commit/1d250b9048e5958cdf5fbfe3198096bf3bbd7bfe))
+
 # [3.0.0](https://github.com/AlaskaAirlines/auro-input/compare/v2.17.10...v3.0.0) (2024-05-09)
 
 
