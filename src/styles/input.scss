@@ -16,7 +16,7 @@ input {
 
   margin: 0;
   font-family: var(--ds-font-family-default, $ds-font-family-default);
-  font-size: 1rem;
+  font-size: var(--ds-size-200, $ds-size-200);
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
   outline: none;
 
