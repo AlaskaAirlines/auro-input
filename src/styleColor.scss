@@ -1,0 +1,118 @@
+// See LICENSE in the project root for license information.
+
+// ---------------------------------------------------------------------
+
+// Support for fallback values
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
+
+/* stylelint-disable no-descending-specificity */
+
+// Handle highlighting the border during focus and invalid state
+@mixin border-highlight {
+  &:before {
+    border-bottom-color: transparent;
+  }
+}
+
+.wrapper {
+  border-color: transparent;
+}
+
+.inputElement-helpText {
+  color: var(--ds-auro-input-text-color);
+}
+
+input {
+  background-color: transparent;
+  caret-color: var(--ds-auro-input-text-color);
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    &::placeholder {
+      color: var(--ds-auro-input-text-color);
+    }
+  }
+
+  &:disabled {
+    --ds-auro-input-text-color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
+  }
+}
+
+label {
+  color: var(--ds-auro-input-text-color);
+}
+
+.alertNotification {
+  color: var(--ds-auro-input-alert-icon-color);
+}
+
+:host(:not([bordered], [borderless])) {
+  .wrapper {
+    border-bottom-color: var(--ds-auro-input-border-color);
+  }
+}
+
+:host([bordered]) {
+  .wrapper {
+    border-color: var(--ds-auro-input-border-color);
+    background-color: var(--ds-auro-input-background-color);
+
+    &:focus-within {
+      --ds-auro-input-border-color: var(--ds-color-ui-default-default, $ds-color-ui-default-default);
+
+      box-shadow: inset 0 0 0 1px var(--ds-auro-input-border-color);
+    }
+  }
+}
+
+:host(:not([borderless])) {
+  .wrapper {
+    &:focus-within {
+      --ds-auro-input-border-color: var(--ds-color-ui-default-default, $ds-color-ui-default-default);
+
+      @include border-highlight;
+    }
+  }
+}
+
+:host([validity]:not([validity='valid'])) {
+  .wrapper {
+    --ds-auro-input-border-color: var(--ds-color-border-error-default, $ds-color-border-error-default);
+  }
+
+  .inputElement-helpText {
+    --ds-auro-input-text-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+  }
+}
+
+:host([validity]:not([validity='valid'])[bordered]) {
+  .wrapper {
+    --ds-auro-input-border-color: var(--ds-color-border-error-default, $ds-color-border-error-default);
+
+    box-shadow: inset 0 0 0 1px var(--ds-auro-input-border-color);
+  }
+}
+
+:host([disabled]) {
+  .wrapper {
+    --ds-auro-input-border-color: var(--ds-color-border-disabled-default, $ds-color-border-disabled-default);
+  }
+
+  .typeIcon {
+    color: var(--ds-auro-input-type-icon-color);
+  }
+
+  label {
+    --ds-auro-input-text-color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
+  }
+}
+
+:host([disabled][bordered]) {
+  .wrapper {
+    --ds-auro-input-border-color: var(--ds-color-border-disabled-default, $ds-color-border-disabled-default);
+  }
+}
+

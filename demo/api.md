@@ -560,7 +560,7 @@ For use cases where the field is `required`, but live validation is not wanted, 
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-### Error support and HTML5 Validity
+## Error support and HTML5 Validity
 
 The `<auro-input>` component follows the HTML5 input `validity` and `validityState` [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#client-side_validation).
 
@@ -718,7 +718,7 @@ export function customError() {
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-### Types
+## Types
 
 ### Password
 
@@ -1076,7 +1076,7 @@ Use the `type="year-month-day"` attribute for a date formatted input.
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-### Additional Use Cases
+## Additional Use Cases
 
 ### Swapping Values Between Inputs
 
@@ -1159,3 +1159,21 @@ export function swapInputValues() {
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
+
+## Theme Support
+
+The component may be restyled using the following code sample and changing the values of the following token(s).
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../src/tokens.scss) -->
+<!-- The below code snippet is automatically added from ./../../src/tokens.scss -->
+
+```scss
+:host {
+  --ds-auro-input-background-color: var(--ds-color-background-primary-100-default, $ds-color-background-primary-100-default);
+  --ds-auro-input-border-color: var(--ds-color-border-primary-default, $ds-color-border-primary-default);
+  --ds-auro-input-text-color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
+  --ds-auro-input-alert-icon-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+  --ds-auro-input-type-icon-color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
+}
+```
+<!-- AURO-GENERATED-CONTENT:END -->

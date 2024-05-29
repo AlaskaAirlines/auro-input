@@ -12,6 +12,9 @@ import { LitElement, css } from "lit";
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import styleCss from "./style-css.js";
+import colorCss from "./styleColor-css.js";
+import tokensCss from "./tokens-css.js";
+
 import closelg from '@alaskaairux/icons/dist/icons/interface/x-sm.mjs';
 import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password.mjs';
 import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password.mjs';
@@ -223,9 +226,11 @@ export default class BaseInput extends LitElement {
   }
 
   static get styles() {
-    return css`
-      ${styleCss}
-    `;
+    return [
+      css`${styleCss}`,
+      css`${colorCss}`,
+      css`${tokensCss}`
+    ];
   }
 
   connectedCallback() {

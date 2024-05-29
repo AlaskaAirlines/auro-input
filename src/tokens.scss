@@ -1,0 +1,7 @@
+:host {
+  --ds-auro-input-background-color: var(--ds-color-background-primary-100-default, $ds-color-background-primary-100-default);
+  --ds-auro-input-border-color: var(--ds-color-border-primary-default, $ds-color-border-primary-default);
+  --ds-auro-input-text-color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
+  --ds-auro-input-alert-icon-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+  --ds-auro-input-type-icon-color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
+}
