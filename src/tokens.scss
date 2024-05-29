@@ -1,0 +1,12 @@
+:host {
+  --ds-auro-input-alert-icon-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+  --ds-auro-input-background-color: var(--ds-color-background-primary-100-default, $ds-color-background-primary-100-default);
+  --ds-auro-input-border-color: var(--ds-color-border-secondary-default, $ds-color-border-secondary-default);
+  --ds-auro-input-caret-color: var(--ds-color-text-ui-focus-default, $ds-color-text-ui-focus-default);
+  --ds-auro-input-help-text-color: var(--ds-color-text-tertiary-default, $ds-color-text-tertiary-default);
+  --ds-auro-input-label-text-color: var(--ds-color-text-tertiary-default, $ds-color-text-tertiary-default);
+  --ds-auro-input-notification-icon-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+  --ds-auro-input-placeholder-text-color: transparent;
+  --ds-auro-input-text-color: var(--ds-color-text-primary-default, $ds-color-text-primary-default);
+  --ds-auro-input-type-icon-color: var(--ds-color-icon-primary-default, $ds-color-icon-primary-default);
+}

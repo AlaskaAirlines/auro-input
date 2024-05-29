@@ -285,7 +285,7 @@ For use cases where the field is `required`, but live validation is not wanted, 
 
 </auro-accordion>
 
-### Error support and HTML5 Validity
+## Error support and HTML5 Validity
 
 The `<auro-input>` component follows the HTML5 input `validity` and `validityState` [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#client-side_validation).
 
@@ -367,7 +367,7 @@ Use the `error` attribute to apply a persistent custom error that supersedes the
 
 </auro-accordion>
 
-### Types
+## Types
 
 ### Password
 
@@ -557,7 +557,7 @@ Use the `type="year-month-day"` attribute for a date formatted input.
 
 </auro-accordion>
 
-### Additional Use Cases
+## Additional Use Cases
 
 ### Swapping Values Between Inputs
 
@@ -578,3 +578,10 @@ Example illustrates using a JavaScript function attached to an `auro-button` com
 <!-- AURO-GENERATED-CONTENT:END -->
 
 </auro-accordion>
+
+## Theme Support
+
+The component may be restyled using the following code sample and changing the values of the following token(s).
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../src/tokens.scss) -->
+<!-- AURO-GENERATED-CONTENT:END -->

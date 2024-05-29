@@ -20,13 +20,6 @@
   padding-right: var(--ds-size-100, $ds-size-100);
 }
 
-:host([disabled]) {
-  .typeIcon {
-    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
-  }
-}
-
-
 :host([bordered]) {
   .typeIcon {
     padding-left: var(--ds-size-100, $ds-size-100);
@@ -44,11 +37,6 @@
   &:not(:first-of-type) {
     margin-left: var(--ds-size-100, $ds-size-100);
   }
-}
-
-
-.alertNotification {
-  color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
 }
 
 .notificationBtn {

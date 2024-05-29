@@ -8,7 +8,6 @@ label {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
   pointer-events: none;
 }
 
@@ -88,11 +87,5 @@ label {
     label {
       @include active-label;
     }
-  }
-}
-
-:host([disabled]) {
-  label {
-    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
   }
 }
