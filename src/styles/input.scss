@@ -15,8 +15,6 @@ input {
   text-overflow: ellipsis;
 
   margin: 0;
-  background-color: transparent;
-  caret-color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
   font-family: var(--ds-font-family-default, $ds-font-family-default);
   font-size: 1rem;
   transition: all .3s cubic-bezier(.215, .61, .355, 1);
@@ -28,19 +26,8 @@ input {
     display: none;
   }
 
-  &::placeholder {
-    color: transparent;
-  }
-
-  &:focus {
-    &::placeholder {
-      color: var(--ds-color-text-secondary-default, $ds-color-text-secondary-default);
-    }
-  }
-
   &:disabled {
     pointer-events: none;
     background: none;
-    color: var(--ds-color-text-disabled-default, $ds-color-text-disabled-default);
   }
 }
