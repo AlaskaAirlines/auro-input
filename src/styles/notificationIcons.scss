@@ -8,8 +8,8 @@
   align-items: center;
 
   auro-icon {
-    height: 24px;
-    width: 24px;
+    height: var(--ds-size-300, $ds-size-300);
+    width: var(--ds-size-300, $ds-size-300);
     margin-right: var(--ds-size-100, $ds-size-100);
   }
 }
@@ -31,8 +31,8 @@
 }
 
 .notification {
-  height: 24px;
-  width: 24px;
+  height: var(--ds-size-300, $ds-size-300);
+  width: var(--ds-size-300, $ds-size-300);
 
   &:not(:first-of-type) {
     margin-left: var(--ds-size-100, $ds-size-100);
@@ -52,7 +52,7 @@
   .typeIcon,
   .notificationIcons {
     align-items: flex-end;
-    padding-bottom: 8px;
+    padding-bottom: var(--ds-size-100, $ds-size-100);
   }
 }
 
