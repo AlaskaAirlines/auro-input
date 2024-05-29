@@ -13,13 +13,13 @@ label {
 
 :host(:not([bordered])) {
   label {
-    top: calc(100% - 4px);
+    top: calc(100% - var(--ds-size-25, $ds-size-25));
     transform: translateY(-100%);
   }
 
   label {
     &.withIcon {
-      left: calc(32px);
+      left: var(--ds-size-400, $ds-size-400);
     }
   }
 }
@@ -32,20 +32,20 @@ label {
 
   label {
     &.withIcon {
-      left: calc(32px + var(--ds-size-100, $ds-size-100));
+      left: var(--ds-size-500, $ds-size-500);
     }
   }
 
   label {
     &:not(label.withIcon) {
-      left: calc(var(--ds-size-100, $ds-size-100));
+      left: var(--ds-size-100, $ds-size-100);
     }
   }
 }
 
 // active label for non-bordered inputs
 @mixin active-label {
-  top: 4px;
+  top: var(--ds-size-25, $ds-size-25);
   transform: unset;
   font-size: var(--ds-text-body-size-xs, $ds-text-body-size-xs);
 }
