@@ -560,7 +560,7 @@ For use cases where the field is `required`, but live validation is not wanted, 
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-### Error support and HTML5 Validity
+## Error support and HTML5 Validity
 
 The `<auro-input>` component follows the HTML5 input `validity` and `validityState` [specification](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#client-side_validation).
 
@@ -718,7 +718,7 @@ export function customError() {
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-### Types
+## Types
 
 ### Password
 
@@ -1076,7 +1076,7 @@ Use the `type="year-month-day"` attribute for a date formatted input.
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
 
-### Additional Use Cases
+## Additional Use Cases
 
 ### Swapping Values Between Inputs
 
@@ -1159,3 +1159,26 @@ export function swapInputValues() {
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
+
+## Theme Support
+
+The component may be restyled using the following code sample and changing the values of the following token(s).
+
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../src/tokens.scss) -->
+<!-- The below code snippet is automatically added from ./../../src/tokens.scss -->
+
+```scss
+:host {
+  --ds-auro-input-alert-icon-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+  --ds-auro-input-background-color: var(--ds-color-background-primary-100-default, $ds-color-background-primary-100-default);
+  --ds-auro-input-border-color: var(--ds-color-border-secondary-default, $ds-color-border-secondary-default);
+  --ds-auro-input-caret-color: var(--ds-color-text-ui-focus-default, $ds-color-text-ui-focus-default);
+  --ds-auro-input-help-text-color: var(--ds-color-text-tertiary-default, $ds-color-text-tertiary-default);
+  --ds-auro-input-label-text-color: var(--ds-color-text-tertiary-default, $ds-color-text-tertiary-default);
+  --ds-auro-input-notification-icon-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
+  --ds-auro-input-placeholder-text-color: transparent;
+  --ds-auro-input-text-color: var(--ds-color-text-primary-default, $ds-color-text-primary-default);
+  --ds-auro-input-type-icon-color: var(--ds-color-icon-primary-default, $ds-color-icon-primary-default);
+}
+```
+<!-- AURO-GENERATED-CONTENT:END -->
