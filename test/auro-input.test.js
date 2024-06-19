@@ -76,7 +76,7 @@ describe('auro-input', () => {
       <auro-input type="password" value="password" label="password"></auro-input>
     `);
 
-    const toggle = el.shadowRoot.querySelector('.passwordBtn button');
+    const toggle = el.shadowRoot.querySelector('.passwordBtn');
     const input = el.shadowRoot.querySelector('input');
 
     input.focus();

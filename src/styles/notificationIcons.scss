@@ -7,7 +7,7 @@
   flex-direction: row;
   align-items: center;
 
-  auro-icon {
+  [auro-icon] {
     height: var(--ds-size-300, $ds-size-300);
     width: var(--ds-size-300, $ds-size-300);
     margin-right: var(--ds-size-100, $ds-size-100);
@@ -31,17 +31,27 @@
 }
 
 .notification {
-  height: var(--ds-size-300, $ds-size-300);
-  width: var(--ds-size-300, $ds-size-300);
-
   &:not(:first-of-type) {
-    margin-left: var(--ds-size-100, $ds-size-100);
+    margin-left: var(--ds-size-150, $ds-size-150);
   }
 }
 
+.alertNotification {
+  height: calc(var(--ds-size-200, $ds-size-200) + var(--ds-size-25, $ds-size-25));
+  width: calc(var(--ds-size-200, $ds-size-200) + var(--ds-size-25, $ds-size-25)); 
+}
+
+.clearBtn {
+  height: calc(var(--ds-size-200, $ds-size-200) + var(--ds-size-25, $ds-size-25));
+  width: calc(var(--ds-size-200, $ds-size-200) + var(--ds-size-25, $ds-size-25)); 
+}
+
+.passwordBtn {
+  height: calc(var(--ds-size-300, $ds-size-300));
+  width: calc(var(--ds-size-300, $ds-size-300));
+}
+
 .notificationBtn {
-  height: 100%;
-  width: 100%;
   padding: 0;
   border: 0;
   background: unset;

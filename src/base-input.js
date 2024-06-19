@@ -15,10 +15,6 @@ import styleCss from "./style-css.js";
 import colorCss from "./color-css.js";
 import tokensCss from "./tokens-css.js";
 
-import closelg from '@alaskaairux/icons/dist/icons/interface/x-sm.mjs';
-import viewPassword from '@alaskaairux/icons/dist/icons/interface/view-password.mjs';
-import hidePassword from '@alaskaairux/icons/dist/icons/interface/hide-password.mjs';
-import alert from '@alaskaairux/icons/dist/icons/alert/error.mjs';
 import Cleave from 'cleave.js';
 import i18n, {notifyOnLangChange, stopNotifyingOnLangChange} from './i18n.js';
 import AuroFormValidation from '@aurodesignsystem/auro-formvalidation/src/validation.js';
@@ -107,10 +103,6 @@ export default class BaseInput extends LitElement {
    */
   privateDefaults() {
     this.validation = new AuroFormValidation();
-    this.closeSvg = this.getIconAsHtml(closelg);
-    this.alertSvg = this.getIconAsHtml(alert);
-    this.hidePassword = this.getIconAsHtml(hidePassword);
-    this.viewPassword = this.getIconAsHtml(viewPassword);
     this.inputIconName = undefined;
     this.inputMode = '';
     this.showPassword = false;
