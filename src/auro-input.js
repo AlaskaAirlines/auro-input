@@ -3,17 +3,30 @@
 
 // ---------------------------------------------------------------------
 
-/* eslint-disable complexity */
+/* eslint-disable complexity, lit/binding-positions, lit/no-invalid-html */
 
-import { html } from "lit";
+import { html } from 'lit/static-html.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import i18n from './i18n.js';
 import BaseInput from './base-input.js';
 
+import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
+import { AuroIcon } from '@aurodesignsystem/auro-icon/src/auro-icon.js';
+import iconVersion from './iconVersion';
+
 // build the component class
 export class AuroInput extends BaseInput {
+  constructor() {
+    super();
+
+    /**
+     * Generate unique names for dependency components.
+     */
+    const versioning = new AuroDependencyVersioning();
+    this.iconTag = versioning.generateTag('auro-icon', iconVersion, AuroIcon);
+  }
 
   /**
    * Function to determine if the input is meant to render an icon visualizing the input type.
@@ -55,12 +68,25 @@ export class AuroInput extends BaseInput {
                This should be cleaned up when auro-icon issue #31 is resolved. -->
             ${this.inputIconName
             ? repeat([this.inputIconName], (val) => val, (name) => html`
-              <auro-icon class="accentIcon" category="payment" name="${name}" part="accentIcon" customColor></auro-icon>
+              <${this.iconTag}
+                class="accentIcon"
+                category="payment"
+                name="${name}"
+                part="accentIcon"
+                ?disabled="${this.disabled}">
+              </${this.iconTag}>
             `) : undefined
             }
 
             ${this.type === 'month-day-year' || this.type === 'month-year' || this.type === 'year-month-day' || this.type === 'month-fullYear'
-            ? html`<auro-icon class="accentIcon" category="interface" name="calendar" part="accentIcon" customColor></auro-icon>`
+            ? html`
+              <${this.iconTag}
+                class="accentIcon"
+                category="interface"
+                name="calendar"
+                part="accentIcon"
+                ?disabled="${this.disabled}">
+              </${this.iconTag}>`
             : undefined
             }
           </div>
@@ -100,18 +126,35 @@ export class AuroInput extends BaseInput {
           ?hasValue="${this.hasValue}">
           ${this.validity && this.validity !== 'valid' ? html`
             <div class="notification alertNotification">
-              ${this.alertSvg}
+              <${this.iconTag}
+                category="alert"
+                name="error-stroke"
+                customSize
+                error>
+              </${this.iconTag}>
             </div>
           ` : undefined}
           ${this.hasValue ? html`
             ${this.type === 'password' ? html`
-              <div class="notification passwordBtn">
+              <div class="notification">
                 <button
                   aria-hidden="true"
                   tabindex="-1"
                   @click="${this.handleClickShowPassword}"
-                  class="notificationBtn">
-                  ${this.showPassword ? this.hidePassword : this.viewPassword}
+                  class="notificationBtn passwordBtn">
+                  ${this.showPassword ? html`
+                    <${this.iconTag}
+                      category="interface"
+                      name="hide-password-stroke"
+                      customSize>
+                    </${this.iconTag}>
+                  ` : html`
+                    <${this.iconTag}
+                      category="interface"
+                      name="view-password-stroke"
+                      customSize>
+                    </${this.iconTag}>
+                  `}
                 </button>
               </div>
             ` : undefined}
@@ -122,7 +165,13 @@ export class AuroInput extends BaseInput {
                   aria-hidden="true"
                   tabindex="-1"
                   @click="${this.handleClickClear}">
-                  ${this.readonly ? undefined : this.closeSvg}
+                  ${this.readonly ? undefined : html`
+                    <${this.iconTag}
+                      category="interface"
+                      name="x-lg"
+                      customSize>
+                    </${this.iconTag}>
+                  `}
                 </button>
               </div>
             ` : undefined}

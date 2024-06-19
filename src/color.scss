@@ -28,12 +28,12 @@ input {
   color: var(--ds-color-input-text-color);
 
   &::placeholder {
-    color: var(--ds-auro-input-placeholder-text-color);
+    color: transparent;
   }
 
   &:focus {
     &::placeholder {
-      --ds-auro-input-placeholder-text-color: var(--ds-color-text-primary-default, #{$ds-color-text-primary-default});
+      color: var(--ds-auro-input-placeholder-text-color);
     }
   }
 
@@ -44,14 +44,6 @@ input {
 
 label {
   color: var(--ds-auro-input-label-text-color);
-}
-
-.alertNotification {
-  color: var(--ds-auro-input-alert-icon-color);
-}
-
-.typeIcon {
-  color: var(--ds-auro-input-type-icon-color);
 }
 
 :host(:not([bordered], [borderless])) {
@@ -98,6 +90,5 @@ label {
 
 :host([disabled]) {
   --ds-auro-input-border-color: var(--ds-color-border-ui-disabled-default, #{$ds-color-border-ui-disabled-default});
-  --ds-auro-input-type-icon-color: var(--ds-color-text-disabled-default, #{$ds-color-text-disabled-default});
   --ds-auro-input-label-text-color: var(--ds-color-text-disabled-default, #{$ds-color-text-disabled-default});
 }
