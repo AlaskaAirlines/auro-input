@@ -1,5 +1,18 @@
 # Semantic Release Automated Changelog
 
+# [3.1.0-beta.1](https://github.com/AlaskaAirlines/auro-input/compare/v3.0.1...v3.1.0-beta.1) (2024-06-24)
+
+
+### Features
+
+* refactor color token structure with tier 3 tokens [#296](https://github.com/AlaskaAirlines/auro-input/issues/296) ([5653863](https://github.com/AlaskaAirlines/auro-input/commit/56538636ae356a217a68d30608b75e5a2409e60b))
+
+
+### Performance Improvements
+
+* **icon:** update to use beta of auro-icon with theme support ([7df7568](https://github.com/AlaskaAirlines/auro-input/commit/7df75680b487ef7d61747a880d999138f3e2d1a0))
+* replace hardcoded styles with tokens ([e9700ee](https://github.com/AlaskaAirlines/auro-input/commit/e9700ee717b9c7d44f04f124b3302bda58f184b0))
+
 ## [3.0.1](https://github.com/AlaskaAirlines/auro-input/compare/v3.0.0...v3.0.1) (2024-05-10)
 
 
