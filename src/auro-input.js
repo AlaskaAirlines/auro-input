@@ -15,6 +15,8 @@ import BaseInput from './base-input.js';
 import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
 import { AuroIcon } from '@aurodesignsystem/auro-icon/src/auro-icon.js';
 import iconVersion from './iconVersion';
+import { AuroButton } from '@aurodesignsystem/auro-button/src/auro-button.js';
+import buttonVersion from './buttonVersion';
 
 // build the component class
 export class AuroInput extends BaseInput {
@@ -26,6 +28,7 @@ export class AuroInput extends BaseInput {
      */
     const versioning = new AuroDependencyVersioning();
     this.iconTag = versioning.generateTag('auro-icon', iconVersion, AuroIcon);
+    this.buttonTag = versioning.generateTag('auro-button', buttonVersion, AuroButton);
   }
 
   /**
@@ -137,42 +140,44 @@ export class AuroInput extends BaseInput {
           ${this.hasValue ? html`
             ${this.type === 'password' ? html`
               <div class="notification">
-                <button
+                <${this.buttonTag}
+                  variant="flat"
                   aria-hidden="true"
                   tabindex="-1"
                   @click="${this.handleClickShowPassword}"
                   class="notificationBtn passwordBtn">
-                  ${this.showPassword ? html`
-                    <${this.iconTag}
-                      category="interface"
-                      name="hide-password-stroke"
-                      customSize>
-                    </${this.iconTag}>
-                  ` : html`
-                    <${this.iconTag}
-                      category="interface"
-                      name="view-password-stroke"
-                      customSize>
-                    </${this.iconTag}>
-                  `}
-                </button>
+                  <${this.iconTag}
+                    ?hidden=${!this.showPassword}
+                    customColor
+                    category="interface"
+                    name="hide-password-stroke"
+                    customSize>
+                  </${this.iconTag}>
+                  <${this.iconTag}
+                    ?hidden=${this.showPassword}
+                    customColor
+                    category="interface"
+                    name="view-password-stroke"
+                    customSize>
+                  </${this.iconTag}>
+                </${this.buttonTag}>
               </div>
             ` : undefined}
-            ${!this.disabled ? html`
+            ${!this.disabled && !this.readonly ? html`
               <div class="notification">
-                <button
+                <${this.buttonTag}
+                  variant="flat"
                   class="notificationBtn clearBtn"
                   aria-hidden="true"
                   tabindex="-1"
                   @click="${this.handleClickClear}">
-                  ${this.readonly ? undefined : html`
-                    <${this.iconTag}
-                      category="interface"
-                      name="x-lg"
-                      customSize>
-                    </${this.iconTag}>
-                  `}
-                </button>
+                  <${this.iconTag}
+                    customColor
+                    category="interface"
+                    name="x-lg"
+                    customSize>
+                  </${this.iconTag}>
+                </${this.buttonTag}>
               </div>
             ` : undefined}
           ` : undefined}

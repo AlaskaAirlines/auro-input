@@ -66,7 +66,7 @@ describe('auro-input', () => {
       <auro-input value="other value" label="First name"></auro-input>
     `);
 
-    const clearButton = el.shadowRoot.querySelector('button');
+    const clearButton = el.shadowRoot.querySelector('.clearBtn');
     clearButton.click();
     expect(el.value).to.equal('');
   });
