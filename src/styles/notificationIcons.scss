@@ -1,6 +1,6 @@
 @import './../../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
 
-/* stylelint-disable max-nesting-depth, selector-max-class, selector-max-combinators, selector-max-compound-selectors */
+/* stylelint-disable  selector-max-attribute, max-nesting-depth, selector-max-class, selector-max-combinators, selector-max-compound-selectors */
 
 .typeIcon {
   display: flex;
@@ -32,7 +32,7 @@
 
 .notification {
   &:not(:first-of-type) {
-    margin-left: var(--ds-size-150, $ds-size-150);
+    margin-left: var(--ds-size-100, $ds-size-100);
   }
 }
 
@@ -52,10 +52,23 @@
 }
 
 .notificationBtn {
+  display: block;
   padding: 0;
   border: 0;
   background: unset;
   cursor: pointer;
+  height: var(--ds-size-200, $ds-size-200);
+  width: var(--ds-size-200, $ds-size-200);
+
+  [auro-icon] {
+    display: block;
+    height: var(--ds-size-200, $ds-size-200);
+    width: var(--ds-size-200, $ds-size-200);
+
+    &[hidden] {
+      display: none;
+    }
+  }
 }
 
 :host(:not([bordered])) {
