@@ -20,6 +20,7 @@
     "node": "^18 || ^20"
   },
   "dependencies": {
+    "@aurodesignsystem/auro-button": "^7.3.0-beta.2",
     "@aurodesignsystem/auro-formvalidation": "^1.0.3",
     "@aurodesignsystem/auro-icon": "^5.0.0-beta.1",
     "@aurodesignsystem/auro-library": "^2.6.0",
