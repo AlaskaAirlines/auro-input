@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [3.1.0-beta.2](https://github.com/AlaskaAirlines/auro-input/compare/v3.1.0-beta.1...v3.1.0-beta.2) (2024-07-03)
+
+
+### Performance Improvements
+
+* **button:** use new auro-button flat variant for clear and show password ([2a671d2](https://github.com/AlaskaAirlines/auro-input/commit/2a671d220f667799758639c32a8ce6f9058ddf66))
+
 # [3.1.0-beta.1](https://github.com/AlaskaAirlines/auro-input/compare/v3.0.1...v3.1.0-beta.1) (2024-06-24)
 
 
