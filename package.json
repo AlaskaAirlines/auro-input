@@ -20,9 +20,9 @@
     "node": "^18 || ^20"
   },
   "dependencies": {
-    "@aurodesignsystem/auro-button": "^7.3.0-beta.3",
+    "@aurodesignsystem/auro-button": "^7.2.9",
     "@aurodesignsystem/auro-formvalidation": "^1.0.3",
-    "@aurodesignsystem/auro-icon": "^5.0.0-beta.1",
+    "@aurodesignsystem/auro-icon": "^4.4.0",
     "@aurodesignsystem/auro-library": "^2.6.0",
     "chalk": "^5.2.0",
     "cleave.js": "^1.6.0",
