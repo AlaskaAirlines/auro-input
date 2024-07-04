@@ -147,18 +147,18 @@ export class AuroInput extends BaseInput {
                   @click="${this.handleClickShowPassword}"
                   class="notificationBtn passwordBtn">
                   <${this.iconTag}
-                    ?hidden=${!this.showPassword}
-                    customColor
                     category="interface"
                     name="hide-password-stroke"
-                    customSize>
+                    customSize
+                    customColor
+                    ?hidden=${!this.showPassword}>
                   </${this.iconTag}>
                   <${this.iconTag}
-                    ?hidden=${this.showPassword}
-                    customColor
                     category="interface"
                     name="view-password-stroke"
-                    customSize>
+                    customSize
+                    customColor
+                    ?hidden=${this.showPassword}>
                   </${this.iconTag}>
                 </${this.buttonTag}>
               </div>
