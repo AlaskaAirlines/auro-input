@@ -1,38 +1,20 @@
 # Semantic Release Automated Changelog
 
-# [4.0.0-beta.1](https://github.com/AlaskaAirlines/auro-input/compare/v3.1.0-beta.3...v4.0.0-beta.1) (2024-09-30)
-
-
-### Bug Fixes
-
-* add file extensions for SSR support ([d91e0e1](https://github.com/AlaskaAirlines/auro-input/commit/d91e0e19da9d759dedc51c7f866c3a6db8ece7d9))
-* realign text and icons on non-bordered inputs [#333](https://github.com/AlaskaAirlines/auro-input/issues/333) ([d1c1df4](https://github.com/AlaskaAirlines/auro-input/commit/d1c1df405802113f19b071de8a3676e7673d1390))
-* remove private default of attribute ([03e9747](https://github.com/AlaskaAirlines/auro-input/commit/03e9747c9cf498b6a318d1963ce5ba56cf069a65))
-* resolve color theming issues ([0fa4568](https://github.com/AlaskaAirlines/auro-input/commit/0fa456872632081596bc488f28cce15d3adc0333))
-* **theming:** resolve minor theming issues [#296](https://github.com/AlaskaAirlines/auro-input/issues/296) ([03c3fae](https://github.com/AlaskaAirlines/auro-input/commit/03c3fae773a96e0a984efdb8d0046e39118fc612))
+# [3.1.0](https://github.com/AlaskaAirlines/auro-input/compare/v3.0.1...v3.1.0) (2024-07-04)
 
 
 ### Features
 
-* **autocomplete:** add html5 autocomplete functionality [#334](https://github.com/AlaskaAirlines/auro-input/issues/334) ([df7dd3a](https://github.com/AlaskaAirlines/auro-input/commit/df7dd3aef9ba69ffc9628c6b779f27aae2a104df))
+* refactor color token structure with tier 3 tokens [#296](https://github.com/AlaskaAirlines/auro-input/issues/296) ([f15238b](https://github.com/AlaskaAirlines/auro-input/commit/f15238b7f4b5b9668e18b912d559545dfaf35c4d))
 
 
 ### Performance Improvements
 
-* refactor custom component registration config ([3ec2599](https://github.com/AlaskaAirlines/auro-input/commit/3ec2599f817234a26507cdf298d6a89583db2f05))
-* update dependencies ([d65d9f3](https://github.com/AlaskaAirlines/auro-input/commit/d65d9f336ff0c3d758cc54fa5e45bcfa8820caae))
-
-
-### BREAKING CHANGES
-
-* trigger major release for color theming support #296
-
-# [3.1.0-beta.3](https://github.com/AlaskaAirlines/auro-input/compare/v3.1.0-beta.2...v3.1.0-beta.3) (2024-07-04)
-
-
-### Performance Improvements
-
-* **deps:** update to latest beta dependencies ([42ecf61](https://github.com/AlaskaAirlines/auro-input/commit/42ecf61f00d25d10c2ecd8c15ad64ed416e38bf4))
+* **button:** use new auro-button flat variant for clear and show password ([aa46aba](https://github.com/AlaskaAirlines/auro-input/commit/aa46abaa7d6851e15eb51d377d617dd85d7036ce))
+* **deps:** update to latest button beta version ([7be71f6](https://github.com/AlaskaAirlines/auro-input/commit/7be71f6e446617b800feee5ac8a348ad1271db5b))
+* **deps:** use updated dependency versions ([c5a9fe6](https://github.com/AlaskaAirlines/auro-input/commit/c5a9fe6c6fc296ab60ebedab81c1bd1aac2e476d))
+* **icon:** update to use beta of auro-icon with theme support ([9a5cfae](https://github.com/AlaskaAirlines/auro-input/commit/9a5cfae4fae22b88a897149866fa30dd6236afa5))
+* replace hardcoded styles with tokens ([a7ef751](https://github.com/AlaskaAirlines/auro-input/commit/a7ef751818ff56683e0540f44b37df2f8ec3b13c))
 
 # [3.1.0-beta.2](https://github.com/AlaskaAirlines/auro-input/compare/v3.1.0-beta.1...v3.1.0-beta.2) (2024-07-03)
 
