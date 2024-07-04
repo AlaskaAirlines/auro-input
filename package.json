@@ -20,7 +20,7 @@
     "node": "^18 || ^20"
   },
   "dependencies": {
-    "@aurodesignsystem/auro-button": "^7.3.0-beta.2",
+    "@aurodesignsystem/auro-button": "^7.3.0-beta.3",
     "@aurodesignsystem/auro-formvalidation": "^1.0.3",
     "@aurodesignsystem/auro-icon": "^5.0.0-beta.1",
     "@aurodesignsystem/auro-library": "^2.6.0",
@@ -147,7 +147,7 @@
     "web components"
   ],
   "scripts": {
-    "build": "npm-run-all build:sass sass:render types",
+    "build": "npm-run-all build:version build:sass sass:render types",
     "build:test": "npm-run-all test linters",
     "build:release": "npm-run-all build build:test build:api build:docs bundler postinstall",
     "build:ci": "npm-run-all sweep build:release",
