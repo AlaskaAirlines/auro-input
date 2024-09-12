@@ -1,5 +1,7 @@
 import { fixture, html, expect, elementUpdated, oneEvent } from '@open-wc/testing';
-import '../src/auro-input.js';
+import { AuroInput } from '../src/auro-input.js';
+import '../index.js';
+import * as RuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
 
 describe('auro-input', () => {
 
@@ -8,6 +10,20 @@ describe('auro-input', () => {
     const el = document.createElement('auro-input');
 
     await expect(el.localName).to.equal('auro-input');
+  });
+
+  it('auro-input can be registered as a custom element name', async () => {
+    expect(RuntimeUtils.default.prototype.registerComponent).to.not.be.undefined;
+    
+    RuntimeUtils.default.prototype.registerComponent('custom-input', AuroInput);
+
+    const el = await fixture(html`
+      <custom-input></custom-input>
+    `);
+
+    await expect(el.localName).to.equal('custom-input');
+
+    expect(el).to.have.attribute('auro-input');
   });
 
   it('sets value on the input', async () => {
