@@ -29,11 +29,9 @@
     </script>
     
     <script type="module">
-      import { registerComponent } from '../index.js';
-      import { initExamples } from "./index.min.js";
-
-      registerComponent('custom-input');
-      initExamples();
+      import { AuroInput } from '../src/auro-input.js';
+      import * as RuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
+      RuntimeUtils.default.prototype.registerComponent('custom-input', AuroInput);
     </script>
 
     <!-- If additional elements are needed for the demo, add them here. -->

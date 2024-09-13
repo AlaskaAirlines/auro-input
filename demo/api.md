@@ -34,12 +34,14 @@
 | [activeLabel](#activeLabel)                     | `activeLabel`                     | `Boolean` | false                      | If set, the label will remain fixed in the active position. |
 | [autocapitalize](#autocapitalize)                  | `autocapitalize`                  | `String`  |                            | An enumerated attribute that controls whether and how text input is automatically capitalized as it is entered/edited by the user. [off/none, on/sentences, words, characters] |
 | [autocorrect](#autocorrect)                     | `autocorrect`                     | `String`  |                            | When set to `off`, stops iOS from auto correcting words when typed into a text box. |
+| [buttonTag](#buttonTag)                       |                                   | `string`  |                            |                                                  |
 | [customValidityTypeEmail](#customValidityTypeEmail)         | `customValidityTypeEmail`         | `string`  |                            |                                                  |
 | [disabled](#disabled)                        | `disabled`                        | `Boolean` | false                      | If set, disables the input.                      |
 | [error](#error)                           | `error`                           | `String`  |                            | When defined, sets persistent validity to `customError` and sets `setCustomValidity` = attribute value. |
 | [errorMessage](#errorMessage)                    | `errorMessage`                    | `String`  |                            | Contains the help text message for the current validity error. |
 | [helpText](#helpText)                        | `helpText`                        | `String`  |                            | Deprecated, see `slot`.                          |
 | [icon](#icon)                            | `icon`                            | `Boolean` | false                      | If set, will render an icon inside the input to the left of the value. Support is limited to auro-input instances with credit card format. |
+| [iconTag](#iconTag)                         |                                   | `string`  |                            |                                                  |
 | [id](#id)                              | `id`                              | `String`  |                            | Sets the unique ID of the element.               |
 | [isValid](#isValid)                         | `isValid`                         | `String`  | false                      | (DEPRECATED - Please use validity) Can be accessed to determine if the input validity. Returns true when validity has not yet been checked or validity = 'valid', all other cases return false. Not intended to be set by the consumer. |
 | [label](#label)                           | `label`                           | `String`  | "Input label is undefined" | Deprecated, see `slot`.                          |
@@ -1168,17 +1170,15 @@ The component may be restyled using the following code sample and changing the v
 <!-- The below code snippet is automatically added from ./../../src/tokens.scss -->
 
 ```scss
-:host {
-  --ds-auro-input-alert-icon-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
-  --ds-auro-input-background-color: var(--ds-color-background-primary-100-default, $ds-color-background-primary-100-default);
+:root {
+  --ds-auro-input-background-color: var(--ds-color-container-primary-default, $ds-color-container-primary-default);
   --ds-auro-input-border-color: var(--ds-color-border-secondary-default, $ds-color-border-secondary-default);
   --ds-auro-input-caret-color: var(--ds-color-text-ui-focus-default, $ds-color-text-ui-focus-default);
   --ds-auro-input-help-text-color: var(--ds-color-text-tertiary-default, $ds-color-text-tertiary-default);
   --ds-auro-input-label-text-color: var(--ds-color-text-tertiary-default, $ds-color-text-tertiary-default);
   --ds-auro-input-notification-icon-color: var(--ds-color-alert-error-default, $ds-color-alert-error-default);
-  --ds-auro-input-placeholder-text-color: transparent;
+  --ds-auro-input-placeholder-text-color: var(--ds-color-text-primary-default, $ds-color-text-primary-default);
   --ds-auro-input-text-color: var(--ds-color-text-primary-default, $ds-color-text-primary-default);
-  --ds-auro-input-type-icon-color: var(--ds-color-icon-primary-default, $ds-color-icon-primary-default);
 }
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
