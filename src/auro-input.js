@@ -27,7 +27,15 @@ export class AuroInput extends BaseInput {
      * Generate unique names for dependency components.
      */
     const versioning = new AuroDependencyVersioning();
+
+    /**
+     * @private
+     */
     this.iconTag = versioning.generateTag('auro-icon', iconVersion, AuroIcon);
+
+    /**
+     * @private
+     */
     this.buttonTag = versioning.generateTag('auro-button', buttonVersion, AuroButton);
   }
 
@@ -53,7 +61,6 @@ export class AuroInput extends BaseInput {
 
   // function that renders the HTML and CSS into  the scope of the component
   render() {
-    // eslint-disable-next-line one-var
     // is-disabled class - THIS IS ONLY HERE TO MAKE A TEST PASS AS FAR AS I CAN TELL
     const labelClasses = {
       'is-disabled': this.disabled,
