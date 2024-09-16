@@ -55,7 +55,7 @@ label {
 :host([bordered]) {
   .wrapper {
     border-color: var(--ds-auro-input-border-color);
-    background-color: var(--ds-auro-input-background-color);
+    background-color: var(--ds-auro-input-container-color);
 
     &:focus-within {
       --ds-auro-input-border-color: var(--ds-color-border-ui-focus-default, #{$ds-color-border-ui-focus-default});
@@ -77,7 +77,7 @@ label {
 
 :host([validity]:not([validity='valid'])) {
   --ds-auro-input-border-color: var(--ds-color-border-error-default, #{$ds-color-border-error-default});
-  --ds-auro-input-help-text-color: var(--ds-color-alert-error-default, #{$ds-color-alert-error-default});
+  --ds-auro-input-help-text-color: var(--ds-color-text-error-default, #{$ds-color-text-error-default});
 }
 
 :host([validity]:not([validity='valid'])[bordered]) {
