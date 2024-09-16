@@ -8,7 +8,7 @@ input {
   min-height: calc(var(--ds-size-700, $ds-size-700) + var(--ds-size-25, $ds-size-25));
   max-height: calc(var(--ds-size-700, $ds-size-700) + var(--ds-size-25, $ds-size-25));
 
-  padding: var(--ds-size-400, $ds-size-400) 0 var(--ds-size-100, $ds-size-100);
+  padding: var(--ds-size-400, $ds-size-400) 0 var(--ds-size-50, $ds-size-50);
 
   white-space: nowrap;
   overflow: hidden;

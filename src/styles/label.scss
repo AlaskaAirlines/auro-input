@@ -50,23 +50,7 @@ label {
   font-size: var(--ds-text-body-size-xs, $ds-text-body-size-xs);
 }
 
-:host(:not([bordered])) {
-  .wrapper {
-    &:focus-within {
-      label {
-        @include active-label;
-      }
-    }
-  }
-
-  label {
-    &.withValue {
-      @include active-label;
-    }
-  }
-}
-
-:host([bordered]) {
+:host {
   .wrapper {
     &:focus-within {
       label {
