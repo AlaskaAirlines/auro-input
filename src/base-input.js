@@ -3,10 +3,8 @@
 
 // ---------------------------------------------------------------------
 
-/* eslint-disable max-lines, no-magic-numbers, complexity, max-depth */
+/* eslint-disable max-lines, no-magic-numbers, dot-location */
 /* eslint no-magic-numbers: ["error", { "ignore": [0] }] */
-/* eslint-disable max-statements */
-/* eslint-disable dot-location */
 
 import { LitElement, css } from "lit";
 import { ifDefined } from 'lit/directives/if-defined.js';
@@ -605,7 +603,7 @@ export default class BaseInput extends LitElement {
       this.updateComplete.then(() => {
         try {
           this.inputElement.setSelectionRange(selectionStart, selectionStart);
-        } catch (error) {
+        } catch (error) { // eslint-disable-line
           // do nothing
         }
       });
@@ -817,7 +815,6 @@ export default class BaseInput extends LitElement {
   matchInputValueToCreditCard() {
     const CreditCardValidationMessage = `${i18n(this.lang, 'validCard')}`;
 
-    // eslint-disable-next-line sort-vars, one-var
     const creditCardTypes = [
       {
         name: 'Airlines',
