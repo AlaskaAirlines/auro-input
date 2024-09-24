@@ -22,6 +22,7 @@ import AuroFormValidation from '@aurodesignsystem/auro-formvalidation/src/valida
  *
  * @attr {Boolean} activeLabel - If set, the label will remain fixed in the active position.
  * @attr {String}  autocapitalize - An enumerated attribute that controls whether and how text input is automatically capitalized as it is entered/edited by the user. [off/none, on/sentences, words, characters]
+ * @attr {String}  autocomplete - An enumerated attribute that defines what the user agent can suggest for autofill. At this time, only `autocomplete="off"` is supported.
  * @attr {String}  autocorrect - When set to `off`, stops iOS from auto correcting words when typed into a text box.
  * @attr {Boolean} bordered - Applies bordered UI variant.
  * @attr {Boolean} borderless - Applies borderless UI variant.
@@ -173,6 +174,10 @@ export default class BaseInput extends LitElement {
       spellcheck:              { type: String },
       autocorrect:             { type: String },
       autocapitalize:          { type: String },
+      autocomplete:            {
+        type: String,
+        reflect: true
+      },
       placeholder:             { type: String },
       activeLabel:             {
         type: Boolean,
