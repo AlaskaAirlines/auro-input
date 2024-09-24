@@ -127,6 +127,7 @@ export class AuroInput extends BaseInput {
             spellcheck="${ifDefined(this.spellcheck ? this.spellcheck : undefined)}"
             autocorrect="${ifDefined(this.autocorrect ? this.autocorrect : undefined)}"
             autocapitalize="${ifDefined(this.autocapitalize ? this.autocapitalize : undefined)}"
+            autocomplete="${ifDefined(this.autocomplete ? this.autocomplete : undefined)}"
             part="input"
             />
         </div>
