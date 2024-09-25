@@ -38,7 +38,7 @@ input {
   }
 
   &:disabled {
-    --ds-auro-input-input-text-color: var(--ds-color-text-disabled-default, #{$ds-color-text-disabled-default});
+    --ds-auro-input-input-text-color: var(--ds-color-text-ui-disabled-default, #{$ds-color-text-ui-disabled-default});
   }
 }
 
@@ -90,5 +90,5 @@ label {
 
 :host([disabled]) {
   --ds-auro-input-border-color: var(--ds-color-border-ui-disabled-default, #{$ds-color-border-ui-disabled-default});
-  --ds-auro-input-label-text-color: var(--ds-color-text-disabled-default, #{$ds-color-text-disabled-default});
+  --ds-auro-input-label-text-color: var(--ds-color-text-ui-disabled-default, #{$ds-color-text-ui-disabled-default});
 }
