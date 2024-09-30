@@ -1,5 +1,26 @@
 # Semantic Release Automated Changelog
 
+# [4.0.0-beta.2](https://github.com/AlaskaAirlines/auro-input/compare/v4.0.0-beta.1...v4.0.0-beta.2) (2024-09-30)
+
+
+### Bug Fixes
+
+* remove private default of attribute ([dbeb3df](https://github.com/AlaskaAirlines/auro-input/commit/dbeb3dfc054f4c6c0a3b06613acde8776577a484))
+
+
+### Performance Improvements
+
+* **deps:** update to latest beta dependencies ([4747ab2](https://github.com/AlaskaAirlines/auro-input/commit/4747ab208cfe24def04f0773a934a95205710f8a))
+* **deps:** update to latest button beta version ([cd30e78](https://github.com/AlaskaAirlines/auro-input/commit/cd30e788bc1f841aeb6402846138c79e52bfbadc))
+* **deps:** update to use current dependency versions ([2d49601](https://github.com/AlaskaAirlines/auro-input/commit/2d4960167dc699aff33e93343733fe1f62b21839))
+* **deps:** use updated dependency versions ([0f7db80](https://github.com/AlaskaAirlines/auro-input/commit/0f7db801fd6fa3e2545297a2668fcc545cee6b61))
+* update dependencies ([ba59893](https://github.com/AlaskaAirlines/auro-input/commit/ba59893ab4d5ed9c25b61113cb1513d3a88e5f02))
+
+
+### BREAKING CHANGES
+
+* trigger major release for color theming support #296
+
 ## [3.0.1](https://github.com/AlaskaAirlines/auro-input/compare/v3.0.0...v3.0.1) (2024-05-10)
 
 
