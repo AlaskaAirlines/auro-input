@@ -1,6 +1,6 @@
 @import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
 
-:root {
+:host {
   --ds-auro-input-border-color: var(--ds-color-border-secondary-default, #{$ds-color-border-secondary-default});
   --ds-auro-input-container-color: var(--ds-color-container-primary-default, #{$ds-color-container-primary-default});
   --ds-auro-input-caret-color: var(--ds-color-text-ui-focus-default, #{$ds-color-text-ui-focus-default});
