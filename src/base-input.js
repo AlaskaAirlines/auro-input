@@ -103,7 +103,6 @@ export default class BaseInput extends LitElement {
   privateDefaults() {
     this.validation = new AuroFormValidation();
     this.inputIconName = undefined;
-    this.inputMode = '';
     this.showPassword = false;
     this.validationCCLength = undefined;
     this.hasValue = false;
