@@ -25,7 +25,7 @@
 input {
   background-color: transparent;
   caret-color: var(--ds-auro-input-caret-color);
-  color: var(--ds-color-input-text-color);
+  color: var(--ds-auro-input-text-color);
 
   &::placeholder {
     color: transparent;
