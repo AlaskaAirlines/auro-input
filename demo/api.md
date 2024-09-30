@@ -1169,7 +1169,7 @@ The component may be restyled using the following code sample and changing the v
 <!-- The below code snippet is automatically added from ./../../src/tokens.scss -->
 
 ```scss
-@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
 
 :root {
   --ds-auro-input-border-color: var(--ds-color-border-secondary-default, #{$ds-color-border-secondary-default});
