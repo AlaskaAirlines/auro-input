@@ -20,15 +20,15 @@
 @import './../node_modules/@aurodesignsystem/webcorestylesheets/src/core';
 
 // Support for fallback values
-@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables.scss';
+@import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
 
 // Support for auroElement styles
 @import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/auroElement/auroElement';
 
-@import './styles/notificationIcons.scss';
-@import './styles/helpText.scss';
-@import './styles/borders.scss';
-@import './styles/label.scss';
+@import './styles/notificationIcons';
+@import './styles/helpText';
+@import './styles/borders';
+@import './styles/label';
 
 // container styles - defines the look of the outer custom component
 :host {
@@ -52,4 +52,4 @@
   flex: 1;
 }
 
-@import './styles/input.scss';
+@import './styles/input';
