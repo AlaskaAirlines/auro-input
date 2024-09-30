@@ -104,7 +104,7 @@ In cases where the project is not able to process JS assets, there are pre-proce
 =======
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aurodesignsystem/design-tokens@4.9.2/dist/tokens/CSSCustomProperties.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@aurodesignsystem/webcorestylesheets@5.1.2/dist/bundled/essentials.css" />
-<script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-input@3.1.0-beta.3/dist/auro-input__bundled.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/@aurodesignsystem/auro-input@4.0.0-beta.1/dist/auro-input__bundled.js" type="module"></script>
 ```
 >>>>>>> d65d9f3 (perf: update dependencies)
 
