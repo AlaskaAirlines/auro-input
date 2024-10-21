@@ -13,6 +13,8 @@ import i18n from './i18n.js';
 import BaseInput from './base-input.js';
 
 import { AuroDependencyVersioning } from '@aurodesignsystem/auro-library/scripts/runtime/dependencyTagVersioning.mjs';
+import AuroLibraryRuntimeUtils from '@aurodesignsystem/auro-library/scripts/utils/runtimeUtils.mjs';
+
 import { AuroIcon } from '@aurodesignsystem/auro-icon/src/auro-icon.js';
 import iconVersion from './iconVersion.js';
 import { AuroButton } from '@aurodesignsystem/auro-button/src/auro-button.js';
@@ -37,6 +39,18 @@ export class AuroInput extends BaseInput {
      * @private
      */
     this.buttonTag = versioning.generateTag('auro-button', buttonVersion, AuroButton);
+  }
+
+  /**
+   * This will register this element with the browser.
+   * @param {string} [name="auro-input"] - The name of element that you want to register to.
+   *
+   * @example
+   * AuroInput.register("custom-input") // this will register this element to <custom-input/>
+   *
+   */
+  static register(name = "auro-input") {
+    AuroLibraryRuntimeUtils.prototype.registerComponent(name, AuroInput);
   }
 
   /**
@@ -205,9 +219,4 @@ export class AuroInput extends BaseInput {
       }
     `;
   }
-}
-
-// default internal definition
-if (!customElements.get("auro-input")) {
-  customElements.define("auro-input", AuroInput);
 }
