@@ -3,9 +3,7 @@ import { customError } from "../apiExamples/error";
 import { setReadonlyValue } from "../apiExamples/readonly";
 import { swapInputValues } from "../apiExamples/swapValue";
 import { programmaticallySetValue } from "../apiExamples/value";
-import { AuroInput } from '../src/auro-input.js';
-
-AuroInput.register();
+import '../index.js';
 
 export function initExamples(initCount) {
   initCount = initCount || 0;
