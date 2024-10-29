@@ -8,8 +8,8 @@
   align-items: center;
 
   [auro-icon] {
-    height: var(--ds-size-300, $ds-size-300);
-    width: var(--ds-size-300, $ds-size-300);
+    --ds-auro-icon-size: var(--ds-size-300, $ds-size-300);
+    
     margin-right: var(--ds-size-100, $ds-size-100);
   }
 }
@@ -61,9 +61,9 @@
   width: var(--ds-size-200, $ds-size-200);
 
   [auro-icon] {
+    --ds-auro-icon-size: var(--ds-size-300, $ds-size-300);
+    
     display: block;
-    height: var(--ds-size-200, $ds-size-200);
-    width: var(--ds-size-200, $ds-size-200);
 
     &[hidden] {
       display: none;
