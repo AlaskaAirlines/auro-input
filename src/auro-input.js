@@ -154,7 +154,6 @@ export class AuroInput extends BaseInput {
               <${this.iconTag}
                 category="alert"
                 name="error-stroke"
-                customSize
                 error>
               </${this.iconTag}>
             </div>
@@ -171,14 +170,12 @@ export class AuroInput extends BaseInput {
                   <${this.iconTag}
                     category="interface"
                     name="hide-password-stroke"
-                    customSize
                     customColor
                     ?hidden=${!this.showPassword}>
                   </${this.iconTag}>
                   <${this.iconTag}
                     category="interface"
                     name="view-password-stroke"
-                    customSize
                     customColor
                     ?hidden=${this.showPassword}>
                   </${this.iconTag}>
@@ -197,7 +194,7 @@ export class AuroInput extends BaseInput {
                     customColor
                     category="interface"
                     name="x-lg"
-                    customSize>
+                    >
                   </${this.iconTag}>
                 </${this.buttonTag}>
               </div>
