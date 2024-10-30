@@ -22,7 +22,7 @@
   "dependencies": {
     "@aurodesignsystem/auro-button": "^8.1.0",
     "@aurodesignsystem/auro-formvalidation": "^1.0.4",
-    "@aurodesignsystem/auro-icon": "^6.0.0",
+    "@aurodesignsystem/auro-icon": "^6.0.1",
     "@aurodesignsystem/auro-library": "^2.10.1",
     "chalk": "^5.3.0",
     "cleave.js": "^1.6.0",

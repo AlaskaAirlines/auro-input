@@ -61,7 +61,11 @@
   width: var(--ds-size-200, $ds-size-200);
 
   [auro-icon] {
-    --ds-auro-icon-size: var(--ds-size-300, $ds-size-300);
+    --ds-auro-icon-size: var(--ds-size-200, $ds-size-200);
+    
+    svg {
+      min-width: none;
+    }
     
     display: block;
 
