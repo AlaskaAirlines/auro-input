@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [4.1.1](https://github.com/AlaskaAirlines/auro-input/compare/v4.1.0...v4.1.1) (2024-10-31)
+
+
+### Performance Improvements
+
+* revert auro-library version ([819f7bd](https://github.com/AlaskaAirlines/auro-input/commit/819f7bd6d83c0ad13e936ee5e5042b9631e7d3ee))
+
 # [4.1.0](https://github.com/AlaskaAirlines/auro-input/compare/v4.0.0...v4.1.0) (2024-10-31)
 
 
