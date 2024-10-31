@@ -1,5 +1,18 @@
 # Semantic Release Automated Changelog
 
+# [4.1.0](https://github.com/AlaskaAirlines/auro-input/compare/v4.0.0...v4.1.0) (2024-10-31)
+
+
+### Features
+
+* **api:** add register static method [#342](https://github.com/AlaskaAirlines/auro-input/issues/342) ([ed355cc](https://github.com/AlaskaAirlines/auro-input/commit/ed355ccab89e233775904d7348e2d68af1967df8))
+
+
+### Performance Improvements
+
+* update dependencies ([19ba019](https://github.com/AlaskaAirlines/auro-input/commit/19ba019c683da8fd8e42ca0e26f724099760f20d))
+* update dependency versions ([6f98b4c](https://github.com/AlaskaAirlines/auro-input/commit/6f98b4c931b8e84da0ce31dd84dd2ccde950d05e))
+
 # [4.0.0](https://github.com/AlaskaAirlines/auro-input/compare/v3.0.1...v4.0.0) (2024-09-30)
 
 
