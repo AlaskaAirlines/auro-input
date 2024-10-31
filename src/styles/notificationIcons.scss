@@ -10,6 +10,7 @@
   [auro-icon] {
     --ds-auro-icon-size: var(--ds-size-300, $ds-size-300);
     
+    height: var(--ds-size-300, $ds-size-300);
     margin-right: var(--ds-size-100, $ds-size-100);
   }
 }
@@ -62,6 +63,8 @@
 
   [auro-icon] {
     --ds-auro-icon-size: var(--ds-size-200, $ds-size-200);
+    
+    height: var(--ds-size-200, $ds-size-200);
     
     svg {
       min-width: none;
