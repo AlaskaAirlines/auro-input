@@ -176,7 +176,7 @@
     "postinstall": "node packageScripts/postinstall.mjs",
     "sass:render": "sass-render 'src/**/*.css' 'components/**/*.css' -t ./node_modules/@aurodesignsystem/auro-library/scripts/build/staticStyles-template.js",
     "serve": "web-dev-server --open demo/ --node-resolve --watch",
-    "sweep": "rm -rf ./demo/css ./dist | find ./demo ./dist ./src ./-type f \\( -name \"*.css\" -o -name \"*-css.js\" \\) -delete",
+    "sweep": "rm -rf ./demo/css ./dist | find ./demo ./dist ./src -type f \\( -name \"*.css\" -o -name \"*-css.js\" \\) -delete",
     "test": "wtr --coverage",
     "test:watch": "wtr --watch",
     "prepare": "husky install",
