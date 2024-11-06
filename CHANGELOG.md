@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [4.1.2](https://github.com/AlaskaAirlines/auro-input/compare/v4.1.1...v4.1.2) (2024-11-06)
+
+
+### Bug Fixes
+
+* remove components dir from sweep command ([1cbcd85](https://github.com/AlaskaAirlines/auro-input/commit/1cbcd85158e1d6590a0048e71c8c62d2079a6721))
+* remove deprecated demo/css folder from sweep command ([5eb7b36](https://github.com/AlaskaAirlines/auro-input/commit/5eb7b36f039142821694bdd4f29c8b5d17ebb296))
+
 ## [4.1.1](https://github.com/AlaskaAirlines/auro-input/compare/v4.1.0...v4.1.1) (2024-10-31)
 
 
