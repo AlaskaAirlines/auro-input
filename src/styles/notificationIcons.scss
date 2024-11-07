@@ -8,7 +8,7 @@
   align-items: center;
 
   [auro-icon] {
-    --ds-auro-icon-size: var(--ds-size-300, $ds-size-300);
+    --ds-auro-icon-size: var(--ds-size-300, #{$ds-size-300});
     
     height: var(--ds-size-300, $ds-size-300);
     margin-right: var(--ds-size-100, $ds-size-100);
@@ -38,8 +38,8 @@
 }
 
 .alertNotification {
-  height: calc(var(--ds-size-200, $ds-size-200) + var(--ds-size-25, $ds-size-25));
-  width: calc(var(--ds-size-200, $ds-size-200) + var(--ds-size-25, $ds-size-25)); 
+  height: calc(var(--ds-size-300, $ds-size-300) + var(--ds-size-25, $ds-size-25));
+  width: calc(var(--ds-size-300, $ds-size-300) + var(--ds-size-25, $ds-size-25)); 
 }
 
 .clearBtn {
@@ -62,7 +62,7 @@
   width: var(--ds-size-200, $ds-size-200);
 
   [auro-icon] {
-    --ds-auro-icon-size: var(--ds-size-200, $ds-size-200);
+    --ds-auro-icon-size: var(--ds-size-200, #{$ds-size-200});
     
     height: var(--ds-size-200, $ds-size-200);
     display: block;
