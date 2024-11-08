@@ -58,13 +58,13 @@
   border: 0;
   background: unset;
   cursor: pointer;
-  height: var(--ds-size-200, $ds-size-200);
-  width: var(--ds-size-200, $ds-size-200);
+  height: var(--ds-size-300, $ds-size-300);
+  width: var(--ds-size-300, $ds-size-300);
 
   [auro-icon] {
-    --ds-auro-icon-size: var(--ds-size-200, #{$ds-size-200});
+    --ds-auro-icon-size: var(--ds-size-300, #{$ds-size-300});
     
-    height: var(--ds-size-200, $ds-size-200);
+    height: var(--ds-size-300, $ds-size-300);
     display: block;
 
     &[hidden] {
