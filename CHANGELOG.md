@@ -1,5 +1,13 @@
 # Semantic Release Automated Changelog
 
+## [4.1.3](https://github.com/AlaskaAirlines/auro-input/compare/v4.1.2...v4.1.3) (2024-11-08)
+
+
+### Bug Fixes
+
+* adjust size clear icon [#345](https://github.com/AlaskaAirlines/auro-input/issues/345) ([d7b30b4](https://github.com/AlaskaAirlines/auro-input/commit/d7b30b49a318690329388420fea5a06f974ffcb0))
+* update icon styles to suport new icon custom size changes [#345](https://github.com/AlaskaAirlines/auro-input/issues/345) ([03bce28](https://github.com/AlaskaAirlines/auro-input/commit/03bce280321267990c719be661419a1607e50677))
+
 ## [4.1.2](https://github.com/AlaskaAirlines/auro-input/compare/v4.1.1...v4.1.2) (2024-11-06)
 
 
