@@ -4,7 +4,7 @@ The README.md file is a compiled document. No edits should be made directly to t
 README.md is created by running `npm run build:docs`.
 
 This file is generated based on a template fetched from
-`https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/README.md`
+`https://raw.githubusercontent.com/AlaskaAirlines/WC-Generator/master/componentDocs/README_updated_paths.md`
 and copied to `./componentDocs/README.md` each time the the docs are compiled.
 
 The following sections are editable by making changes to the following files:
@@ -19,12 +19,12 @@ The following sections are editable by making changes to the following files:
 
 # Input
 
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/description.md) -->
-<!-- The below content is automatically added from ./../docs/partials/description.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/description.md) -->
+<!-- The below content is automatically added from ./docs/partials/description.md -->
 Use the `<auro-input>` custom element to create basic single-line text fields. Supports type `text`, `password`, and `email` with validation, required input, error states and a secondary `bordered` theme. Use the slots `label` and `helptext` for additional content support.
 <!-- AURO-GENERATED-CONTENT:END -->
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/readmeAddlInfo.md) -->
-<!-- The below content is automatically added from ./../docs/partials/readmeAddlInfo.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/readmeAddlInfo.md) -->
+<!-- The below content is automatically added from ./docs/partials/readmeAddlInfo.md -->
 <!-- AURO-GENERATED-CONTENT:END -->
 
 ## UI development browser support
@@ -71,8 +71,8 @@ import "@aurodesignsystem/auro-input";
 
 <!-- AURO-GENERATED-CONTENT:END -->
 **Reference component in HTML**
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
 
 ```html
 <auro-input></auro-input>
@@ -103,8 +103,8 @@ In cases where the project is not able to process JS assets, there are pre-proce
 
 ## auro-input use cases
 
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/partials/useCases.md) -->
-<!-- The below content is automatically added from ./../docs/partials/useCases.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./docs/partials/useCases.md) -->
+<!-- The below content is automatically added from ./docs/partials/useCases.md -->
 The `<auro-input>` element should be used in situations where users may:
 
 * needs to enter information
@@ -115,8 +115,8 @@ The `<auro-input>` element should be used in situations where users may:
 
 ### Default auro-input
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./apiExamples/basic.html -->
 
 ```html
 <auro-input></auro-input>

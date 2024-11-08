@@ -15,8 +15,8 @@
     }
   }
 </style>
-<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../api.md) -->
-<!-- The below content is automatically added from ./../api.md -->
+<!-- AURO-GENERATED-CONTENT:START (FILE:src=./../docs/api.md) -->
+<!-- The below content is automatically added from ./../docs/api.md -->
 
 # auro-input
 
@@ -119,16 +119,16 @@ The `auro-input` element supports the localization of all content managed within
 ## Basic
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/basic.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/basic.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/basic.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/basic.html -->
   <auro-input></auro-input>
   <auro-input bordered></auro-input>
   <!-- AURO-GENERATED-CONTENT:END -->
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/basic.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/basic.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/basic.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/basic.html -->
 
 ```html
 <auro-input></auro-input>
@@ -143,8 +143,8 @@ The `auro-input` element supports the localization of all content managed within
 Use the `disable` attribute to prevent the user from interacting with the input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/disabled.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/disabled.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/disabled.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/disabled.html -->
   <auro-input disabled type="month-day-year" required>
     <slot slot="label">Departure date</slot>
   </auro-input>
@@ -155,8 +155,8 @@ Use the `disable` attribute to prevent the user from interacting with the input.
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/disabled.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/disabled.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/disabled.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/disabled.html -->
 
 ```html
 <auro-input disabled type="month-day-year" required>
@@ -173,8 +173,8 @@ Use the `disable` attribute to prevent the user from interacting with the input.
 Use the `placeholder` attribute to add a custom placeholder message within the element.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/placeholder.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/placeholder.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/placeholder.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/placeholder.html -->
   <auro-input required placeholder="John Doe">
     <span slot="label">Full name</span>
   </auro-input>
@@ -186,8 +186,8 @@ Use the `placeholder` attribute to add a custom placeholder message within the e
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/placeholder.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/placeholder.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/placeholder.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/placeholder.html -->
 
 ```html
 <auro-input required placeholder="John Doe">
@@ -205,8 +205,8 @@ Use the `placeholder` attribute to add a custom placeholder message within the e
 Use the `value` attribute to programmatically set the value of the input.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/programmaticValue.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/programmaticValue.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/programmaticValue.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/programmaticValue.html -->
   <auro-input value="Alaska Airlines is the best!" bordered>
     <span slot="label">Name</span>
     <span slot="helptext">Please enter your full name.</span>
@@ -215,8 +215,8 @@ Use the `value` attribute to programmatically set the value of the input.
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/programmaticValue.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/programmaticValue.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/programmaticValue.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/programmaticValue.html -->
 
 ```html
 <auro-input value="Alaska Airlines is the best!" bordered>
@@ -234,8 +234,8 @@ Use the `value` and other components to dynamically set the value of the input.
 Note: Setting the `value` to `undefined` will also reset the element.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/value.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/value.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/value.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/value.html -->
   <auro-button id="setValidValueBtn">Set Value to Alaska</auro-button>
   <auro-button id="resetValueBtn">Reset</auro-button>
   <auro-input id="setProgrammaticValueExample" value="Press one of the buttons above!" bordered>
@@ -246,8 +246,8 @@ Note: Setting the `value` to `undefined` will also reset the element.
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/value.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/value.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/value.html -->
 
 ```html
 <auro-button id="setValidValueBtn">Set Value to Alaska</auro-button>
@@ -258,8 +258,8 @@ Note: Setting the `value` to `undefined` will also reset the element.
 </auro-input>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/value.js) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/value.js -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/value.js) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/value.js -->
 
 ```js
 export function programmaticallySetValue() {
@@ -287,8 +287,8 @@ The `max` attribute should be used in combination with the `setCustomValidityRan
 #### Date Example
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/maxDate.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/maxDate.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/maxDate.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/maxDate.html -->
   <auro-input type="month-day-year" max="03/25/2023" setCustomValidityRangeOverflow="The selected date is past the defined maximum date.">
     <span slot="label">Choose a date</span>
   </auro-input>
@@ -296,8 +296,8 @@ The `max` attribute should be used in combination with the `setCustomValidityRan
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/maxDate.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/maxDate.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/maxDate.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/maxDate.html -->
 
 ```html
 <auro-input type="month-day-year" max="03/25/2023" setCustomValidityRangeOverflow="The selected date is past the defined maximum date.">
@@ -310,8 +310,8 @@ The `max` attribute should be used in combination with the `setCustomValidityRan
 #### Numeric Example
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/maxNumeric.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/maxNumeric.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/maxNumeric.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/maxNumeric.html -->
   <auro-input type="number" max="10" setCustomValidityRangeOverflow="The selected value is above the defined maximum.">
     <span slot="label">Choose a number</span>
   </auro-input>
@@ -319,8 +319,8 @@ The `max` attribute should be used in combination with the `setCustomValidityRan
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/maxNumeric.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/maxNumeric.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/maxNumeric.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/maxNumeric.html -->
 
 ```html
 <auro-input type="number" max="10" setCustomValidityRangeOverflow="The selected value is above the defined maximum.">
@@ -338,8 +338,8 @@ The `min` attribute should be used in combination with the `setCustomValidityRan
 #### Date Example
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/minDate.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/minDate.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/minDate.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/minDate.html -->
   <auro-input type="month-day-year" min="03/25/2023" setCustomValidityRangeUnderflow="The selected date is before the defined minimum date.">
     <span slot="label">Choose a date</span>
   </auro-input>
@@ -347,8 +347,8 @@ The `min` attribute should be used in combination with the `setCustomValidityRan
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/minDate.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/minDate.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/minDate.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/minDate.html -->
 
 ```html
 <auro-input type="month-day-year" min="03/25/2023" setCustomValidityRangeUnderflow="The selected date is before the defined minimum date.">
@@ -361,8 +361,8 @@ The `min` attribute should be used in combination with the `setCustomValidityRan
 #### Numeric Example
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/minNumeric.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/minNumeric.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/minNumeric.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/minNumeric.html -->
   <auro-input type="number" min="10" setCustomValidityRangeUnderflow="The selected value is below the defined minimum.">
     <span slot="label">Choose a number</span>
   </auro-input>
@@ -370,8 +370,8 @@ The `min` attribute should be used in combination with the `setCustomValidityRan
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/minNumeric.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/minNumeric.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/minNumeric.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/minNumeric.html -->
 
 ```html
 <auro-input type="number" min="10" setCustomValidityRangeUnderflow="The selected value is below the defined minimum.">
@@ -387,8 +387,8 @@ Use the `pattern` attribute to set custom input validation. This example also us
 The `<auro-input>` component supports setting a custom validity message specific to the pattern validation by using the `setCustomValidityBadInput` attribute.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/pattern.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/pattern.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/pattern.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/pattern.html -->
   <auro-input pattern="[a-z]{1,15}" spellcheck="false" setCustomValidityBadInput="Only contain lowercase letters w/no spaces">
     <span slot="label">Username</span>
     <span slot="helptext">Please enter a username.</span>
@@ -401,8 +401,8 @@ The `<auro-input>` component supports setting a custom validity message specific
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/pattern.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/pattern.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/pattern.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/pattern.html -->
 
 ```html
 <auro-input pattern="[a-z]{1,15}" spellcheck="false" setCustomValidityBadInput="Only contain lowercase letters w/no spaces">
@@ -421,8 +421,8 @@ The `<auro-input>` component supports setting a custom validity message specific
 Use the `borderless` attribute to remove the bottom border. This attribute is intended for use when input is wrapped in a container that already handles the different state displays, e.g. [auro-dropdown](http://auro.alaskaair.com/components/auro/dropdown).
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/borderless.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/borderless.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/borderless.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/borderless.html -->
   <auro-input borderless>
     <span slot="label">Name</span>
     <span slot="helptext">Please enter your full name.</span>
@@ -431,8 +431,8 @@ Use the `borderless` attribute to remove the bottom border. This attribute is in
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/borderless.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/borderless.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/borderless.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/borderless.html -->
 
 ```html
 <auro-input borderless>
@@ -449,8 +449,8 @@ Use the `readonly` attribute to prevent the user from editing the value of the i
 In this example, the user is able to programmatically change the value of the input by clicking the button or clear out the contents of the input.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/readonly.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/readonly.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/readonly.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/readonly.html -->
   <auro-button id="setReadonlyValueBtn">Set Value to Auro Alaska</auro-button>
   <auro-button id="resetReadonlyValueBtn">Reset</auro-button>
   <auro-input readonly bordered id="readonlyExample">
@@ -461,8 +461,8 @@ In this example, the user is able to programmatically change the value of the in
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/readonly.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/readonly.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/readonly.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/readonly.html -->
 
 ```html
 <auro-button id="setReadonlyValueBtn">Set Value to Auro Alaska</auro-button>
@@ -473,8 +473,8 @@ In this example, the user is able to programmatically change the value of the in
 </auro-input>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/readonly.js) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/readonly.js -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/readonly.js) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/readonly.js -->
 
 ```js
 export function setReadonlyValue() {
@@ -497,8 +497,8 @@ export function setReadonlyValue() {
 Example use cases for auro-input support the `activeLabel` attribute. If set, the label will stay fixed in the active position.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/activeLabel.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/activeLabel.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/activeLabel.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/activeLabel.html -->
   <auro-input activeLabel>
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
@@ -511,8 +511,8 @@ Example use cases for auro-input support the `activeLabel` attribute. If set, th
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/activeLabel.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/activeLabel.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/activeLabel.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/activeLabel.html -->
 
 ```html
 <auro-input activeLabel>
@@ -531,8 +531,8 @@ Example use cases for auro-input support the `activeLabel` attribute. If set, th
 For use cases where the field is `required`, but live validation is not wanted, use the `noValidate` attribute.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/noValidate.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/noValidate.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/noValidate.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/noValidate.html -->
   <auro-input noValidate required>
     <slot slot="label">Address</slot>
     <slot slot="helptext">Please enter your home address.</slot>
@@ -545,8 +545,8 @@ For use cases where the field is `required`, but live validation is not wanted, 
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/noValidate.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/noValidate.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/noValidate.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/noValidate.html -->
 
 ```html
 <auro-input noValidate required>
@@ -573,8 +573,8 @@ When present, the `required` attribute specifies that an input field must be fil
 When the validity check fails the validityState equals `valueMissing`. The error message for the `valueMissing` validityState can be changed to a custom string using the `setCustomValidityValueMissing`.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/required.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/required.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/required.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/required.html -->
   <auro-input required placeholder="John Doe">
     <span slot="label">Full name</span>
   </auro-input>
@@ -586,8 +586,8 @@ When the validity check fails the validityState equals `valueMissing`. The error
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/required.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/required.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/required.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/required.html -->
 
 ```html
 <auro-input required placeholder="John Doe">
@@ -605,8 +605,8 @@ When the validity check fails the validityState equals `valueMissing`. The error
 Use the `validateOnInput` attribute to enable live validation on the `input` event. Recommended use is with setting a custom `pattern` and validation is required prior to a `blur` event.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/validateOnInput.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/validateOnInput.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/validateOnInput.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/validateOnInput.html -->
   <auro-input validateOnInput required pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidityBadInput="Full name requires two or more names with at least one space.">
     <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name as it appears on the card.</span>
@@ -619,8 +619,8 @@ Use the `validateOnInput` attribute to enable live validation on the `input` eve
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/validateOnInput.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/validateOnInput.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/validateOnInput.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/validateOnInput.html -->
 
 ```html
 <auro-input validateOnInput required pattern="[a-zA-Z-.']+( +[a-zA-Z-.']+)+" setCustomValidityBadInput="Full name requires two or more names with at least one space.">
@@ -641,8 +641,8 @@ The `setCustomValidity` attribute can be used to set a custom string for all val
 **NOTE:** Custom strings are NOT localized. It is the responsibility of the element consumer to provide localized strings when using this element property.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/setCustomValidity.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/setCustomValidity.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/setCustomValidity.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/setCustomValidity.html -->
   <auro-input required minlength="3" setCustomValidity="Sorry, please enter your first and last name (one space required).">
     <span slot="label">Full Name</span>
     <span slot="helptext">Please enter your full name.</span>
@@ -655,8 +655,8 @@ The `setCustomValidity` attribute can be used to set a custom string for all val
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/setCustomValidity.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/setCustomValidity.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/setCustomValidity.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/setCustomValidity.html -->
 
 ```html
 <auro-input required minlength="3" setCustomValidity="Sorry, please enter your first and last name (one space required).">
@@ -675,8 +675,8 @@ The `setCustomValidity` attribute can be used to set a custom string for all val
 Use the `error` attribute to apply a persistent custom error that supersedes the HTML5 validation logic.
 
 <div class="exampleWrapper">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/error.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/error.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/error.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/error.html -->
   <auro-button id="setCustomErrorBtn">Set Custom Error</auro-button>
   <auro-button id="setCustomErrorClearBtn">Clear Custom Error</auro-button>
   <auro-input id="setCustomErrorExample" error="Initial error attribute value">
@@ -687,8 +687,8 @@ Use the `error` attribute to apply a persistent custom error that supersedes the
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/error.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/error.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/error.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/error.html -->
 
 ```html
 <auro-button id="setCustomErrorBtn">Set Custom Error</auro-button>
@@ -699,8 +699,8 @@ Use the `error` attribute to apply a persistent custom error that supersedes the
 </auro-input>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/error.js) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/error.js -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/error.js) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/error.js -->
 
 ```js
 export function customError() {
@@ -728,8 +728,8 @@ Use the `type="password"` attribute for a password style input. The hide/show pa
 Default help text will be added to the input `type="password"` if custom help text is not provided. See the example below.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/password.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/password.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/password.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/password.html -->
   <auro-input type="password" required>
     <span slot="label">Password</span>
   </auro-input>
@@ -741,8 +741,8 @@ Default help text will be added to the input `type="password"` if custom help te
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/password.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/password.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/password.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/password.html -->
 
 ```html
 <auro-input type="password" required>
@@ -763,8 +763,8 @@ Use the `type="email"` attribute for a email style input. These examples illustr
 Default help text will be added to the input `type="email"` if custom help text is not provided. See the example below.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/email.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/email.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/email.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/email.html -->
   <auro-input required type="email">
     <slot slot="label">Email address</slot>
   </auro-input>
@@ -776,8 +776,8 @@ Default help text will be added to the input `type="email"` if custom help text 
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/email.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/email.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/email.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/email.html -->
 
 ```html
 <auro-input required type="email">
@@ -796,8 +796,8 @@ Default help text will be added to the input `type="email"` if custom help text 
 Use the `type="number"` attribute for a numeric style input and invoke a numeric virtual keyboard on handheld devices.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/number.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/number.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/number.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/number.html -->
   <auro-input required type="number">
     <slot slot="label">Account number</slot>
     <slot slot="helptext">Please enter your account number.</slot>
@@ -810,8 +810,8 @@ Use the `type="number"` attribute for a numeric style input and invoke a numeric
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/number.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/number.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/number.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/number.html -->
 
 ```html
 <auro-input required type="number">
@@ -830,8 +830,8 @@ Use the `type="number"` attribute for a numeric style input and invoke a numeric
 Use the `type="number"` in combination wit the `maxlength` attribute to control the length of the number entered.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/maxLength.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/maxLength.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/maxLength.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/maxLength.html -->
   <auro-input required type="number" maxlength="12">
     <slot slot="label">Account number</slot>
     <slot slot="helptext">Please enter your 12 digit account number.</slot>
@@ -844,8 +844,8 @@ Use the `type="number"` in combination wit the `maxlength` attribute to control 
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/maxLength.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/maxLength.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/maxLength.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/maxLength.html -->
 
 ```html
 <auro-input required type="number" maxlength="12">
@@ -864,8 +864,8 @@ Use the `type="number"` in combination wit the `maxlength` attribute to control 
 Use the `type="number"` in combination wit the `minlength` attribute to control the length of the number entered.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/minLength.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/minLength.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/minLength.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/minLength.html -->
   <auro-input required type="number" minlength="1">
     <slot slot="label">Account number</slot>
     <slot slot="helptext">Please enter your 12 digit account number.</slot>
@@ -878,8 +878,8 @@ Use the `type="number"` in combination wit the `minlength` attribute to control 
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/minLength.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/minLength.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/minLength.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/minLength.html -->
 
 ```html
 <auro-input required type="number" minlength="1">
@@ -901,8 +901,8 @@ Use the `type="credit-card"` attribute for a credit card formatted input.
 Default help text will be added to the input `type="credit-card"` if custom help text is not provided. See the example below.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/creditCard.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/creditCard.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/creditCard.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/creditCard.html -->
   <auro-input required type="credit-card">
     <slot slot="label">Card number</slot>
   </auro-input>
@@ -914,8 +914,8 @@ Default help text will be added to the input `type="credit-card"` if custom help
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/creditCard.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/creditCard.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/creditCard.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/creditCard.html -->
 
 ```html
 <auro-input required type="credit-card">
@@ -933,8 +933,8 @@ Use the `type="credit-card"` and `icon` attributes for a credit card formatted i
 **Dependency**: Please be sure to also install [auro-icon](https://auro.alaskaair.com/components/auro/icon/install) as a peer dependency.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/creditCardIcon.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/creditCardIcon.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/creditCardIcon.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/creditCardIcon.html -->
   <auro-input required icon type="credit-card">
     <slot slot="label">Card number</slot>
   </auro-input>
@@ -947,8 +947,8 @@ Use the `type="credit-card"` and `icon` attributes for a credit card formatted i
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
 // Use 4147 3411 1111 1111 to see the Alaska Airline's credit card!
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/creditCardIcon.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/creditCardIcon.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/creditCardIcon.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/creditCardIcon.html -->
 
 ```html
 <auro-input required icon type="credit-card">
@@ -967,8 +967,8 @@ Use the `type="credit-card"` and `icon` attributes for a credit card formatted i
 Use the `type="month-day-year"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/monthDayYear.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/monthDayYear.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/monthDayYear.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/monthDayYear.html -->
   <auro-input type="month-day-year" required>
     <slot slot="label">Departure date</slot>
   </auro-input>
@@ -979,8 +979,8 @@ Use the `type="month-day-year"` attribute for a date formatted input.
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/monthDayYear.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/monthDayYear.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/monthDayYear.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/monthDayYear.html -->
 
 ```html
 <auro-input type="month-day-year" required>
@@ -995,8 +995,8 @@ Use the `type="month-day-year"` attribute for a date formatted input.
 Use the `type="month-year"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/monthYear.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/monthYear.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/monthYear.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/monthYear.html -->
   <auro-input type="month-year">
     <slot slot="label">Departure date</slot>
   </auro-input>
@@ -1007,8 +1007,8 @@ Use the `type="month-year"` attribute for a date formatted input.
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/monthYear.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/monthYear.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/monthYear.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/monthYear.html -->
 
 ```html
 <auro-input type="month-year">
@@ -1023,8 +1023,8 @@ Use the `type="month-year"` attribute for a date formatted input.
 Use the `type="month-fullYear"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/monthFullYear.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/monthFullYear.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/monthFullYear.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/monthFullYear.html -->
   <auro-input type="month-fullYear">
     <slot slot="label">Departure date</slot>
   </auro-input>
@@ -1035,8 +1035,8 @@ Use the `type="month-fullYear"` attribute for a date formatted input.
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/monthFullYear.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/monthFullYear.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/monthFullYear.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/monthFullYear.html -->
 
 ```html
 <auro-input type="month-fullYear">
@@ -1051,8 +1051,8 @@ Use the `type="month-fullYear"` attribute for a date formatted input.
 Use the `type="year-month-day"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/yearMonthDay.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/yearMonthDay.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/yearMonthDay.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/yearMonthDay.html -->
   <auro-input type="year-month-day" required>
     <slot slot="label">Departure date</slot>
   </auro-input>
@@ -1063,8 +1063,8 @@ Use the `type="year-month-day"` attribute for a date formatted input.
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/yearMonthDay.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/yearMonthDay.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/yearMonthDay.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/yearMonthDay.html -->
 
 ```html
 <auro-input type="year-month-day" required>
@@ -1079,8 +1079,8 @@ Use the `type="year-month-day"` attribute for a date formatted input.
 Use the `type="month"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/month.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/month.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/month.html) -->
+  <!-- The below content is automatically added from ../apiExamples/month.html -->
   <auro-input type="month">
     <slot slot="label">Month</slot>
   </auro-input>
@@ -1088,8 +1088,8 @@ Use the `type="month"` attribute for a date formatted input.
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/month.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/month.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/month.html) -->
+<!-- The below code snippet is automatically added from ../apiExamples/month.html -->
 
 ```html
 <auro-input type="month">
@@ -1101,8 +1101,8 @@ Use the `type="month"` attribute for a date formatted input.
 Use the `type="year"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/year.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/year.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/year.html) -->
+  <!-- The below content is automatically added from ../apiExamples/year.html -->
   <auro-input type="year">
     <slot slot="label">Year</slot>
   </auro-input>
@@ -1110,8 +1110,8 @@ Use the `type="year"` attribute for a date formatted input.
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/year.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/year.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/year.html) -->
+<!-- The below code snippet is automatically added from ../apiExamples/year.html -->
 
 ```html
 <auro-input type="year">
@@ -1123,8 +1123,8 @@ Use the `type="year"` attribute for a date formatted input.
 Use the `type="fullYear"` attribute for a date formatted input.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/fullYear.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/fullYear.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=../apiExamples/fullYear.html) -->
+  <!-- The below content is automatically added from ../apiExamples/fullYear.html -->
   <auro-input type="fullYear">
     <slot slot="label">Full Year</slot>
   </auro-input>
@@ -1132,8 +1132,8 @@ Use the `type="fullYear"` attribute for a date formatted input.
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/fullYear.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/fullYear.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=../apiExamples/fullYear.html) -->
+<!-- The below code snippet is automatically added from ../apiExamples/fullYear.html -->
 
 ```html
 <auro-input type="fullYear">
@@ -1150,8 +1150,8 @@ Use the `type="fullYear"` attribute for a date formatted input.
 Example illustrates using a JavaScript function attached to an `auro-button` component `click` event to swap the values of two `auro-input` elements. An example of this use case would be swapping the departure and arrival airports in a flight search form.
 
 <div class="exampleWrapper exampleWrapper--flex">
-  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/swapValue.html) -->
-  <!-- The below content is automatically added from ./../../apiExamples/swapValue.html -->
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/swapValue.html) -->
+  <!-- The below content is automatically added from ./../apiExamples/swapValue.html -->
   <auro-input id="swapExampleLeft" bordered>
     <span slot="label">Left Input</span>
   </auro-input>
@@ -1178,8 +1178,8 @@ Example illustrates using a JavaScript function attached to an `auro-button` com
 </div>
 <auro-accordion alignRight>
   <span slot="trigger">See code</span>
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/swapValue.html) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/swapValue.html -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/swapValue.html) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/swapValue.html -->
 
 ```html
 <auro-input id="swapExampleLeft" bordered>
@@ -1206,8 +1206,8 @@ Example illustrates using a JavaScript function attached to an `auro-button` com
 </style>
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/swapValue.js) -->
-<!-- The below code snippet is automatically added from ./../../apiExamples/swapValue.js -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../apiExamples/swapValue.js) -->
+<!-- The below code snippet is automatically added from ./../apiExamples/swapValue.js -->
 
 ```js
 export function swapInputValues() {
@@ -1231,8 +1231,8 @@ export function swapInputValues() {
 
 The component may be restyled using the following code sample and changing the values of the following token(s).
 
-<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../src/tokens.scss) -->
-<!-- The below code snippet is automatically added from ./../../src/tokens.scss -->
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../src/tokens.scss) -->
+<!-- The below code snippet is automatically added from ./../src/tokens.scss -->
 
 ```scss
 @import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
