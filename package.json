@@ -23,7 +23,7 @@
     "@aurodesignsystem/auro-button": "^8.1.3",
     "@aurodesignsystem/auro-formvalidation": "^1.0.4",
     "@aurodesignsystem/auro-icon": "^6.0.2",
-    "@aurodesignsystem/auro-library": "~2.8",
+    "@aurodesignsystem/auro-library": "^3.0.2",
     "chalk": "^5.3.0",
     "cleave.js": "^1.6.0",
     "lit": "^3.2.1"
