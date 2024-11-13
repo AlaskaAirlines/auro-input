@@ -63,7 +63,10 @@ export class AuroInput extends BaseInput {
       'month-day-year',
       'month-year',
       'year-month-day',
-      'month-fullYear'
+      'month-fullYear',
+      'month',
+      'year',
+      'fullYear'
     ];
 
     if (this.icon || typesWithIcons.includes(this.type)) {
@@ -71,6 +74,26 @@ export class AuroInput extends BaseInput {
     }
 
     return false;
+  }
+
+  isDateType() {
+    let isDateType = false;
+
+    switch (this.type) {
+      case 'month-day-year':
+      case 'month-year':
+      case 'year-month-day':
+      case 'month-fullYear':
+      case 'month':
+      case 'year':
+      case 'fullYear':
+        isDateType = true;
+        break;
+      default:
+        break;
+    }
+
+    return isDateType;
   }
 
   // function that renders the HTML and CSS into  the scope of the component
@@ -102,7 +125,7 @@ export class AuroInput extends BaseInput {
             `) : undefined
             }
 
-            ${this.type === 'month-day-year' || this.type === 'month-year' || this.type === 'year-month-day' || this.type === 'month-fullYear'
+            ${this.isDateType()
             ? html`
               <${this.iconTag}
                 class="accentIcon"
