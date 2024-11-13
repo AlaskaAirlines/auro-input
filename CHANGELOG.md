@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+# [4.2.0](https://github.com/AlaskaAirlines/auro-input/compare/v4.1.3...v4.2.0) (2024-11-13)
+
+
+### Features
+
+* support additional date formats MM, YY, YYYY [#359](https://github.com/AlaskaAirlines/auro-input/issues/359) ([3abd010](https://github.com/AlaskaAirlines/auro-input/commit/3abd010f2598db5428c2cab6c4716f8ac7e46a1a))
+
 ## [4.1.3](https://github.com/AlaskaAirlines/auro-input/compare/v4.1.2...v4.1.3) (2024-11-08)
 
 
