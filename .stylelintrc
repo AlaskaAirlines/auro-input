@@ -1,5 +1,5 @@
 {
-  "extends": ["stylelint-config-recommended", "stylelint-config-standard-scss"],
+  "extends": ["stylelint-config-recommended", "stylelint-config-idiomatic-order", "stylelint-config-standard-scss"],
   "plugins": [
     "stylelint-scss"
   ],
@@ -9,7 +9,7 @@
       "except": [
         "after-same-name",
         "blockless-after-same-name-blockless",
-        "first-nested"
+        "first-nested",
       ],
       "ignore": [
         "after-comment",
@@ -22,7 +22,7 @@
     "declaration-block-no-duplicate-custom-properties": true,
     "declaration-block-no-duplicate-properties": true,
     "declaration-block-no-redundant-longhand-properties": true,
-    "declaration-empty-line-before": null,
+    "declaration-no-important": true,
     "font-family-name-quotes": "always-where-recommended",
     "font-weight-notation": "numeric",
     "function-url-no-scheme-relative": true,
@@ -33,7 +33,6 @@
     "no-empty-source": null,
     "no-unknown-animations": true,
     "no-invalid-position-at-import-rule": null,
-    "selector-class-pattern": null,
     "scss/at-else-closing-brace-newline-after": "always-last-in-chain",
     "scss/at-else-closing-brace-space-after": "always-intermediate",
     "scss/at-else-empty-line-before": "never",
@@ -82,10 +81,11 @@
     "scss/operator-no-newline-after": true,
     "scss/operator-no-newline-before": true,
     "scss/operator-no-unspaced": true,
-    "scss/percent-placeholder-pattern": null,
     "scss/selector-nest-combinators": "always",
     "scss/selector-no-redundant-nesting-selector": true,
     "selector-attribute-quotes": "always",
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+    "selector-id-pattern": "^[a-z][a-zA-Z0-9]+$",
     "selector-max-attribute": 1,
     "selector-max-class": 1,
     "selector-max-combinators": 1,

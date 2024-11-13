@@ -1,5 +1,7 @@
 @import './../../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
 
+
+/* stylelint-disable selector-class-pattern */
 .inputElement-helpText {
   margin: var(--ds-size-50, $ds-size-50) 0;
   font-size: var(--ds-text-body-size-xs, $ds-text-body-size-xs);

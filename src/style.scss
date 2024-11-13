@@ -46,10 +46,10 @@
 }
 
 .main {
-  display: flex;
-  flex-direction: row;
   position: relative;
+  display: flex;
   flex: 1;
+  flex-direction: row;
 }
 
 @import './styles/input';

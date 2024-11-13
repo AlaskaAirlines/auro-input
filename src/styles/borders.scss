@@ -8,9 +8,9 @@ input {
 }
 
 .wrapper {
-  border-style: solid;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+  border-style: solid;
 }
 
 :host(:not([bordered], [borderless])) {
@@ -30,18 +30,17 @@ input {
 
 @mixin border-highlight {
   &:before {
-    display: block;
-    content: '';
     position: absolute;
-    inset: 0;
-    pointer-events: none;
+    display: block;
 
     /* stylelint-disable declaration-block-no-redundant-longhand-properties */
-    
-    border-bottom-style: solid;
     border-bottom-width: 1px;
-
+    border-bottom-style: solid;
     /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+
+    content: '';
+    inset: 0;
+    pointer-events: none;
   }
 }
 

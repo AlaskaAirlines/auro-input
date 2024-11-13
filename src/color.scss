@@ -18,9 +18,11 @@
   border-color: transparent;
 }
 
+/* stylelint-disable selector-class-pattern */
 .inputElement-helpText {
   color: var(--ds-auro-input-help-text-color);
 }
+/* stylelint-enable selector-class-pattern */
 
 input {
   background-color: transparent;

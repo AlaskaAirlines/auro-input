@@ -38,34 +38,34 @@
 }
 
 .alertNotification {
-  height: calc(var(--ds-size-300, $ds-size-300) + var(--ds-size-25, $ds-size-25));
   width: calc(var(--ds-size-300, $ds-size-300) + var(--ds-size-25, $ds-size-25)); 
+  height: calc(var(--ds-size-300, $ds-size-300) + var(--ds-size-25, $ds-size-25));
 }
 
 .clearBtn {
-  height: calc(var(--ds-size-200, $ds-size-200) + var(--ds-size-25, $ds-size-25));
   width: calc(var(--ds-size-200, $ds-size-200) + var(--ds-size-25, $ds-size-25)); 
+  height: calc(var(--ds-size-200, $ds-size-200) + var(--ds-size-25, $ds-size-25));
 }
 
 .passwordBtn {
-  height: calc(var(--ds-size-300, $ds-size-300));
   width: calc(var(--ds-size-300, $ds-size-300));
+  height: calc(var(--ds-size-300, $ds-size-300));
 }
 
 .notificationBtn {
   display: block;
+  width: var(--ds-size-300, $ds-size-300);
+  height: var(--ds-size-300, $ds-size-300);
   padding: 0;
   border: 0;
   background: unset;
   cursor: pointer;
-  height: var(--ds-size-300, $ds-size-300);
-  width: var(--ds-size-300, $ds-size-300);
 
   [auro-icon] {
-    --ds-auro-icon-size: var(--ds-size-300, #{$ds-size-300});
-    
-    height: var(--ds-size-300, $ds-size-300);
     display: block;
+    height: var(--ds-size-300, $ds-size-300);
+
+    --ds-auro-icon-size: var(--ds-size-300, #{$ds-size-300});
 
     &[hidden] {
       display: none;
@@ -84,12 +84,12 @@
 // Determine which icons to show based on focus state
 
 @mixin hidden-notification {
-  visibility: hidden;
-  height: 0;
-  width: 0;
   overflow: hidden;
-  margin: 0;
+  width: 0;
+  height: 0;
   padding: 0;
+  margin: 0;
+  visibility: hidden;
 }
 
 :host(:focus-within[type="password"]) {

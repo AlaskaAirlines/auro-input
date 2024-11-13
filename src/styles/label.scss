@@ -4,11 +4,11 @@
 
 label {
   position: absolute;
-  transition: all .3s cubic-bezier(.215, .61, .355, 1);
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   pointer-events: none;
+  text-overflow: ellipsis;
+  transition: all .3s cubic-bezier(.215, .61, .355, 1);
+  white-space: nowrap;
 }
 
 :host(:not([bordered])) {
@@ -46,8 +46,8 @@ label {
 // active label for non-bordered inputs
 @mixin active-label {
   top: var(--ds-size-25, $ds-size-25);
-  transform: unset;
   font-size: var(--ds-text-body-size-xs, $ds-text-body-size-xs);
+  transform: unset;
 }
 
 :host {
