@@ -121,7 +121,10 @@ export default class BaseInput extends LitElement {
       "month-day-year",
       "year-month-day",
       "month-year",
-      "month-fullYear"
+      "month-fullYear",
+      "month",
+      "year",
+      "fullYear"
     ];
 
     this.autoFormattingTypes = [
@@ -315,6 +318,36 @@ export default class BaseInput extends LitElement {
 
           break;
 
+        case 'fullYear':
+          config = {
+            date: true,
+            datePattern: ['Y']
+          };
+
+          this.inputMode = 'numeric';
+
+          break;
+
+        case 'year':
+          config = {
+            date: true,
+            datePattern: ['y']
+          };
+
+          this.inputMode = 'numeric';
+
+          break;
+
+        case 'month':
+          config = {
+            date: true,
+            datePattern: ['m']
+          };
+
+          this.inputMode = 'numeric';
+
+          break;
+
         default:
           // Do nothing
       }
@@ -362,6 +395,12 @@ export default class BaseInput extends LitElement {
         this.setCustomValidityForType = i18n(this.lang, 'dateMMYYYY');
       } else if (this.type === 'year-month-day') {
         this.setCustomValidityForType = i18n(this.lang, 'dateYYYYMMDD');
+      } else if (this.type === 'year') {
+        this.setCustomValidityForType = i18n(this.lang, 'dateYY');
+      } else if (this.type === 'fullYear') {
+        this.setCustomValidityForType = i18n(this.lang, 'dateYYYY');
+      } else if (this.type === 'month') {
+        this.setCustomValidityForType = i18n(this.lang, 'dateMM');
       }
     }
 
@@ -686,6 +725,10 @@ export default class BaseInput extends LitElement {
       this.dateStrLength = 5;
     } else if (this.type === 'month-fullYear') {
       this.dateStrLength = 7;
+    } else if (this.type === 'month' || this.type === 'year') {
+      this.dateStrLength = 2;
+    } else if (this.type === 'fullYear') {
+      this.dateStrLength = 4;
     }
   }
 
@@ -724,6 +767,12 @@ export default class BaseInput extends LitElement {
       this.helpText = i18n(this.lang, 'dateMMYYYY');
     } else if (type === 'year-month-day') {
       this.helpText = i18n(this.lang, 'dateYYYYMMDD');
+    } else if (type === 'month') {
+      this.helpText = i18n(this.lang, 'dateMM');
+    } else if (type === 'year') {
+      this.helpText = i18n(this.lang, 'dateYY');
+    } else if (type === 'fullYear') {
+      this.helpText = i18n(this.lang, 'dateYYYY');
     } else {
       this.helpText = '';
     }
@@ -755,6 +804,12 @@ export default class BaseInput extends LitElement {
       return !this.placeholder ? 'MM/YYYY' : this.placeholder;
     } else if (this.type === 'year-month-day') {
       return !this.placeholder ? 'YYYY/MM/DD' : this.placeholder;
+    } else if (this.type === 'year') {
+      return !this.placeholder ? 'YY' : this.placeholder;
+    } else if (this.type === 'fullYear') {
+      return !this.placeholder ? 'YYYY' : this.placeholder;
+    } else if (this.type === 'month') {
+      return !this.placeholder ? 'MM' : this.placeholder;
     }
 
     return ifDefined(this.placeholder);

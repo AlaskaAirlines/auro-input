@@ -1076,6 +1076,72 @@ Use the `type="year-month-day"` attribute for a date formatted input.
 ```
 <!-- AURO-GENERATED-CONTENT:END -->
 </auro-accordion>
+Use the `type="month"` attribute for a date formatted input.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/month.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/month.html -->
+  <auro-input type="month">
+    <slot slot="label">Month</slot>
+  </auro-input>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/month.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/month.html -->
+
+```html
+<auro-input type="month">
+  <slot slot="label">Month</slot>
+</auro-input>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
+</auro-accordion>
+Use the `type="year"` attribute for a date formatted input.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/year.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/year.html -->
+  <auro-input type="year">
+    <slot slot="label">Year</slot>
+  </auro-input>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/year.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/year.html -->
+
+```html
+<auro-input type="year">
+  <slot slot="label">Year</slot>
+</auro-input>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
+</auro-accordion>
+Use the `type="fullYear"` attribute for a date formatted input.
+
+<div class="exampleWrapper exampleWrapper--flex">
+  <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../../apiExamples/fullYear.html) -->
+  <!-- The below content is automatically added from ./../../apiExamples/fullYear.html -->
+  <auro-input type="fullYear">
+    <slot slot="label">Full Year</slot>
+  </auro-input>
+  <!-- AURO-GENERATED-CONTENT:END -->
+</div>
+<auro-accordion alignRight>
+  <span slot="trigger">See code</span>
+<!-- AURO-GENERATED-CONTENT:START (CODE:src=./../../apiExamples/fullYear.html) -->
+<!-- The below code snippet is automatically added from ./../../apiExamples/fullYear.html -->
+
+```html
+<auro-input type="fullYear">
+  <slot slot="label">Full Year</slot>
+</auro-input>
+```
+<!-- AURO-GENERATED-CONTENT:END -->
+</auro-accordion>
 
 ## Additional Use Cases
 
