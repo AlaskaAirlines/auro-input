@@ -1,4 +1,4 @@
-import { fixture, html, expect, elementUpdated, oneEvent } from '@open-wc/testing';
+import { fixture, html, expect, elementUpdated, oneEvent, nextFrame } from '@open-wc/testing';
 import '../index.js';
 
 describe('auro-input', () => {
@@ -68,6 +68,7 @@ describe('auro-input', () => {
 
     const clearButton = el.shadowRoot.querySelector('.clearBtn');
     clearButton.click();
+    await elementUpdated();
     expect(el.value).to.equal('');
   });
 
@@ -183,6 +184,7 @@ describe('auro-input', () => {
     input.blur();
 
     await elementUpdated(el);
+    await nextFrame();
 
     expect(el.hasAttribute('validity')).to.be.true;
   });
