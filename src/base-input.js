@@ -614,7 +614,7 @@ export default class BaseInput extends LitElement {
    */
   handleClickClear() {
     this.inputElement.value = "";
-    this.value = undefined;
+    this.value = "";
     this.labelElement.classList.remove('inputElement-label--sticky');
     this.focus();
     this.validation.validate(this);
