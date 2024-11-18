@@ -827,7 +827,7 @@ Use the `type="number"` attribute for a numeric style input and invoke a numeric
 </auro-accordion>
 
 #### maxLength <a name="maxLength"></a>
-Use the `type="number"` in combination wit the `maxlength` attribute to control the length of the number entered.
+Use the `type="number"` in combination with the `maxlength` attribute to control the length of the number entered.
 
 <div class="exampleWrapper exampleWrapper--flex">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/maxLength.html) -->
@@ -861,7 +861,7 @@ Use the `type="number"` in combination wit the `maxlength` attribute to control 
 </auro-accordion>
 
 #### minLength <a name="minLength"></a>
-Use the `type="number"` in combination wit the `minlength` attribute to control the length of the number entered.
+Use the `type="number"` in combination with the `minlength` attribute to control the length of the number entered.
 
 <div class="exampleWrapper exampleWrapper--flex">
   <!-- AURO-GENERATED-CONTENT:START (FILE:src=./../apiExamples/minLength.html) -->
