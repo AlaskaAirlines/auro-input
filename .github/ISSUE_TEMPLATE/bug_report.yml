@@ -4,7 +4,7 @@ title: '[issue summary] Please verify version before submitting new issue'
 labels:
   - 'Type: Bug'
   - not-reviewed
-  - auro-input
+  - 'auro-input'
 body:
   - type: markdown
     attributes:
@@ -23,7 +23,7 @@ body:
     id: details
     attributes:
       label: Please describe the bug
-      description: List out the steps to reproduce the behavior
+      description: List out the steps to reproduce the behavior and include screenshots
       placeholder: |
         1. Go to '...'
         2. Click on '....'
@@ -32,7 +32,7 @@ body:
   - type: dropdown
     id: repro
     attributes:
-      label: Reproducing the error on the docsite
+      label: Reproducing the error
       description: Are you able to reproduce this issue on the [Auro docsite](https://auro.alaskaair.com/)?
       options:
         - This issue is reproducible on the Auro docsite
@@ -41,7 +41,7 @@ body:
     id: expected
     attributes:
       label: Expected behavior
-      description: Please add a clear and concise description of what you expected to
+      description: Please add a  clear and concise description of what you expected to
         happen.
   - type: dropdown
     id: browsers
@@ -58,3 +58,9 @@ body:
     attributes:
       label: Additional context
       description: Add any other context about the problem here.
+  - type: textarea
+    id: exit-criteria
+    attributes:
+      label: Exit criteria
+      description: Define your issue's exit criteria
+      placeholder: "This issue can be closed once the error has been corrected. Any additional scope e.g. updates or refactors, should be discussed PRIOR to adding scope to this issue."
