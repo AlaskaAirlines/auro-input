@@ -2,9 +2,6 @@ repository:
   # See https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#edit for all available settings.
   # See https://github.com/apps/settings for app settings
 
-  # A short description of the repository that will show up on GitHub
-  description: Custom HTML element for inputting string data in forms
-
   # A URL with more information about the repository
   homepage: https://auro.alaskaair.com/components/auro/input
 
@@ -37,6 +34,19 @@ repository:
   # Either `true` to allow rebase-merging pull requests, or `false` to prevent
   # rebase-merging.
   allow_rebase_merge: true
+
+# See https://docs.github.com/en/rest/reference/teams#add-or-update-team-repository-permissions for available options
+teams:
+  # The permission to grant the team. Can be one of:
+  # * `pull` - can pull, but not push to or administer this repository.
+  # * `push` - can pull and push, but not administer this repository.
+  # * `admin` - can pull, push and administer this repository.
+  # * `maintain` - Recommended for project managers who need to manage the repository without access to sensitive or destructive actions.
+  # * `triage` - Recommended for contributors who need to proactively manage issues and pull requests without write access.
+  - name: auro-team
+    permission: admin
+  - name: nonauroteamwriteaccess
+    permission: push
 
 branches:
   - &default_protection
@@ -125,7 +135,7 @@ labels:
     - wontfix
     - invalid
   - name: 'Type: Bug'
-    color: 'df0b37'
+    color: df0b37
     description: Bug or Bug fixes
     aliases:
     - bug
@@ -136,7 +146,7 @@ labels:
     - enhancement
   - name: 'Type: Design'
     color: 'ffd200'
-    description: New Design
+    description: New or related Design work
     aliases:
     - enhancement
   - name: 'Type: Content'
@@ -173,16 +183,8 @@ labels:
     description: Pull requests that update a dependency file
     aliases:
     - dependencies
-
-# See https://docs.github.com/en/rest/reference/teams#add-or-update-team-repository-permissions for available options
-teams:
-  # The permission to grant the team. Can be one of:
-  # * `pull` - can pull, but not push to or administer this repository.
-  # * `push` - can pull and push, but not administer this repository.
-  # * `admin` - can pull, push and administer this repository.
-  # * `maintain` - Recommended for project managers who need to manage the repository without access to sensitive or destructive actions.
-  # * `triage` - Recommended for contributors who need to proactively manage issues and pull requests without write access.
-  - name: auro-team
-    permission: admin
-  - name: nonauroteamwriteaccess
-    permission: push
+  - name: 'Type: UI Update'
+    color: 'ffd200'
+    description: Changes to the user interface
+    aliases:
+    - dependencies
