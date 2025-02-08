@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [4.3.2](https://github.com/AlaskaAirlines/auro-input/compare/v4.3.1...v4.3.2) (2025-02-08)
+
+
+### Performance Improvements
+
+* update dependencies ([5969195](https://github.com/AlaskaAirlines/auro-input/commit/59691953079bd5bcd3093ec0ca1becf6250ef2e5))
+
 ## [4.3.1](https://github.com/AlaskaAirlines/auro-input/compare/v4.3.0...v4.3.1) (2024-12-22)
 
 
