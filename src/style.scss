@@ -16,13 +16,27 @@
 
 // ---------------------------------------------------------------------
 
-// Import Auro tokens
+// Import Auro WCSS
 @import './../node_modules/@aurodesignsystem/webcorestylesheets/src/core';
 
-// Support for fallback values
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+// Support for Sass variables
 @import './../node_modules/@aurodesignsystem/design-tokens/dist/tokens/SCSSVariables';
 
-// Support for auroElement styles
+// Support for auroElement accessibility styles
 @import './../node_modules/@aurodesignsystem/webcorestylesheets/dist/auroElement/auroElement';
 
 @import './styles/notificationIcons';
