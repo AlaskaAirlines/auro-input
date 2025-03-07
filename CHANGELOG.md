@@ -1,5 +1,12 @@
 # Semantic Release Automated Changelog
 
+## [4.3.4](https://github.com/AlaskaAirlines/auro-input/compare/v4.3.3...v4.3.4) (2025-03-07)
+
+
+### Performance Improvements
+
+* **deprecation:** add deprecation warning to this package ([695176c](https://github.com/AlaskaAirlines/auro-input/commit/695176c347d629fb27490fb56717da16815b88a8))
+
 ## [4.3.3](https://github.com/AlaskaAirlines/auro-input/compare/v4.3.2...v4.3.3) (2025-02-09)
 
 
